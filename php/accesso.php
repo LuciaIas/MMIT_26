@@ -70,13 +70,11 @@ if (isset($_POST['register'])) {
 <meta charset="UTF-8">
 <title>Accesso – Portale Tecnologie Web</title>
 <link rel="stylesheet" href="../css/accesso.css">
+
+<!-- Favicon: icona in alto nella scheda del browser -->
+<link rel="icon" type="image/png" href="../immagini/iconcinalogin.jpg">
 </head>
 <body>
-
-<!-- ICONCINA SOPRA IL SITO -->
-<div class="icon-login">
-    <img src="../immagini/iconcinalogin.png" alt="Icon Login">
-</div>
 
 <div class="container-login">
 
