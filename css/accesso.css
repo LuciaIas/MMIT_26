@@ -9,23 +9,33 @@ body {
     align-items:center;
 }
 
+.icon-login {
+    position:absolute;
+    top:20px;
+    left:50%;
+    transform:translateX(-50%);
+}
+.icon-login img { width:60px; }
+
 .container-login {
     display:flex;
-    width:900px;
+    width:950px;
     background:white;
     border-radius:20px;
     box-shadow:0 20px 40px rgba(0,0,0,0.1);
+    backdrop-filter: blur(6px); /* sfondo popup sfocato */
 }
 
 .form-container {
     flex:1;
-    padding:40px 30px;
+    padding:50px 40px;
     text-align:center;
 }
 
 .avatar img {
-    width:90px;
-    margin-bottom:15px;
+    width:1000px; 
+    margin-bottom:20px;
+    border-radius:50%;
 }
 
 h2 { color:#333; margin-bottom:20px; }
@@ -61,6 +71,19 @@ input {
 .password-wrapper { position:relative; }
 .toggle-password { position:absolute; right:10px; top:12px; cursor:pointer; }
 
+.remember-me {
+    display:flex;
+    align-items:center;
+    gap:6px;
+    text-align:left;
+    margin-bottom:10px;
+    font-size:0.8rem; /* più piccolo */
+    color:#333;       /* nero chiaro */
+}
+
+.extra-options { display:flex; justify-content:flex-end; font-size:0.85rem; margin-bottom:10px; }
+.extra-options a { color:#3b82f6; text-decoration:none; }
+
 button[name="login"], button[name="register"] {
     width:100%;
     padding:12px;
@@ -74,24 +97,19 @@ button[name="login"], button[name="register"] {
 
 button:hover { background:#2563eb; }
 
-.extra-options { display:flex; justify-content:space-between; font-size:0.85rem; margin-bottom:10px; }
-.extra-options a { color:#3b82f6; text-decoration:none; }
-
-.switch-link { margin-top:15px; font-size:0.9rem; }
-.switch-link a { color:#3b82f6; text-decoration:none; }
-
 .side-panel {
     flex:0.6;
     background:linear-gradient(135deg,#3b82f6,#2563eb);
     color:white;
-    padding:50px 30px;
+    padding:50px 40px;
     border-radius:0 20px 20px 0;
     display:flex;
     flex-direction:column;
     justify-content:center;
+    text-align:center;
 }
 
-.side-panel h1 { font-size:2rem; margin-bottom:12px; }
+.side-panel h1 { font-size:1.8rem; margin-bottom:12px; }
 .side-panel p { font-size:1rem; line-height:1.5; }
 
 .message { padding:12px; border-radius:10px; margin-bottom:15px; text-align:center; }
