@@ -76,7 +76,7 @@ if (isset($_GET['logout'])) {
 <head>
     <meta charset="UTF-8">
     <title>Accesso – Tecnologie Web</title>
-    <link rel="stylesheet" href="css/accesso.css">
+    <link rel="stylesheet" href="../css/accesso.css">
     <script src="../js/accesso.js"> </script>
 
 </head>
