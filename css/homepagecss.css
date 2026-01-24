@@ -1,74 +1,188 @@
-* {
+/* ================================
+   Reset e stili di base
+================================ */
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: #f2f2f2;
+    background-color: #f8f9fa;
     color: #333;
 }
 
-/* HEADER */
-header {
-    background-color: #1e90ff;
-    color: white;
-    padding: 25px;
-    text-align: center;
+h1, h2, h3 {
+    margin: 0.5em 0;
 }
 
-/* NAVBAR */
+p {
+    margin: 0.5em 0 1em 0;
+}
+
+/* ================================
+   Header
+================================ */
+header {
+    background-color: #0d6efd;
+    color: #fff;
+    text-align: center;
+    padding: 30px 20px;
+}
+
+header .intro {
+    font-size: 1.2em;
+}
+
+/* ================================
+   Nav bar
+================================ */
 nav {
-    background-color: #333;
     display: flex;
     justify-content: center;
-    gap: 20px;
-    padding: 12px;
+    background-color: #343a40;
+    padding: 10px 0;
 }
 
 nav a {
-    color: white;
+    color: #fff;
     text-decoration: none;
-    padding: 8px 16px;
-    background-color: #1e90ff;
-    border-radius: 5px;
+    margin: 0 15px;
+    font-weight: bold;
+    transition: color 0.3s;
 }
 
 nav a:hover {
-    background-color: #0b65c2;
+    color: #ffc107;
 }
 
-/* CONTENUTO */
-main {
+/* ================================
+   Sommario
+================================ */
+.sommario {
+    background-color: #e9ecef;
+    padding: 20px;
+    margin: 20px auto;
     max-width: 900px;
-    margin: 40px auto;
-    background-color: white;
-    padding: 30px;
     border-radius: 8px;
 }
 
-.benvenuto {
-    margin-bottom: 30px;
+.sommario h2 {
+    margin-bottom: 10px;
+}
+
+.sommario ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.sommario ul li {
+    margin: 5px 0;
+}
+
+.sommario ul li a {
+    color: #0d6efd;
+    text-decoration: none;
+}
+
+.sommario ul li a:hover {
+    text-decoration: underline;
+}
+
+/* ================================
+   Sezione centrale di attenzione
+================================ */
+.focus {
+    background-color: #ffc107;
+    color: #212529;
     text-align: center;
+    padding: 30px 20px;
+    margin: 20px auto;
+    max-width: 900px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
-.contenuto h2 {
-    color: #1e90ff;
+.focus h2 {
+    font-size: 1.8em;
     margin-bottom: 15px;
 }
 
-.contenuto p {
-    margin-bottom: 15px;
-    line-height: 1.6;
-    text-align: justify;
+.focus p {
+    font-size: 1.1em;
 }
 
-/* FOOTER */
+/* Checklist */
+.checklist {
+    text-align: left;
+    margin-top: 20px;
+}
+
+.checklist ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.checklist ul li {
+    margin: 8px 0;
+    font-size: 1em;
+}
+
+/* ================================
+   Sezioni contenuti
+================================ */
+.contenuto {
+    background-color: #fff;
+    padding: 25px;
+    margin: 20px auto;
+    max-width: 900px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.contenuto h2, .contenuto h3 {
+    color: #0d6efd;
+}
+
+/* ================================
+   Chi siamo
+================================ */
+.chi-siamo {
+    background-color: #e2e6ea;
+    padding: 25px;
+    margin: 20px auto;
+    max-width: 900px;
+    border-radius: 8px;
+}
+
+/* ================================
+   Footer
+================================ */
 footer {
-    background-color: #333;
-    color: white;
+    background-color: #343a40;
+    color: #fff;
     text-align: center;
     padding: 20px;
-    margin-top: 40px;
+    margin-top: 30px;
+    font-size: 0.9em;
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+/* ================================
+   Responsive
+================================ */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+    }
+
+    nav a {
+        margin: 5px 0;
+    }
+
+    .focus, .contenuto, .chi-siamo, .sommario {
+        padding: 20px 15px;
+        margin: 15px;
+    }
 }
