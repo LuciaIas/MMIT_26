@@ -79,7 +79,7 @@ if (isset($_POST['register'])) {
     <div class="form-container">
 
         <div class="avatar">
-            <img src="../img/students_avatar.png" alt="Avatar Studenti">
+            <img src="../immagini/students_avatar.png" alt="Avatar Studenti">
         </div>
 
         <h2>Accesso al Portale</h2>
