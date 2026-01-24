@@ -13,13 +13,13 @@ buttons.forEach(btn => {
         if (btn.dataset.form === 'login') {
             loginForm.classList.add('form-active');
             registerForm.classList.remove('form-active');
-            sideTitle.textContent = "Benvenuto amico di nuovo qui!";
-            sideText.textContent = "Pronto a fare click nel nostro mondo di quiz tipo così...";
+            sideTitle.textContent = "Bentornato amico, felice di rivederti!";
+            sideText.textContent = "Ogni accesso è un passo verso la conoscenza!";
         } else {
             loginForm.classList.remove('form-active');
             registerForm.classList.add('form-active');
-            sideTitle.textContent = "Siamo pronti a darti il benvenuto e farti entrare nella nostra community";
-            sideText.textContent = "Più registrazioni, più esercitazioni, più soddisfazioni! Unisciti a noi!";
+            sideTitle.textContent = "Benvenuto nuovo amico, felice di accoglierti!";
+            sideText.textContent = "Più esercitazioni, più soddisfazioni... unisciti a noi!";
         }
     });
 });

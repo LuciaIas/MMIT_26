@@ -133,8 +133,8 @@ if (isset($_POST['register'])) {
 
     <!-- RIGHT PANEL -->
     <div class="side-panel">
-        <h1 id="sideTitle">Benvenuto amico di nuovo qui!</h1>
-        <p id="sideText">Pronto a fare click nel nostro mondo di quiz tipo così...</p>
+        <h1 id="sideTitle"> Bentornato amico, felice di rivederti! </h1>
+        <p id="sideText"> Ogni acesso è un passo verso la conoscenza! </p>
     </div>
 
 </div>
