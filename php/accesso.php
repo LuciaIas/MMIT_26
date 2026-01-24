@@ -76,8 +76,9 @@ if (isset($_GET['logout'])) {
 <head>
     <meta charset="UTF-8">
     <title>Accesso – Tecnologie Web</title>
-    <!-- Controlla che il CSS sia nel percorso corretto -->
     <link rel="stylesheet" href="css/accesso.css">
+    <script src="../js/accesso.js"> </script>
+
 </head>
 <body>
 
