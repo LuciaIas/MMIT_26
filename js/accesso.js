@@ -1,8 +1,8 @@
-// Toggle tra Login e Registrazione
 const loginForm = document.getElementById('loginForm');
 const registerForm = document.getElementById('registerForm');
 const buttons = document.querySelectorAll('.form-switch button');
 
+// Toggle Login / Registrazione
 buttons.forEach(btn => {
     btn.addEventListener('click', () => {
         buttons.forEach(b => b.classList.remove('active'));
@@ -18,18 +18,39 @@ buttons.forEach(btn => {
     });
 });
 
+// Toggle Password
+document.querySelectorAll('.toggle-password').forEach(span => {
+    span.addEventListener('click', () => {
+        const targetId = span.dataset.target;
+        const input = document.getElementById(targetId);
+        input.type = input.type === 'password' ? 'text' : 'password';
+    });
+});
+
 // Validazione semplice
 document.querySelectorAll('form').forEach(form => {
     form.addEventListener('submit', e => {
         let ok = true;
+
         form.querySelectorAll('input').forEach(input => {
-            if (input.value.trim() === '') {
+            if(input.type !== 'checkbox' && input.value.trim() === ''){
                 input.style.borderColor = 'red';
                 ok = false;
             } else {
                 input.style.borderColor = '#cbd5e1';
             }
         });
-        if (!ok) e.preventDefault();
+
+        // Controllo password conferma
+        if(form.id === 'registerForm'){
+            const pass = document.getElementById('regPassword').value;
+            const conf = document.getElementById('regPasswordConf').value;
+            if(pass !== conf){
+                document.getElementById('regPasswordConf').style.borderColor = 'red';
+                ok = false;
+            }
+        }
+
+        if(!ok) e.preventDefault();
     });
 });

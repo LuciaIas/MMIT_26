@@ -35,22 +35,28 @@ if (isset($_POST['register'])) {
     $username = trim($_POST['username_reg']);
     $email = trim($_POST['email_reg']);
     $password = trim($_POST['password_reg']);
+    $password_conf = trim($_POST['password_conf']);
 
-    if ($username && $email && $password) {
-        $check = pg_query_params($conn, "SELECT 1 FROM utenti WHERE username=$1", [$username]);
-
-        if (pg_num_rows($check) > 0) {
-            $messaggio = "Username già esistente.";
+    if ($username && $email && $password && $password_conf) {
+        if ($password !== $password_conf) {
+            $messaggio = "Le password non coincidono.";
             $tipo_messaggio = "error";
         } else {
-            $hash = password_hash($password, PASSWORD_DEFAULT);
-            pg_query_params(
-                $conn,
-                "INSERT INTO utenti (username,email,password,tipo_utente) VALUES ($1,$2,$3,'studente')",
-                [$username, $email, $hash]
-            );
-            $messaggio = "Registrazione completata. Ora puoi accedere.";
-            $tipo_messaggio = "success";
+            $check = pg_query_params($conn, "SELECT 1 FROM utenti WHERE username=$1", [$username]);
+
+            if (pg_num_rows($check) > 0) {
+                $messaggio = "Username già esistente.";
+                $tipo_messaggio = "error";
+            } else {
+                $hash = password_hash($password, PASSWORD_DEFAULT);
+                pg_query_params(
+                    $conn,
+                    "INSERT INTO utenti (username,email,password,tipo_utente) VALUES ($1,$2,$3,'studente')",
+                    [$username, $email, $hash]
+                );
+                $messaggio = "Registrazione completata. Ora puoi accedere.";
+                $tipo_messaggio = "success";
+            }
         }
     } else {
         $messaggio = "Tutti i campi sono obbligatori.";
@@ -70,31 +76,45 @@ if (isset($_POST['register'])) {
 
 <main class="card">
 
+    <div class="avatar">
+        <img src="../img/omino.png" alt="Utente">
+    </div>
+
     <h1>Accesso al Portale</h1>
 
-    <!-- Messaggi -->
     <?php if ($messaggio): ?>
         <div class="message <?= $tipo_messaggio ?>"><?= $messaggio ?></div>
     <?php endif; ?>
 
-    <!-- MENU TENDINA LOGIN/REGISTRAZIONE -->
     <div class="form-switch">
         <button data-form="login" class="active">Login</button>
         <button data-form="register">Registrazione</button>
     </div>
 
-    <!-- LOGIN -->
     <form id="loginForm" method="post" class="form-active">
         <input type="text" name="username" placeholder="Username" value="<?= $_POST['username'] ?? '' ?>">
-        <input type="password" name="password" placeholder="Password">
+        <div class="password-wrapper">
+            <input type="password" name="password" placeholder="Password" id="loginPassword">
+            <span class="toggle-password" data-target="loginPassword">&#128065;</span>
+        </div>
+        <div class="extra-options">
+            <label><input type="checkbox" name="remember"> Remember Me</label>
+            <a href="#">Password dimenticata?</a>
+        </div>
         <button name="login">Accedi</button>
     </form>
 
-    <!-- REGISTRAZIONE -->
     <form id="registerForm" method="post">
         <input type="text" name="username_reg" placeholder="Username" value="<?= $_POST['username_reg'] ?? '' ?>">
         <input type="email" name="email_reg" placeholder="Email" value="<?= $_POST['email_reg'] ?? '' ?>">
-        <input type="password" name="password_reg" placeholder="Password">
+        <div class="password-wrapper">
+            <input type="password" name="password_reg" placeholder="Password" id="regPassword">
+            <span class="toggle-password" data-target="regPassword">&#128065;</span>
+        </div>
+        <div class="password-wrapper">
+            <input type="password" name="password_conf" placeholder="Conferma Password" id="regPasswordConf">
+            <span class="toggle-password" data-target="regPasswordConf">&#128065;</span>
+        </div>
         <button name="register">Registrati</button>
     </form>
 

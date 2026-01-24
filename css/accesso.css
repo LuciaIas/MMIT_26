@@ -1,12 +1,8 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
     font-family: 'Segoe UI', sans-serif;
-    background: linear-gradient(135deg, #2563eb, #1e40af);
+    background: linear-gradient(135deg, #f0f4f8, #d9e2ec);
     min-height: 100vh;
     display: flex;
     justify-content: center;
@@ -15,17 +11,28 @@ body {
 
 .card {
     background: #fff;
-    width: 400px;
-    padding: 40px;
-    border-radius: 20px;
-    box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+    width: 420px;
+    padding: 40px 30px 60px 30px;
+    border-radius: 25px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.15);
     animation: fadeIn 0.5s ease;
     text-align: center;
+    position: relative;
+}
+
+.avatar img {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 20px;
+    display: block;
+    border-radius: 50%;
+    background: #e0e7ff;
+    padding: 10px;
 }
 
 .card h1 {
     color: #1e3a8a;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
 }
 
 .form-switch {
@@ -52,26 +59,28 @@ body {
     color: #fff;
 }
 
-form {
-    display: none;
-    flex-direction: column;
-    gap: 15px;
-}
-
-form.form-active {
-    display: flex;
-}
+form { display: none; flex-direction: column; gap: 15px; }
+form.form-active { display: flex; }
 
 input {
     padding: 14px;
     border-radius: 10px;
     border: 1px solid #cbd5e1;
     font-size: 1rem;
+    width: 100%;
 }
 
-input:focus {
-    outline: none;
-    border-color: #2563eb;
+input:focus { outline: none; border-color: #2563eb; }
+
+.password-wrapper { position: relative; }
+.toggle-password {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: #6b7280;
 }
 
 button[name="login"], button[name="register"] {
@@ -85,9 +94,7 @@ button[name="login"], button[name="register"] {
     transition: 0.3s;
 }
 
-button[name="login"]:hover, button[name="register"]:hover {
-    background: #1e40af;
-}
+button[name="login"]:hover, button[name="register"]:hover { background: #1e40af; }
 
 .message {
     padding: 12px;
@@ -96,17 +103,15 @@ button[name="login"]:hover, button[name="register"]:hover {
     text-align: center;
 }
 
-.message.error {
-    background: #fee2e2;
-    color: #b91c1c;
+.message.error { background: #fee2e2; color: #b91c1c; }
+.message.success { background: #dcfce7; color: #166534; }
+
+.extra-options {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
 }
 
-.message.success {
-    background: #dcfce7;
-    color: #166534;
-}
+.extra-options a { text-decoration: none; color: #2563eb; }
 
-@keyframes fadeIn {
-    from { opacity: 0; transform: scale(0.95); }
-    to { opacity: 1; transform: scale(1); }
-}
+@keyframes fadeIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
