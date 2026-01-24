@@ -1,8 +1,10 @@
 const loginForm = document.getElementById('loginForm');
 const registerForm = document.getElementById('registerForm');
 const buttons = document.querySelectorAll('.form-switch button');
+const sideTitle = document.getElementById('sideTitle');
+const sideText = document.getElementById('sideText');
 
-// Toggle Login / Registrazione
+// Toggle Login / Registrazione con frasi personalizzate
 buttons.forEach(btn => {
     btn.addEventListener('click', () => {
         buttons.forEach(b => b.classList.remove('active'));
@@ -11,46 +13,22 @@ buttons.forEach(btn => {
         if (btn.dataset.form === 'login') {
             loginForm.classList.add('form-active');
             registerForm.classList.remove('form-active');
+            sideTitle.textContent = "Benvenuto amico di nuovo qui!";
+            sideText.textContent = "Pronto a fare click nel nostro mondo di quiz tipo così...";
         } else {
             loginForm.classList.remove('form-active');
             registerForm.classList.add('form-active');
+            sideTitle.textContent = "Siamo pronti a darti il benvenuto e farti entrare nella nostra community";
+            sideText.textContent = "Più registrazioni, più esercitazioni, più soddisfazioni! Unisciti a noi!";
         }
     });
 });
 
-// Toggle Password
+// Toggle password visibility
 document.querySelectorAll('.toggle-password').forEach(span => {
     span.addEventListener('click', () => {
         const targetId = span.dataset.target;
         const input = document.getElementById(targetId);
         input.type = input.type === 'password' ? 'text' : 'password';
-    });
-});
-
-// Validazione semplice
-document.querySelectorAll('form').forEach(form => {
-    form.addEventListener('submit', e => {
-        let ok = true;
-
-        form.querySelectorAll('input').forEach(input => {
-            if(input.type !== 'checkbox' && input.value.trim() === ''){
-                input.style.borderColor = 'red';
-                ok = false;
-            } else {
-                input.style.borderColor = '#cbd5e1';
-            }
-        });
-
-        // Controllo password conferma
-        if(form.id === 'registerForm'){
-            const pass = document.getElementById('regPassword').value;
-            const conf = document.getElementById('regPasswordConf').value;
-            if(pass !== conf){
-                document.getElementById('regPasswordConf').style.borderColor = 'red';
-                ok = false;
-            }
-        }
-
-        if(!ok) e.preventDefault();
     });
 });
