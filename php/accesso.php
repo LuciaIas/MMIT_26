@@ -101,8 +101,8 @@ if (isset($_POST['register'])) {
                 <input type="password" name="password" placeholder="Password" id="loginPassword">
                 <span class="toggle-password" data-target="loginPassword">&#128065;</span>
             </div>
+            <label class="remember-me"><input type="checkbox" name="remember"> Remember Me</label>
             <div class="extra-options">
-                <label><input type="checkbox" name="remember"> Remember Me</label>
                 <a href="#">Password dimenticata?</a>
             </div>
             <button name="login">Accedi</button>
