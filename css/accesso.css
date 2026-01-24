@@ -33,9 +33,11 @@ body {
 }
 
 .avatar img {
-    width:1000px; 
-    margin-bottom:20px;
-    border-radius:50%;
+    width: 200px !important;
+    height: 200px !important;
+    margin-bottom: 20px;
+    border-radius: 50%;
+    object-fit: cover;
 }
 
 h2 { color:#333; margin-bottom:20px; }
