@@ -26,7 +26,7 @@ $utente_loggato = isset($_SESSION['username']);
 <!-- NAV BAR PRINCIPALE -->
 <nav>
     <a href="accesso.php?mode=login">Accedi</a>
-    <a href="accessso.php?mode=register">Registrazione</a>
+    <a href="accesso.php?mode=register">Registrazione</a>
     <a href="contenuti.php">Quiz</a>
     <a href="glossario.php">Glossario</a>
 </nav>
@@ -34,7 +34,11 @@ $utente_loggato = isset($_SESSION['username']);
 <!-- SEZIONE INTRO -->
 <div class="intro">
     <h1>Sei uno studente di Tecnologie Web? Sei nel posto giusto!</h1>
-    <p>Qui puoi approfondire HTML, CSS, JavaScript e PHP, seguire lezioni interattive e testare le tue competenze con quiz di autovalutazione.</p>
+    <p>
+    Qui puoi approfondire HTML, CSS, JavaScript e PHP e testare le tue competenze con quiz di autovalutazione.
+    La dashboard fornisce la parte introduttiva dei linguaggi e la descrizione della storia del Web.
+    Alcune funzionalità, come il glossario e i quiz interattivi, sono accessibili solo dopo la registrazione...Registrati ora!
+    </p>
 </div>
 
 <!-- SOMMARIO / MENU INTERNO -->
@@ -60,7 +64,7 @@ $utente_loggato = isset($_SESSION['username']);
         Siamo un gruppo di studenti del terzo anno di Ingegneria Informatica frequentanti
         il corso di Tecnologie Web. Abbiamo creato questo portale per supportare lo studio,
         offrendo spiegazioni sintetiche, esempi pratici e quiz di autovalutazione. 
-        Alcuni contenuti sono accessibili solo dopo registrazione, come il dizionario tecnico, mentre la dashboard fornisce la parte descrittiva e introduttiva dei linguaggi.
+        
     </p>
 </div>
 
