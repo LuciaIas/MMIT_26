@@ -1,4 +1,6 @@
-/* RESET BASE */
+/* =========================
+   RESET BASE
+============================ */
 * {
     margin: 0;
     padding: 0;
@@ -7,114 +9,140 @@
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #f0f4ff, #d9e4ff);
+    background: linear-gradient(135deg, #e0e7ff, #c7d2fe);
     color: #333;
     min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-/* HEADER */
+/* =========================
+   HEADER
+============================ */
 header {
-    background-color: #1e3a8a;
-    color: #fff;
-    padding: 30px 20px;
     text-align: center;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
 }
 
 header h1 {
-    font-size: 2.2rem;
+    font-size: 2.5rem;
+    color: #1e3a8a;
     letter-spacing: 1px;
+    font-weight: 700;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
 }
 
-/* MAIN */
+/* =========================
+   MAIN CONTAINER
+============================ */
 main {
-    max-width: 450px;
-    margin: 40px auto;
-    background-color: #ffffffdd;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 400px;
+    background: #fff;
+    padding: 40px 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
 }
 
-/* FORM CONTAINER */
+/* =========================
+   LOGIN-CONTAINER
+============================ */
 .login-container {
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
 
-/* FORM ELEMENTS */
+/* =========================
+   FORMS
+============================ */
 form {
     display: flex;
     flex-direction: column;
     gap: 15px;
+    transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 form input[type="text"],
 form input[type="email"],
 form input[type="password"] {
-    padding: 12px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
+    padding: 14px;
+    border-radius: 10px;
+    border: 1px solid #cbd5e1;
     font-size: 1rem;
-    transition: 0.3s;
+    transition: all 0.3s ease;
 }
 
 form input:focus {
-    border-color: #1e40af;
+    border-color: #6366f1;
+    box-shadow: 0 0 5px rgba(99,102,241,0.3);
     outline: none;
 }
 
 form button {
-    background-color: #1e40af;
+    background-color: #6366f1;
     color: #fff;
-    padding: 12px;
+    padding: 14px;
     font-size: 1rem;
     border: none;
-    border-radius: 8px;
+    border-radius: 10px;
     cursor: pointer;
-    transition: 0.3s;
+    font-weight: 600;
+    transition: all 0.3s ease;
 }
 
 form button:hover {
-    background-color: #1e3a8a;
+    background-color: #4f46e5;
+    transform: translateY(-2px);
 }
 
-/* LINK SWITCH */
-.switch-form {
+/* =========================
+   SWITCH LINK
+============================ */
+.switch-link {
     text-align: center;
-    color: #1e40af;
+    color: #6366f1;
     text-decoration: underline;
     cursor: pointer;
     font-size: 0.9rem;
+    transition: color 0.3s ease;
 }
 
-.switch-form:hover {
-    color: #1e3a8a;
+.switch-link:hover {
+    color: #4f46e5;
 }
 
-/* MESSAGGI */
-.message {
-    padding: 10px 15px;
-    border-radius: 5px;
+/* =========================
+   MESSAGES
+============================ */
+.messaggio {
+    padding: 12px 15px;
+    border-radius: 8px;
     margin-bottom: 10px;
     font-size: 0.95rem;
     text-align: center;
+    font-weight: 500;
 }
 
-.message.error {
+.messaggio.error {
     background-color: #fee2e2;
     color: #b91c1c;
     border: 1px solid #fca5a5;
 }
 
-.message.success {
+.messaggio.success {
     background-color: #d1fae5;
     color: #065f46;
     border: 1px solid #6ee7b7;
 }
 
-/* LOGOUT */
+/* =========================
+   LOGOUT
+============================ */
 .logout {
     margin-top: 20px;
     text-align: center;
@@ -122,19 +150,25 @@ form button:hover {
 }
 
 .logout a {
-    color: #1e40af;
+    color: #6366f1;
     text-decoration: underline;
     margin-left: 8px;
 }
 
 .logout a:hover {
-    color: #1e3a8a;
+    color: #4f46e5;
 }
 
-/* RESPONSIVE */
+/* =========================
+   RESPONSIVE
+============================ */
 @media screen and (max-width: 500px) {
     main {
+        padding: 30px 20px;
         margin: 20px;
-        padding: 20px;
+    }
+
+    header h1 {
+        font-size: 2rem;
     }
 }
