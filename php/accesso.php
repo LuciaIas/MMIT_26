@@ -11,20 +11,14 @@ if (isset($_POST['login'])) {
     $password = trim($_POST['password']);
 
     if ($username && $password) {
-        $query = "SELECT * FROM utenti WHERE username = $1";
+        $query = "SELECT * FROM utenti WHERE username=$1";
         $result = pg_query_params($conn, $query, [$username]);
         $user = pg_fetch_assoc($result);
 
         if ($user && password_verify($password, $user['password'])) {
             $_SESSION['username'] = $user['username'];
             $_SESSION['tipo_utente'] = $user['tipo_utente'];
-
-            // Redirect in base al tipo di utente
-            if ($user['tipo_utente'] === 'admin') {
-                header("Location: admin/dashboard.php");
-            } else {
-                header("Location: studente/home.php");
-            }
+            header("Location: studente/home.php");
             exit;
         } else {
             $messaggio = "Credenziali non valide.";
@@ -63,61 +57,49 @@ if (isset($_POST['register'])) {
         $tipo_messaggio = "error";
     }
 }
-
-// LOGOUT
-if (isset($_GET['logout'])) {
-    session_destroy();
-    header("Location: accesso.php");
-    exit;
-}
 ?>
+
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <title>Accesso – Tecnologie Web</title>
-    <link rel="stylesheet" href="../css/accesso.css">
-    <script src="../js/accesso.js"> </script>
-
+<meta charset="UTF-8">
+<title>Accesso – Portale Tecnologie Web</title>
+<link rel="stylesheet" href="../css/accesso.css">
 </head>
 <body>
 
 <main class="card">
-    <h1>Tecnologie Web</h1>
 
+    <h1>Accesso al Portale</h1>
+
+    <!-- Messaggi -->
     <?php if ($messaggio): ?>
         <div class="message <?= $tipo_messaggio ?>"><?= $messaggio ?></div>
     <?php endif; ?>
 
-    <?php if (!isset($_SESSION['username'])): ?>
+    <!-- MENU TENDINA LOGIN/REGISTRAZIONE -->
+    <div class="form-switch">
+        <button data-form="login" class="active">Login</button>
+        <button data-form="register">Registrazione</button>
+    </div>
 
     <!-- LOGIN -->
-    <form id="loginForm" method="post">
+    <form id="loginForm" method="post" class="form-active">
         <input type="text" name="username" placeholder="Username" value="<?= $_POST['username'] ?? '' ?>">
         <input type="password" name="password" placeholder="Password">
         <button name="login">Accedi</button>
-        <p class="switch-form" data-form="register">Non hai un account? Registrati</p>
     </form>
 
     <!-- REGISTRAZIONE -->
-    <form id="registerForm" method="post" style="display:none">
+    <form id="registerForm" method="post">
         <input type="text" name="username_reg" placeholder="Username" value="<?= $_POST['username_reg'] ?? '' ?>">
         <input type="email" name="email_reg" placeholder="Email" value="<?= $_POST['email_reg'] ?? '' ?>">
         <input type="password" name="password_reg" placeholder="Password">
         <button name="register">Registrati</button>
-        <p class="switch-form" data-form="login">Hai già un account? Accedi</p>
     </form>
-
-    <?php else: ?>
-        <div class="logout">
-            Sei loggato come <b><?= $_SESSION['username'] ?></b><br>
-            <a href="?logout=1">Logout</a>
-        </div>
-    <?php endif; ?>
 
 </main>
 
-<!-- Controlla che il JS sia nel percorso corretto -->
-<script src="js/accesso.js"></script>
+<script src="../js/accesso.js"></script>
 </body>
 </html>
