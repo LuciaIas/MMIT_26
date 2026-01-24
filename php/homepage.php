@@ -4,6 +4,24 @@ include __DIR__ . '/db.php'; // connessione al database
 
 // Controllo se utente loggato
 $utente_loggato = isset($_SESSION['username']);
+
+
+$file_visite = 'visite.txt';
+
+// Se il file non esiste, lo creiamo e mettiamo 0
+if(!file_exists($file_visite)) {
+    file_put_contents($file_visite, 0);
+}
+
+// Leggiamo il numero di visite attuali
+$visite = (int)file_get_contents($file_visite);
+
+// Incrementiamo di 1
+$visite++;
+
+// Riscriviamo il numero aggiornato nel file
+file_put_contents($file_visite, $visite);
+
 ?>
 
 <!DOCTYPE html>
@@ -19,14 +37,20 @@ $utente_loggato = isset($_SESSION['username']);
 <body>
 
 <header>
-    <h1>Benvenuto nel Portale Tecnologie Web</h1>
-    <p>Il tuo spazio per imparare, ripassare e testare le tue competenze!</p>
+    <div class="header-content">
+        <img src="../immagini/logo.png" alt="Logo Portale" class="header-img">
+        <div class="header-text">
+            <h1>Benvenuto nel Portale Tecnologie Web</h1>
+            <p>Il tuo spazio per imparare, ripassare e testare le tue competenze!</p>
+        </div>
+    </div>
 </header>
+
 
 <!-- NAV BAR PRINCIPALE -->
 <nav>
     <a href="accesso.php?mode=login">Accedi</a>
-    <a href="accesso.php?mode=register">Registrazione</a>
+    <a href="accesso.php?mode=register">Registrati</a>
     <a href="contenuti.php">Quiz</a>
     <a href="glossario.php">Glossario</a>
 
@@ -45,15 +69,25 @@ $utente_loggato = isset($_SESSION['username']);
     </div>
 </nav>
 
-<!-- SEZIONE INTRO -->
+<!-- SEZIONE INTRO DINAMICA -->
 <div class="intro">
-    <h1>Sei uno studente di Tecnologie Web? Sei nel posto giusto!</h1>
-    <p>
-        Qui puoi approfondire HTML, CSS, JavaScript e PHP e testare le tue competenze con i quiz di autovalutazione.
-        La dashboard fornisce la parte introduttiva dei linguaggi e la descrizione della storia del Web.
-        Alcune funzionalità, come il glossario e i quiz interattivi, sono accessibili solo dopo la registrazione
-        ...Registrati ora!
-    </p>
+    <?php if($utente_loggato): ?>
+        <h1>Benvenuto, <?php echo htmlspecialchars($_SESSION['username']); ?>!</h1>
+        <p>
+            Sei loggato e puoi accedere a tutte le funzionalità del portale, inclusi quiz interattivi e glossario completo.
+            Approfondisci HTML, CSS, JavaScript e PHP e testa le tue competenze direttamente dalla dashboard.
+        </p>
+        <a href="quiz.php" class="btn">Vai ai Quiz</a>
+        <a href="glossario.php" class="btn">Vai al Glossario</a>
+    <?php else: ?>
+        <h1>Sei uno studente di Tecnologie Web? Sei nel posto giusto!</h1>
+        <p>
+            Qui puoi approfondire HTML, CSS, JavaScript e PHP e testare le tue competenze con i quiz di autovalutazione.
+            La dashboard fornisce la parte introduttiva dei linguaggi e la descrizione della storia del Web.
+            Alcune funzionalità, come il glossario e i quiz interattivi, 
+            sono accessibili solo dopo la registrazione...non perdere tempo,<strong> Registrati ora!</strong>
+        </p>
+    <?php endif; ?>
 </div>
 
 <!-- CHI SIAMO -->
@@ -111,11 +145,14 @@ $utente_loggato = isset($_SESSION['username']);
 <!-- STATISTICHE -->
 <div id="statistiche" class="contenuto">
     <h2>Statistiche e feedback</h2>
-    <p>Questo portale ha supportato centinaia di studenti nello studio di Tecnologie Web! 
-    La maggior parte di loro dichiara di aver trovato utile il materiale interattivo e i quiz di autovalutazione 
+    <p>Questo portale ha supportato centinaia di studenti nello studio di Tecnologie Web. </p>
+    <p>La maggior parte di loro dichiara di aver trovato utile il materiale interattivo e i quiz di autovalutazione 
     e di aver superato con successo l'esame!</p>
-    <p>Il 70% degli studenti che ha utilizzato il sito ha superato con successo gli esami.</p>
-    <p>Visite totali : <?php echo file_exists('visite.txt') ? file_get_contents('visite.txt') : 0; ?></p>
+    <p>Ogni visita conta, il nostro portale cresce ogni giorno grazie a studenti come te.
+    <p>Numero di visite totali al sito:<strong> <?php echo number_format($visite); ?> </strong> (aggiornate in tempo reale)</p>
+    <p>Unisciti anche tu alla nostra community e prepara gli esami con noi...Cosa aspetti!
+     <img src="../immagini/cuoricino.png" alt="Logo Portale" style="width:16px; height:16px; vertical-align:middle;">
+    </p> 
 </div>
 
 <!-- FOOTER -->
