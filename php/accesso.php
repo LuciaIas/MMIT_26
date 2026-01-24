@@ -18,8 +18,14 @@ if (isset($_POST['login'])) {
         if ($user && password_verify($password, $user['password'])) {
             $_SESSION['username'] = $user['username'];
             $_SESSION['tipo_utente'] = $user['tipo_utente'];
-            $messaggio = "Login effettuato con successo!";
-            $tipo_messaggio = "success";
+
+            // Redirect in base al tipo di utente
+            if ($user['tipo_utente'] === 'admin') {
+                header("Location: admin/dashboard.php");
+            } else {
+                header("Location: studente/home.php");
+            }
+            exit;
         } else {
             $messaggio = "Credenziali non valide.";
             $tipo_messaggio = "error";
@@ -70,6 +76,7 @@ if (isset($_GET['logout'])) {
 <head>
     <meta charset="UTF-8">
     <title>Accesso – Tecnologie Web</title>
+    <!-- Controlla che il CSS sia nel percorso corretto -->
     <link rel="stylesheet" href="css/accesso.css">
 </head>
 <body>
@@ -109,6 +116,7 @@ if (isset($_GET['logout'])) {
 
 </main>
 
+<!-- Controlla che il JS sia nel percorso corretto -->
 <script src="js/accesso.js"></script>
 </body>
 </html>
