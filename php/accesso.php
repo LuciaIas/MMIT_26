@@ -73,6 +73,11 @@ if (isset($_POST['register'])) {
 </head>
 <body>
 
+<!-- ICONCINA SOPRA IL SITO -->
+<div class="icon-login">
+    <img src="../immagini/iconcinalogin.png" alt="Icon Login">
+</div>
+
 <div class="container-login">
 
     <!-- FORM SECTION -->
@@ -101,7 +106,10 @@ if (isset($_POST['register'])) {
                 <input type="password" name="password" placeholder="Password" id="loginPassword">
                 <span class="toggle-password" data-target="loginPassword">&#128065;</span>
             </div>
-            <label class="remember-me"><input type="checkbox" name="remember"> Remember Me</label>
+            <label class="remember-me">
+                <input type="checkbox" name="remember">
+                <span>Remember Me</span>
+            </label>
             <div class="extra-options">
                 <a href="#">Password dimenticata?</a>
             </div>
@@ -128,11 +136,12 @@ if (isset($_POST['register'])) {
     <!-- RIGHT PANEL -->
     <div class="side-panel">
         <h1 id="sideTitle">Benvenuto amico di nuovo qui!</h1>
-        <p id="sideText">Sei pronto a fare clic e entrare nel mondo magico del nostro portale? 😄</p>
+        <p id="sideText">Pronto a fare click nel nostro mondo di quiz tipo così...</p>
     </div>
 
 </div>
 
 <script src="../js/accesso.js"></script>
+
 </body>
 </html>
