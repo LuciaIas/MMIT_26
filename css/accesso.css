@@ -1,6 +1,3 @@
-/* =========================
-   RESET BASE
-============================ */
 * {
     margin: 0;
     padding: 0;
@@ -8,167 +5,98 @@
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #e0e7ff, #c7d2fe);
-    color: #333;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #2563eb, #1e40af);
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-/* =========================
-   HEADER
-============================ */
-header {
+.card {
+    background: white;
+    width: 380px;
+    padding: 35px;
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(0,0,0,.2);
+    animation: fadeIn .4s ease;
+}
+
+.card h1 {
     text-align: center;
-    margin-bottom: 20px;
-}
-
-header h1 {
-    font-size: 2.5rem;
     color: #1e3a8a;
-    letter-spacing: 1px;
-    font-weight: 700;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+    margin-bottom: 25px;
 }
 
-/* =========================
-   MAIN CONTAINER
-============================ */
-main {
-    width: 100%;
-    max-width: 400px;
-    background: #fff;
-    padding: 40px 30px;
-    border-radius: 15px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-    position: relative;
-    overflow: hidden;
-    transition: all 0.3s ease;
-}
-
-/* =========================
-   LOGIN-CONTAINER
-============================ */
-.login-container {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-/* =========================
-   FORMS
-============================ */
 form {
     display: flex;
     flex-direction: column;
     gap: 15px;
-    transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-form input[type="text"],
-form input[type="email"],
-form input[type="password"] {
+input {
     padding: 14px;
     border-radius: 10px;
     border: 1px solid #cbd5e1;
     font-size: 1rem;
-    transition: all 0.3s ease;
 }
 
-form input:focus {
-    border-color: #6366f1;
-    box-shadow: 0 0 5px rgba(99,102,241,0.3);
+input:focus {
     outline: none;
+    border-color: #2563eb;
 }
 
-form button {
-    background-color: #6366f1;
-    color: #fff;
-    padding: 14px;
-    font-size: 1rem;
+button {
+    background: #2563eb;
+    color: white;
     border: none;
+    padding: 14px;
     border-radius: 10px;
-    cursor: pointer;
     font-weight: 600;
-    transition: all 0.3s ease;
-}
-
-form button:hover {
-    background-color: #4f46e5;
-    transform: translateY(-2px);
-}
-
-/* =========================
-   SWITCH LINK
-============================ */
-.switch-link {
-    text-align: center;
-    color: #6366f1;
-    text-decoration: underline;
     cursor: pointer;
-    font-size: 0.9rem;
-    transition: color 0.3s ease;
 }
 
-.switch-link:hover {
-    color: #4f46e5;
+button:hover {
+    background: #1e40af;
 }
 
-/* =========================
-   MESSAGES
-============================ */
-.messaggio {
-    padding: 12px 15px;
-    border-radius: 8px;
-    margin-bottom: 10px;
-    font-size: 0.95rem;
+.switch-form {
     text-align: center;
-    font-weight: 500;
+    font-size: .9rem;
+    color: #2563eb;
+    cursor: pointer;
 }
 
-.messaggio.error {
-    background-color: #fee2e2;
+.switch-form:hover {
+    text-decoration: underline;
+}
+
+.message {
+    padding: 12px;
+    border-radius: 10px;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.message.error {
+    background: #fee2e2;
     color: #b91c1c;
-    border: 1px solid #fca5a5;
 }
 
-.messaggio.success {
-    background-color: #d1fae5;
-    color: #065f46;
-    border: 1px solid #6ee7b7;
+.message.success {
+    background: #dcfce7;
+    color: #166534;
 }
 
-/* =========================
-   LOGOUT
-============================ */
 .logout {
-    margin-top: 20px;
     text-align: center;
-    font-weight: 500;
 }
 
 .logout a {
-    color: #6366f1;
-    text-decoration: underline;
-    margin-left: 8px;
+    color: #2563eb;
 }
 
-.logout a:hover {
-    color: #4f46e5;
-}
-
-/* =========================
-   RESPONSIVE
-============================ */
-@media screen and (max-width: 500px) {
-    main {
-        padding: 30px 20px;
-        margin: 20px;
-    }
-
-    header h1 {
-        font-size: 2rem;
-    }
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(.95); }
+    to { opacity: 1; transform: scale(1); }
 }
