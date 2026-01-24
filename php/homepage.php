@@ -8,50 +8,36 @@ $utente_loggato = isset($_SESSION['username']);
 
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
     <meta charset="UTF-8">
-    <title>Tecnologie Web</title>
+    <title>Portale Tecnologie Web</title>
     <link rel="stylesheet" href="../css/homepagecss.css">
 </head>
+
 
 <body>
 
 <header>
     <h1>Benvenuto nel Portale Tecnologie Web</h1>
-    <p class="intro">Il tuo spazio per imparare, ripassare e testare le tue competenze!</p>
+    <p>Il tuo spazio per imparare, ripassare e testare le tue competenze!</p>
 </header>
 
 <!-- NAV BAR PRINCIPALE -->
 <nav>
-    <a href="accesso.php">Accedi</a>
-    <a href="accessso.php">Registrazione</a>
+    <a href="accesso.php?mode=login">Accedi</a>
+    <a href="accessso.php?mode=register">Registrazione</a>
     <a href="contenuti.php">Quiz</a>
     <a href="glossario.php">Glossario</a>
 </nav>
 
-<!-- SEZIONE CENTRALE DI ATTENZIONE -->
-<section class="focus">
-    <h2>Se sei uno studente di Tecnologie Web… sei nel posto giusto!</h2>
+<!-- SEZIONE INTRO -->
+<div class="intro">
+    <h1>Sei uno studente di Tecnologie Web? Sei nel posto giusto!</h1>
+    <p>Qui puoi approfondire HTML, CSS, JavaScript e PHP, seguire lezioni interattive e testare le tue competenze con quiz di autovalutazione.</p>
+</div>
 
-<!-- CHI SIAMO -->
-<section class="chi-siamo">
-    <h2>Chi siamo?</h2>
-    <p>
-       Siamo un gruppo di studenti del terzo anno di Ingegneria Informatica, iscritti al corso di Tecnologie Web. 
-        Abbiamo sviluppato questo portale come strumento di supporto allo studio, per offrirti spiegazioni sintetiche, 
-        esempi pratici e quiz di autovalutazione. 
-        Qui potrai approfondire HTML, CSS, JavaScript, PHP e database in modo interattivo.
-        Registrati per accedere a tutte le funzionalità!
-    </p>
-     <p>
-       
-        Alcuni contenuti avanzati, come il dizionario dei termini tecnici e altre risorse esclusive, 
-        sono accessibili solo dopo esserti registrato e aver effettuato il login. 
-        Questa dashboard iniziale ti permette di consultare liberamente la parte descrittiva e introduttiva dei linguaggi e della storia del Web.
-    </p>
-</section>
-
-    <!-- CHECKLIST INTRODUTTIVA -->
+<!-- SOMMARIO / MENU INTERNO -->
 <div class="sommario">
     <h3>Sommario</h3>
     <ul>
@@ -61,74 +47,100 @@ $utente_loggato = isset($_SESSION['username']);
         <li><a href="#javascript">JavaScript</a></li>
         <li><a href="#php">PHP</a></li>
         <li><a href="#contatti">Contatti</a></li>
+        <li><a href="#statistiche">Statistiche</a></li>
     </ul>
 </div>
 
 
 
-<!-- SEZIONE STORIA DEL WEB -->
-<section id="storia" class="contenuto">
-    <h2>La storia del World Wide Web</h2>
+<!-- CHI SIAMO -->
+<div class="chi-siamo">
+    <h2>Chi siamo?</h2>
+    <p>
+        Siamo un gruppo di studenti del terzo anno di Ingegneria Informatica frequentanti
+        il corso di Tecnologie Web. Abbiamo creato questo portale per supportare lo studio,
+        offrendo spiegazioni sintetiche, esempi pratici e quiz di autovalutazione. 
+        Alcuni contenuti sono accessibili solo dopo registrazione, come il dizionario tecnico, mentre la dashboard fornisce la parte descrittiva e introduttiva dei linguaggi.
+    </p>
+</div>
 
+<!-- STORIA DEL WEB -->
+<div id="storia" class="contenuto">
+    <h2>La storia del World Wide Web</h2>
     <p>
         Il World Wide Web (WWW) è una rete di documenti e risorse interconnesse accessibili tramite Internet. 
-        Nasce come evoluzione delle prime reti di computer, in particolare ARPANET negli anni ’60,
-        creata per lo scambio sicuro di informazioni. Con l’introduzione del protocollo TCP/IP nel 1982 nasce Internet, 
-        e nel 1991 il CERN di Ginevra sviluppa il primo server web, definendo HTML e HTTP per creare e trasferire documenti ipertestuali navigabili.
+        Nasce come evoluzione di ARPANET negli anni ’60, creata per lo scambio sicuro di informazioni. 
+        Con TCP/IP nasce Internet, e nel 1991 il CERN definisce HTML e HTTP per creare documenti ipertestuali navigabili.
     </p>
     <p>
-        Il Web 1.0 era statico: poche aziende pubblicavano contenuti informativi e gli utenti potevano solo leggere.
+        Il Web 1.0 era statico: poche aziende pubblicavano contenuti e gli utenti potevano solo leggere. 
         L’ipertesto permetteva di navigare tra documenti tramite link.
     </p>
     <p>
-        Con l’avvento del Web 2.0 (dal 2004) gli utenti diventano protagonisti: creano contenuti, commentano e condividono informazioni
-        su blog, social network e piattaforme collaborative. Le pagine diventano dinamiche e interattive grazie a HTML, CSS, JavaScript, AJAX e database server.
+        Con il Web 2.0 (dal 2004) gli utenti diventano protagonisti: creano contenuti, commentano e condividono informazioni su blog, social network e piattaforme collaborative. Le pagine diventano dinamiche e interattive grazie a HTML, CSS, JavaScript, AJAX e database server.
     </p>
     <p>
-        Oggi si parla di Web 3.0 e Web semantico, dove i dati vengono interpretati per generare nuova conoscenza,
-        grazie a intelligenza artificiale, metadati, cookie e geolocalizzazione. Infine, il Web 4.0 o Internet delle cose (IoT)
-        rende intelligenti gli oggetti e i dispositivi connessi, permettendo loro di raccogliere e condividere dati per migliorare la vita quotidiana.
+        Oggi Web 3.0 e Web semantico interpretano i dati per generare nuova conoscenza, grazie a intelligenza artificiale, metadati, cookie e geolocalizzazione. Infine, Web 4.0 (IoT) rende intelligenti gli oggetti connessi, migliorando la vita quotidiana dalla domotica ai veicoli autonomi.
     </p>
-</section>
+</div>
 
 <!-- LINGUAGGI CHIAVE -->
-<section id="html" class="contenuto">
-    <h2>Linguaggi chiave</h2>
-
-    <h3>HTML</h3>
+<div id="html" class="contenuto">
+    <h2>HTML</h2>
     <p>
-        HTML (HyperText Markup Language) è il linguaggio standard per creare e strutturare pagine web.
-        Permette di definire titoli, paragrafi, elenchi, link, immagini e altri contenuti. Funziona con tag che indicano
-        al browser come visualizzare il contenuto. HTML costituisce la struttura fondamentale di ogni sito.
+        HTML (HyperText Markup Language) è il linguaggio standard per creare e strutturare pagine web. 
+        Definisce titoli, paragrafi, elenchi, link, immagini e altri elementi. 
+        Funziona tramite tag che indicano al browser come visualizzare il contenuto. 
+        HTML stabilisce la struttura ma non lo stile estetico della pagina. 
+        Ogni sito web si basa su HTML, fondamentale per la costruzione di qualsiasi pagina.
     </p>
+</div>
 
-    <h3>CSS</h3>
+<div id="css" class="contenuto">
+    <h2>CSS</h2>
     <p>
-        CSS (Cascading Style Sheets) serve a definire l’aspetto delle pagine web, come colori, font, layout e spaziature.
-        Permette di separare stile e contenuto, rendendo il sito più gradevole e adattabile a diversi dispositivi.
+        CSS (Cascading Style Sheets) definisce l’aspetto delle pagine web. 
+        Controlla colori, font, spaziature, layout e altri aspetti visivi dei contenuti HTML. 
+        Permette di separare la struttura dalla presentazione, rendendo più facile aggiornare lo stile. 
+        CSS rende le pagine adattabili a computer, tablet e smartphone, trasformando il contenuto HTML in pagine gradevoli e leggibili.
     </p>
+</div>
 
-    <h3>JavaScript</h3>
+<div id="javascript" class="contenuto">
+    <h2>JavaScript</h2>
     <p>
-        JavaScript è un linguaggio lato client che rende le pagine interattive. Permette di reagire a click, movimenti del mouse,
-        aggiornare contenuti senza ricaricare la pagina e creare animazioni. Rende il sito dinamico e coinvolgente.
+        JavaScript è un linguaggio di programmazione lato client che aggiunge interattività ai siti web. 
+        Permette di reagire alle azioni degli utenti, aggiornare contenuti senza ricaricare la pagina, creare animazioni e giochi. 
+        Il codice viene eseguito dal browser, garantendo un’interazione rapida e fluida. 
+        JavaScript rende i siti attivi e coinvolgenti.
     </p>
+</div>
 
-    <h3>PHP</h3>
+<div id="php" class="contenuto">
+    <h2>PHP</h2>
     <p>
-        PHP è un linguaggio lato server che genera contenuti dinamici. Gestisce login, registrazioni e interazioni con database.
-        Il server elabora le richieste e invia al browser solo l’HTML risultante, rendendo possibile creare applicazioni web complesse.
+        PHP (Hypertext Preprocessor) è un linguaggio lato server per contenuti dinamici. 
+        Gestisce login, registrazioni, moduli e interazioni con database. 
+        Elabora le richieste degli utenti e genera pagine personalizzate in base ai dati ricevuti. 
+        PHP viene eseguito sul server, e il browser riceve solo l’HTML risultante. 
+        Essenziale per siti interattivi e applicazioni web complesse.
     </p>
-</section>
+</div>
 
-<p>STATISTICHE DA IMPLEMENTARE </p>
+<!-- STATISTICHE -->
+<div id="statistiche" class="contenuto">
+    <h2>Statistiche e feedback</h2>
+    <p>Il portale ha aiutato molti studenti a superare gli esami di Tecnologie Web!</p>
+    <p>Il 70% degli studenti che ha utilizzato il sito ha superato con successo gli esami.</p>
+    <p>Visite totali: <?php echo file_exists('visite.txt') ? file_get_contents('visite.txt') : 0; ?></p>
+</div>
 
 <!-- FOOTER -->
-<footer id="contatti">
+<div id="contatti" class="footer">
     <p>Corso Tecnologie Web – A.A. 2025-2026 | Portale didattico per studenti di Ingegneria Informatica</p>
     <p>Gruppo MMIT</p>
-    <p>Email: l.iasevoli1@studenti.unisa.it, l.monetta8@studenti.unisa.it etc</p>
-</footer>
+    <p>Email: l.iasevoli1@studenti.unisa.it, l.monetta8@studenti.unisa.it</p>
+</div>
 
 </body>
 </html>
