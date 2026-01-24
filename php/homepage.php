@@ -64,6 +64,7 @@ file_put_contents($file_visite, $visite);
             <a href="#php">PHP</a>
             <a href="#javascript">JavaScript</a>
             <a href="#statistiche">Statistiche</a>
+            <a href="#feedback">Feedback</a>
             <a href="#contatti">Contatti</a>           
         </div>
     </div>
@@ -144,7 +145,7 @@ file_put_contents($file_visite, $visite);
 
 <!-- STATISTICHE -->
 <div id="statistiche" class="contenuto">
-    <h2>Statistiche e feedback</h2>
+    <h2>Statistiche</h2>
     <p>Questo portale ha supportato centinaia di studenti nello studio di Tecnologie Web. </p>
     <p>La maggior parte di loro dichiara di aver trovato utile il materiale interattivo e i quiz di autovalutazione 
     e di aver superato con successo l'esame!</p>
@@ -155,11 +156,18 @@ file_put_contents($file_visite, $visite);
     </p> 
 </div>
 
+<!-- FEEDBACK -->
+<div id="feedback" class="contenuto">
+    <h2>Feedback</h2>
+    
+</div>
+
 <!-- FOOTER -->
-<div id="contatti" class="footer">
+<div class="footer">
     <p>Corso Tecnologie Web – A.A. 2025-2026 | Portale didattico per studenti di Ingegneria Informatica</p>
     <p>Gruppo MMIT</p>
-    <p>Email: l.iasevoli1@studenti.unisa.it, l.monetta8@studenti.unisa.it</p>
+    <p id="contatti">CONTATTI - Email : l.iasevoli1@studenti.unisa.it , l.monetta8@studenti.unisa.it , 
+        m.muccio@studenti.unisa.it , m.tamburro@studenti.unisa.it</p>
 </div>
 
 <script>
