@@ -68,7 +68,7 @@ if (isset($_POST['register'])) {
 <html lang="it">
 <head>
 <meta charset="UTF-8">
-<meta name="author" cotent="gruppo26"/>
+<meta name="author" content="gruppo26"/>
 <meta name="description" content="Pagina di accesso"/>
 <title>Accesso – Portale Tecnologie Web</title>
 <link href="../css/accesso.css" rel="stylesheet" type="text/css" >
