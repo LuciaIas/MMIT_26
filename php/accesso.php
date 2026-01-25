@@ -94,6 +94,10 @@ if (isset($_POST['register'])) {
 
 <div class="form-container">
 
+<div class="avatar">
+    <img src="../immagini/students_avatar.png" alt="Avatar studenti">
+</div>
+
 <h2>Accesso al Portale</h2>
 
 <?php if ($messaggio): ?>
@@ -105,51 +109,53 @@ if (isset($_POST['register'])) {
     <button data-form="register">Registrazione</button>
 </div>
 
-<!-- LOGIN -->
 <form id="loginForm" method="post" class="form-active">
     <input type="text" name="username" placeholder="Nome utente" required>
 
-    <div class="password-wrapper">
-        <input type="password" name="password" placeholder="Password" id="loginPassword">
-        <span class="toggle-password" data-target="loginPassword">Mostra caratteri</span>
-    </div>
+    <input type="password" name="password" placeholder="Password" id="loginPassword">
+
+    <label class="show-pass">
+        <input type="checkbox" data-target="loginPassword">
+        Mostra caratteri
+    </label>
 
     <button name="login">Accedi</button>
 </form>
 
-<!-- REGISTRAZIONE -->
 <form id="registerForm" method="post">
 
+    <!-- SESSO -->
     <div class="radio-group">
-        <span>Sesso</span>
-        <label><input type="radio" name="sesso" value="M"> Maschio</label>
-        <label><input type="radio" name="sesso" value="F"> Femmina</label>
+        <span class="radio-label">Sesso:</span>
+        <div class="radio-options">
+            <label><input type="radio" name="sesso" value="M"> Maschio</label>
+            <label><input type="radio" name="sesso" value="F"> Femmina</label>
+        </div>
     </div>
 
     <input type="email" name="email_reg" placeholder="nome@esempio.com">
     <input type="text" name="username_reg" placeholder="Nome utente">
 
-    <div class="password-wrapper">
-        <input type="password" name="password_reg" placeholder="Password" id="regPassword">
-        <span class="toggle-password" data-target="regPassword">Mostra caratteri</span>
-    </div>
+    <input type="password" name="password_reg" placeholder="Password" id="regPassword">
+    <input type="password" name="password_conf" placeholder="Conferma password" id="regPasswordConf">
 
-    <div class="password-wrapper">
-        <input type="password" name="password_conf" placeholder="Conferma password" id="regPasswordConf">
-        <span class="toggle-password" data-target="regPasswordConf">Mostra caratteri</span>
-    </div>
+    <label class="show-pass">
+        <input type="checkbox" data-target="regPassword,regPasswordConf">
+        Mostra caratteri
+    </label>
 
+    <!-- UNIVERSITÀ -->
     <select name="universita" id="universitaSelect">
         <option value="">Seleziona università</option>
-        <option>Università di Salerno</option>
+        <option>Università degli Studi di Salerno</option>
         <option>Università Federico II</option>
         <option>Università di Bologna</option>
         <option>Politecnico di Milano</option>
-        <option>Università La Sapienza</option>
         <option value="Altro">Altra università</option>
     </select>
 
-    <textarea name="universita_altro" id="universitaAltro"
+    <textarea id="universitaAltro"
+              name="universita_altro"
               placeholder="Scrivi il nome della tua università"
               style="display:none"></textarea>
 
