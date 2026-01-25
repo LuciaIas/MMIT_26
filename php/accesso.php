@@ -69,10 +69,11 @@ if (isset($_POST['register'])) {
 <head>
 <meta charset="UTF-8">
 <title>Accesso – Portale Tecnologie Web</title>
-<link rel="stylesheet" href="../css/accesso.css">
+<link href="../css/accesso.css" rel="stylesheet" type="text/css" >
+<script src="../js/accesso.js" type="text/javascript" ></script>
 
 <!-- Favicon: icona in alto nella scheda del browser -->
-<link rel="icon" type="image/png" href="../immagini/iconcinalogin.jpg">
+<link rel="icon" href="../immagini/iconcinalogin.jpg" type="image/png">
 </head>
 <body>
 
@@ -138,8 +139,5 @@ if (isset($_POST['register'])) {
     </div>
 
 </div>
-
-<script src="../js/accesso.js"></script>
-
 </body>
 </html>
