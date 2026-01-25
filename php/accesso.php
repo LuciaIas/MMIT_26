@@ -134,7 +134,7 @@ if (isset($_POST['register'])) {
     <!-- RIGHT PANEL -->
     <div class="side-panel">
         <h1 id="sideTitle"> Bentornato amico, felice di rivederti! </h1>
-        <p id="sideText"> Ogni acesso è un passo verso la conoscenza! </p>
+        <p id="sideText"> Ogni accesso è un passo verso la conoscenza! </p>
     </div>
 
 </div>
