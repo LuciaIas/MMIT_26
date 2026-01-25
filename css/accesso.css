@@ -18,37 +18,32 @@ body {
 .icon-login img { width:60px; }
 
 .container-login {
-    display:flex;
-    width:950px;
-    background:white;
-    border-radius:20px;
-    box-shadow:0 20px 40px rgba(0,0,0,0.1);
-    backdrop-filter: blur(6px); /* sfondo popup sfocato */
+    display: flex;
+    width: 1200px; /* più largo per far crescere l'avatar */
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    backdrop-filter: blur(6px);
 }
 
 .form-container {
-    flex:1;
-    padding:50px 40px;
-    text-align:center;
+    flex: 1; /* occupa più spazio possibile */
+    padding: 50px 40px;
+    text-align: center;
+    min-width: 650px; /* garantisce abbastanza spazio per avatar grande */
 }
 
-/* Contenitore avatar: permetti che l'immagine cresca */
 .avatar {
     display: flex;
     justify-content: center;
-    align-items: center;   /* centra anche verticalmente */
-    margin-bottom: 20px;
-    width: 100%;           /* lascia che si adatti al contenitore */
+    margin-bottom: 30px;
 }
 
-/* L'immagine vera e propria: più grande */
 .avatar img {
-    width: 300px !important;   /* nuova larghezza */
-    height: 300px !important;  /* nuova altezza */
-    max-width: 100%;           /* evita overflow */
-    border-radius: 50%;        /* mantiene forma circolare */
+    width: 300px;  /* scegli la dimensione che vuoi */
+    height: 300px;
+    border-radius: 50%;
     object-fit: cover;
-    display: block;            /* utile per evitare spazi extra */
 }
 
 h2 { color:#333; margin-bottom:20px; }
