@@ -31,7 +31,7 @@ if (isset($_GET['q']) && trim($_GET['q']) !== "") {
 $query_sql .= " ORDER BY termine ASC";
 
 $result = $search_value
-    ? pg_query_params($dbconn, $query_sql, ['%'.$search_value.'%'])
+    ? pg_query_params($dbconn, $query_sql, ['%' . $search_value . '%'])
     : pg_query($dbconn, $query_sql);
 ?>
 <!DOCTYPE html>
