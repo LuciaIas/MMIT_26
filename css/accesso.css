@@ -102,3 +102,14 @@ button:hover { background:#2563eb; }
 
 form { display:none; flex-direction:column; gap:12px; }
 form.form-active { display:flex; }
+
+.radio-group {
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-align: left;
+}
+
+select, textarea {
+    font-family: inherit;
+    font-size: 0.9rem;
+}
