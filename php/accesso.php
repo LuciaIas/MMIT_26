@@ -36,29 +36,31 @@ if (isset($_POST['register'])) {
     $email = trim($_POST['email_reg']);
     $password = trim($_POST['password_reg']);
     $password_conf = trim($_POST['password_conf']);
+    $sesso = trim($_POST['sesso']);
+    $universita = trim($_POST['universita']);
 
-    if ($username && $email && $password && $password_conf) {
+    if ($username && $email && $password && $password_conf && $sesso) {
         if ($password !== $password_conf) {
             $messaggio = "Le password non coincidono.";
             $tipo_messaggio = "error";
         } else {
             $check = pg_query_params($conn, "SELECT 1 FROM utenti WHERE username=$1", [$username]);
             if (pg_num_rows($check) > 0) {
-                $messaggio = "Username già esistente.";
+                $messaggio = "Nome utente già esistente.";
                 $tipo_messaggio = "error";
             } else {
                 $hash = password_hash($password, PASSWORD_DEFAULT);
                 pg_query_params(
                     $conn,
-                    "INSERT INTO utenti (username,email,password,tipo_utente) VALUES ($1,$2,$3,'studente')",
-                    [$username, $email, $hash]
+                    "INSERT INTO utenti (username,email,password,tipo_utente,sesso,universita) VALUES ($1,$2,$3,'studente',$4,$5)",
+                    [$username, $email, $hash, $sesso, $universita]
                 );
                 $messaggio = "Registrazione completata. Ora puoi accedere.";
                 $tipo_messaggio = "success";
             }
         }
     } else {
-        $messaggio = "Tutti i campi sono obbligatori.";
+        $messaggio = "Tutti i campi obbligatori devono essere compilati.";
         $tipo_messaggio = "error";
     }
 }
@@ -72,8 +74,6 @@ if (isset($_POST['register'])) {
 <meta name="description" content="Pagina di accesso"/>
 <title>Accesso – Portale Tecnologie Web</title>
 <link href="../css/accesso.css" rel="stylesheet" type="text/css" >
-
-<!-- Favicon: icona in alto nella scheda del browser -->
 <link rel="icon" href="../immagini/iconcinalogin.jpg" type="image/png">
 </head>
 <body>
@@ -101,35 +101,70 @@ if (isset($_POST['register'])) {
 
         <!-- LOGIN -->
         <form id="loginForm" method="post" class="form-active">
-            <input type="text" name="username" placeholder="Username" value="<?= $_POST['username'] ?? '' ?>" required>
+            <input type="text" name="username" placeholder="Nome utente" value="<?= $_POST['username'] ?? '' ?>" required>
             <div class="password-wrapper">
                 <input type="password" name="password" placeholder="Password" id="loginPassword">
                 <span class="toggle-password" data-target="loginPassword">&#128065;</span>
             </div>
             <label class="remember-me">
                 <input type="checkbox" name="remember">
-                <span>Remember Me</span>
+                <span class="rm-text">Remember me</span>
             </label>
-            <div class="extra-options">
-                <a href="#">Password dimenticata?</a>
-            </div>
             <button name="login">Accedi</button>
         </form>
 
-        <!-- REGISTRAZIONE -->
-        <form id="registerForm" method="post">
-            <input type="email" name="email_reg" placeholder="Email" value="<?= $_POST['email_reg'] ?? '' ?>" required>
-            <input type="text" name="username_reg" placeholder="Username" value="<?= $_POST['username_reg'] ?? '' ?>" required>
-            <div class="password-wrapper">
-                <input type="password" name="password_reg" placeholder="Password" id="regPassword">
-                <span class="toggle-password" data-target="regPassword">&#128065;</span>
-            </div>
-            <div class="password-wrapper">
-                <input type="password" name="password_conf" placeholder="Conferma Password" id="regPasswordConf">
-                <span class="toggle-password" data-target="regPasswordConf">&#128065;</span>
-            </div>
-            <button name="register">Registrati</button>
-        </form>
+      <form id="registerForm" method="post">
+
+    <!-- SESSO -->
+    <label>Sesso:</label>
+    <div class="radio-group">
+        <label><input type="radio" name="sesso" value="M" required> Maschio</label>
+        <label><input type="radio" name="sesso" value="F" required> Femmina</label>
+    </div>
+
+    <!-- UNIVERSITÀ -->
+    <label>Università:</label>
+    <select name="universita">
+        <option value="Università degli Studi di Salerno">Università degli Studi di Salerno</option>
+        <option value="Università Federico II">Università Federico II</option>
+        <option value="Università di Bologna">Università di Bologna</option>
+        <option value="Other">Altro</option>
+    </select>
+
+    <!-- NOME UTENTE -->
+    <input type="text"
+           name="username_reg"
+           placeholder="Nome utente"
+           value="<?= $_POST['username_reg'] ?? '' ?>"
+           required>
+
+    <!-- EMAIL -->
+    <input type="email"
+           name="email_reg"
+           placeholder="nome@esempio.com"
+           value="<?= $_POST['email_reg'] ?? '' ?>"
+           required>
+
+    <!-- PASSWORD -->
+    <div class="password-wrapper">
+        <input type="password"
+               name="password_reg"
+               placeholder="Password"
+               id="regPassword">
+        <span class="toggle-password" data-target="regPassword">&#128065;</span>
+    </div>
+
+    <!-- CONFERMA PASSWORD -->
+    <div class="password-wrapper">
+        <input type="password"
+               name="password_conf"
+               placeholder="Conferma password"
+               id="regPasswordConf">
+        <span class="toggle-password" data-target="regPasswordConf">&#128065;</span>
+    </div>
+
+    <button name="register" id="registerBtn" disabled>Registrati</button>
+</form>
 
     </div>
 

@@ -1,52 +1,34 @@
 * { margin:0; padding:0; box-sizing:border-box; }
 
 body {
-    font-family: 'Segoe UI', sans-serif;
-    background: #eef2f7;
-    min-height: 100vh;
+    font-family:'Segoe UI',sans-serif;
+    background:#eef2f7;
+    min-height:100vh;
     display:flex;
     justify-content:center;
     align-items:center;
 }
 
-.icon-login {
-    position:absolute;
-    top:20px;
-    left:50%;
-    transform:translateX(-50%);
-}
-.icon-login img { width:60px; }
-
 .container-login {
-    display: flex;
-    width: 1200px; /* più largo per far crescere l'avatar */
-    background: white;
-    border-radius: 20px;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-    backdrop-filter: blur(6px);
+    display:flex;
+    width:750px;
+    background:#fff;
+    border-radius:20px;
+    box-shadow:0 20px 40px rgba(0,0,0,0.1);
+    backdrop-filter:blur(6px);
 }
 
 .form-container {
-    flex: 1; /* occupa più spazio possibile */
-    padding: 50px 40px;
-    text-align: center;
-    min-width: 650px; /* garantisce abbastanza spazio per avatar grande */
+    flex:1;
+    padding:25px 20px;
+    text-align:center;
+    min-width:350px;
 }
 
-.avatar {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 30px;
-}
+.avatar { display:flex; justify-content:center; margin-bottom:10px; }
+.avatar img { width:200px; height:200px; border-radius:50%; object-fit:cover; }
 
-.avatar img {
-    width: 300px;  /* scegli la dimensione che vuoi */
-    height: 300px;
-    border-radius: 50%;
-    object-fit: cover;
-}
-
-h2 { color:#333; margin-bottom:20px; }
+h2 { color:#333; margin-bottom:15px; }
 
 .form-switch {
     display:flex;
@@ -66,15 +48,9 @@ h2 { color:#333; margin-bottom:20px; }
     transition:0.3s;
 }
 
-.form-switch button.active { background:#3b82f6; color:white; }
+.form-switch button.active { background:#60a5fa; color:white; }
 
-input {
-    width:100%;
-    padding:12px;
-    border-radius:8px;
-    border:1px solid #bbb;
-    margin-bottom:12px;
-}
+input, select { width:100%; padding:10px; border-radius:8px; border:1px solid #bbb; margin-bottom:12px; }
 
 .password-wrapper { position:relative; }
 .toggle-password { position:absolute; right:10px; top:12px; cursor:pointer; }
@@ -82,15 +58,15 @@ input {
 .remember-me {
     display:flex;
     align-items:center;
-    gap:6px;
+    gap:3px; /* ridotto ancora di più per avvicinare testo e checkbox */
     text-align:left;
     margin-bottom:10px;
-    font-size:0.8rem; /* più piccolo */
-    color:#333;       /* nero chiaro */
+    font-size:0.85rem;
+    color:#333;
 }
+.rm-text { margin-left: 2px; } /* piccolo margine per non attaccato al quadratino */
 
-.extra-options { display:flex; justify-content:flex-end; font-size:0.85rem; margin-bottom:10px; }
-.extra-options a { color:#3b82f6; text-decoration:none; }
+.radio-group { display:flex; justify-content:center; gap:15px; margin-bottom:12px; }
 
 button[name="login"], button[name="register"] {
     width:100%;
@@ -106,10 +82,10 @@ button[name="login"], button[name="register"] {
 button:hover { background:#2563eb; }
 
 .side-panel {
-    flex:0.6;
-    background:linear-gradient(135deg,#3b82f6,#2563eb);
+    flex:0.5;
+    background:linear-gradient(135deg,#60a5fa,#3b82f6);
     color:white;
-    padding:50px 40px;
+    padding:25px 20px;
     border-radius:0 20px 20px 0;
     display:flex;
     flex-direction:column;
