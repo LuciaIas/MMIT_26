@@ -4,16 +4,21 @@ include __DIR__ . '/db.php';
 
 $utente_loggato = isset($_SESSION['username']);
 
-$file_visite = __DIR__ . '/visite.txt';
+// Percorso cartella e file
+$data_dir = __DIR__ . '/data';
+if (!is_dir($data_dir)) mkdir($data_dir, 0755, true);
 
-// Controlliamo solo se il file esiste, altrimenti non facciamo nulla
-if(file_exists($file_visite)) {
-    $visite = (int)file_get_contents($file_visite);
-    $visite++;
-    file_put_contents($file_visite, $visite);
-} else {
-    $visite = 1; // opzionale: se non esiste, consideriamo 1 visita
+$file_visite = $data_dir . '/visite.txt';
+
+// Se il file non esiste, crealo con 0
+if (!file_exists($file_visite)) {
+    file_put_contents($file_visite, "0");
 }
+
+// Leggi, incrementa e riscrivi
+$visite = (int)file_get_contents($file_visite);
+$visite++;
+file_put_contents($file_visite, (string)$visite);
 ?>
 
 <!DOCTYPE html>
@@ -91,7 +96,7 @@ window.onclick = function(event) {
             Qui puoi approfondire HTML, CSS, JavaScript e PHP e testare le tue competenze con i quiz di autovalutazione.
             La dashboard fornisce la parte introduttiva dei linguaggi e la descrizione della storia del Web.
             Alcune funzionalità, come il glossario e i quiz interattivi, 
-            sono accessibili solo dopo la registrazione...non perdere tempo,<span style="color: #0d6efd;"><strong> gRegistrati ora!</strong></span>
+            sono accessibili solo dopo la registrazione...non perdere tempo,<span style="color: #0d6efd;"><strong> Registrati ora!</strong></span>
         </p>
     <?php endif; ?>
 </div>
@@ -145,22 +150,33 @@ window.onclick = function(event) {
 <!-- LINGUAGGI CHIAVE -->
 <div id="html" class="contenuto">
     <h2>HTML</h2>
-    <p>HTML è il linguaggio standard per creare e strutturare pagine web. Definisce titoli, paragrafi, elenchi, link, immagini e altri elementi. Funziona tramite tag che indicano al browser come visualizzare il contenuto. Stabilisce la struttura ma non lo stile estetico della pagina. Fondamentale per qualsiasi sito web.</p>
+    <p>HTML è il linguaggio standard per creare e strutturare pagine web (definisce titoli, paragrafi, elenchi, 
+        link, immagini e altri elementi). Il suo funzionamento si basa sui tag che indicano al browser come visualizzare
+        il contenuto. HTML è fondamentale per qualsiasi sito web in quanto stabilisce la struttura (ma non lo stile 
+        estetico) della pagina. </p>
 </div>
 
 <div id="css" class="contenuto">
     <h2>CSS</h2>
-    <p>CSS definisce l’aspetto delle pagine web: colori, font, spaziature e layout. Permette di separare la struttura dalla presentazione, rendendo più semplice aggiornare lo stile. Adatta i contenuti a diversi dispositivi e trasforma l’HTML in pagine leggibili e gradevoli.</p>
+    <p>CSS definisce l’aspetto delle pagine web (colori, font, spaziature e layout), trasformando l’HTML in pagine 
+        leggibili ed esteticamente gradevoli separando la struttura dalla presentazione. 
+        Il CSS, inoltre, rende più semplice aggiornare lo stile e permette di adattare i contenuti
+         a diversi dispositivi.</p>
 </div>
 
 <div id="javascript" class="contenuto">
     <h2>JavaScript</h2>
-    <p>JavaScript aggiunge interattività ai siti web: risponde alle azioni dell’utente, aggiorna contenuti senza ricaricare la pagina, crea animazioni e giochi. Eseguito dal browser, garantisce un’interazione fluida e rende i siti attivi e coinvolgenti.</p>
+    <p>JavaScript aggiunge interattività ai siti web: risponde alle azioni dell’utente, aggiorna contenuti senza ricaricare
+        la pagina e crea animazioni/giochi. JavaScript quindi, eseguito dal browser, garantisce un'interazione fluida 
+        rendendo i siti attivi e coinvolgenti.</p>
 </div>
 
 <div id="php" class="contenuto">
     <h2>PHP</h2>
-    <p>PHP è un linguaggio lato server per contenuti dinamici. Gestisce login, registrazioni, moduli e interazioni con database. Elabora richieste e genera pagine personalizzate in base ai dati. Viene eseguito sul server, fornendo HTML pronto al browser. Essenziale per siti interattivi e applicazioni web complesse.</p>
+    <p>PHP è un linguaggio lato server che fornisce HTML pronto al browser; è essenziale per i siti interattivi e 
+        applicazioni web complesse in quanto ha il compito di gestire login, registrazioni,moduli e interazioni con database. 
+         PHP, inoltre, elabora richieste e genera pagine personalizzate in base ai dati.
+        </p>
 </div>
 
 <!-- STATISTICHE E FEEDBACK -->
