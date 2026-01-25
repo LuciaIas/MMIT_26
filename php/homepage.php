@@ -1,11 +1,11 @@
 <?php
 session_start();
-include __DIR__ . '/db.php';
+include __DIR__ . '/db.php'; // questo rimane
 
 $utente_loggato = isset($_SESSION['username']);
 
-// Percorso cartella e file
-$data_dir = __DIR__ . '/data';
+// Cartella dati nella root del progetto
+$data_dir = __DIR__ . '/../data'; // <-- "../data" perché homepage.php è in php/
 if (!is_dir($data_dir)) mkdir($data_dir, 0755, true);
 
 $file_visite = $data_dir . '/visite.txt';
@@ -186,7 +186,7 @@ window.onclick = function(event) {
     <p>La maggior parte di loro dichiara di aver trovato utile il materiale interattivo e i quiz di autovalutazione 
     e di aver superato con successo l'esame!</p>
     <p>Ogni visita conta, il nostro portale cresce ogni giorno grazie a studenti come te.
-    <p>Numero di visite totali al sito:<strong> <?php echo number_format($visite); ?> </strong> (aggiornate in tempo reale)</p>
+    <p>Numero di visite totali al sito:<strong><?php echo number_format($visite); ?></strong></p>
     <p>Unisciti anche tu alla nostra community e prepara gli esami con noi...Cosa aspetti!
      <img src="../immagini/cuoricino.png" alt="Logo Portale" style="width:16px; height:16px; vertical-align:middle;">
     </p> 
