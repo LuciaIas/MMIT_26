@@ -1,7 +1,7 @@
 * { margin:0; padding:0; box-sizing:border-box; }
 
 body {
-    font-family:'Segoe UI',sans-serif;
+    font-family: 'Segoe UI', sans-serif;
     background:#eef2f7;
     min-height:100vh;
     display:flex;
@@ -15,7 +15,6 @@ body {
     background:#fff;
     border-radius:20px;
     box-shadow:0 20px 40px rgba(0,0,0,0.1);
-    backdrop-filter:blur(6px);
 }
 
 .form-container {
@@ -25,8 +24,17 @@ body {
     min-width:350px;
 }
 
-.avatar { display:flex; justify-content:center; margin-bottom:10px; }
-.avatar img { width:200px; height:200px; border-radius:50%; object-fit:cover; }
+.avatar {
+    display:flex;
+    justify-content:center;
+    margin-bottom:8px;
+}
+
+.avatar img {
+    width:200px;      /* avatar abbastanza grande */
+    height:200px;
+    object-fit:contain;
+}
 
 h2 { color:#333; margin-bottom:15px; }
 
@@ -50,24 +58,66 @@ h2 { color:#333; margin-bottom:15px; }
 
 .form-switch button.active { background:#60a5fa; color:white; }
 
-input, select { width:100%; padding:10px; border-radius:8px; border:1px solid #bbb; margin-bottom:12px; }
+input, select, textarea {
+    width:100%;
+    padding:10px;
+    border-radius:8px;
+    border:1px solid #bbb;
+    font-size:0.9rem;
+}
 
-.password-wrapper { position:relative; }
-.toggle-password { position:absolute; right:10px; top:12px; cursor:pointer; }
+textarea { resize:none; }
 
-.remember-me {
-    display:flex;
-    align-items:center;
-    gap:3px; /* ridotto ancora di più per avvicinare testo e checkbox */
-    text-align:left;
-    margin-bottom:10px;
+/* ===== MOSTRA CARATTERI ===== */
+.show-pass {
+    display: inline-flex;         /* inline con input */
+    align-items: center;          /* centra quadratino e testo */
+    gap: 4px;                     /* distanza minima tra quadratino e testo */
     font-size:0.85rem;
     color:#333;
+    margin-top:0;
+    margin-bottom:6px;
 }
-.rm-text { margin-left: 2px; } /* piccolo margine per non attaccato al quadratino */
 
-.radio-group { display:flex; justify-content:center; gap:15px; margin-bottom:12px; }
+.show-pass input[type="checkbox"] {
+    margin:0;
+    width:16px;
+    height:16px;
+    vertical-align:middle;
+    cursor:pointer;
+}
 
+.show-pass span {
+    cursor:pointer;              /* cliccando sul testo si attiva il checkbox */
+}
+
+/* ===== RADIO BUTTON SESSO ===== */
+.radio-group {
+    display:flex;
+    align-items:center;           /* allinea Sesso: e radio verticalmente */
+    gap:10px;
+    margin-bottom:12px;
+    font-size:0.9rem;
+}
+
+.radio-label {
+    font-weight:600;
+}
+
+.radio-options {
+    display:flex;                 /* affianca Maschio e Femmina */
+    gap:15px;
+    align-items:center;           /* centra verticalmente i pallini */
+}
+
+.radio-options label {
+    display:flex;
+    align-items:center;
+    gap:4px;                      /* distanza tra pallino e testo */
+    cursor:pointer;
+}
+
+/* ===== BOTTONI ===== */
 button[name="login"], button[name="register"] {
     width:100%;
     padding:12px;
@@ -77,9 +127,24 @@ button[name="login"], button[name="register"] {
     border-radius:8px;
     margin-top:10px;
     cursor:pointer;
+    transition:0.3s;
 }
 
 button:hover { background:#2563eb; }
+button:disabled { background:#9ca3af; cursor:not-allowed; }
+
+form { display:none; flex-direction:column; gap:12px; }
+form.form-active { display:flex; }
+
+.message {
+    padding:12px;
+    border-radius:10px;
+    margin-bottom:15px;
+    text-align:center;
+}
+
+.message.error { background:#fee2e2; color:#b91c1c; }
+.message.success { background:#dcfce7; color:#166534; }
 
 .side-panel {
     flex:0.5;
@@ -95,21 +160,3 @@ button:hover { background:#2563eb; }
 
 .side-panel h1 { font-size:1.8rem; margin-bottom:12px; }
 .side-panel p { font-size:1rem; line-height:1.5; }
-
-.message { padding:12px; border-radius:10px; margin-bottom:15px; text-align:center; }
-.message.error { background:#fee2e2; color:#b91c1c; }
-.message.success { background:#dcfce7; color:#166534; }
-
-form { display:none; flex-direction:column; gap:12px; }
-form.form-active { display:flex; }
-
-.radio-group {
-    font-size: 0.95rem;
-    font-weight: 500;
-    text-align: left;
-}
-
-select, textarea {
-    font-family: inherit;
-    font-size: 0.9rem;
-}
