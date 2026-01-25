@@ -1,24 +1,21 @@
 <?php
 session_start();
-include __DIR__ . '/db.php'; // questo rimane
+include __DIR__ . '/db.php';
 
 $utente_loggato = isset($_SESSION['username']);
 
-// Cartella dati nella root del progetto
-$data_dir = __DIR__ . '/../data'; // <-- "../data" perché homepage.php è in php/
-if (!is_dir($data_dir)) mkdir($data_dir, 0755, true);
+// Percorso corretto al file visite (data è nella root)
+$file_visite = __DIR__ . '/../data/visite.txt';
 
-$file_visite = $data_dir . '/visite.txt';
-
-// Se il file non esiste, crealo con 0
+// Se il file non esiste, lo creiamo
 if (!file_exists($file_visite)) {
     file_put_contents($file_visite, "0");
 }
 
-// Leggi, incrementa e riscrivi
-$visite = (int)file_get_contents($file_visite);
+// Leggiamo, incrementiamo e riscriviamo
+$visite = (int) file_get_contents($file_visite);
 $visite++;
-file_put_contents($file_visite, (string)$visite);
+file_put_contents($file_visite, (string) $visite);
 ?>
 
 <!DOCTYPE html>
