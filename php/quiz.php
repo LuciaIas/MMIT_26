@@ -3,155 +3,114 @@ session_start();
 include __DIR__ . '/db.php';
 
 $utente_loggato = isset($_SESSION['username']);
+$username = $utente_loggato ? $_SESSION['username'] : null;
 
-// ID del quiz vero/falso
-$id_quiz = 1;
+// Funzione sicura per recuperare domande
+function get_domande($conn, $tabella, $id_quiz) {
+    $query = "SELECT * FROM $tabella WHERE id_quiz=$1 ORDER BY id";
+    $res = pg_query_params($conn, $query, [$id_quiz]);
+    if(!$res) {
+        die("Errore nella query su $tabella: " . pg_last_error($conn));
+    }
+    $domande = [];
+    while($row = pg_fetch_assoc($res)) {
+        $domande[] = $row;
+    }
+    return $domande;
+}
 
-// Recupera tutte le domande vero/falso dal database
-$domande = pg_query_params($conn, "SELECT * FROM domande_vero_falso WHERE id_quiz=$1 ORDER BY id", [$id_quiz]);
+// Carica le domande dai DB usando gli ID dei tuoi insert
+$domande_vf = get_domande($conn, 'domande_vero_falso', 1);
+$domande_cf = get_domande($conn, 'domande_completa_frase', 2);
+$domande_dd = get_domande($conn, 'domande_drag_drop', 4);
 
-// Gestione invio punteggio
+// Debug: controlla quante righe sono state recuperate
+// Puoi rimuovere queste righe dopo il test
+error_log("Vero/Falso: " . count($domande_vf));
+error_log("Completa frase: " . count($domande_cf));
+error_log("Drag&Drop: " . count($domande_dd));
+
+// Gestione invio risposte
 if($utente_loggato && $_SERVER['REQUEST_METHOD'] === 'POST') {
-    $punteggio = intval($_POST['punteggio']);
-    $id_quiz_post = intval($_POST['id_quiz']);
+    $risposte = $_POST['risposte'] ?? [];
+    $risposte_json = json_encode($risposte);
+    $punteggio = 0;
 
-    // Inserisci o aggiorna il punteggio dell'utente
-    $existing = pg_query_params($conn, 
-        "SELECT id FROM risultati_quiz WHERE username=$1 AND id_quiz=$2",
-        [$_SESSION['username'], $id_quiz_post]
-    );
+    // Vero/Falso
+    foreach($risposte['vf'] ?? [] as $id => $risposta) {
+        $query = pg_query_params($conn, "SELECT risposta_corretta FROM domande_vero_falso WHERE id=$1", [$id]);
+        $row = pg_fetch_assoc($query);
+        if($row && ((bool)$risposta === (bool)$row['risposta_corretta'])) $punteggio++;
+    }
 
+    // Completa frase
+    foreach($risposte['cf'] ?? [] as $id => $risposta) {
+        $query = pg_query_params($conn, "SELECT risposta_corretta FROM domande_completa_frase WHERE id=$1", [$id]);
+        $row = pg_fetch_assoc($query);
+        if($row && strtolower(trim($risposta)) === strtolower(trim($row['risposta_corretta']))) $punteggio++;
+    }
+
+    // Drag & Drop
+    foreach($risposte['dd'] ?? [] as $id => $def) {
+        $query = pg_query_params($conn, "SELECT definizione_corretta FROM domande_drag_drop WHERE id=$1", [$id]);
+        $row = pg_fetch_assoc($query);
+        if($row && trim($def) === trim($row['definizione_corretta'])) $punteggio++;
+    }
+
+    // Inserisci o aggiorna il punteggio (usa id_quiz = 1 per Vero/Falso)
+    $existing = pg_query_params($conn, "SELECT id FROM risultati_quiz WHERE username=$1 AND id_quiz=$2", [$username, 1]);
     if(pg_num_rows($existing) > 0){
         $row = pg_fetch_assoc($existing);
-        pg_query_params($conn, 
-            "UPDATE risultati_quiz SET punteggio=$1 WHERE id=$2",
-            [$punteggio, $row['id']]
-        );
+        pg_query_params($conn, "UPDATE risultati_quiz SET punteggio=$1, risposte_utente=$2 WHERE id=$3",
+            [$punteggio, $risposte_json, $row['id']]);
     } else {
-        // Inserisci nuovo record
-        pg_query_params($conn, 
-            "INSERT INTO risultati_quiz (username,id_quiz,punteggio) VALUES ($1,$2,$3)",
-            [$_SESSION['username'], $id_quiz_post, $punteggio]
-        );
+        pg_query_params($conn, "INSERT INTO risultati_quiz (username, id_quiz, punteggio, risposte_utente) VALUES ($1,$2,$3,$4)",
+            [$username, 1, $punteggio, $risposte_json]);
     }
+
+    $messaggio_punteggio = "Hai totalizzato $punteggio punti!";
 }
 ?>
 
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <title>Quiz Tecnologie Web</title>
-    <link rel="stylesheet" href="../css/quiz.css">
-    <script>
-        let score = 0;
-        let answered = 0;
-
-        function checkAnswer(button, correct) {
-            const li = button.closest("li");
-            if(li.classList.contains('answered')) return;
-
-            if(correct){
-                button.style.backgroundColor = "#4CAF50";
-                score++;
-            } else {
-                button.style.backgroundColor = "#f44336";
-            }
-
-            const buttons = li.querySelectorAll("button");
-            buttons.forEach(b => b.disabled = true);
-            li.classList.add('answered');
-            answered++;
-
-            const totalQuestions = document.querySelectorAll("ol li").length;
-            if(answered === totalQuestions){
-                document.getElementById('result').innerText = "Hai totalizzato " + score + "/" + totalQuestions + " punti!";
-                document.getElementById('punteggioInput').value = score;
-
-                <?php if($utente_loggato): ?>
-                    // Invia automaticamente il punteggio al server
-                    setTimeout(() => document.getElementById('quizForm').submit(), 1000);
-                <?php endif; ?>
-            }
-        }
-
-        function resetQuiz() {
-            score = 0;
-            answered = 0;
-            document.getElementById('result').innerText = "";
-            document.getElementById('punteggioInput').value = "";
-
-            const lis = document.querySelectorAll("ol li");
-            lis.forEach(li => {
-                li.classList.remove('answered');
-                const buttons = li.querySelectorAll("button");
-                buttons.forEach(b => {
-                    b.disabled = false;
-                    b.style.backgroundColor = "";
-                });
-            });
-        }
-    </script>
+<meta charset="UTF-8">
+<title>Quiz Tecnologie Web</title>
+<link rel="stylesheet" href="../css/quiz.css">
+<script>
+function resetQuiz() {
+    document.getElementById('quizForm').reset();
+}
+</script>
 </head>
 <body>
 
 <header>
     <h1>Quiz di Tecnologie Web</h1>
     <?php if($utente_loggato): ?>
-        <p>Benvenuto, <?= htmlspecialchars($_SESSION['username']) ?>! Metti alla prova le tue competenze.</p>
+        <p>Benvenuto, <?= htmlspecialchars($username) ?>! Metti alla prova le tue competenze.</p>
     <?php else: ?>
         <p>Registrati o accedi per salvare i tuoi risultati!</p>
     <?php endif; ?>
 </header>
 
-
-<!-- NAV BAR PRINCIPALE -->
-<nav class="navquiz">
-    <a href="homepage.php">Home</a>
-    <a href="glossario.php">Glossario</a>
-    </nav>
-
 <div class="quiz-container">
+<form id="quizForm" method="post">
 
-    <!-- VERO/FALSO -->
-    <div class="quiz-section">
-        <h2>Domande Vero o Falso
-            <img src="../immagini/check.png" alt="Logo Portale" style="width:16px; height:16px; vertical-align:middle;">
-            <img src="../immagini/cancel.png" alt="Logo Portale" style="width:16px; height:16px; vertical-align:middle;">
-        </h2>
-
-        <form id="quizForm" method="post">
-            <input type="hidden" name="punteggio" id="punteggioInput">
-            <input type="hidden" name="id_quiz" value="<?= $id_quiz ?>">
-
-            <ol>
-                <?php while($row = pg_fetch_assoc($domande)): ?>
-                    <li>
-                        <?= htmlspecialchars($row['testo']) ?>
-                        <button type="button" onclick="checkAnswer(this, <?= $row['risposta_corretta'] ? 'true' : 'false' ?>)">Vero</button>
-                        <button type="button" onclick="checkAnswer(this, <?= $row['risposta_corretta'] ? 'false' : 'true' ?>)">Falso</button>
-                    </li>
-                <?php endwhile; ?>
-            </ol>
-        </form>
-
-        <p id="result"></p>
-        <button type="button" onclick="resetQuiz()">Ricomincia il quiz</button>
-    </div>
-
-
-    <!-- COMPLETA LA FRASE -->
+    <!-- Vero/Falso -->
+    <?php if(count($domande_vf) > 0): ?>
     <section class="quiz-section">
-        <h2>Completa La Frase
-            <img src="../immagini/note.png" alt="Logo Portale" style="width:16px; height:16px; vertical-align:middle;">
-        </h2>
-        <form>
-            <p>1. Il linguaggio <input type="text"> serve a creare la struttura delle pagine web. </p>
-            <p>2. Il protocollo <input type="text"> permette la trasmissione di pagine web. </p>
-            <p>3. <input type="text"> è un linguaggio lato server molto diffuso. </p>
-            <p>4. Il Web 2.0 è caratterizzato da contenuti <input type="text"> creati dagli utenti. </p>
-            <p>5. L’insieme di documenti interconnessi tramite link costituisce il <input type="text">. </p>
-        </form>
+        <h2>Vero o Falso</h2>
+        <ol>
+            <?php foreach($domande_vf as $row): ?>
+            <li>
+                <?= htmlspecialchars($row['testo']) ?>
+                <label><input type="radio" name="risposte[vf][<?= $row['id'] ?>]" value="1"> Vero</label>
+                <label><input type="radio" name="risposte[vf][<?= $row['id'] ?>]" value="0"> Falso</label>
+            </li>
+            <?php endforeach; ?>
+        </ol>
     </section>
     <?php else: ?>
         <p><em>Nessuna domanda Vero/Falso disponibile</em></p>
@@ -188,5 +147,3 @@ if($utente_loggato && $_SERVER['REQUEST_METHOD'] === 'POST') {
 
 </body>
 </html>
-
-
