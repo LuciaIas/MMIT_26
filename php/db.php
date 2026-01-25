@@ -13,5 +13,5 @@ if (!$conn) {
     die("Connessione fallita: " . pg_last_error());
 }
 
-echo "Connessione riuscita!";
+
 ?>
