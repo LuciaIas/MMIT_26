@@ -240,21 +240,3 @@ nav a:hover, .dropbtn:hover {
 }
 
 
-
-/* ================================
-   Responsive
-================================ */
-@media (max-width: 768px) {
-    nav {
-        flex-direction: column;
-    }
-
-    nav a {
-        margin: 5px 0;
-    }
-
-    .focus, .contenuto, .chi-siamo, .sommario {
-        padding: 20px 15px;
-        margin: 15px;
-    }
-}

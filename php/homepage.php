@@ -106,20 +106,35 @@ file_put_contents($file_visite, $visite);
 <div id="storia" class="contenuto">
     <h2>La storia del World Wide Web</h2>
     <p>
-        Il <span class="highlight">World Wide Web (WWW)</span> è una rete di documenti e risorse interconnesse accessibili tramite Internet. 
-        Nasce come evoluzione di ARPANET negli anni ’60, creata per lo scambio sicuro di informazioni. 
-        Con TCP/IP nasce Internet, e nel 1991 il CERN definisce HTML e HTTP per creare documenti ipertestuali navigabili.
+       Il <span class="highlight">World Wide Web (WWW)</span> è una rete globale di documenti e risorse multimediali 
+       interconnesse, accessibili tramite Internet e attraverso l’uso di un browser. </p>
+    <p>
+       Nasce come evoluzione delle prime reti di computer sviluppate per favorire la condivisione delle informazioni 
+       tra più nodi. La prima rete significativa fu <span class="highlight">ARPANET</span>, creata alla fine degli 
+       anni ’60 negli Stati Uniti dalla <span class="highlight" title="Defense Advanced Research Projects Agency">
+       DARPA</span> sviluppò ARPANET per scopi militari. 
     </p>
     <p>
-        Il <span class="highlight">Web 1.0</span> era statico: poche aziende pubblicavano contenuti e gli utenti potevano solo leggere. 
-        L’ipertesto permetteva di navigare tra documenti tramite link.
+    Con l’introduzione del protocollo <span class="highlight">TCP/IP</span> nel 1982, ARPANET si trasforma progressivamente 
+    in <span class="highlight">Internet</span>, un’infrastruttura che consente la comunicazione tra computer e dispositivi 
+    distribuiti in tutto il mondo. <p><i>Internet esiste e funziona anche senza il Web, ma è proprio il Web che ne ha 
+    favorito la diffusione di massa tra gli utenti.</i></p>Nel 1989 il fisico <span class="highlight">Tim Berners-Lee</span>, 
+    lavorando al CERN di Ginevra, propose un sistema per la condivisione di documenti ipertestuali tra ricercatori. 
+    Nel 1991 vennero definiti il linguaggio HTML e il protocollo HTTP, che permisero la creazione e il trasferimento 
+    di documenti collegati tramite link. Nasce così ufficialmente il World Wide Web, reso pubblico nel 1993 e destinato 
+    a una crescita esponenziale negli anni successivi.
+   </p>
+   <p>
+        <h3 style="display: inline;">Web 1.0 : </h3>Pagine statiche, utenti lettori, ipertesti e URL. Pochi contenuti dinamici.
+        <br>
+        <h3 style="display: inline;">Web 2.0 : </h3>Web dinamico e partecipativo. Blog, social network, wiki e video sharing.
+        <br>
+        <h3 style="display: inline;">Web 3.0 : </h3>Web semantico e AI. Servizi personalizzati con metadati, cookie e geolocalizzazione.
+        <br>
+        <h3 style="display: inline;">Web 4.0 : </h3>Internet of Things: oggetti intelligenti connessi, domotica e veicoli autonomi.
     </p>
-    <p>
-        Con il <span class="highlight">Web 2.0</span> (dal 2004) gli utenti diventano protagonisti: creano contenuti, commentano e condividono informazioni su blog, social network e piattaforme collaborative. Le pagine diventano dinamiche e interattive grazie a HTML, CSS, JavaScript, AJAX e database server.
-    </p>
-    <p>
-        Oggi <span class="highlight">Web 3.0</span> e Web semantico interpretano i dati per generare nuova conoscenza, grazie a intelligenza artificiale, metadati, cookie e geolocalizzazione. Infine, Web 4.0 (IoT) rende intelligenti gli oggetti connessi, migliorando la vita quotidiana dalla domotica ai veicoli autonomi.
-    </p>
+
+  
 </div>
 
 <!-- LINGUAGGI CHIAVE -->
@@ -162,11 +177,24 @@ file_put_contents($file_visite, $visite);
     
 </div>
 
+<!-- CONTATTIK -->
+<div id="contatti" class="contenuto">
+    <h2>Contatti</h2>
+    <strong>Gruppo MMIT</strong>
+    <p>
+        Lucia Iasevoli   | Email: <a href="mailto:l.iasevoli1@studenti.unisa.it">l.iasevoli1@studenti.unisa.it</a><br>
+        Lucia Monetta    | Email: <a href="mailto:l.monetta8@studenti.unisa.it">l.monetta8@studenti.unisa.it</a><br>
+        Matteo Muccio    | Email: <a href="mailto:l.iasevoli1@studenti.unisa.it">l.iasevoli1@studenti.unisa.it</a><br>
+        Michele Tamburro | Email: <a href="mailto:l.monetta8@studenti.unisa.it">l.monetta8@studenti.unisa.it</a>
+    </p>
+</div>
+
+
 <!-- FOOTER -->
 <div class="footer">
     <p>Corso Tecnologie Web – A.A. 2025-2026 | Portale didattico per studenti di Ingegneria Informatica</p>
     <p>Gruppo MMIT</p>
-    <p id="contatti">CONTATTI - Email : l.iasevoli1@studenti.unisa.it , l.monetta8@studenti.unisa.it , 
+    <p id="ccontatti">CONTATTI - Email : l.iasevoli1@studenti.unisa.it , l.monetta8@studenti.unisa.it , 
         m.muccio@studenti.unisa.it , m.tamburro@studenti.unisa.it</p>
 </div>
 
