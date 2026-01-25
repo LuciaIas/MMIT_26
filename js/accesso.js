@@ -18,7 +18,7 @@ buttons.forEach(btn => {
         } else {
             loginForm.classList.remove('form-active');
             registerForm.classList.add('form-active');
-            sideTitle.textContent = "Benvenuto nuovo amico, felice di accoglierti!";
+            sideTitle.textContent = "Benvenuto amico, felice di accoglierti!";
             sideText.textContent = "Più esercitazioni, più soddisfazioni... unisciti a noi!";
         }
     });
