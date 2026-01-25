@@ -1,27 +1,19 @@
 <?php
-session_start(); // gestione login
-include __DIR__ . '/db.php'; // connessione al database
+session_start();
+include __DIR__ . '/db.php';
 
-// Controllo se utente loggato
 $utente_loggato = isset($_SESSION['username']);
 
+$file_visite = __DIR__ . '/visite.txt';
 
-$file_visite = 'visite.txt';
-
-// Se il file non esiste, lo creiamo e mettiamo 0
-if(!file_exists($file_visite)) {
-    file_put_contents($file_visite, 0);
+// Controlliamo solo se il file esiste, altrimenti non facciamo nulla
+if(file_exists($file_visite)) {
+    $visite = (int)file_get_contents($file_visite);
+    $visite++;
+    file_put_contents($file_visite, $visite);
+} else {
+    $visite = 1; // opzionale: se non esiste, consideriamo 1 visita
 }
-
-// Leggiamo il numero di visite attuali
-$visite = (int)file_get_contents($file_visite);
-
-// Incrementiamo di 1
-$visite++;
-
-// Riscriviamo il numero aggiornato nel file
-file_put_contents($file_visite, $visite);
-
 ?>
 
 <!DOCTYPE html>
