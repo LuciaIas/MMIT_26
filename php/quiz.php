@@ -94,6 +94,7 @@ if($utente_loggato && $_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     </script>
 </head>
+
 <body>
 <header>
     <h1>Quiz di Tecnologie Web</h1>
@@ -103,6 +104,13 @@ if($utente_loggato && $_SERVER['REQUEST_METHOD'] === 'POST') {
         <p>Registrati o accedi per salvare i tuoi risultati!</p>
     <?php endif; ?>
 </header>
+
+
+<!-- NAV BAR PRINCIPALE -->
+<nav class="navquiz">
+    <a href="homepage.php">Home</a>
+    <a href="glossario.php">Glossario</a>
+    </nav>
 
 <div class="quiz-container">
 
@@ -132,9 +140,12 @@ if($utente_loggato && $_SERVER['REQUEST_METHOD'] === 'POST') {
         <button type="button" onclick="resetQuiz()">Ricomincia il quiz</button>
     </div>
 
+
     <!-- COMPLETA LA FRASE -->
     <section class="quiz-section">
-        <h2>Completa la frase</h2>
+        <h2>Completa La Frase
+            <img src="../immagini/note.png" alt="Logo Portale" style="width:16px; height:16px; vertical-align:middle;">
+        </h2>
         <form>
             <p>1. Il linguaggio <input type="text"> serve a creare la struttura delle pagine web. </p>
             <p>2. Il protocollo <input type="text"> permette la trasmissione di pagine web. </p>
@@ -142,6 +153,18 @@ if($utente_loggato && $_SERVER['REQUEST_METHOD'] === 'POST') {
             <p>4. Il Web 2.0 è caratterizzato da contenuti <input type="text"> creati dagli utenti. </p>
             <p>5. L’insieme di documenti interconnessi tramite link costituisce il <input type="text">. </p>
         </form>
+    </section>
+
+        <!-- OUTPUT CORRETTO -->
+    <section class="quiz-section">
+        <h2>Seleziona l'Output Corretto
+            <img src="../immagini/note.png" alt="Logo Portale" style="width:16px; height:16px; vertical-align:middle;">
+        </h2>
+        <img src="../immagini/quiz_id3.png" alt="Logo Portale">
+        <button type="button" onclick="checkAnswer(this, <?= $row['risposta_corretta'] ? 'true' : 'false' ?>)">
+            Perchè impostare la codifica HTML Ã·· importante</button>
+        <button type="button" onclick="checkAnswer(this, <?= $row['risposta_corretta'] ? 'false' : 'true' ?>)">
+            Perchè impostare la codifica HTML è importante</button>
     </section>
 
     <!-- DRAG & DROP -->

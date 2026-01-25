@@ -55,11 +55,6 @@ window.onclick = function(event) {
 <nav>
     <a href="accesso.php?">Accedi</a>
     <a href="accesso.php?register=1">Registrati</a>
-   <!-- <a href="<?php echo $utente_loggato ? 'quiz.php' : 'accesso.php?mode=login'; ?>" class="btn">Quiz</a> -->
-      <!-- <a href="<?php echo $utente_loggato ? 'glossario.php' : 'accesso.php?mode=login'; ?>" class="btn">Glossario</a> -->
-    <a href="quiz.php">Quiz</a>
-    <a href="glossario.php">Glossario</a>
-
     <!-- MENU A TENDINA -->
     <div class="dropdown-menu">
         <button class="dropbtn" onclick="toggleMenu()">Sezioni </button>
@@ -69,11 +64,17 @@ window.onclick = function(event) {
             <a href="#css">CSS</a>
             <a href="#php">PHP</a>
             <a href="#javascript">JavaScript</a>
-            <a href="#statistiche">Statistiche</a>
             <a href="#feedback">Feedback</a>
             <a href="#contatti">Contatti</a>           
         </div>
     </div>
+
+    <!-- <a href="<?php echo $utente_loggato ? 'quiz.php' : 'accesso.php?mode=login'; ?>" class="btn">Quiz</a> -->
+    <!-- <a href="<?php echo $utente_loggato ? 'glossario.php' : 'accesso.php?mode=login'; ?>" class="btn">Glossario</a> -->
+    <a href="quiz.php">Quiz</a>
+    <a href="glossario.php">Glossario</a>
+    <a href="profilo.php">Profilo</a> 
+    <!-- <a href="<?php echo $utente_loggato ? 'glossario.php' : 'accesso.php?mode=login'; ?>" class="btn">Glossario</a> -->   
 </nav>
 
 <!-- SEZIONE INTRO DINAMICA -->
@@ -92,13 +93,13 @@ window.onclick = function(event) {
             Qui puoi approfondire HTML, CSS, JavaScript e PHP e testare le tue competenze con i quiz di autovalutazione.
             La dashboard fornisce la parte introduttiva dei linguaggi e la descrizione della storia del Web.
             Alcune funzionalità, come il glossario e i quiz interattivi, 
-            sono accessibili solo dopo la registrazione...non perdere tempo,<strong> Registrati ora!</strong>
+            sono accessibili solo dopo la registrazione...non perdere tempo,<span style="color: #0d6efd;"><strong> Registrati ora!</strong></span>
         </p>
     <?php endif; ?>
 </div>
 
 <!-- CHI SIAMO -->
-<div class="chi-siamo">
+<div class="contenuto">
     <h2>Chi siamo?</h2>
     <p>
         Siamo un gruppo di studenti del terzo anno di Ingegneria Informatica frequentanti
@@ -164,9 +165,9 @@ window.onclick = function(event) {
     <p>PHP è un linguaggio lato server per contenuti dinamici. Gestisce login, registrazioni, moduli e interazioni con database. Elabora richieste e genera pagine personalizzate in base ai dati. Viene eseguito sul server, fornendo HTML pronto al browser. Essenziale per siti interattivi e applicazioni web complesse.</p>
 </div>
 
-<!-- STATISTICHE -->
-<div id="statistiche" class="contenuto">
-    <h2>Statistiche</h2>
+<!-- STATISTICHE E FEEDBACK -->
+<div id="feedback" class="contenuto">
+    <h2>Feedback</h2>
     <p>Questo portale ha supportato centinaia di studenti nello studio di Tecnologie Web. </p>
     <p>La maggior parte di loro dichiara di aver trovato utile il materiale interattivo e i quiz di autovalutazione 
     e di aver superato con successo l'esame!</p>
@@ -177,12 +178,6 @@ window.onclick = function(event) {
     </p> 
 </div>
 
-<!-- FEEDBACK -->
-<div id="feedback" class="contenuto">
-    <h2>Feedback</h2>
-    <p>DA AGGIUNGERE RECENSIONI SE VOGLIAMO</p>
-</div>
-
 <!-- CONTATTI -->
 <div id="contatti" class="contenuto">
     <h2>Contatti</h2>
@@ -190,8 +185,8 @@ window.onclick = function(event) {
     <p>
         Lucia Iasevoli   | Email: <a href="mailto:l.iasevoli1@studenti.unisa.it">l.iasevoli1@studenti.unisa.it</a><br>
         Lucia Monetta    | Email: <a href="mailto:l.monetta8@studenti.unisa.it">l.monetta8@studenti.unisa.it</a><br>
-        Matteo Muccio    | Email: <a href="mailto:l.iasevoli1@studenti.unisa.it">l.iasevoli1@studenti.unisa.it</a><br>
-        Michele Tamburro | Email: <a href="mailto:l.monetta8@studenti.unisa.it">l.monetta8@studenti.unisa.it</a>
+        Matteo Muccio    | Email: <a href="mailto:m.muccio3@studenti.unisa.it">m.muccio3@studenti.unisa.it</a><br>
+        Michele Tamburro | Email: <a href="mailto:m.tamburro@studenti.unisa.it">m.tamburro@studenti.unisa.it</a>
     </p>
 </div>
 
