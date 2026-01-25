@@ -85,15 +85,13 @@ window.onclick = function(event) {
             Sei loggato e puoi accedere a tutte le funzionalità del portale, inclusi quiz interattivi e glossario completo.
             Approfondisci HTML, CSS, JavaScript e PHP e testa le tue competenze direttamente dalla dashboard.
         </p>
-        <a href="quiz.php" class="btn">Vai ai Quiz</a>
-        <a href="glossario.php" class="btn">Vai al Glossario</a>
     <?php else: ?>
         <h1>Sei uno studente di Tecnologie Web? Sei nel posto giusto!</h1>
         <p>
             Qui puoi approfondire HTML, CSS, JavaScript e PHP e testare le tue competenze con i quiz di autovalutazione.
             La dashboard fornisce la parte introduttiva dei linguaggi e la descrizione della storia del Web.
             Alcune funzionalità, come il glossario e i quiz interattivi, 
-            sono accessibili solo dopo la registrazione...non perdere tempo,<span style="color: #0d6efd;"><strong> Registrati ora!</strong></span>
+            sono accessibili solo dopo la registrazione...non perdere tempo,<span style="color: #0d6efd;"><strong> gRegistrati ora!</strong></span>
         </p>
     <?php endif; ?>
 </div>
