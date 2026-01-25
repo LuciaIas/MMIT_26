@@ -49,9 +49,11 @@ file_put_contents($file_visite, $visite);
 
 <!-- NAV BAR PRINCIPALE -->
 <nav>
-    <a href="accesso.php?mode=login">Accedi</a>
-    <a href="accesso.php?mode=register">Registrati</a>
-    <a href="contenuti.php">Quiz</a>
+    <a href="accesso.php?">Accedi</a>
+    <a href="accesso.php?register=1">Registrati</a>
+   <!-- <a href="<?php echo $utente_loggato ? 'quiz.php' : 'accesso.php?mode=login'; ?>" class="btn">Quiz</a> -->
+      <!-- <a href="<?php echo $utente_loggato ? 'glossario.php' : 'accesso.php?mode=login'; ?>" class="btn">Glossario</a> -->
+    <a href="quiz.php">Quiz</a>
     <a href="glossario.php">Glossario</a>
 
     <!-- MENU A TENDINA -->
@@ -174,10 +176,10 @@ file_put_contents($file_visite, $visite);
 <!-- FEEDBACK -->
 <div id="feedback" class="contenuto">
     <h2>Feedback</h2>
-    
+    <p>DA AGGIUNGERE RECENSIONI SE VOGLIAMO</p>
 </div>
 
-<!-- CONTATTIK -->
+<!-- CONTATTI -->
 <div id="contatti" class="contenuto">
     <h2>Contatti</h2>
     <strong>Gruppo MMIT</strong>
@@ -193,9 +195,7 @@ file_put_contents($file_visite, $visite);
 <!-- FOOTER -->
 <div class="footer">
     <p>Corso Tecnologie Web – A.A. 2025-2026 | Portale didattico per studenti di Ingegneria Informatica</p>
-    <p>Gruppo MMIT</p>
-    <p id="ccontatti">CONTATTI - Email : l.iasevoli1@studenti.unisa.it , l.monetta8@studenti.unisa.it , 
-        m.muccio@studenti.unisa.it , m.tamburro@studenti.unisa.it</p>
+    <p>Università degli Studi di Salerno - Via Giovanni Paolo II, 132 - 84084 Fisciano (SA)</p>
 </div>
 
 <script>
