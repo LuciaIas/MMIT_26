@@ -23,11 +23,24 @@ if(file_exists($file_visite)) {
     <meta charset="UTF-8">
     <title>Portale Tecnologie Web</title>
     <link rel="stylesheet" href="../css/homepagecss.css">
+<script>
+function toggleMenu() {
+    document.getElementById("dropdown-content").classList.toggle("show");
+}
 
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    for (var i = 0; i < dropdowns.length; i++) {
+      dropdowns[i].classList.remove('show');
+    }
+  }
+}
+</script>
 </head>
 
-<body>
 
+<body>
 <header>
     <div class="header-content">
         <img src="../immagini/logo.png" alt="Logo Portale" class="header-img">
@@ -37,7 +50,6 @@ if(file_exists($file_visite)) {
         </div>
     </div>
 </header>
-
 
 <!-- NAV BAR PRINCIPALE -->
 <nav>
@@ -190,21 +202,6 @@ if(file_exists($file_visite)) {
     <p>Università degli Studi di Salerno - Via Giovanni Paolo II, 132 - 84084 Fisciano (SA)</p>
 </div>
 
-<script>
-function toggleMenu() {
-    document.getElementById("dropdown-content").classList.toggle("show");
-}
-
-window.onclick = function(event) {
-  if (!event.target.matches('.dropbtn')) {
-    var dropdowns = document.getElementsByClassName("dropdown-content");
-    for (var i = 0; i < dropdowns.length; i++) {
-      dropdowns[i].classList.remove('show');
-    }
-  }
-}
-
-</script>
 
 </body>
 </html>

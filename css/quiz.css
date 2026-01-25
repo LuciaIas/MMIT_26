@@ -34,7 +34,9 @@ header {
     margin: 5px 0 0 0;
 }
 
-
+.quiz-section ol li {
+    margin-bottom: 20px; /* distanza tra ogni elemento della lista */
+}
 
 .quiz-container {
     max-width: 900px;
