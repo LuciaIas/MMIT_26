@@ -39,8 +39,8 @@ body {
 }
 
 .avatar img {
-    width: 200px !important;
-    height: 200px !important;
+    width: 600px !important;
+    height: 600px !important;
     border-radius: 50%;
     object-fit: cover;
 }
