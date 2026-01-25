@@ -13,11 +13,17 @@ if (isset($_POST['login'])) {
     if ($username && $password) {
         $query = "SELECT * FROM utenti WHERE username=$1";
         $result = pg_query_params($conn, $query, [$username]);
+
+        if (!$result) {
+            die("Errore nella query: " . pg_last_error());
+        }
+
         $user = pg_fetch_assoc($result);
 
         if ($user && password_verify($password, $user['password'])) {
             $_SESSION['username'] = $user['username'];
-            header("Location: studente/home.php");
+            // Redirect alla pagina profilo
+            header("Location: profilo.php");
             exit;
         } else {
             $messaggio = "Credenziali non valide.";
@@ -31,13 +37,11 @@ if (isset($_POST['login'])) {
 
 /* ===== REGISTRAZIONE ===== */
 if (isset($_POST['register'])) {
-
     $sesso = $_POST['sesso'] ?? '';
     $username = trim($_POST['username_reg']);
     $email = trim($_POST['email_reg']);
     $password = trim($_POST['password_reg']);
     $password_conf = trim($_POST['password_conf']);
-
     $universita = $_POST['universita'] ?? '';
     $universita_altro = trim($_POST['universita_altro'] ?? '');
 
@@ -46,15 +50,11 @@ if (isset($_POST['register'])) {
     }
 
     if ($sesso && $username && $email && $password && $password_conf) {
-
         if ($password !== $password_conf) {
             $messaggio = "Le password non coincidono.";
             $tipo_messaggio = "error";
         } else {
-            $check = pg_query_params($conn,
-                "SELECT 1 FROM utenti WHERE username=$1",
-                [$username]
-            );
+            $check = pg_query_params($conn, "SELECT 1 FROM utenti WHERE username=$1", [$username]);
 
             if (pg_num_rows($check) > 0) {
                 $messaggio = "Nome utente già esistente.";
@@ -62,15 +62,22 @@ if (isset($_POST['register'])) {
             } else {
                 $hash = password_hash($password, PASSWORD_DEFAULT);
 
-                pg_query_params(
+                $insert = pg_query_params(
                     $conn,
                     "INSERT INTO utenti (username,email,password,tipo_utente,sesso,universita)
                      VALUES ($1,$2,$3,'studente',$4,$5)",
                     [$username, $email, $hash, $sesso, $universita]
                 );
 
-                $messaggio = "Registrazione completata. Ora puoi accedere.";
-                $tipo_messaggio = "success";
+                if ($insert) {
+                    // Login automatico dopo registrazione
+                    $_SESSION['username'] = $username;
+                    header("Location: profilo.php");
+                    exit;
+                } else {
+                    $messaggio = "Errore durante la registrazione.";
+                    $tipo_messaggio = "error";
+                }
             }
         }
     } else {
@@ -87,13 +94,9 @@ if (isset($_POST['register'])) {
 <title>Accesso</title>
 <link rel="stylesheet" href="../css/accesso.css">
 </head>
-
 <body>
-
 <div class="container-login">
-
 <div class="form-container">
-
 <div class="avatar">
     <img src="../immagini/students_avatar.png" alt="Avatar studenti">
 </div>
@@ -111,20 +114,14 @@ if (isset($_POST['register'])) {
 
 <form id="loginForm" method="post" class="form-active">
     <input type="text" name="username" placeholder="Nome utente" required>
-
     <input type="password" name="password" placeholder="Password" id="loginPassword">
-
     <label class="show-pass">
-        <input type="checkbox" data-target="loginPassword">
-        Mostra caratteri
+        <input type="checkbox" data-target="loginPassword"> Mostra caratteri
     </label>
-
     <button name="login">Accedi</button>
 </form>
 
 <form id="registerForm" method="post">
-
-    <!-- SESSO -->
     <div class="radio-group">
         <span class="radio-label">Sesso:</span>
         <div class="radio-options">
@@ -140,11 +137,9 @@ if (isset($_POST['register'])) {
     <input type="password" name="password_conf" placeholder="Conferma password" id="regPasswordConf">
 
     <label class="show-pass">
-        <input type="checkbox" data-target="regPassword,regPasswordConf">
-        Mostra caratteri
+        <input type="checkbox" data-target="regPassword,regPasswordConf"> Mostra caratteri
     </label>
 
-    <!-- UNIVERSITÀ -->
     <select name="universita" id="universitaSelect">
         <option value="">Seleziona università</option>
         <option>Università degli Studi di Salerno</option>
@@ -154,23 +149,16 @@ if (isset($_POST['register'])) {
         <option value="Altro">Altra università</option>
     </select>
 
-    <textarea id="universitaAltro"
-              name="universita_altro"
-              placeholder="Scrivi il nome della tua università"
-              style="display:none"></textarea>
+    <textarea id="universitaAltro" name="universita_altro" placeholder="Scrivi il nome della tua università" style="display:none"></textarea>
 
     <button name="register" id="registerBtn" disabled>Registrati</button>
 </form>
-
 </div>
-
 <div class="side-panel">
     <h1 id="sideTitle"></h1>
     <p id="sideText"></p>
 </div>
-
 </div>
-
 <script src="../js/accesso.js"></script>
 </body>
 </html>
