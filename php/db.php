@@ -3,15 +3,15 @@
 
 $host = "localhost";
 $port = "5432";
-$dbname = "gruppo26";  // nome del database
+$dbname = "gruppo26";
 $user = "www";
 $password = "www";
 
 $conn = pg_connect("host=$host port=$port dbname=$dbname user=$user password=$password");
 
-if(!$conn) {
+if (!$conn) {
     die("Connessione fallita: " . pg_last_error());
-} else {
-    echo "Connessione riuscita!";
 }
+
+echo "Connessione riuscita!";
 ?>
