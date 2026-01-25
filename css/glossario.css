@@ -1,168 +1,95 @@
-/* --- RESET E BASE --- */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
 body {
-    margin: 0;
     font-family: 'Segoe UI', Arial, sans-serif;
-    background-color: #ffc107; /* Sfondo Giallo (tua immagine) */
-}
-
-/* --- HEADER BLU (Selettore Classe) --- */
-.main-header {
-    background-color: #0d6efd; /* Blu intenso */
-    color: white;
-    text-align: center;
-    padding: 30px 20px;
-}
-
-/* Unione di selettori */
-.main-header h1, .main-header p {
-    margin: 5px 0;
-}
-
-/* --- NAVBAR (Selettore Discendente nav > a) --- */
-.navbar {
-    background-color: #212529; /* Nero/Grigio scuro */
-    text-align: center;
-    padding: 10px 0;
-}
-
-.navbar a {
-    color: white;
-    text-decoration: none;
-    padding: 10px 20px;
-    display: inline-block;
-    font-weight: bold;
-}
-
-/* Pseudo-classe :hover (Slide 09.1) */
-.navbar a:hover, .navbar a.active {
-    background-color: #495057;
-    border-radius: 5px;
-}
-
-/* --- LAYOUT GIALLO --- */
-.yellow-container {
-    padding: 30px;
-    min-height: 80vh;
+    background: linear-gradient(#fff3cd, #ffc107);
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centra le box */
 }
 
-/* --- BOX BIANCHI (Generale) --- */
-.content-box {
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    width: 100%;
-    max-width: 800px;
-    margin-bottom: 20px;
+.main-header {
+    background: #0d6efd;
+    color: white;
+    text-align: center;
+    padding: 40px 20px;
 }
 
-/* --- SEZIONE RICERCA (Selettore ID usabile in JS) --- */
-#js-search {
-    width: 60%;
+.navbar {
+    background: #212529;
+    text-align: center;
     padding: 10px;
-    border: 1px solid #ccc;
+}
+
+.navbar a,
+.navbar button {
+    color: white;
+    background: none;
+    border: none;
+    padding: 10px 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.navbar a:hover,
+.logout-btn:hover {
+    background: #495057;
     border-radius: 5px;
 }
 
-.small-text {
-    font-size: 0.85em;
-    color: #666;
-    margin-top: 5px;
+.logout-btn {
+    background: #dc3545;
+    border-radius: 5px;
 }
 
-/* --- GRIGLIA CARD (Slide 10.1 - Layout) --- */
+.yellow-container {
+    padding: 40px;
+    flex: 1;
+}
+
+.content-box {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    max-width: 900px;
+    margin: 0 auto 30px;
+}
+
 .terms-grid {
     display: flex;
+    gap: 25px;
     flex-wrap: wrap;
-    gap: 20px; /* Spazio tra le card */
     justify-content: center;
-    max-width: 1000px;
 }
 
-/* --- CARD SINGOLA --- */
 .term-card {
+    width: 280px;
     background: white;
-    width: 300px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0,0,0,.15);
     overflow: hidden;
-    position: relative; /* Per posizionare il lucchetto */
-    transition: transform 0.2s;
-}
-
-/* Effetto interattivo */
-.term-card:hover {
-    transform: translateY(-5px);
 }
 
 .term-card header {
-    background-color: #f8f9fa;
+    background: #f8f9fa;
     padding: 15px;
-    border-bottom: 1px solid #eee;
     display: flex;
     justify-content: space-between;
-    align-items: center;
-}
-
-.term-card h3 {
-    margin: 0;
-    color: #0d6efd; /* Titolo blu */
-    font-size: 1.2em;
-}
-
-.category-badge {
-    background-color: #e9ecef;
-    font-size: 0.8em;
-    padding: 4px 8px;
-    border-radius: 12px;
-}
-
-.card-content {
-    padding: 15px;
-}
-
-/* --- STILI PER CONTENUTO BLOCCATO --- */
-.locked {
-    border: 1px solid #dee2e6;
-}
-
-/* Pseudo-elemento ::before (Requisito slide 09.1) */
-.locked h3::before {
-    content: "🔒 ";
-}
-
-.blur-text {
-    filter: blur(4px); /* Sfoca il testo */
-    opacity: 0.6;
-    user-select: none;
 }
 
 .lock-overlay {
     position: absolute;
-    top: 60%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: rgba(255,255,255,0.95);
-    padding: 10px 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    text-align: center;
+    inset: 0;
+    background: rgba(255,255,255,.9);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-.lock-overlay a {
-    color: #d63384;
-    font-weight: bold;
-    text-decoration: none;
-}
-
-/* --- FOOTER --- */
 .main-footer {
-    background-color: #212529;
+    background: #212529;
     color: white;
     text-align: center;
     padding: 15px;
-    margin-top: auto;
 }

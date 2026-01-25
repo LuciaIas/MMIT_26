@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const sideText = document.getElementById('sideText');
     const registerBtn = document.getElementById('registerBtn');
 
+    // ===== FUNZIONI VISUALIZZAZIONE FORM =====
     function showLogin() {
         buttons[0].classList.add('active');
         buttons[1].classList.remove('active');
@@ -27,14 +28,18 @@ document.addEventListener('DOMContentLoaded', () => {
         sideText.textContent = "Più esercitazioni, più soddisfazioni... unisciti a noi!";
     }
 
+    // ===== EVENTI PULSANTI =====
     buttons[0].onclick = showLogin;
     buttons[1].onclick = showRegister;
 
-    /* ===== HOMEPAGE → REGISTRAZIONE ===== */
+    // ===== DEFAULT: LOGIN ATTIVO ALL'APERTURA =====
+    showLogin(); // ← Assicura che il login sia attivo e il testo mostrato
+
+    // ===== SE ARRIVA DALLA HOMEPAGE CON REGISTER =====
     const params = new URLSearchParams(window.location.search);
     if (params.get('register') === '1') showRegister();
 
-    /* ===== MOSTRA CARATTERI ===== */
+    // ===== MOSTRA CARATTERI PASSWORD =====
     document.querySelectorAll('.show-pass input').forEach(check => {
         check.addEventListener('change', () => {
             const targets = check.dataset.target.split(',');
@@ -45,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    /* ===== UNIVERSITÀ ALTRO ===== */
+    // ===== UNIVERSITÀ ALTRO =====
     const uniSelect = document.getElementById('universitaSelect');
     const uniAltro = document.getElementById('universitaAltro');
 
@@ -53,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
         uniAltro.style.display = uniSelect.value === 'Altro' ? 'block' : 'none';
     });
 
-    /* ===== BOTTONE REGISTRATI ===== */
+    // ===== BOTTONE REGISTRATI ATTIVO SOLO SE CAMPi COMPILATI =====
     registerForm.addEventListener('input', () => {
         const ok =
             registerForm.querySelector('[name="email_reg"]').value &&

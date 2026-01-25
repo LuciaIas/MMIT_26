@@ -1,4 +1,4 @@
-<?php
+<?php 
 session_start();
 include __DIR__ . '/db.php';
 
@@ -22,7 +22,6 @@ if (isset($_POST['login'])) {
 
         if ($user && password_verify($password, $user['password'])) {
             $_SESSION['username'] = $user['username'];
-            // Redirect alla pagina profilo
             header("Location: profilo.php");
             exit;
         } else {
@@ -70,7 +69,6 @@ if (isset($_POST['register'])) {
                 );
 
                 if ($insert) {
-                    // Login automatico dopo registrazione
                     $_SESSION['username'] = $username;
                     header("Location: profilo.php");
                     exit;
@@ -112,6 +110,7 @@ if (isset($_POST['register'])) {
     <button data-form="register">Registrazione</button>
 </div>
 
+<!-- FORM LOGIN -->
 <form id="loginForm" method="post" class="form-active">
     <input type="text" name="username" placeholder="Nome utente" required>
     <input type="password" name="password" placeholder="Password" id="loginPassword">
@@ -119,8 +118,11 @@ if (isset($_POST['register'])) {
         <input type="checkbox" data-target="loginPassword"> Mostra caratteri
     </label>
     <button name="login">Accedi</button>
+    <!-- Pulsante indietro -->
+    <button type="button" class="btn-back" onclick="window.location.href='homepage.php'">Indietro</button>
 </form>
 
+<!-- FORM REGISTRAZIONE -->
 <form id="registerForm" method="post">
     <div class="radio-group">
         <span class="radio-label">Sesso:</span>
@@ -132,7 +134,6 @@ if (isset($_POST['register'])) {
 
     <input type="email" name="email_reg" placeholder="nome@esempio.com">
     <input type="text" name="username_reg" placeholder="Nome utente">
-
     <input type="password" name="password_reg" placeholder="Password" id="regPassword">
     <input type="password" name="password_conf" placeholder="Conferma password" id="regPasswordConf">
 
@@ -152,13 +153,17 @@ if (isset($_POST['register'])) {
     <textarea id="universitaAltro" name="universita_altro" placeholder="Scrivi il nome della tua università" style="display:none"></textarea>
 
     <button name="register" id="registerBtn" disabled>Registrati</button>
+    <!-- Pulsante indietro -->
+    <button type="button" class="btn-back" onclick="window.location.href='homepage.php'">Indietro</button>
 </form>
 </div>
+
 <div class="side-panel">
     <h1 id="sideTitle"></h1>
     <p id="sideText"></p>
 </div>
 </div>
+
 <script src="../js/accesso.js"></script>
 </body>
 </html>
