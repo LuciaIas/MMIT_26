@@ -32,17 +32,23 @@ body {
     text-align:center;
 }
 
+/* Contenitore avatar: permetti che l'immagine cresca */
 .avatar {
     display: flex;
     justify-content: center;
+    align-items: center;   /* centra anche verticalmente */
     margin-bottom: 20px;
+    width: 100%;           /* lascia che si adatti al contenitore */
 }
 
+/* L'immagine vera e propria: più grande */
 .avatar img {
-    width: 600px !important;
-    height: 600px !important;
-    border-radius: 50%;
+    width: 300px !important;   /* nuova larghezza */
+    height: 300px !important;  /* nuova altezza */
+    max-width: 100%;           /* evita overflow */
+    border-radius: 50%;        /* mantiene forma circolare */
     object-fit: cover;
+    display: block;            /* utile per evitare spazi extra */
 }
 
 h2 { color:#333; margin-bottom:20px; }
