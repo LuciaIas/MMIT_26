@@ -72,7 +72,6 @@ if (isset($_POST['register'])) {
 <meta name="description" content="Pagina di accesso"/>
 <title>Accesso – Portale Tecnologie Web</title>
 <link href="../css/accesso.css" rel="stylesheet" type="text/css" >
-<script src="../js/accesso.js" type="text/javascript" ></script>
 
 <!-- Favicon: icona in alto nella scheda del browser -->
 <link rel="icon" href="../immagini/iconcinalogin.jpg" type="image/png">
@@ -141,5 +140,6 @@ if (isset($_POST['register'])) {
     </div>
 
 </div>
+<script src="../js/accesso.js" type="text/javascript" ></script>
 </body>
 </html>
