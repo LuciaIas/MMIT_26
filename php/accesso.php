@@ -36,10 +36,8 @@ if (isset($_POST['register'])) {
     $email = trim($_POST['email_reg']);
     $password = trim($_POST['password_reg']);
     $password_conf = trim($_POST['password_conf']);
-    $sesso = $_POST['sesso'] ?? '';
-    $universita = $_POST['universita'] ?? '';
 
-    if ($username && $email && $password && $password_conf && $sesso && $universita) {
+    if ($username && $email && $password && $password_conf) {
         if ($password !== $password_conf) {
             $messaggio = "Le password non coincidono.";
             $tipo_messaggio = "error";
@@ -52,8 +50,8 @@ if (isset($_POST['register'])) {
                 $hash = password_hash($password, PASSWORD_DEFAULT);
                 pg_query_params(
                     $conn,
-                    "INSERT INTO utenti (username,email,password,tipo_utente,sesso,universita) VALUES ($1,$2,$3,'studente',$4,$5)",
-                    [$username, $email, $hash, $sesso, $universita]
+                    "INSERT INTO utenti (username,email,password,tipo_utente) VALUES ($1,$2,$3,'studente')",
+                    [$username, $email, $hash]
                 );
                 $messaggio = "Registrazione completata. Ora puoi accedere.";
                 $tipo_messaggio = "success";
@@ -77,14 +75,9 @@ if (isset($_POST['register'])) {
 <script src="../js/accesso.js" type="text/javascript" ></script>
 
 <!-- Favicon: icona in alto nella scheda del browser -->
-<link rel="icon" href="../immagini/iconcinalogin.png" type="image/png">
+<link rel="icon" href="../immagini/iconcinalogin.jpg" type="image/png">
 </head>
 <body>
-
-<!-- ICONA SOPRA -->
-<div class="icon-login">
-    <img src="../immagini/iconcinalogin.png" alt="Icon Login">
-</div>
 
 <div class="container-login">
 
@@ -118,6 +111,9 @@ if (isset($_POST['register'])) {
                 <input type="checkbox" name="remember">
                 <span>Remember Me</span>
             </label>
+            <div class="extra-options">
+                <a href="#">Password dimenticata?</a>
+            </div>
             <button name="login">Accedi</button>
         </form>
 
@@ -125,22 +121,6 @@ if (isset($_POST['register'])) {
         <form id="registerForm" method="post">
             <input type="email" name="email_reg" placeholder="Email" value="<?= $_POST['email_reg'] ?? '' ?>" required>
             <input type="text" name="username_reg" placeholder="Username" value="<?= $_POST['username_reg'] ?? '' ?>" required>
-
-            <!-- Sesso -->
-            <div class="radio-group">
-                <label><input type="radio" name="sesso" value="M" required> Maschio</label>
-                <label><input type="radio" name="sesso" value="F"> Femmina</label>
-            </div>
-
-            <!-- Università -->
-            <select name="universita" required>
-                <option value="">Seleziona università</option>
-                <option value="unisa">Università degli Studi di Salerno</option>
-                <option value="federico2">Università Federico II</option>
-                <option value="bocconi">Università Bocconi</option>
-                <option value="other">Other</option>
-            </select>
-
             <div class="password-wrapper">
                 <input type="password" name="password_reg" placeholder="Password" id="regPassword">
                 <span class="toggle-password" data-target="regPassword">&#128065;</span>
@@ -156,8 +136,8 @@ if (isset($_POST['register'])) {
 
     <!-- RIGHT PANEL -->
     <div class="side-panel">
-        <h1 id="sideTitle">Benvenuto amico! 🎉</h1>
-        <p id="sideText">Pronto a fare click nel nostro mondo di quiz tipo così...</p>
+        <h1 id="sideTitle"> Bentornato amico, felice di rivederti! </h1>
+        <p id="sideText"> Ogni accesso è un passo verso la conoscenza! </p>
     </div>
 
 </div>
