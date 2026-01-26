@@ -60,23 +60,6 @@ body {
     font-weight: normal;
 }
 
-
-/* ===== NOTE PERSONALI ===== */
-.note-personali {
-    background: #fff0f5;
-    padding: 15px 20px;
-    border-radius: 12px;
-    margin-bottom: 25px;
-}
-
-.note-personali textarea {
-    width: 100%;
-    padding: 10px;
-    border-radius: 10px;
-    border: 1px solid #d1d5db;
-    font-size: 1rem;
-}
-
 /* ===== AZIONI ===== */
 .azioni {
     display: flex;
@@ -137,4 +120,35 @@ body {
     .note-personali textarea {
         font-size: 0.95em;
     }
+}
+
+/* Nota personale compatta */
+.note-personali {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.note-personali textarea {
+    width: 100%;
+    resize: vertical;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+.note-personali button {
+    align-self: flex-start; /* il pulsante allinea in alto a sinistra sotto la textarea */
+    background: #159649;
+    color: #fff;
+    font-weight: bold;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.note-personali button:hover {
+    background: #12733d;
 }

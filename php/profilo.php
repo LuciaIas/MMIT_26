@@ -50,38 +50,7 @@ $note = $_SESSION['note_temporanee'] ?? '';
 <title>Profilo</title>
 <link rel="stylesheet" href="../css/profilo.css">
 <link rel="shrtcut icon" href="../immagini/iconauser.png" type="image/x-icon">
-<style>
-/* Nota personale compatta */
-.note-personali {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    margin-bottom: 20px;
-}
 
-.note-personali textarea {
-    width: 100%;
-    resize: vertical;
-    padding: 10px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-}
-
-.note-personali button {
-    align-self: flex-start; /* il pulsante allinea in alto a sinistra sotto la textarea */
-    background: #159649;
-    color: #fff;
-    font-weight: bold;
-    border: none;
-    padding: 8px 16px;
-    border-radius: 8px;
-    cursor: pointer;
-}
-
-.note-personali button:hover {
-    background: #12733d;
-}
-</style>
 </head>
 
 <body>
@@ -106,7 +75,7 @@ $note = $_SESSION['note_temporanee'] ?? '';
     <div class="note-personali">
         <form method="post">
             <label for="note_temporanee"><strong>Note personali (temporanee):</strong></label>
-            <textarea name="note_temporanee" id="note_temporanee" rows="4"><?= htmlspecialchars($note) ?></textarea>
+            <textarea cols="20" rows="5" name="note_temporanee" id="note_temporanee" rows="4"><?= htmlspecialchars($note) ?> Le mie note sono: ...</textarea>
             <button type="submit" name="salva_note">Salva note</button>
         </form>
     </div>
