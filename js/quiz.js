@@ -30,21 +30,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const answer = zone.dataset.answer;
 
-            if(draggedEl.textContent.trim() === answer.trim()) {
-                zone.textContent = draggedEl.textContent;
-                zone.classList.add('correct');
+            // Inserisci il termine nella drop zone sempre
+            zone.textContent = draggedEl.textContent;
+            zone.classList.remove('correct', 'incorrect'); // reset classi
 
-                // Aggiorna input nascosto
-                const hiddenInput = zone.nextElementSibling;
-                if(hiddenInput && hiddenInput.tagName === 'INPUT') {
-                    hiddenInput.value = draggedEl.textContent;
-                }
-
-                draggedEl.style.display = 'none';
-            } else {
-                zone.classList.add('incorrect');
-                setTimeout(() => zone.classList.remove('incorrect'), 800);
+            // Aggiorna input nascosto
+            const hiddenInput = zone.nextElementSibling;
+            if(hiddenInput && hiddenInput.tagName === 'INPUT') {
+                hiddenInput.value = draggedEl.textContent;
             }
+
+            draggedEl.style.display = 'none';
+
         });
     });
 });

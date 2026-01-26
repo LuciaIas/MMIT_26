@@ -19,7 +19,7 @@ function get_domande($conn, $tabella, $id_quiz) {
     return $domande;
 }
 
-// Carica le domande dai DB usando gli ID dei tuoi insert
+// Carica le domande dai DB
 $domande_vf = get_domande($conn, 'domande_vero_falso', 1);
 $domande_cf = get_domande($conn, 'domande_completa_frase', 2);
 $domande_output_img = get_domande($conn, 'domande_output_immagine', 3);
@@ -78,7 +78,7 @@ if($utente_loggato && $_SERVER['REQUEST_METHOD'] === 'POST') {
 <html lang="it">
 <head>
 <meta charset="UTF-8">
-<title>Quiz Tecnologie Web</title>
+<title>Pagina dei quiz</title>
 <link rel="stylesheet" href="../css/quiz.css">
 <script>
 function resetQuiz() {
@@ -127,9 +127,14 @@ function resetQuiz() {
     <?php if(count($domande_cf) > 0): ?>
     <section class="quiz-section">
         <h2>Completa la frase</h2>
-        <?php foreach($domande_cf as $row): ?>
-            <p><?= htmlspecialchars($row['frase']) ?> <input type="text" name="risposte[cf][<?= $row['id'] ?>]"></p>
-        <?php endforeach; ?>
+        <ol>
+            <?php foreach($domande_cf as $row): ?>
+            <li>
+                <?= htmlspecialchars($row['frase']) ?>
+                <input type="text" name="risposte[cf][<?= $row['id'] ?>]">
+            </li>
+            <?php endforeach; ?>
+        </ol>
     </section>
     <?php endif; ?>
 
@@ -138,70 +143,56 @@ function resetQuiz() {
     <section class="quiz-section">
         <h2>Qual è l'output del codice?</h2>
         <?php foreach($domande_output_img as $row): ?>
-            <img src="../immagini/<?= htmlspecialchars($row['immagine']) ?>" alt="Quiz codice" style="max-width:400px; display:block; margin-bottom:10px;">
-            <input type="text" name="risposte[output_img][<?= $row['id'] ?>]" placeholder="Scrivi qui la tua risposta">
+        <img class="output-img-large" src="../immagini/<?= htmlspecialchars($row['immagine']) ?>" alt="Quiz codice" style="display:block; margin-bottom:10px;">
+        <input type="text" name="risposte[output_img][<?= $row['id'] ?>]" placeholder="Scrivi qui la tua risposta">
         <?php endforeach; ?>
     </section>
     <?php endif; ?>
 
-<!-- Drag & Drop -->
-<?php if(count($domande_dd) > 0): ?>
-<section class="quiz-section">
-    <h2>Drag & Drop</h2>
-    <p>Trascina i termini nella definizione corretta:</p>
+    <!-- Drag & Drop -->
+    <?php if(count($domande_dd) > 0): ?>
+    <section class="quiz-section">
+        <h2>Drag & Drop</h2>
+        <p>Trascina i termini nella definizione corretta:</p>
 
-    <div class="drag-drop-container" style="display:flex; gap:40px; flex-wrap:wrap;">
+        <div class="drag-drop-container">
 
-        <!-- Termini trascinabili -->
-        <div class="drag-items" style="flex:1; min-width:150px;">
-            <h3>Termini</h3>
-            <?php foreach($domande_dd as $row): ?>
-                <div 
-                    class="drag-item" 
-                    id="term<?= $row['id'] ?>" 
-                    draggable="true"
-                    style="padding:5px 10px; background:#0055aa; color:white; margin:5px; border-radius:5px; cursor:grab;">
-                    <?= htmlspecialchars($row['termine']) ?>
-                </div>
-            <?php endforeach; ?>
-        </div>
-
-<!-- Definizioni / drop -->
-<div class="drop-zones" style="flex:2; min-width:250px;">
-    <h3>Definizioni</h3>
-    <?php foreach($domande_dd as $row): ?>
-        <div class="dd-item" style="margin-bottom:20px;">
-            <!-- Testo della definizione -->
-            <span class="def-text" style="display:block; margin-bottom:8px; font-weight:bold;">
-                <?= htmlspecialchars($row['definizione_corretta']) ?>
-            </span>
-            <!-- Drop zone per trascinare il termine -->
-            <div class="drop-zone" 
-                 data-answer="<?= htmlspecialchars($row['termine']) ?>" 
-                 style="min-height:50px; border:2px dashed #ccc; border-radius:6px; text-align:center; line-height:50px; background:#f4f4f4;">
-                <!-- Qui apparirà il termine trascinato -->
+            <!-- Termini trascinabili -->
+            <div class="drag-items">
+                <h3>Termini</h3>
+                <?php foreach($domande_dd as $row): ?>
+                    <div class="drag-item" id="term<?= $row['id'] ?>" draggable="true">
+                        <?= htmlspecialchars($row['termine']) ?>
+                    </div>
+                <?php endforeach; ?>
             </div>
-            <!-- Input nascosto per invio form -->
-            <input type="hidden" name="risposte[dd][<?= $row['id'] ?>]">
+
+            <!-- Definizioni / drop -->
+            <div class="drop-zones">
+                <h3>Definizioni</h3>
+                <?php foreach($domande_dd as $row): ?>
+                <div class="dd-item">
+                    <span class="def-text"><?= htmlspecialchars($row['definizione_corretta']) ?></span>
+                    <div class="drop-zone" data-answer="<?= htmlspecialchars($row['termine']) ?>"></div>
+                    <input type="hidden" name="risposte[dd][<?= $row['id'] ?>]">
+                </div>
+                <?php endforeach; ?>
+            </div>
+
         </div>
-    <?php endforeach; ?>
-</div>
-
-
-    </div>
-</section>
-<?php endif; ?>
-
+    </section>
+    <?php endif; ?>
 
     <button type="submit">Invia Risposte</button>
     <button type="button" onclick="resetQuiz()">Reset</button>
+
 </form>
 
 <?php if(isset($messaggio_punteggio)): ?>
     <p><strong><?= $messaggio_punteggio ?></strong></p>
 <?php endif; ?>
 </div>
-<script src="../js/quiz.js"></script>
 
+<script src="../js/quiz.js"></script>
 </body>
 </html>
