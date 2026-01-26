@@ -4,8 +4,26 @@ include __DIR__ . '/db.php';
 
 $utente_loggato = isset($_SESSION['username']);
 
+$visite = 0;
 
+// prova a inserire una visita e controlla errore
+$result_insert = pg_query($conn, "INSERT INTO visite_sito DEFAULT VALUES");
+if (!$result_insert) {
+    die("Errore inserimento visite: " . pg_last_error($conn));
+}
+
+// conta tutte le visite
+$result = pg_query($conn, "SELECT COUNT(*) FROM visite_sito");
+if ($result !== false) {
+    $row = pg_fetch_row($result);
+    $visite = $row[0];
+} else {
+    die("Errore conteggio visite: " . pg_last_error($conn));
+}
+
+echo "Visite totali: $visite"; // per test
 ?>
+
 
 <!DOCTYPE html>
 <html lang="it">
