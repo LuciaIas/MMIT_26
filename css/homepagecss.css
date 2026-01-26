@@ -274,10 +274,7 @@ nav a:hover, .dropbtn:hover {
     background-color: #f2f2f2;
 }
 
-.tabella-orari tr:hover {
-    background-color: #d9eaff;
-    transition: 0.3s;
-}
+
 
 #orari-live a {
     color: #0d6efd;
@@ -285,14 +282,7 @@ nav a:hover, .dropbtn:hover {
     font-weight: bold;
 }
 
-#orari-live a:hover {
-    text-decoration: underline;
-}
 
-
-.tabella-orari tr:hover {
-    background-color: #d9eaff;
-}
 
 #orari-live a {
     color: #0d6efd;
@@ -300,9 +290,6 @@ nav a:hover, .dropbtn:hover {
     font-weight: bold;
 }
 
-#orari-live a:hover {
-    text-decoration: underline;
-}
 
 
 #tornaSu {
