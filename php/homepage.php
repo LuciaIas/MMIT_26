@@ -68,7 +68,14 @@ window.onclick = function(event) {
         <a href="accesso.php?register=1">Registrati</a>
     <?php endif; ?>
 
-    <!-- SEMPRE VISIBILE -->
+    <?php if ($utente_loggato): ?>
+        <!-- UTENTE AUTENTICATO -->
+        <a href="quiz.php">Quiz</a>
+        <a href="glossario.php">Glossario</a>
+        <a href="profilo.php">Profilo</a>
+    <?php endif; ?>
+
+        <!-- SEMPRE VISIBILE -->
     <div class="dropdown-menu">
         <button class="dropbtn" onclick="toggleMenu()">Menu</button>
         <div id="dropdown-content" class="dropdown-content">
@@ -78,20 +85,12 @@ window.onclick = function(event) {
         </div>
     </div>
 
-    <?php if ($utente_loggato): ?>
-        <!-- UTENTE AUTENTICATO -->
-        <a href="quiz.php">Quiz</a>
-        <a href="glossario.php">Glossario</a>
-        <a href="profilo.php">Profilo</a>
-    <?php endif; ?>
-
 </nav>
 
 <!-- SEZIONE INTRO DINAMICA -->
 <div class="intro">
     <?php if($utente_loggato): ?>
         <h1>Benvenuto, <?php echo htmlspecialchars($_SESSION['username']); ?>!</h1>
-        <p>
             Sei loggato e puoi accedere a tutte le funzionalità del portale: quiz interattivi e glossario.
             Approfondisci HTML, CSS, JavaScript e PHP e testa le tue competenze!
         </p>

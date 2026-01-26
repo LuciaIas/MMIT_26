@@ -8,7 +8,7 @@
 /* ===== BODY ===== */
 body {
     font-family: 'Segoe UI', Arial, sans-serif;
-    background: linear-gradient(to bottom, #e0f2fe, #d488a9);
+    background: linear-gradient(to bottom, #ffe0f0, #ffd6e0);
     min-height: 100vh;
     display: flex;
     justify-content: center;
@@ -18,7 +18,7 @@ body {
 
 /* ===== CONTAINER PROFILO ===== */
 .container-profilo {
-    background: white;
+    background: #fff0f5;
     width: 100%;
     max-width: 800px;
     padding: 35px;
@@ -30,27 +30,51 @@ body {
 /* ===== TITOLO ===== */
 .container-profilo h1 {
     text-align: center;
-    color: #159649;;
+    color: #159649;
     margin-bottom: 30px;
     font-size: 2em;
 }
 
 /* ===== INFO PERSONALI ===== */
 .info-personali {
-    background: #f1f5f9;
+    background: #ffe0e9;
     padding: 20px 25px;
     border-radius: 12px;
-    margin-bottom: 30px;
+    margin-bottom: 25px;
 }
 
 .info-personali p {
     margin-bottom: 10px;
     font-size: 1rem;
-    color: #1f2937;
 }
 
-.info-personali strong {
-    color: #159649;;
+/* Titoli (Nome utente, Email, Tipo, Sesso, Università, Punteggio) in grassetto e verde */
+.info-personali p strong {
+    color: #159649;
+    font-weight: bold;
+}
+
+/* Valori (contenuto) in nero e normale */
+.info-personali p span {
+    color: #000;
+    font-weight: normal;
+}
+
+
+/* ===== NOTE PERSONALI ===== */
+.note-personali {
+    background: #fff0f5;
+    padding: 15px 20px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+}
+
+.note-personali textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #d1d5db;
+    font-size: 1rem;
 }
 
 /* ===== AZIONI ===== */
@@ -65,7 +89,7 @@ body {
 .btn {
     text-decoration: none;
     padding: 12px 22px;
-    background: #159649;;
+    background: #159649;
     color: white;
     border-radius: 10px;
     font-weight: bold;
@@ -75,7 +99,7 @@ body {
 }
 
 .btn:hover {
-    background: #159649;;
+    background: #13a34a;
     transform: translateY(-2px);
 }
 
@@ -109,7 +133,8 @@ body {
         font-size: 1.6em;
     }
 
-    .info-personali p {
+    .info-personali p,
+    .note-personali textarea {
         font-size: 0.95em;
     }
 }
