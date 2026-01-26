@@ -111,7 +111,7 @@ window.onclick = function(event) {
 <!-- VIDEO -->
 <div class="contenuto-video">
     <video controls autoplay muted loop width="68%" >
-        <source src="../immagini/pc.mp4" type="video/mp4">
+        <source src="../video/pc.mp4" type="video/mp4">
         Il tuo browser non supporta il video.
     </video>
 </div>
