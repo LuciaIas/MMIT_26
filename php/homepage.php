@@ -177,8 +177,10 @@ window.onclick = function(event) {
                 <td>Tutti meritiamo un po' di riposo!</td>
             </tr>
         </tbody>
+        <tfoot>
+        <tr> <td colspan="2" style="text-align:center;">  <p> Tiktok: <a href="https://www.tiktok.com/@gruppo_mmit?_r=1&_t=ZN-93OUU82znuA">@gruppo_mmit</a> </td> </tr>
+        </tfoot>
     </table>
-    <p> Tiktok: <a href="https://www.tiktok.com/@gruppo_mmit?_r=1&_t=ZN-93OUU82znuA">@gruppo_mmit</a> 
 </div>
 
 <div class="citazione">
