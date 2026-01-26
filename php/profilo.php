@@ -47,6 +47,7 @@ $note = $_SESSION['note_temporanee'] ?? '';
 <meta charset="UTF-8">
 <title>Profilo</title>
 <link rel="stylesheet" href="../css/profilo.css">
+<link rel="shrtcut icon" href="../immagini/iconauser.png" type="image/x-icon">
 <style>
 /* Nota personale compatta */
 .note-personali {

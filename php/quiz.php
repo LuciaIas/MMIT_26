@@ -80,6 +80,7 @@ if($utente_loggato && $_SERVER['REQUEST_METHOD'] === 'POST') {
 <meta charset="UTF-8">
 <title>Pagina dei quiz</title>
 <link rel="stylesheet" href="../css/quiz.css?v=5">
+<link rel="shrtcut icon" href="../immagini/note.png" type="image/x-icon">
 <script>
 function resetQuiz() {
     document.getElementById('quizForm').reset();

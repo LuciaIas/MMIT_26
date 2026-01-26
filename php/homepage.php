@@ -100,9 +100,11 @@ window.onclick = function(event) {
             Sei nel posto giusto!
         </h1>
 
-        <p>È il momento di approfondire HTML, CSS, JavaScript e PHP e testare le tue competenze! </p>
-        <p>La homepage offre una panoramica generale dei servizi del portale, mentre, le nostre funzionalità: il quiz e glossario sono accessibili solo dopo la registrazione...non perdere tempo: <span style="color: #fd0d59ff;"><strong> Registrati ora!</strong></span>
-        </p>
+        <p>È il momento di approfondire HTML, CSS, JavaScript e PHP. </p>
+        <p>La homepage offre una panoramica generale dei servizi del portale, mentre, le nostre funzionalità: il quiz e glossario sono accessibili solo dopo la registrazione...non perdere tempo:
+            <a href="accesso.php#register" style="color: #fd0d59; font-weight: bold; text-decoration: underline;">Registrati ora!</a>
+    </p>
+
     <?php endif; ?>
 </div>
 
@@ -229,7 +231,6 @@ window.onclick = function(event) {
     <p>Corso Tecnologie Web – A.A. 2025-2026 | Portale didattico per studenti di Ingegneria Informatica</p>
     <p>Università degli Studi di Salerno - Via Giovanni Paolo II, 132 - 84084 Fisciano (SA)</p>
 </div>
-
 
 </body>
 </html>

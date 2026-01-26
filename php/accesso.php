@@ -114,6 +114,7 @@ if (isset($_POST['register'])) {
 <meta charset="UTF-8">
 <title>Accesso</title>
 <link rel="stylesheet" href="../css/accesso.css">
+<link rel="shrtcut icon" href="../immagini/iconcinalogin.jpg" type="image/x-icon">
 </head>
 <body>
 <div class="container-login">
