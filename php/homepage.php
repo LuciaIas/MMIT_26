@@ -102,71 +102,10 @@ window.onclick = function(event) {
 
 <!-- VIDEO -->
 <div class="contenuto-video">
-    <video controls autoplay muted loop width="61%" >
+    <video controls autoplay muted loop width="68%" >
         <source src="../immagini/pc.mp4" type="video/mp4">
         Il tuo browser non supporta il video.
     </video>
-</div>
-
-<div class="citazione">
-    <blockquote cite="https://netrise.it/aforismi-sul-mondo-digitale/">
-        "Internet è il più grande veicolo di autodivulgazione di tutti i tempi”.
-        <p style="text-align: right;">- Bill Gates</p>
-    </blockquote>
-</div>
-
-<div class="citazione">
-    <blockquote cite="https://letteralmente.net/frasi-celebri/tim-berners-lee/">
-        "Considero il Web come un tutto potenzialmente collegato a tutto, come un'utopia 
-        che ci regala una libertà mai vista prima."
-        <p style="text-align: right;">- Tim Berners Lee</p>
-    </blockquote>
-    
-
-</div>
-
-<div class="citazione">
-    <blockquote cite="https://letteralmente.net/frasi-celebri/tim-berners-lee/">
-        "Il Web non si limita a collegare macchine, connette delle persone."
-        <p style="text-align: right;">- Tim Berners Lee</p>
-    </blockquote>
-</div>
-
-
-
-<!-- STORIA DEL WEB -->
-<div id="storia" class="contenuto">
-    <h2>La storia del World Wide Web</h2>
-    <p>
-       Il <span class="highlight">World Wide Web (WWW)</span> è una rete globale di documenti e risorse multimediali 
-       interconnesse, accessibili tramite Internet e attraverso l’uso di un browser. </p>
-    <p>
-       Nasce come evoluzione delle prime reti di computer sviluppate per favorire la condivisione delle informazioni 
-       tra più nodi. La prima rete significativa fu <span class="highlight">ARPANET</span>, creata alla fine degli 
-       anni ’60 negli Stati Uniti dalla <span class="highlight" title="Defense Advanced Research Projects Agency">
-       DARPA</span> sviluppò ARPANET per scopi militari. 
-    </p>
-    <p>
-    Con l’introduzione del protocollo <span class="highlight">TCP/IP</span> nel 1982, ARPANET si trasforma progressivamente 
-    in <span class="highlight">Internet</span>, un’infrastruttura che consente la comunicazione tra computer e dispositivi 
-    distribuiti in tutto il mondo. <p><i>Internet esiste e funziona anche senza il Web, ma è proprio il Web che ne ha 
-    favorito la diffusione di massa tra gli utenti.</i></p>Nel 1989 il fisico <span class="highlight">Tim Berners-Lee</span>, 
-    lavorando al CERN di Ginevra, propose un sistema per la condivisione di documenti ipertestuali tra ricercatori. 
-    Nel 1991 vennero definiti il linguaggio HTML e il protocollo HTTP, che permisero la creazione e il trasferimento 
-    di documenti collegati tramite link. Nasce così ufficialmente il World Wide Web, reso pubblico nel 1993 e destinato 
-    a una crescita esponenziale negli anni successivi.
-   </p>
-   <p>
-        <h3 style="display: inline;">Web 1.0 : </h3>Pagine statiche, utenti lettori, ipertesti e URL. Pochi contenuti dinamici.
-        <br>
-        <h3 style="display: inline;">Web 2.0 : </h3>Web dinamico e partecipativo. Blog, social network, wiki e video sharing.
-        <br>
-        <h3 style="display: inline;">Web 3.0 : </h3>Web semantico e AI. Servizi personalizzati con metadati, cookie e geolocalizzazione.
-        <br>
-        <h3 style="display: inline;">Web 4.0 : </h3>Internet of Things: oggetti intelligenti connessi, domotica e veicoli autonomi.
-    </p>
-
-  
 </div>
 
 
@@ -183,8 +122,18 @@ window.onclick = function(event) {
     </p> 
 </div>
 
+
+
+<div class="citazione">
+    <blockquote cite="https://letteralmente.net/frasi-celebri/tim-berners-lee/">
+        "Il Web non si limita a collegare macchine, connette delle persone."
+        <p style="text-align: right;">- Tim Berners Lee</p>
+    </blockquote>
+</div>
+
+
 <!-- ORARI LIVE  -->
-<div id="orari-live" class="contenuto">
+<div class="contenuto">
     <h2>Sessioni di Studio</h2>
     <p>Partecipa alle nostre live su TikTok per studiare insieme e supportarci durante la sessione!</p>
     
@@ -229,16 +178,32 @@ window.onclick = function(event) {
     <p> Tiktok: @Gruppo_MMIT 
 </div>
 
+<div class="citazione">
+    <blockquote cite="https://letteralmente.net/frasi-celebri/tim-berners-lee/">
+        "Considero il Web come un tutto potenzialmente collegato a tutto, come un'utopia 
+        che ci regala una libertà mai vista prima."
+        <p style="text-align: right;">- Tim Berners Lee</p>
+    </blockquote>
+    
 
+</div>
 <!-- CHI SIAMO -->
 <div class="contenuto">
     <h2>Chi siamo?</h2>
     <p>
-        Siamo un gruppo di studenti del terzo anno di Ingegneria Informatica frequentanti
-        il corso di Tecnologie Web. Abbiamo creato questo portale per supportare lo studio,
+        Siamo un gruppo di studenti dell'<a href="https://www.unisa.it/">Università di Salerno</a> e frequentiamo il terzo anno di Ingegneria Informatica.
+        Abbiamo creato questo portale per supportare lo studio,
         offrendo spiegazioni sintetiche, esempi pratici e quiz di autovalutazione. 
         Qui puoi accedere alla parte descrittiva della storia e dei linguaggi; altre sezioni sono riservate agli utenti registrati.
     </p>
+</div>
+
+
+<div class="citazione">
+    <blockquote cite="https://netrise.it/aforismi-sul-mondo-digitale/">
+        "Internet è il più grande veicolo di autodivulgazione di tutti i tempi”.
+        <p style="text-align: right;">- Bill Gates</p>
+    </blockquote>
 </div>
 
 
