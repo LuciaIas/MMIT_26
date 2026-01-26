@@ -21,7 +21,6 @@ if ($result !== false) {
     die("Errore conteggio visite: " . pg_last_error($conn));
 }
 
-echo "Visite totali: $visite"; // per test
 ?>
 
 

@@ -23,6 +23,9 @@ function get_domande($conn, $tabella, $id_quiz) {
 $domande_vf = get_domande($conn, 'domande_vero_falso', 1);
 $domande_cf = get_domande($conn, 'domande_completa_frase', 2);
 $domande_dd = get_domande($conn, 'domande_drag_drop', 4);
+$domande_output_img = get_domande($conn, 'domande_output_immagine', 3);
+
+
 
 // Debug: controlla quante righe sono state recuperate
 // Puoi rimuovere queste righe dopo il test
@@ -106,8 +109,15 @@ function resetQuiz() {
             <?php foreach($domande_vf as $row): ?>
             <li>
                 <?= htmlspecialchars($row['testo']) ?>
-                <label><input type="radio" name="risposte[vf][<?= $row['id'] ?>]" value="1"> Vero</label>
-                <label><input type="radio" name="risposte[vf][<?= $row['id'] ?>]" value="0"> Falso</label>
+               <label>
+    <input type="radio" name="risposte[vf][<?= $row['id'] ?>]" value="1">
+    <img src="../immagini/check.png" alt="Vero" style="width:20px; vertical-align:middle;">
+</label>
+<label>
+    <input type="radio" name="risposte[vf][<?= $row['id'] ?>]" value="0">
+    <img src="../immagini/cancel.png" alt="Falso" style="width:20px; vertical-align:middle;">
+</label>
+
             </li>
             <?php endforeach; ?>
         </ol>
