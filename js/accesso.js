@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const sideTitle = document.getElementById('sideTitle');
     const sideText = document.getElementById('sideText');
     const registerBtn = document.getElementById('registerBtn');
+    const uniSelect = document.getElementById('universitaSelect');
 
     // ===== FUNZIONI VISUALIZZAZIONE FORM =====
     function showLogin() {
@@ -13,7 +14,6 @@ document.addEventListener('DOMContentLoaded', () => {
         buttons[1].classList.remove('active');
         loginForm.classList.add('form-active');
         registerForm.classList.remove('form-active');
-
         sideTitle.textContent = "Bentornato amico, felice di rivederti!";
         sideText.textContent = "Ogni accesso è un passo verso la conoscenza!";
     }
@@ -23,21 +23,14 @@ document.addEventListener('DOMContentLoaded', () => {
         buttons[0].classList.remove('active');
         registerForm.classList.add('form-active');
         loginForm.classList.remove('form-active');
-
         sideTitle.textContent = "Benvenuto amico, felice di accoglierti!";
         sideText.textContent = "Più esercitazioni, più soddisfazioni... unisciti a noi!";
     }
 
-    // ===== EVENTI PULSANTI =====
     buttons[0].onclick = showLogin;
     buttons[1].onclick = showRegister;
 
-    // ===== DEFAULT: LOGIN ATTIVO ALL'APERTURA =====
-    showLogin(); // ← Assicura che il login sia attivo e il testo mostrato
-
-    // ===== SE ARRIVA DALLA HOMEPAGE CON REGISTER =====
-    const params = new URLSearchParams(window.location.search);
-    if (params.get('register') === '1') showRegister();
+    showLogin();
 
     // ===== MOSTRA CARATTERI PASSWORD =====
     document.querySelectorAll('.show-pass input').forEach(check => {
@@ -50,23 +43,19 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // ===== UNIVERSITÀ ALTRO =====
-    const uniSelect = document.getElementById('universitaSelect');
-    const uniAltro = document.getElementById('universitaAltro');
-
-    uniSelect.addEventListener('change', () => {
-        uniAltro.style.display = uniSelect.value === 'Altro' ? 'block' : 'none';
-    });
-
     // ===== BOTTONE REGISTRATI ATTIVO SOLO SE CAMPi COMPILATI =====
     registerForm.addEventListener('input', () => {
-        const ok =
-            registerForm.querySelector('[name="email_reg"]').value &&
-            registerForm.querySelector('[name="username_reg"]').value &&
-            registerForm.querySelector('[name="password_reg"]').value &&
-            registerForm.querySelector('[name="password_conf"]').value &&
-            registerForm.querySelector('[name="sesso"]:checked');
+        const email = registerForm.querySelector('[name="email_reg"]').value.trim();
+        const username = registerForm.querySelector('[name="username_reg"]').value.trim();
+        const password = registerForm.querySelector('[name="password_reg"]').value.trim();
+        const passwordConf = registerForm.querySelector('[name="password_conf"]').value.trim();
+        const sesso = registerForm.querySelector('[name="sesso"]:checked');
+        const universita = uniSelect.value;
+
+        const ok = email && username && password && passwordConf && sesso && universita && universita !== "";
 
         registerBtn.disabled = !ok;
     });
+
+
 });

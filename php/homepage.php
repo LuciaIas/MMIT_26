@@ -50,7 +50,7 @@ window.onclick = function(event) {
 
 <body>
 <header>
-    <div class="header-content">
+    <div id="inizio" class="header-content">
         <img src="../immagini/logo.png" alt="Logo Portale" class="header-img">
         <div class="header-text">
             <h1>Benvenuto nel Portale Tecnologie Web</h1>
@@ -68,10 +68,6 @@ window.onclick = function(event) {
         <button class="dropbtn" onclick="toggleMenu()">Sezioni </button>
         <div id="dropdown-content" class="dropdown-content">
             <a href="#storia">Storia del Web</a>
-            <a href="#html">HTML</a>
-            <a href="#css">CSS</a>
-            <a href="#php">PHP</a>
-            <a href="#javascript">JavaScript</a>
             <a href="#feedback">Feedback</a>
             <a href="#contatti">Contatti</a>           
         </div>
@@ -104,16 +100,39 @@ window.onclick = function(event) {
     <?php endif; ?>
 </div>
 
-<!-- CHI SIAMO -->
-<div class="contenuto">
-    <h2>Chi siamo?</h2>
-    <p>
-        Siamo un gruppo di studenti del terzo anno di Ingegneria Informatica frequentanti
-        il corso di Tecnologie Web. Abbiamo creato questo portale per supportare lo studio,
-        offrendo spiegazioni sintetiche, esempi pratici e quiz di autovalutazione. 
-        Qui puoi accedere alla parte descrittiva della storia e dei linguaggi; altre sezioni sono riservate agli utenti registrati.
-    </p>
+<!-- VIDEO -->
+<div class="contenuto-video">
+    <video controls autoplay muted loop width="61%" >
+        <source src="../immagini/pc.mp4" type="video/mp4">
+        Il tuo browser non supporta il video.
+    </video>
 </div>
+
+<div class="citazione">
+    <blockquote cite="https://netrise.it/aforismi-sul-mondo-digitale/">
+        "Internet è il più grande veicolo di autodivulgazione di tutti i tempi”.
+        <p style="text-align: right;">- Bill Gates</p>
+    </blockquote>
+</div>
+
+<div class="citazione">
+    <blockquote cite="https://letteralmente.net/frasi-celebri/tim-berners-lee/">
+        "Considero il Web come un tutto potenzialmente collegato a tutto, come un'utopia 
+        che ci regala una libertà mai vista prima."
+        <p style="text-align: right;">- Tim Berners Lee</p>
+    </blockquote>
+    
+
+</div>
+
+<div class="citazione">
+    <blockquote cite="https://letteralmente.net/frasi-celebri/tim-berners-lee/">
+        "Il Web non si limita a collegare macchine, connette delle persone."
+        <p style="text-align: right;">- Tim Berners Lee</p>
+    </blockquote>
+</div>
+
+
 
 <!-- STORIA DEL WEB -->
 <div id="storia" class="contenuto">
@@ -150,37 +169,6 @@ window.onclick = function(event) {
   
 </div>
 
-<!-- LINGUAGGI CHIAVE -->
-<div id="html" class="contenuto">
-    <h2>HTML</h2>
-    <p>HTML è il linguaggio standard per creare e strutturare pagine web (definisce titoli, paragrafi, elenchi, 
-        link, immagini e altri elementi). Il suo funzionamento si basa sui tag che indicano al browser come visualizzare
-        il contenuto. HTML è fondamentale per qualsiasi sito web in quanto stabilisce la struttura (ma non lo stile 
-        estetico) della pagina. </p>
-</div>
-
-<div id="css" class="contenuto">
-    <h2>CSS</h2>
-    <p>CSS definisce l’aspetto delle pagine web (colori, font, spaziature e layout), trasformando l’HTML in pagine 
-        leggibili ed esteticamente gradevoli separando la struttura dalla presentazione. 
-        Il CSS, inoltre, rende più semplice aggiornare lo stile e permette di adattare i contenuti
-         a diversi dispositivi.</p>
-</div>
-
-<div id="javascript" class="contenuto">
-    <h2>JavaScript</h2>
-    <p>JavaScript aggiunge interattività ai siti web: risponde alle azioni dell’utente, aggiorna contenuti senza ricaricare
-        la pagina e crea animazioni/giochi. JavaScript quindi, eseguito dal browser, garantisce un'interazione fluida 
-        rendendo i siti attivi e coinvolgenti.</p>
-</div>
-
-<div id="php" class="contenuto">
-    <h2>PHP</h2>
-    <p>PHP è un linguaggio lato server che fornisce HTML pronto al browser; è essenziale per i siti interattivi e 
-        applicazioni web complesse in quanto ha il compito di gestire login, registrazioni,moduli e interazioni con database. 
-         PHP, inoltre, elabora richieste e genera pagine personalizzate in base ai dati.
-        </p>
-</div>
 
 <!-- STATISTICHE E FEEDBACK -->
 <div id="feedback" class="contenuto">
@@ -195,9 +183,68 @@ window.onclick = function(event) {
     </p> 
 </div>
 
+<!-- ORARI LIVE  -->
+<div id="orari-live" class="contenuto">
+    <h2>Sessioni di Studio</h2>
+    <p>Partecipa alle nostre live su TikTok per studiare insieme e supportarci durante la sessione!</p>
+    
+    <table class="tabella-orari">
+        <thead>
+            <tr>
+                <th>Giorno</th>
+                <th>Orario</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Lunedì</td>
+                <td>9:00 - 13:00 / 16:00 - 20:00</td>
+            </tr>
+            <tr>
+                <td>Martedì</td>
+                <td>9:00 - 13:00 / 16:00 - 20:00</td>
+            </tr>
+            <tr>
+                <td>Mercoledì</td>
+                <td>9:00 - 13:00 / 16:00 - 20:00</td>
+            </tr>
+            <tr>
+                <td>Giovedì</td>
+                <td>9:00 - 13:00 / 16:00 - 20:00</td>
+            </tr>
+            <tr>
+                <td>Venerdì</td>
+                <td>9:00 - 13:00 / 16:00 - 18:00</td>
+            </tr>
+            <tr>
+                <td>Sabato</td>
+                <td>9:00 - 13:00 / 16:30 - 18:00</td>
+            </tr>
+            <tr>
+                <td>Domenica</td>
+                <td>Tutti meritiamo un po' di riposo!</td>
+            </tr>
+        </tbody>
+    </table>
+    <p> Tiktok: @Gruppo_MMIT 
+</div>
+
+
+<!-- CHI SIAMO -->
+<div class="contenuto">
+    <h2>Chi siamo?</h2>
+    <p>
+        Siamo un gruppo di studenti del terzo anno di Ingegneria Informatica frequentanti
+        il corso di Tecnologie Web. Abbiamo creato questo portale per supportare lo studio,
+        offrendo spiegazioni sintetiche, esempi pratici e quiz di autovalutazione. 
+        Qui puoi accedere alla parte descrittiva della storia e dei linguaggi; altre sezioni sono riservate agli utenti registrati.
+    </p>
+</div>
+
+
 <!-- CONTATTI -->
 <div id="contatti" class="contenuto">
-    <h2>Contatti</h2>
+    <h2>Contatti utili</h2>
     <strong>Gruppo MMIT</strong>
     <p>
         Lucia Iasevoli   | Email: <a href="mailto:l.iasevoli1@studenti.unisa.it">l.iasevoli1@studenti.unisa.it</a><br>
@@ -207,6 +254,7 @@ window.onclick = function(event) {
     </p>
 </div>
 
+<a id="tornaSu" href="#inizio">Torna su</a> 
 
 <!-- FOOTER -->
 <div class="footer">

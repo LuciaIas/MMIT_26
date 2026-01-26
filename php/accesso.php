@@ -5,6 +5,12 @@ include __DIR__ . '/db.php';
 $messaggio = "";
 $tipo_messaggio = "";
 
+/* ===== VARIABILI STICKY ===== */
+$email_sticky = htmlspecialchars($_POST['email_reg'] ?? '');
+$username_sticky = htmlspecialchars($_POST['username_reg'] ?? '');
+$sesso_sticky = $_POST['sesso'] ?? '';
+$universita_sticky = $_POST['universita'] ?? '';
+
 /* ===== LOGIN ===== */
 if (isset($_POST['login'])) {
     $username = trim($_POST['username']);
@@ -36,50 +42,67 @@ if (isset($_POST['login'])) {
 
 /* ===== REGISTRAZIONE ===== */
 if (isset($_POST['register'])) {
+
+    $errore = false;
+
     $sesso = $_POST['sesso'] ?? '';
     $username = trim($_POST['username_reg']);
     $email = trim($_POST['email_reg']);
     $password = trim($_POST['password_reg']);
     $password_conf = trim($_POST['password_conf']);
     $universita = $_POST['universita'] ?? '';
-    $universita_altro = trim($_POST['universita_altro'] ?? '');
 
-    if ($universita === 'Altro' && $universita_altro !== '') {
-        $universita = $universita_altro;
+    // Controlli obbligatori
+    if (!$sesso || !$username || !$email || !$password || !$password_conf || !$universita) {
+        $messaggio = "Compila tutti i campi obbligatori.";
+        $errore = true;
+    } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $messaggio = "Email non valida. Formato corretto: nome@esempio.com";
+        $errore = true;
+    } elseif (strlen($username) < 3) {
+        $messaggio = "Lo username deve contenere almeno 3 caratteri.";
+        $errore = true;
+    } elseif (strlen($password) < 6) {
+        $messaggio = "La password deve contenere almeno 6 caratteri.";
+        $errore = true;
+    } elseif ($password !== $password_conf) {
+        $messaggio = "Le password non coincidono.";
+        $errore = true;
     }
 
-    if ($sesso && $username && $email && $password && $password_conf) {
-        if ($password !== $password_conf) {
-            $messaggio = "Le password non coincidono.";
+    if (!$errore) {
+
+        // Controllo se username già esiste
+        $check = pg_query_params(
+            $conn,
+            "SELECT 1 FROM utenti WHERE username=$1",
+            [$username]
+        );
+
+        if (pg_num_rows($check) > 0) {
+            $messaggio = "Nome utente già esistente.";
             $tipo_messaggio = "error";
         } else {
-            $check = pg_query_params($conn, "SELECT 1 FROM utenti WHERE username=$1", [$username]);
 
-            if (pg_num_rows($check) > 0) {
-                $messaggio = "Nome utente già esistente.";
-                $tipo_messaggio = "error";
+            $hash = password_hash($password, PASSWORD_DEFAULT);
+
+            $insert = pg_query_params(
+                $conn,
+                "INSERT INTO utenti (username,email,password,tipo_utente,sesso,universita)
+                 VALUES ($1,$2,$3,'studente',$4,$5)",
+                [$username, $email, $hash, $sesso, $universita]
+            );
+
+            if ($insert) {
+                $_SESSION['username'] = $username;
+                header("Location: profilo.php");
+                exit;
             } else {
-                $hash = password_hash($password, PASSWORD_DEFAULT);
-
-                $insert = pg_query_params(
-                    $conn,
-                    "INSERT INTO utenti (username,email,password,tipo_utente,sesso,universita)
-                     VALUES ($1,$2,$3,'studente',$4,$5)",
-                    [$username, $email, $hash, $sesso, $universita]
-                );
-
-                if ($insert) {
-                    $_SESSION['username'] = $username;
-                    header("Location: profilo.php");
-                    exit;
-                } else {
-                    $messaggio = "Errore durante la registrazione.";
-                    $tipo_messaggio = "error";
-                }
+                $messaggio = "Errore durante la registrazione.";
+                $tipo_messaggio = "error";
             }
         }
     } else {
-        $messaggio = "Compila tutti i campi obbligatori.";
         $tipo_messaggio = "error";
     }
 }
@@ -118,44 +141,62 @@ if (isset($_POST['register'])) {
         <input type="checkbox" data-target="loginPassword"> Mostra caratteri
     </label>
     <button name="login">Accedi</button>
-    <!-- Pulsante indietro -->
     <button type="button" class="btn-back" onclick="window.location.href='homepage.php'">Indietro</button>
 </form>
 
 <!-- FORM REGISTRAZIONE -->
 <form id="registerForm" method="post">
+
     <div class="radio-group">
         <span class="radio-label">Sesso:</span>
         <div class="radio-options">
-            <label><input type="radio" name="sesso" value="M"> Maschio</label>
-            <label><input type="radio" name="sesso" value="F"> Femmina</label>
+            <label>
+                <input type="radio" name="sesso" value="M"
+                    <?= ($sesso_sticky === 'M') ? 'checked' : '' ?>>
+                Maschio
+            </label>
+            <label>
+                <input type="radio" name="sesso" value="F"
+                    <?= ($sesso_sticky === 'F') ? 'checked' : '' ?>>
+                Femmina
+            </label>
         </div>
     </div>
 
-    <input type="email" name="email_reg" placeholder="nome@esempio.com">
-    <input type="text" name="username_reg" placeholder="Nome utente">
-    <input type="password" name="password_reg" placeholder="Password" id="regPassword">
+    <input type="email" name="email_reg" placeholder="nome@esempio.com"
+           value="<?= $email_sticky ?>" required>
+
+    <input type="text" name="username_reg" placeholder="Nome utente"
+           value="<?= $username_sticky ?>" required>
+
+    <input type="password" name="password_reg" placeholder="Password (min. 6 caratteri)" id="regPassword">
     <input type="password" name="password_conf" placeholder="Conferma password" id="regPasswordConf">
 
     <label class="show-pass">
         <input type="checkbox" data-target="regPassword,regPasswordConf"> Mostra caratteri
     </label>
 
-    <select name="universita" id="universitaSelect">
+    <select name="universita" id="universitaSelect" required>
         <option value="">Seleziona università</option>
-        <option>Università degli Studi di Salerno</option>
-        <option>Università Federico II</option>
-        <option>Università di Bologna</option>
-        <option>Politecnico di Milano</option>
-        <option value="Altro">Altra università</option>
+        <?php
+        $universita_lista = [
+            "Università degli Studi di Salerno",
+            "Università Federico II",
+            "Università di Bologna",
+            "Politecnico di Milano",
+            "Altro"
+        ];
+        foreach ($universita_lista as $u) {
+            $sel = ($universita_sticky === $u) ? 'selected' : '';
+            echo "<option value=\"$u\" $sel>$u</option>";
+        }
+        ?>
     </select>
 
-    <textarea id="universitaAltro" name="universita_altro" placeholder="Scrivi il nome della tua università" style="display:none"></textarea>
-
     <button name="register" id="registerBtn" disabled>Registrati</button>
-    <!-- Pulsante indietro -->
     <button type="button" class="btn-back" onclick="window.location.href='homepage.php'">Indietro</button>
 </form>
+
 </div>
 
 <div class="side-panel">

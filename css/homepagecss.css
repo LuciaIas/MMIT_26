@@ -214,6 +214,176 @@ nav a:hover, .dropbtn:hover {
     border-radius: 3px;        /* angoli leggermente arrotondati */
 }
 
+.citazione {
+    background-color: #fff;
+    padding: 25px;
+    margin: 20px auto;
+    max-width: 900px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05); 
+    background: linear-gradient(45deg, #f0f8ff, #87faf6) !important;  
+}
+.citazione blockquote {
+    font-style: italic;
+    border-left: 4px solid rgba(3, 110, 99, 0.855);
+    padding-left: 10px;
+    color: rgba(3, 110, 99, 0.855);
+    margin: 15px 0;
+    text-align: center;
+}
+
+
+.contenuto-video {
+    display: flex;
+    justify-content: center; /* centra orizzontalmente */
+    margin: 20px 0;
+}
+
+.contenuto-video video {
+    border-radius: 10px; /* angoli arrotondati */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* ombra elegante */
+}
+
+/* ================================
+   Tabella Orari Live Study
+================================ */
+#orari-live {
+    background-color: #fff;
+    padding: 25px;
+    margin: 20px auto;
+    max-width: 900px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+#orari-live h2 {
+    color: #0d6efd;
+    margin-bottom: 10px;
+}
+
+#orari-live p {
+    font-size: 1em;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.tabella-orari {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    font-size: 0.95em;
+}
+
+.tabella-orari th, .tabella-orari td {
+    border: 1px solid #ccc;
+    padding: 12px 10px;
+    text-align: center;
+}
+
+.tabella-orari th {
+    background-color: #0d6efd;
+    color: #fff;
+    font-weight: bold;
+}
+
+/* ================================
+   Tabella Orari Live Study
+================================ */
+#orari-live {
+    background-color: #fff;
+    padding: 25px;
+    margin: 20px auto;
+    max-width: 900px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+#orari-live h2 {
+    color: #0d6efd;
+    margin-bottom: 10px;
+}
+
+#orari-live p {
+    font-size: 1em;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.tabella-orari {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    font-size: 0.95em;
+}
+
+.tabella-orari th, .tabella-orari td {
+    border: 1px solid #ccc;
+    padding: 12px 10px;
+    text-align: center;
+}
+
+.tabella-orari th {
+    background-color: #0d6efd;
+    color: #fff;
+    font-weight: bold;
+}
+
+.tabella-orari tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.tabella-orari tr:hover {
+    background-color: #d9eaff;
+    transition: 0.3s;
+}
+
+#orari-live a {
+    color: #0d6efd;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#orari-live a:hover {
+    text-decoration: underline;
+}
+
+
+.tabella-orari tr:hover {
+    background-color: #d9eaff;
+}
+
+#orari-live a {
+    color: #0d6efd;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#orari-live a:hover {
+    text-decoration: underline;
+}
+
+#tornaSu {
+    display: inline-block;
+    margin: 30px auto;
+    padding: 12px 25px;
+    background-color: #0d6efd;
+    color: #fff;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 25px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    cursor: pointer;
+    display: block;        /* serve per centrare con margin auto */
+    width: fit-content;    /* il bottone si adatta al testo */
+    margin: 30px auto;
+}
+
+/* Hover effetto */
+#tornaSu:hover {
+    background-color: #0056b3;
+    box-shadow: 0 6px 8px rgba(0,0,0,0.15);
+}
 
 
 /* ================================
