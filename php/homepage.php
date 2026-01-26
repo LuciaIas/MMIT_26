@@ -31,6 +31,7 @@ if ($result !== false) {
     <meta charset="UTF-8">
     <title>Portale Tecnologie Web</title>
     <link rel="stylesheet" href="../css/homepagecss.css">
+    <link rel="icon" href="../immagini/iconarazzo.ico" type="image/X.icon" />
 <script>
 function toggleMenu() {
     document.getElementById("dropdown-content").classList.toggle("show");
@@ -91,11 +92,9 @@ window.onclick = function(event) {
         </p>
     <?php else: ?>
         <h1>Sei uno studente di Tecnologie Web? Sei nel posto giusto!</h1>
-        <p>
-            Qui puoi approfondire HTML, CSS, JavaScript e PHP e testare le tue competenze con i quiz di autovalutazione.
-            La dashboard fornisce la parte introduttiva dei linguaggi e la descrizione della storia del Web.
-            Alcune funzionalità, come il glossario e i quiz interattivi, 
-            sono accessibili solo dopo la registrazione...non perdere tempo,<span style="color: #0d6efd;"><strong> Registrati ora!</strong></span>
+        <p>Qui puoi approfondire HTML, CSS, JavaScript e PHP e testare le tue competenze con il quiz di autovalutazione.</p>
+        <p>La dashboard fornisce una panoramica generale del sito ma, alcune funzionalità, come il glossario e i quiz interattivi, 
+            sono accessibili solo dopo la registrazione...non perdere tempo,<span style="color: #fd0d59ff;"><strong> Registrati ora!</strong></span>
         </p>
     <?php endif; ?>
 </div>
@@ -118,7 +117,7 @@ window.onclick = function(event) {
     <p>Ogni visita conta, il nostro portale cresce ogni giorno grazie a studenti come te.
     <p>Numero di visite totali al sito:<strong><?php echo number_format($visite); ?></strong></p>
     <p>Unisciti anche tu alla nostra community e prepara gli esami con noi...Cosa aspetti!
-     <img src="../immagini/cuoricino.png" alt="Logo Portale" style="width:16px; height:16px; vertical-align:middle;">
+    <img src="../immagini/cuoricino.png" style="width:16px; height:16px; vertical-align:middle;">
     </p> 
 </div>
 
@@ -175,7 +174,7 @@ window.onclick = function(event) {
             </tr>
         </tbody>
     </table>
-    <p> Tiktok: @Gruppo_MMIT 
+    <p> Tiktok: <a href="https://www.tiktok.com/@gruppo_mmit?_r=1&_t=ZN-93OUU82znuA">@gruppo_mmit</a> 
 </div>
 
 <div class="citazione">
@@ -191,11 +190,11 @@ window.onclick = function(event) {
 <div class="contenuto">
     <h2>Chi siamo?</h2>
     <p>
-        Siamo un gruppo di studenti dell'<a href="https://www.unisa.it/">Università di Salerno</a> e frequentiamo il terzo anno di Ingegneria Informatica.
-        Abbiamo creato questo portale per supportare lo studio,
-        offrendo spiegazioni sintetiche, esempi pratici e quiz di autovalutazione. 
-        Qui puoi accedere alla parte descrittiva della storia e dei linguaggi; altre sezioni sono riservate agli utenti registrati.
+        Siamo studenti dell'<a href="https://www.unisa.it/">Università di Salerno</a> e frequentiamo il terzo anno di 
+        Ingegneria Informatica. <img src="../immagini/smile.png" style="width:16px; height:16px; vertical-align:middle;">
     </p>
+    <p>Abbiamo deciso di creare questo portale per supportare lo studio di altri studenti come noi, 
+        offrendo spiegazioni sintetiche, esempi pratici e quiz di autovalutazione. </p>
 </div>
 
 
@@ -210,7 +209,7 @@ window.onclick = function(event) {
 <!-- CONTATTI -->
 <div id="contatti" class="contenuto">
     <h2>Contatti utili</h2>
-    <strong>Gruppo MMIT</strong>
+    <strong>Gruppo MMIT </strong><img src="../immagini/iconauser.png" style="width:16px; height:16px; vertical-align:middle;">
     <p>
         Lucia Iasevoli   | Email: <a href="mailto:l.iasevoli1@studenti.unisa.it">l.iasevoli1@studenti.unisa.it</a><br>
         Lucia Monetta    | Email: <a href="mailto:l.monetta8@studenti.unisa.it">l.monetta8@studenti.unisa.it</a><br>
