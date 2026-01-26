@@ -79,7 +79,7 @@ if($utente_loggato && $_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
 <meta charset="UTF-8">
 <title>Pagina dei quiz</title>
-<link rel="stylesheet" href="../css/quiz.css">
+<link rel="stylesheet" href="../css/quiz.css?v=5">
 <script>
 function resetQuiz() {
     document.getElementById('quizForm').reset();
@@ -90,101 +90,207 @@ function resetQuiz() {
 
 <header>
     <h1>Quiz di Tecnologie Web</h1>
-    <a href="homepage.php" class="home-btn">🏠 Home</a>
     <?php if($utente_loggato): ?>
-        <p>Benvenuto, <?= htmlspecialchars($username) ?>! Metti alla prova le tue competenze.</p>
-    <?php else: ?>
-        <p>Registrati o accedi per salvare i tuoi risultati!</p>
+        <p>Ciao, <?= htmlspecialchars($username) ?>! Che aspetti? </p>
+        <p>Metti alla prova le tue competenze!</p>
     <?php endif; ?>
 </header>
 
+<nav>
+    <a href="homepage.php" class="home-btn">Home</a>
+    <a href="glossario.php" class="home-btn">Glossario</a>
+    <a href="profilo.php" class="home-btn">Profilo</a>
+    </nav>
+
 <div class="quiz-container">
+    <p> Nota: tutte le risposte vanno inserite in MAIUSCOLO.</p>
 <form id="quizForm" method="post">
 
     <!-- Vero/Falso -->
     <?php if(count($domande_vf) > 0): ?>
-    <section class="quiz-section">
-        <h2>Vero o Falso</h2>
-        <ol>
-            <?php foreach($domande_vf as $row): ?>
-            <li>
-                <?= htmlspecialchars($row['testo']) ?>
-                <label>
-                    <input type="radio" name="risposte[vf][<?= $row['id'] ?>]" value="1">
-                    <img src="../immagini/check.png" alt="Vero" style="width:20px; vertical-align:middle;">
-                </label>
-                <label>
-                    <input type="radio" name="risposte[vf][<?= $row['id'] ?>]" value="0">
-                    <img src="../immagini/cancel.png" alt="Falso" style="width:20px; vertical-align:middle;">
-                </label>
-            </li>
-            <?php endforeach; ?>
-        </ol>
-    </section>
-    <?php endif; ?>
+<section class="quiz-section">
+    <h2>Vero o Falso</h2>
+    <ol>
+        <?php foreach($domande_vf as $row): 
+            $id = $row['id'];
+            $user_risposta = $risposte['vf'][$id] ?? null; // risposta dell'utente
+            $corretta = $row['risposta_corretta'];         // dal DB
+
+            // cast corretti
+            $corretta_bool = ($corretta === true || $corretta === 't' || $corretta === '1' || $corretta === 1);
+            $user_bool = ($user_risposta == 1);
+
+            $inviato = isset($messaggio_punteggio);
+
+            // determina il messaggio solo una volta
+            $messaggio_risposta = null;
+            if($inviato && $user_risposta !== null){
+                $messaggio_risposta = ($user_bool === $corretta_bool) ? '(Corretta)' : '(Errata)';
+            }
+        ?>
+        <li>
+            <?= htmlspecialchars($row['testo']) ?>
+            <label>
+                <input type="radio" name="risposte[vf][<?= $id ?>]" value="1"
+                    <?= ($user_risposta !== null && $user_risposta == 1) ? 'checked' : '' ?>
+                    <?= $inviato ? 'disabled' : '' ?>>
+                <img src="../immagini/check.png" alt="Vero" style="width:20px; vertical-align:middle;">
+            </label>
+            <label>
+                <input type="radio" name="risposte[vf][<?= $id ?>]" value="0"
+                    <?= ($user_risposta !== null && $user_risposta == 0) ? 'checked' : '' ?>
+                    <?= $inviato ? 'disabled' : '' ?>>
+                <img src="../immagini/cancel.png" alt="Falso" style="width:20px; vertical-align:middle;">
+            </label>
+
+            <!-- Messaggio unico alla fine della domanda -->
+            <?php if($messaggio_risposta): ?>
+                <strong><?= $messaggio_risposta ?></strong>
+            <?php endif; ?>
+        </li>
+        <?php endforeach; ?>
+    </ol>
+</section>
+<?php endif; ?>
+
+<!-- Dopo i bottoni del form, puoi mostrare un riepilogo totale se vuoi -->
+<?php if(isset($messaggio_punteggio)): ?>
+    <p><strong><?= $messaggio_punteggio ?></strong></p>
+<?php endif; ?>
+
+
+
+
+
+
+
 
     <!-- Completa la frase -->
     <?php if(count($domande_cf) > 0): ?>
-    <section class="quiz-section">
-        <h2>Completa la frase</h2>
-        <ol>
-            <?php foreach($domande_cf as $row): ?>
-            <li>
-                <?= htmlspecialchars($row['frase']) ?>
-                <input type="text" name="risposte[cf][<?= $row['id'] ?>]">
-            </li>
-            <?php endforeach; ?>
-        </ol>
-    </section>
-    <?php endif; ?>
+<section class="quiz-section">
+    <h2>Completa la frase</h2>
+    <ol>
+        <?php foreach($domande_cf as $row): 
+            $id = $row['id'];
+            $user_risposta = $risposte['cf'][$id] ?? '';           // risposta dell'utente
+            $corretta = $row['risposta_corretta'];                 // risposta corretta dal DB
+            $inviato = isset($messaggio_punteggio);                // se il form è stato inviato
+        ?>
+        <li>
+            <?= htmlspecialchars($row['frase']) ?>
+            <input type="text" name="risposte[cf][<?= $id ?>]"
+                value="<?= htmlspecialchars($user_risposta) ?>"
+                <?= $inviato ? 'disabled' : '' ?>>
+
+            <?php if($inviato): ?>
+                <?php if(strtolower(trim($user_risposta)) === strtolower(trim($corretta))): ?>
+                    <strong>(Corretta)</strong>
+                <?php else: ?>
+                    <strong>(Errata, risposta corretta: <?= htmlspecialchars($corretta) ?>)</strong>
+                <?php endif; ?>
+            <?php endif; ?>
+        </li>
+        <?php endforeach; ?>
+    </ol>
+</section>
+<?php endif; ?>
+
 
     <!-- Output immagine -->
-    <?php if(count($domande_output_img) > 0): ?>
-    <section class="quiz-section">
-        <h2>Qual è l'output del codice?</h2>
-        <?php foreach($domande_output_img as $row): ?>
-        <img class="output-img-large" src="../immagini/<?= htmlspecialchars($row['immagine']) ?>" alt="Quiz codice" style="display:block; margin-bottom:10px;">
-        <input type="text" name="risposte[output_img][<?= $row['id'] ?>]" placeholder="Scrivi qui la tua risposta">
-        <?php endforeach; ?>
-    </section>
+   <?php if(count($domande_output_img) > 0): ?>
+<section class="quiz-section">
+    <h2>I due codici hanno lo stesso output?</h2>
+    <?php foreach($domande_output_img as $row): 
+        $id = $row['id'];
+        $user_risposta = $risposte['output_img'][$id] ?? '';    // risposta dell'utente
+        $corretta = $row['risposta_corretta'];                  // risposta corretta dal DB
+        $inviato = isset($messaggio_punteggio);                 // se il form è stato inviato
+    ?>
+    <img class="output-img-large" src="../immagini/<?= htmlspecialchars($row['immagine']) ?>" alt="Quiz codice" style="display:block; margin-bottom:10px;">
+    <img class="output-img-large" src="../immagini/quiz32.png" alt="Pixel ID 32" style="display:block; margin-bottom:10px;">
+    <input type="text" name="risposte[output_img][<?= $id ?>]"
+        placeholder="Scrivi qui la tua risposta"
+        value="<?= htmlspecialchars($user_risposta) ?>"
+        <?= $inviato ? 'disabled' : '' ?>>
+
+    <?php if($inviato): ?>
+        <?php if(trim($user_risposta) === trim($corretta)): ?>
+            <strong>(Corretta)</strong>
+        <?php else: ?>
+            <strong>(Errata, risposta corretta: <?= htmlspecialchars($corretta) ?>)</strong>
+        <?php endif; ?>
     <?php endif; ?>
+    <br><br>
+    <?php endforeach; ?>
+</section>
+<?php endif; ?>
 
-    <!-- Drag & Drop -->
-    <?php if(count($domande_dd) > 0): ?>
-    <section class="quiz-section">
-        <h2>Drag & Drop</h2>
-        <p>Trascina i termini nella definizione corretta:</p>
+<!-- drag drop -->
+   <?php if(count($domande_dd) > 0): ?>
+<section class="quiz-section">
+    <h2>Drag & Drop</h2>
+    <p>Trascina i termini nella definizione corretta:</p>
 
-        <div class="drag-drop-container">
+    <div class="drag-drop-container">
 
-            <!-- Termini trascinabili -->
-            <div class="drag-items">
-                <h3>Termini</h3>
-                <?php foreach($domande_dd as $row): ?>
-                    <div class="drag-item" id="term<?= $row['id'] ?>" draggable="true">
-                        <?= htmlspecialchars($row['termine']) ?>
-                    </div>
-                <?php endforeach; ?>
-            </div>
-
-            <!-- Definizioni / drop -->
-            <div class="drop-zones">
-                <h3>Definizioni</h3>
-                <?php foreach($domande_dd as $row): ?>
-                <div class="dd-item">
-                    <span class="def-text"><?= htmlspecialchars($row['definizione_corretta']) ?></span>
-                    <div class="drop-zone" data-answer="<?= htmlspecialchars($row['termine']) ?>"></div>
-                    <input type="hidden" name="risposte[dd][<?= $row['id'] ?>]">
+        <!-- Termini trascinabili -->
+        <div class="drag-items">
+            <h3>Termini</h3>
+            <?php foreach($domande_dd as $row): 
+                $id = $row['id'];
+                $inviato = isset($messaggio_punteggio);
+            ?>
+                <div class="drag-item" id="term<?= $id ?>" 
+                     draggable="<?= $inviato ? 'false' : 'true' ?>">
+                    <?= htmlspecialchars($row['termine']) ?>
                 </div>
-                <?php endforeach; ?>
-            </div>
-
+            <?php endforeach; ?>
         </div>
-    </section>
-    <?php endif; ?>
+
+        <!-- Definizioni / drop -->
+        <div class="drop-zones">
+            <h3>Definizioni</h3>
+            <?php foreach($domande_dd as $row): 
+                $id = $row['id'];
+                $user_risposta = $risposte['dd'][$id] ?? '';  // termine selezionato dall'utente
+                $corretta = $row['termine'];                  // termine corretto
+                $inviato = isset($messaggio_punteggio);
+            ?>
+            <div class="dd-item">
+                <span class="def-text"><?= htmlspecialchars($row['definizione_corretta']) ?></span>
+
+                <!-- drop-zone disabilitata dopo invio -->
+                <div class="drop-zone" data-answer="<?= htmlspecialchars($row['termine']) ?>"
+                     <?= $inviato ? 'data-disabled="true"' : '' ?>>
+                    <?php if($inviato && $user_risposta !== ''): ?>
+                        <!-- mostra il termine già posizionato dall'utente -->
+                        <span class="dropped-term"><?= htmlspecialchars($user_risposta) ?></span>
+                    <?php endif; ?>
+                </div>
+
+                <input type="hidden" name="risposte[dd][<?= $id ?>]" value="<?= htmlspecialchars($user_risposta) ?>">
+
+                <!-- messaggio unico -->
+                <?php if($inviato && $user_risposta !== ''): ?>
+                    <?php if(trim($user_risposta) === trim($corretta)): ?>
+                        <strong>(Corretta)</strong>
+                    <?php else: ?>
+                        <strong>(Errata, risposta corretta: <?= htmlspecialchars($corretta) ?>)</strong>
+                    <?php endif; ?>
+                <?php endif; ?>
+            </div>
+            <?php endforeach; ?>
+        </div>
+
+    </div>
+</section>
+<?php endif; ?>
+
+
+
 
     <button type="submit">Invia Risposte</button>
-    <button type="button" onclick="resetQuiz()">Reset</button>
+    <button type="button" onclick="window.location='quiz.php';">Reset</button>
 
 </form>
 
