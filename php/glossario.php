@@ -1,23 +1,13 @@
 <?php
 session_start();
 
-/* ===== LOGOUT INLINE ===== */
-if (isset($_POST['logout'])) {
-    session_unset();
-    session_destroy();
-    header("Location: homepage.php");
-    exit;
-}
-
 /* ===== CONNESSIONE DB ===== */
 $conn_str = "host=localhost port=5432 dbname=gruppo26 user=www password=www";
 $dbconn = pg_connect($conn_str);
+
 if (!$dbconn) {
     die("Errore di connessione al database.");
 }
-
-/* ===== SESSIONE ===== */
-$is_logged = isset($_SESSION['username']);
 
 /* ===== RICERCA ===== */
 $search_value = "";
@@ -34,78 +24,76 @@ $result = $search_value
     ? pg_query_params($dbconn, $query_sql, ['%' . $search_value . '%'])
     : pg_query($dbconn, $query_sql);
 ?>
+
 <!DOCTYPE html>
 <html lang="it">
 <head>
 <meta charset="UTF-8">
 <title>Glossario - Tecnologie Web</title>
-<link rel="stylesheet" href="../css/glossario.css">
+<link rel="stylesheet" href="../css/glossario.css?v=5">
+<link rel="icon" href="../immagini/iconarazzo.ico" type="image/X.icon" />
 </head>
 
-<body>
+
+<body id="inizio">
 
 <header class="main-header">
     <h1>Glossario Tecnologie Web</h1>
-    <p>Il cuore didattico del corso</p>
+    <p>A tutti può capitare di dimenticare qualcosa!</p>
 </header>
 
-<nav class="navbar">
+<!-- NAV BAR PRINCIPALE -->
+<nav>
     <a href="homepage.php">Home</a>
-
-    <?php if ($is_logged): ?>
-        <a href="profilo.php">Profilo (<?= htmlspecialchars($_SESSION['username']) ?>)</a>
-        <form method="post" class="nav-form">
-            <button type="submit" name="logout" class="logout-btn">Logout</button>
-        </form>
-    <?php else: ?>
-        <a href="accesso.php">Accedi / Registrati</a>
-    <?php endif; ?>
-
-    <a href="glossario.php" class="active">Glossario</a>
+    <a href="quiz.php">Quiz</a>
+    <a href="profilo.php">Profilo</a>
 </nav>
 
-<main class="yellow-container">
+<main class="contenitore">
 
 <section class="content-box">
-    <h2>Cerca un termine</h2>
     <form method="get">
         <input type="text" id="js-search" name="q"
-               value="<?= htmlspecialchars($search_value) ?>"
-               placeholder="HTML, CSS, PHP...">
+       value="<?= htmlspecialchars($search_value) ?>"
+       placeholder="Cerca un termine...">
         <button type="submit">Cerca</button>
+        <button type="button" onclick="window.location='glossario.php';">Reset</button>
     </form>
 </section>
 
 <section class="terms-grid">
-<?php while ($row = pg_fetch_assoc($result)):
-    $is_visible = ($row['livello_accesso'] === 'free' || $is_logged);
-?>
-<article class="term-card <?= $is_visible ? 'unlocked' : 'locked' ?>">
-    <header>
-        <h3><?= htmlspecialchars($row['termine']) ?></h3>
-        <span class="category-badge"><?= htmlspecialchars($row['categoria']) ?></span>
-    </header>
 
-    <div class="card-content">
-        <?php if ($is_visible): ?>
+<?php while ($row = pg_fetch_assoc($result)): ?>
+    <article class="term-card">
+        <header>
+            <h3><?= htmlspecialchars($row['termine']) ?></h3>
+        
+           <!--  <span class="category-badge">
+                <?= htmlspecialchars($row['categoria']) ?>
+            </span>
+-->
+        </header>
+
+        <div class="card-content">
             <p><?= htmlspecialchars($row['definizione']) ?></p>
-        <?php else: ?>
-            <p class="blur-text">Contenuto riservato</p>
-            <div class="lock-overlay">
-                <span>🔒 Premium</span>
-                <a href="accesso.php">Accedi</a>
-            </div>
-        <?php endif; ?>
-    </div>
-</article>
+        </div>
+    </article>
 <?php endwhile; ?>
+
 </section>
+
+<a id="tornaSu" href="#inizio">Torna su</a>
 
 </main>
 
+ 
+
+<!-- FOOTER -->
 <footer class="main-footer">
-    <p>&copy; 2026 – Tecnologie Web</p>
+     <p>Corso Tecnologie Web – A.A. 2025-2026 | Portale didattico per studenti di Ingegneria Informatica</p>
+    <p>Università degli Studi di Salerno - Via Giovanni Paolo II, 132 - 84084 Fisciano (SA)</p>
 </footer>
+
 
 </body>
 </html>
