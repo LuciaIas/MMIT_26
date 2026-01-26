@@ -70,7 +70,7 @@ nav {
     /*flex-wrap: wrap;  utile su mobile */
 }
 
-nav a, .dropbtn {
+nav a {
     color: #fff;
     text-decoration: none;
     margin: 0 10px;
@@ -81,7 +81,7 @@ nav a, .dropbtn {
     font-size: 1em;
 }
 
-nav a:hover, .dropbtn:hover {
+nav a:hover {
     color: rgb(38, 204, 255);
 }
 
