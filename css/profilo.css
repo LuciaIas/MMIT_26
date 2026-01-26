@@ -8,7 +8,7 @@
 /* ===== BODY ===== */
 body {
     font-family: 'Segoe UI', Arial, sans-serif;
-    background: linear-gradient(to bottom, #e0f2fe, #bfdbfe);
+    background: linear-gradient(to bottom, #e0f2fe, #d488a9);
     min-height: 100vh;
     display: flex;
     justify-content: center;
@@ -30,7 +30,7 @@ body {
 /* ===== TITOLO ===== */
 .container-profilo h1 {
     text-align: center;
-    color: #1d4ed8;
+    color: #159649;;
     margin-bottom: 30px;
     font-size: 2em;
 }
@@ -50,7 +50,7 @@ body {
 }
 
 .info-personali strong {
-    color: #2563eb;
+    color: #159649;;
 }
 
 /* ===== AZIONI ===== */
@@ -65,7 +65,7 @@ body {
 .btn {
     text-decoration: none;
     padding: 12px 22px;
-    background: #3b82f6;
+    background: #159649;;
     color: white;
     border-radius: 10px;
     font-weight: bold;
@@ -75,7 +75,7 @@ body {
 }
 
 .btn:hover {
-    background: #1d4ed8;
+    background: #159649;;
     transform: translateY(-2px);
 }
 

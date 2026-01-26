@@ -38,6 +38,7 @@ $user = pg_fetch_assoc($result);
     <h1>Ciao <?= htmlspecialchars($user['username']) ?> 👋</h1>
 
     <div class="info-personali">
+        <p><strong>Nome utente:</strong> <?= htmlspecialchars($user['username']) ?> </p>
         <p><strong>Email:</strong> <?= htmlspecialchars($user['email']) ?></p>
         <p><strong>Tipo:</strong> <?= htmlspecialchars($user['tipo_utente']) ?></p>
         <p><strong>Sesso:</strong> <?= htmlspecialchars($user['sesso']) ?></p>
