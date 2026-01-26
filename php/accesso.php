@@ -155,7 +155,7 @@ if (isset($_POST['register'])) {
         <div class="radio-options">
             <label>
                 <input type="radio" name="sesso" value="M"
-                    <?= ($sesso_sticky === 'M') ? 'checked' : '' ?>>
+                    <?= ($sesso_sticky === 'M') ? 'checked' : '' ?> required>
                 Maschio
             </label>
             <label>
@@ -169,11 +169,11 @@ if (isset($_POST['register'])) {
     <input maxlength="200" autofocus type="email" name="email_reg" placeholder="nome@esempio.com"
            value="<?= $email_sticky ?>" required>
 
-    <input maxlength="30" autofocus type="text" name="username_reg" placeholder="Nome utente"
+    <input maxlength="30" type="text" name="username_reg" placeholder="Nome utente"
            value="<?= $username_sticky ?>" required>
 
-    <input maxlength="50" autofocus type="password" name="password_reg" placeholder="Password (min. 6 caratteri)" id="regPassword">
-    <input maxlength="50" autofocus type="password" name="password_conf" placeholder="Conferma password" id="regPasswordConf">
+    <input maxlength="64" type="password" name="password_reg" placeholder="Password (min. 6 caratteri)" id="regPassword" required>
+    <input maxlength="64" type="password" name="password_conf" placeholder="Conferma password" id="regPasswordConf" required>
 
     <label class="show-pass">
         <input type="checkbox" data-target="regPassword,regPasswordConf"> Mostra caratteri
