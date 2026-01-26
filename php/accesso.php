@@ -138,8 +138,8 @@ if (isset($_POST['register'])) {
 
 <!-- FORM LOGIN -->
 <form id="loginForm" method="post" class="form-active">
-    <input type="text" name="username" placeholder="Nome utente" required>
-    <input type="password" name="password" placeholder="Password" id="loginPassword">
+    <input autofocus type="text" name="username" placeholder="Nome utente" required>
+    <input autofocus type="password" name="password" placeholder="Password" id="loginPassword">
     <label class="show-pass">
         <input type="checkbox" data-target="loginPassword"> Mostra caratteri
     </label>
@@ -166,14 +166,14 @@ if (isset($_POST['register'])) {
         </div>
     </div>
 
-    <input type="email" name="email_reg" placeholder="nome@esempio.com"
+    <input autofocus type="email" name="email_reg" placeholder="nome@esempio.com"
            value="<?= $email_sticky ?>" required>
 
-    <input type="text" name="username_reg" placeholder="Nome utente"
+    <input autofocus type="text" name="username_reg" placeholder="Nome utente"
            value="<?= $username_sticky ?>" required>
 
-    <input type="password" name="password_reg" placeholder="Password (min. 6 caratteri)" id="regPassword">
-    <input type="password" name="password_conf" placeholder="Conferma password" id="regPasswordConf">
+    <input autofocus type="password" name="password_reg" placeholder="Password (min. 6 caratteri)" id="regPassword">
+    <input autofocus type="password" name="password_conf" placeholder="Conferma password" id="regPasswordConf">
 
     <label class="show-pass">
         <input type="checkbox" data-target="regPassword,regPasswordConf"> Mostra caratteri
