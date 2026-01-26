@@ -70,7 +70,7 @@ window.onclick = function(event) {
 
     <!-- SEMPRE VISIBILE -->
     <div class="dropdown-menu">
-        <button class="dropbtn" onclick="toggleMenu()">Sezioni</button>
+        <button class="dropbtn" onclick="toggleMenu()">Menu</button>
         <div id="dropdown-content" class="dropdown-content">
             <a href="#sessioni"> Sessioni di Studio </a>
             <a href="#feedback">Feedback</a>
@@ -92,8 +92,8 @@ window.onclick = function(event) {
     <?php if($utente_loggato): ?>
         <h1>Benvenuto, <?php echo htmlspecialchars($_SESSION['username']); ?>!</h1>
         <p>
-            Sei loggato e puoi accedere a tutte le funzionalità del portale, inclusi quiz interattivi e glossario completo.
-            Approfondisci HTML, CSS, JavaScript e PHP e testa le tue competenze direttamente dalla dashboard.
+            Sei loggato e puoi accedere a tutte le funzionalità del portale: quiz interattivi e glossario.
+            Approfondisci HTML, CSS, JavaScript e PHP e testa le tue competenze!
         </p>
     <?php else: ?>
         <h1>

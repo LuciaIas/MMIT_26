@@ -2,7 +2,7 @@
 
 body {
     font-family: 'Segoe UI', sans-serif;
-    background:#eef2f7;
+    background:#dea7bf;
     min-height:100vh;
     display:flex;
     justify-content:center;
@@ -12,7 +12,7 @@ body {
 .container-login {
     display:flex;
     width:750px;
-    background:#fff;
+    background:#ffffff;
     border-radius:20px;
     box-shadow:0 20px 40px rgba(0,0,0,0.1);
 }
@@ -56,7 +56,7 @@ h2 { color:#333; margin-bottom:15px; }
     transition:0.3s;
 }
 
-.form-switch button.active { background:#60a5fa; color:white; }
+.form-switch button.active { background:#6be29b; color:white; }
 
 input, select, textarea {
     width:100%;
@@ -122,7 +122,7 @@ button[name="login"], button[name="register"] {
     width:100%;
     padding:12px;
     border:none;
-    background:#3b82f6;
+    background:#6be29b;
     color:white;
     border-radius:8px;
     margin-top:10px;
@@ -130,7 +130,7 @@ button[name="login"], button[name="register"] {
     transition:0.3s;
 }
 
-button:hover { background:#2563eb; }
+button:hover { background:#6be29b; }
 button:disabled { background:#9ca3af; cursor:not-allowed; }
 
 form { display:none; flex-direction:column; gap:12px; }
@@ -148,8 +148,8 @@ form.form-active { display:flex; }
 
 .side-panel {
     flex:0.5;
-    background:linear-gradient(135deg,#60a5fa,#3b82f6);
-    color:white;
+    background:linear-gradient(135deg,#67dd90,#4fcb7a);
+    color:rgb(255, 255, 255);
     padding:25px 20px;
     border-radius:0 20px 20px 0;
     display:flex;

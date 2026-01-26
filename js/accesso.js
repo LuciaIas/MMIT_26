@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
         buttons[1].classList.remove('active');
         loginForm.classList.add('form-active');
         registerForm.classList.remove('form-active');
-        sideTitle.textContent = "Bentornato amico, felice di rivederti!";
+        sideTitle.textContent = "Bentornato, felice di rivederti!";
         sideText.textContent = "Ogni accesso è un passo verso la conoscenza!";
     }
 
@@ -23,8 +23,8 @@ document.addEventListener('DOMContentLoaded', () => {
         buttons[0].classList.remove('active');
         registerForm.classList.add('form-active');
         loginForm.classList.remove('form-active');
-        sideTitle.textContent = "Benvenuto amico, felice di accoglierti!";
-        sideText.textContent = "Più esercitazioni, più soddisfazioni... unisciti a noi!";
+        sideTitle.textContent = "Benvenuto, felice di accoglierti!";
+        sideText.textContent = "Esercitazione? Soddisfazione ... unisciti a noi!";
     }
 
     buttons[0].onclick = showLogin;
