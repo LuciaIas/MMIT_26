@@ -4,18 +4,7 @@ include __DIR__ . '/db.php';
 
 $utente_loggato = isset($_SESSION['username']);
 
-// Percorso corretto al file visite (data è nella root)
-$file_visite = __DIR__ . '/../data/visite.txt';
 
-// Se il file non esiste, lo creiamo
-if (!file_exists($file_visite)) {
-    file_put_contents($file_visite, "0");
-}
-
-// Leggiamo, incrementiamo e riscriviamo
-$visite = (int) file_get_contents($file_visite);
-$visite++;
-file_put_contents($file_visite, (string) $visite);
 ?>
 
 <!DOCTYPE html>
