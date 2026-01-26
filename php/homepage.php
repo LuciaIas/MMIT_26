@@ -60,26 +60,31 @@ window.onclick = function(event) {
     </div>
 </header>
 
-<!-- NAV BAR PRINCIPALE -->
 <nav>
-    <a href="accesso.php?">Accedi</a>
-    <a href="accesso.php?register=1">Registrati</a>
-    <!-- MENU A TENDINA -->
+
+    <?php if (!$utente_loggato): ?>
+        <!-- UTENTE ANONIMO -->
+        <a href="accesso.php">Accedi</a>
+        <a href="accesso.php?register=1">Registrati</a>
+    <?php endif; ?>
+
+    <!-- SEMPRE VISIBILE -->
     <div class="dropdown-menu">
-        <button class="dropbtn" onclick="toggleMenu()">Sezioni </button>
+        <button class="dropbtn" onclick="toggleMenu()">Sezioni</button>
         <div id="dropdown-content" class="dropdown-content">
-            <a href="#storia">Storia del Web</a>
+            <a href="#sessioni"> Sessioni di Studio </a>
             <a href="#feedback">Feedback</a>
-            <a href="#contatti">Contatti</a>           
+            <a href="#contatti">Contatti</a>
         </div>
     </div>
 
-    <!-- <a href="<?php echo $utente_loggato ? 'quiz.php' : 'accesso.php?mode=login'; ?>" class="btn">Quiz</a> -->
-    <!-- <a href="<?php echo $utente_loggato ? 'glossario.php' : 'accesso.php?mode=login'; ?>" class="btn">Glossario</a> -->
-    <a href="quiz.php">Quiz</a>
-    <a href="glossario.php">Glossario</a>
-    <a href="profilo.php">Profilo</a> 
-    <!-- <a href="<?php echo $utente_loggato ? 'glossario.php' : 'accesso.php?mode=login'; ?>" class="btn">Glossario</a> -->   
+    <?php if ($utente_loggato): ?>
+        <!-- UTENTE AUTENTICATO -->
+        <a href="quiz.php">Quiz</a>
+        <a href="glossario.php">Glossario</a>
+        <a href="profilo.php">Profilo</a>
+    <?php endif; ?>
+
 </nav>
 
 <!-- SEZIONE INTRO DINAMICA -->
@@ -91,10 +96,13 @@ window.onclick = function(event) {
             Approfondisci HTML, CSS, JavaScript e PHP e testa le tue competenze direttamente dalla dashboard.
         </p>
     <?php else: ?>
-        <h1>Sei uno studente di Tecnologie Web? Sei nel posto giusto!</h1>
-        <p>Qui puoi approfondire HTML, CSS, JavaScript e PHP e testare le tue competenze con il quiz di autovalutazione.</p>
-        <p>La dashboard fornisce una panoramica generale del sito ma, alcune funzionalità, come il glossario e i quiz interattivi, 
-            sono accessibili solo dopo la registrazione...non perdere tempo,<span style="color: #fd0d59ff;"><strong> Registrati ora!</strong></span>
+        <h1>
+            Sei uno studente di Tecnologie Web?
+            Sei nel posto giusto!
+        </h1>
+
+        <p>È il momento di approfondire HTML, CSS, JavaScript e PHP e testare le tue competenze! </p>
+        <p>La homepage offre una panoramica generale dei servizi del portale, mentre, le nostre funzionalità: il quiz e glossario sono accessibili solo dopo la registrazione...non perdere tempo: <span style="color: #fd0d59ff;"><strong> Registrati ora!</strong></span>
         </p>
     <?php endif; ?>
 </div>
@@ -107,20 +115,15 @@ window.onclick = function(event) {
     </video>
 </div>
 
-
-<!-- STATISTICHE E FEEDBACK -->
-<div id="feedback" class="contenuto">
-    <h2>Feedback</h2>
-    <p>Questo portale ha supportato centinaia di studenti nello studio di Tecnologie Web. </p>
-    <p>La maggior parte di loro dichiara di aver trovato utile il materiale interattivo e i quiz di autovalutazione 
-    e di aver superato con successo l'esame!</p>
-    <p>Ogni visita conta, il nostro portale cresce ogni giorno grazie a studenti come te.
-    <p>Numero di visite totali al sito:<strong><?php echo number_format($visite); ?></strong></p>
-    <p>Unisciti anche tu alla nostra community e prepara gli esami con noi...Cosa aspetti!
-    <img src="../immagini/cuoricino.png" style="width:16px; height:16px; vertical-align:middle;">
-    </p> 
+<!-- CHI SIAMO -->
+<div class="contenuto">
+    <h2>Chi siamo?</h2>
+    <p>
+        Siamo studenti dell'<a href="https://www.unisa.it/">Università di Salerno</a> e frequentiamo il terzo anno di 
+        Ingegneria Informatica. <img src="../immagini/smile.png" style="width:16px; height:16px; vertical-align:middle;">
+    </p>
+    <p> Abbiamo realizzato questo portale per facilitare lo studio degli studenti, proponendo spiegazioni sintetiche e quiz di autovalutazione. </p>
 </div>
-
 
 
 <div class="citazione">
@@ -132,7 +135,7 @@ window.onclick = function(event) {
 
 
 <!-- ORARI LIVE  -->
-<div class="contenuto">
+<div id="sessioni" class="contenuto">
     <h2>Sessioni di Studio</h2>
     <p>Partecipa alle nostre live su TikTok per studiare insieme e supportarci durante la sessione!</p>
     
@@ -186,17 +189,19 @@ window.onclick = function(event) {
     
 
 </div>
-<!-- CHI SIAMO -->
-<div class="contenuto">
-    <h2>Chi siamo?</h2>
-    <p>
-        Siamo studenti dell'<a href="https://www.unisa.it/">Università di Salerno</a> e frequentiamo il terzo anno di 
-        Ingegneria Informatica. <img src="../immagini/smile.png" style="width:16px; height:16px; vertical-align:middle;">
-    </p>
-    <p>Abbiamo deciso di creare questo portale per supportare lo studio di altri studenti come noi, 
-        offrendo spiegazioni sintetiche, esempi pratici e quiz di autovalutazione. </p>
-</div>
 
+<!-- STATISTICHE E FEEDBACK -->
+<div id="feedback" class="contenuto">
+    <h2>Feedback</h2>
+    <ul>
+        <li>Questo portale ha supportato centinaia di studenti nello studio di Tecnologie Web.</li>
+        <li>Le opinioni raccolte evidenziano l'efficacia del materiale interattivo come strumento di supporto alla preparazione dell'esame.</li>
+        <li>Ogni tua visita conta! Grazie a studenti come te, il nostro portale continua a crescere e migliorare ogni giorno.</li>
+        <li>Numero di visite totali al sito: <strong><?php echo number_format($visite); ?></strong></li>
+        <li>Unisciti alla nostra community e affronta gli esami con noi... cosa aspetti? <img src="../immagini/cuoricino.png" alt="cuore" width="16" height="16" style="vertical-align:middle;">
+</li> </li>
+    </ul>
+</div>
 
 <div class="citazione">
     <blockquote cite="https://netrise.it/aforismi-sul-mondo-digitale/">
