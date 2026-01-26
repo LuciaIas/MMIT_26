@@ -28,7 +28,9 @@ if ($result !== false) {
 <html lang="it">
 
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8">    
+    <meta name="author" content="gruppoMMIT26"/>
+    <meta name="description" content="Homepage"/>
     <title>Portale Tecnologie Web</title>
     <link rel="stylesheet" href="../css/homepagecss.css">
     <link rel="icon" href="../immagini/iconarazzo.ico" type="image/X.icon" />

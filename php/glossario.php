@@ -29,6 +29,8 @@ $result = $search_value
 <html lang="it">
 <head>
 <meta charset="UTF-8">
+<meta name="author" content="gruppoMMIT26"/>
+<meta name="description" content="Pagina glossario"/>
 <title>Glossario - Tecnologie Web</title>
 <link rel="stylesheet" href="../css/glossario.css?v=5">
 <link rel="icon" href="../immagini/iconarazzo.ico" type="image/X.icon" />

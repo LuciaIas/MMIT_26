@@ -112,6 +112,8 @@ if (isset($_POST['register'])) {
 <html lang="it">
 <head>
 <meta charset="UTF-8">
+<meta name="author" content="gruppoMMIT26"/>
+<meta name="description" content="Pagina di accesso"/>
 <title>Accesso</title>
 <link rel="stylesheet" href="../css/accesso.css">
 <link rel="shrtcut icon" href="../immagini/iconcinalogin.jpg" type="image/x-icon">
