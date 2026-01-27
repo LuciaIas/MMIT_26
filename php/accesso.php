@@ -127,7 +127,6 @@ $apriRegistrazione = isset($_GET['register']) && $_GET['register'] == 1;
 window.apriRegistrazione = <?php echo $apriRegistrazione ? 'true' : 'false'; ?>;
 </script>
 
-
 <div class="container-login">
 <div class="form-container">
 <div class="avatar">
