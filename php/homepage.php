@@ -66,8 +66,12 @@ window.onclick = function(event) {
 
     <?php if (!$utente_loggato): ?>
         <!-- UTENTE ANONIMO -->
-        <a href="accesso.php">Accedi</a>
-        <a href="accesso.php?register=1">Registrati</a>
+        
+<!-- Per aprire login -->
+<a href="accesso.php?form=login">Login</a>
+
+<!-- Per aprire registrazione -->
+<a href="accesso.php?form=register">Registrazione</a>
     <?php endif; ?>
 
     <?php if ($utente_loggato): ?>
@@ -81,8 +85,10 @@ window.onclick = function(event) {
     <div class="dropdown-menu">
         <button class="dropbtn" onclick="toggleMenu()">Menu</button>
         <div id="dropdown-content" class="dropdown-content">
+                <?php if($utente_loggato): ?>
             <a href="#storia">Storia del Web</a>
-            <a href="#sessioni"> Sessioni di Studio </a>
+            <a href="#sessioni">Sessioni di Studio </a>
+                <?php endif; ?>
             <a href="#chisiamo">Chi siamo</a>           
             <a href="#feedback">Feedback</a>
             <a href="#contatti">Contatti</a>   
@@ -131,7 +137,7 @@ window.onclick = function(event) {
        Nasce come evoluzione delle prime reti di computer sviluppate per favorire la condivisione delle informazioni 
        tra più nodi. La prima rete significativa fu <span class="highlight">ARPANET</span>, creata alla fine degli 
        anni ’60 negli Stati Uniti dalla <span class="highlight" title="Defense Advanced Research Projects Agency">
-       DARPA</span> sviluppò ARPANET per scopi militari. 
+       DARPA</span> per scopi militari. 
     </p>
     <p>
     Con l’introduzione del protocollo <span class="highlight">TCP/IP</span> nel 1982, ARPANET si trasforma progressivamente 
@@ -140,7 +146,7 @@ window.onclick = function(event) {
     favorito la diffusione di massa tra gli utenti.</i></p>Nel 1989 il fisico <span class="highlight">Tim Berners-Lee</span>, 
     lavorando al CERN di Ginevra, propose un sistema per la condivisione di documenti ipertestuali tra ricercatori. 
     Nel 1991 vennero definiti il linguaggio HTML e il protocollo HTTP, che permisero la creazione e il trasferimento 
-    di documenti collegati tramite link. Nasce così ufficialmente il World Wide Web, reso pubblico nel 1993 e destinato 
+    di documenti collegati tramite link.<br> Nasce così ufficialmente il World Wide Web, reso pubblico nel 1993 e destinato 
     a una crescita esponenziale negli anni successivi.
    </p>
   
@@ -189,12 +195,12 @@ window.onclick = function(event) {
                 <td>Tutti meritiamo un po' di riposo!</td>
             </tr>
         </tbody>
-        <tfoot>
-        <tr> 
-            <td colspan="2" style="text-align:center;">  <p> 
-            Tiktok: <a href="https://www.tiktok.com/@gruppo_mmit?_r=1&_t=ZN-93OUU82znuA">@gruppo_mmit</a> </td> </tr>
-        </tfoot>
     </table>
+    <br>
+    Seguici sui nostri social per non perderti nessuna novità!<br>
+     <a href="https://www.tiktok.com/@gruppo_mmit?_r=1&_t=ZN-93OUU82znuA">
+        <img src="../immagini/tiktok.jpg" alt="Logo TikTok" width="100px">   
+     </a>
 </div>
 <?php endif; ?>
 
@@ -212,17 +218,16 @@ window.onclick = function(event) {
     <h2>Chi siamo?</h2>
     <p>
         Siamo studenti dell'<a href="https://www.unisa.it/">Università di Salerno</a> e frequentiamo il terzo anno di 
-        Ingegneria Informatica. 
-        <p>L'obiettivo di questo portale è semplice ma ambizioso: rendere lo studio chiaro, veloce e accessibile a tutti.</p> 
-    </p>
-    <p> 
-<h2>La nostra community</h2>
-<p><strong>MMIT</strong> è tra le prime community per lo studio in Italia. </p>
-<p>Il nostro gruppo non è solo uno spazio digitale: è il punto di riferimento per chi vuole imparare, migliorarsi e 
-sentirsi parte di qualcosa di grande.</p>
-<p>Qui non sarai mai solo: troverai motivazione, amicizie e una rete pronta ad aiutarti a superare ogni sfida universitaria.</p>
-<h2>I fondatori</h2>
-<p>Dietro questo progetto ci siamo noi: studenti proprio come te! <img src="../immagini/smile.png" style="width:16px; height:16px; vertical-align:middle;"> </p>
+        Ingegneria Informatica. <br>L'obiettivo di questo portale è semplice ma ambizioso: rendere lo studio chiaro
+        e accessibile a tutti.</p>
+    <h2>La nostra community</h2>
+    <strong>MMIT</strong> è tra le prime community per lo studio in Italia.<br>
+    Il nostro gruppo non è solo uno spazio digitale, è il punto di riferimento per chi vuole imparare 
+    e migliorarsi ogni giorno.<br>
+    Qui non sarai mai solo: troverai motivazione, amicizie e una rete pronta ad aiutarti a superare ogni sfida 
+    universitaria.
+   <h2>I fondatori</h2>
+   Dietro questo progetto ci siamo noi: studenti proprio come te! <img src="../immagini/smile.png" style="width:16px; height:16px; vertical-align:middle;"> </p>
 
  </p>
 </div>
@@ -270,14 +275,12 @@ sentirsi parte di qualcosa di grande.</p>
         Lucia Monetta    | Email: <a href="mailto:l.monetta8@studenti.unisa.it">l.monetta8@studenti.unisa.it</a><br>
         Matteo Muccio    | Email: <a href="mailto:m.muccio3@studenti.unisa.it">m.muccio3@studenti.unisa.it</a><br>
         Michele Tamburro | Email: <a href="mailto:m.tamburro@studenti.unisa.it">m.tamburro@studenti.unisa.it</a>
-    </p>
-        <p><img src="../immagini/tiktok.jpg" alt="Logo Portale" class="header-img">
-        <img src="../immagini/ig.png"  class="header-img" style="width:120px" >
-    </p>
     
 </div>
 
 <a id="tornaSu" href="#inizio">Torna su</a> 
+
+
 
 <!-- FOOTER -->
 <div class="footer">
