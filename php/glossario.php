@@ -33,7 +33,7 @@ $result = $search_value
 <meta name="description" content="Pagina glossario"/>
 <title>Glossario - Tecnologie Web</title>
 <link rel="stylesheet" href="../css/glossario.css?v=5">
-<link rel="icon" href="../immagini/iconarazzo.ico" type="image/X.icon" />
+<link rel="icon" href="../immagini/zoom.ico" type="image/X.icon" />
 </head>
 
 

@@ -1,6 +1,6 @@
 body {
     font-family: 'Arial', sans-serif;
-    background: linear-gradient(to bottom, #f0f8ff, #87cefa);
+    background: linear-gradient(180deg, #fff3cd, #07ff72);
     margin: 0;
     padding: 0;
     min-height: 100vh;
@@ -103,13 +103,18 @@ nav a:hover {
 }
 
 .quiz-section h2 {
-    color: #0055aa;
+    color: #02452c;
+    font-weight: 800;
 }
 
 .quiz-section p {
     margin: 10px 0;
 }
 
+.big-input {
+    padding: 12px 16px;   /* più spazio = riquadro più grande */
+    font-size: 1.1em;     /* opzionale */
+}
 /* Drag & Drop */
 .drag-drop-container {
     display: flex;
@@ -117,10 +122,15 @@ nav a:hover {
     margin-bottom: 15px;
 }
 
+h3 {
+    color: #02452c;;
+}
+
 .drag-item {
     padding: 8px 12px;
-    background-color: #0055aa;
-    color: white;
+    background-color: #25d796;
+    color: #ffffff;
+    border: 4px double #0a8f60; /* spessore + double + colore */
     border-radius: 5px;
     cursor: grab;
 }
@@ -142,4 +152,56 @@ nav a:hover {
 .drop-zone.over {
     border-color: #0055aa;
     background-color: #e0f0ff;
+}
+
+
+
+.buttons {
+    display: flex;
+    justify-content: center; /* centro orizzontale */
+    height: 40px;
+    gap: 20px;
+}
+
+button {
+    padding: 12px 28px;
+    background-color: #183a60;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 25px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.12);
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* ================================
+   FOOTER
+================================ */
+.main-footer {
+    background-color: #343a40;
+    color: #fff;
+    text-align: center;
+    padding: 22px;
+    font-size: 0.9em;
+}
+
+.main-footer p {
+    margin: 5px 0;
+}
+
+.risultato {
+    background-color: #f9f9f9;
+    padding: 10px;       /* aggiunto padding per estetica */
+    border-radius: 5px;  /* angoli arrotondati */
+    margin-top: 20px;    /* spazio sopra il box */
+}
+
+.risultato p {
+    color: #12b878;
+    font-weight: 500;
+    font-size: 1.1em;    /* leggermente più grande */
 }
