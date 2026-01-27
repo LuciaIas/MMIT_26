@@ -97,7 +97,7 @@ if($utente_loggato && $_SERVER['REQUEST_METHOD'] === 'POST') {
 <meta name="author" content="gruppoMMIT26"/>
 <meta name="description" content="Pagina di quiz"/>
 <title>Pagina dei quiz</title>
-<link rel="stylesheet" href="../css/quiz.css?v=6" type="text/css">
+<link rel="stylesheet" href="../css/quiz.css?v=8" type="text/css">
 <link rel="shrtcut icon" href="../immagini/note.png" type="image/x-icon">
 <script>
 function resetQuiz() {
@@ -120,7 +120,17 @@ function resetQuiz() {
     <a href="glossario.php" class="home-btn">Glossario</a>
     <a href="profilo.php" class="home-btn">Profilo</a>
 </nav>
+<br>
 
+<?php if (!$utente_loggato): ?>
+    <section class="content-box">
+        <h2>Accesso richiesto</h2>
+        <p>Per svolgere il quiz devi essere registrato ed effettuare l’accesso.</p>
+            <br><a class="btnanonimo" href="accesso.php">Accedi</a>oppure
+            <a class="btnanonimo" href="accesso.php?register=1">Registrati</a>
+    </section>
+
+<?php else: ?>
 <div class="quiz-container">
     <p><i> Nota: tutte le risposte vanno inserite in MAIUSCOLO.</i></p>
 <form id="quizForm" method="post">
@@ -307,10 +317,11 @@ function resetQuiz() {
 </form> <!-- Chiudo il form qui -->
 <script src="../js/quiz.js"></script>
 
+
 <footer class="main-footer">
      <p>Corso Tecnologie Web – A.A. 2025-2026 | Portale didattico per studenti di Ingegneria Informatica</p>
     <p>Università degli Studi di Salerno - Via Giovanni Paolo II, 132 - 84084 Fisciano (SA)</p>
 </footer>
-
+<?php endif; ?>
 </body>
 </html>
