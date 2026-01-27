@@ -104,6 +104,7 @@ if (isset($_POST['register'])) {
         }
     } else {
         $tipo_messaggio = "error";
+        $apriRegistrazione = true;
     }
 }
 ?>
@@ -121,7 +122,10 @@ if (isset($_POST['register'])) {
 
 <body>
 <?php
-$apriRegistrazione = isset($_GET['register']) && $_GET['register'] == 1;
+$apriRegistrazione = (
+    (isset($_GET['register']) && $_GET['register'] == 1)
+    || isset($_POST['register'])
+);
 ?>
 <script>
 window.apriRegistrazione = <?php echo $apriRegistrazione ? 'true' : 'false'; ?>;
