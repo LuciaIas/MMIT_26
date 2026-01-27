@@ -81,9 +81,10 @@ window.onclick = function(event) {
     <div class="dropdown-menu">
         <button class="dropbtn" onclick="toggleMenu()">Menu</button>
         <div id="dropdown-content" class="dropdown-content">
+            <a href="#chisiamo">Chi siamo</a>
             <a href="#sessioni"> Sessioni di Studio </a>
             <a href="#feedback">Feedback</a>
-            <a href="#contatti">Contatti</a>
+            <a href="#contatti">Contatti</a>   
         </div>
     </div>
 
@@ -119,13 +120,23 @@ window.onclick = function(event) {
 </div>
 
 <!-- CHI SIAMO -->
-<div class="contenuto">
+<div id="chisiamo" class="contenuto">
     <h2>Chi siamo?</h2>
     <p>
         Siamo studenti dell'<a href="https://www.unisa.it/">Università di Salerno</a> e frequentiamo il terzo anno di 
-        Ingegneria Informatica. <img src="../immagini/smile.png" style="width:16px; height:16px; vertical-align:middle;">
+        Ingegneria Informatica. 
+        <p>L'obiettivo di questo portale è semplice ma ambizioso: rendere lo studio chiaro, veloce e accessibile a tutti.</p> 
     </p>
-    <p> Abbiamo realizzato questo portale per facilitare lo studio degli studenti, proponendo spiegazioni sintetiche e quiz di autovalutazione. </p>
+    <p> 
+<h2>La nostra community</h2>
+<p><strong>MMIT</strong> è tra le prime community per lo studio in Italia. </p>
+<p>Il nostro gruppo non è solo uno spazio digitale: è il punto di riferimento per chi vuole imparare, migliorarsi e 
+sentirsi parte di qualcosa di grande.</p>
+<p>Qui non sarai mai solo: troverai motivazione, amicizie e una rete pronta ad aiutarti a superare ogni sfida universitaria.</p>
+<h2>I fondatori</h2>
+<p>Dietro questo progetto ci siamo noi: studenti proprio come te! <img src="../immagini/smile.png" style="width:16px; height:16px; vertical-align:middle;"> </p>
+
+ </p>
 </div>
 
 

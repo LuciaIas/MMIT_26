@@ -115,18 +115,27 @@ if (isset($_POST['register'])) {
 <meta name="author" content="gruppoMMIT26"/>
 <meta name="description" content="Pagina di accesso"/>
 <title>Accesso</title>
-<link rel="stylesheet" href="../css/accesso.css">
+<link rel="stylesheet" href="../css/accesso?v=5.css">
 <link rel="icon" href="../immagini/lucchetto.ico" type="image/x-icon">
 </head>
+
 <body>
+<?php
+$apriRegistrazione = isset($_GET['register']) && $_GET['register'] == 1;
+?>
+<script>
+window.apriRegistrazione = <?php echo $apriRegistrazione ? 'true' : 'false'; ?>;
+</script>
+
+
 <div class="container-login">
 <div class="form-container">
 <div class="avatar">
-    <img src="../immagini/students_avatar.png" alt="Avatar studenti">
+    <img src="../immagini/iconauser.png" alt="Avatar studenti" >
 </div>
-
+<br>
 <h2>Accesso al Portale</h2>
-
+<br>
 <?php if ($messaggio): ?>
 <div class="message <?= $tipo_messaggio ?>"><?= $messaggio ?></div>
 <?php endif; ?>
@@ -135,6 +144,7 @@ if (isset($_POST['register'])) {
     <button data-form="login" class="active">Login</button>
     <button data-form="register">Registrazione</button>
 </div>
+<br>
 
 <!-- FORM LOGIN -->
 <form id="loginForm" method="post" class="form-active">

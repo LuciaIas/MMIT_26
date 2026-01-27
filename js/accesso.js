@@ -27,10 +27,27 @@ document.addEventListener('DOMContentLoaded', () => {
         sideText.textContent = "Esercitazione? Soddisfazione ... unisciti a noi!";
     }
 
-    buttons[0].onclick = showLogin;
-    buttons[1].onclick = showRegister;
+    // ===== EVENTI BOTTONE =====
+    buttons[0].addEventListener('click', showLogin);
+    buttons[1].addEventListener('click', showRegister);
 
-    showLogin();
+    // ===== MOSTRA IL FORM CORRETTO ALL'APERTURA =====
+    function apriFormCorretta() {
+        // 1. Se c'è hash #register
+        if (window.location.hash === "#register") {
+            showRegister();
+        }
+        // 2. Altrimenti se PHP ha impostato apriRegistrazione
+        else if (typeof window.apriRegistrazione !== 'undefined' && window.apriRegistrazione === true) {
+            showRegister();
+        }
+        // 3. Altrimenti apri login
+        else {
+            showLogin();
+        }
+    }
+
+    apriFormCorretta();
 
     // ===== MOSTRA CARATTERI PASSWORD =====
     document.querySelectorAll('.show-pass input').forEach(check => {
@@ -56,6 +73,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
         registerBtn.disabled = !ok;
     });
-
 
 });

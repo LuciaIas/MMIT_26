@@ -49,7 +49,7 @@ $note = $_SESSION['note_temporanee'] ?? '';
 <meta name="description" content="Profilo utente autenticato"/>
 <title>Profilo</title>
 <link rel="stylesheet" href="../css/profilo.css">
-<link rel="icon" href="../immagini/user.ico" type="image/X-icon"/>
+<link rel="icon" href="../immagini/user1.ico" type="image/X-icon"/>
 
 </head>
 
