@@ -2,19 +2,23 @@
 session_start();
 include __DIR__ . '/db.php';
 
-// Controlla se la pagina è stata chiamata con ?form=login o ?form=register
+// ===== Imposta quale form aprire =====
+// Default: login
 $apriRegistrazione = false;
-if (isset($_GET['form'])) {
-    if ($_GET['form'] === 'register') {
-        $apriRegistrazione = true; // apri form registrazione
-    } else {
-        $apriRegistrazione = false; // apri form login
-    }
+
+// Se arrivi da link con ?form=register apri registrazione
+if (isset($_GET['form']) && $_GET['form'] === 'register') {
+    $apriRegistrazione = true;
 }
 
 // Se il form è stato inviato
-if (isset($_POST['register'])) $apriRegistrazione = true;
-if (isset($_POST['login'])) $apriRegistrazione = false;
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (isset($_POST['register'])) {
+        $apriRegistrazione = true;  // Mantieni registrazione aperta se ci sono errori
+    } elseif (isset($_POST['login'])) {
+        $apriRegistrazione = false; // Mantieni login aperto se ci sono errori
+    }
+}
 
 
 $messaggio = "";
@@ -26,7 +30,6 @@ $username_sticky = htmlspecialchars($_POST['username_reg'] ?? '');
 $sesso_sticky = $_POST['sesso'] ?? '';
 $universita_sticky = $_POST['universita'] ?? '';
 $username_login_sticky = htmlspecialchars($_POST['username'] ?? '');
-
 
 /* ===== LOGIN ===== */
 if (isset($_POST['login'])) {
@@ -138,12 +141,6 @@ if (isset($_POST['register'])) {
 </head>
 
 <body>
-<?php
-$apriRegistrazione = (
-    (isset($_GET['register']) && $_GET['register'] == 1)
-    || isset($_POST['register'])
-);
-?>
 <script>
 window.apriRegistrazione = <?php echo $apriRegistrazione ? 'true' : 'false'; ?>;
 </script>

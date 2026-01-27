@@ -31,10 +31,9 @@ document.addEventListener('DOMContentLoaded', () => {
     buttons[0].addEventListener('click', showLogin);
     buttons[1].addEventListener('click', showRegister);
 
-    document.addEventListener('DOMContentLoaded', () => {
+    // Mostra il form corretto in base al PHP
     if (window.apriRegistrazione) showRegister();
     else showLogin();
-    });
 
     // ===== MOSTRA CARATTERI PASSWORD =====
     document.querySelectorAll('.show-pass input').forEach(check => {
@@ -59,6 +58,19 @@ document.addEventListener('DOMContentLoaded', () => {
         const ok = email && username && password && passwordConf && sesso && universita && universita !== "";
 
         registerBtn.disabled = !ok;
+        
     });
+
+        // ===== LOGIN: abilita bottone solo se campi compilati =====
+    const loginBtn = loginForm.querySelector('button[name="login"]');
+
+    loginForm.addEventListener('input', () => {
+        const username = loginForm.querySelector('[name="username"]').value.trim();
+        const password = loginForm.querySelector('[name="password"]').value.trim();
+        loginBtn.disabled = !(username && password);
+    });
+
+    // All'inizio, disabilita il bottone login
+    loginBtn.disabled = true;
 
 });
