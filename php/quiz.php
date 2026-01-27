@@ -126,7 +126,7 @@ function resetQuiz() {
     <section class="content-box">
         <h2>Accesso richiesto</h2>
         <p>Per svolgere il quiz devi essere registrato ed effettuare l’accesso.</p>
-            <br><a class="btnanonimo" href="accesso.php">Accedi</a>oppure
+            <br><a class="btnanonimo" href="accesso.php">Login</a>oppure
             <a class="btnanonimo" href="accesso.php?form=register">Registrati</a>
     </section>
 
@@ -324,61 +324,6 @@ function resetQuiz() {
 </footer>
 <?php endif; ?>
 
-<script>
-document.getElementById('quizForm').addEventListener('submit', function(e) {
-    let formValid = true;
-    let errorMsg = '';
-
-    // ===== 1) Vero/Falso =====
-    let vfIncomplete = false;
-    const vfSections = document.querySelectorAll('.quiz-section h2');
-    vfSections.forEach(section => {
-        if(section.textContent.includes('Vero o Falso')) {
-            const radios = section.parentElement.querySelectorAll('input[type="radio"]');
-            const names = [...new Set([...radios].map(r => r.name))]; // nomi unici
-            names.forEach(name => {
-                if(!section.parentElement.querySelector(`input[name="${name}"]:checked`)) {
-                    vfIncomplete = true;
-                }
-            });
-        }
-    });
-    if(vfIncomplete){
-        formValid = false;
-        errorMsg += '- Devi rispondere a tutte le domande Vero/Falso.\n';
-    }
-
-    // ===== 2) Completa Frase =====
-    const cfInputs = document.querySelectorAll('input[name^="risposte[cf]"]');
-    if([...cfInputs].some(input => input.value.trim() === '')){
-        formValid = false;
-        errorMsg += '- Devi completare tutte le frasi.\n';
-    }
-
-    // ===== 3) Output immagine =====
-    const imgInputs = document.querySelectorAll('input[name^="risposte[output_img]"]');
-    if([...imgInputs].some(input => input.value.trim() === '')){
-        formValid = false;
-        errorMsg += '- Devi rispondere a tutte le domande Output Immagine.\n';
-    }
-
-    // ===== 4) Drag & Drop =====
-    const dropZones = document.querySelectorAll('.drop-zone');
-    if([...dropZones].some(zone => {
-        const hidden = zone.nextElementSibling;
-        return hidden && hidden.value.trim() === '';
-    })){
-        formValid = false;
-        errorMsg += '- Devi completare tutte le assegnazioni Drag & Drop.\n';
-    }
-
-    // Blocca invio se ci sono errori
-    if(!formValid){
-        e.preventDefault();
-        alert('Non puoi inviare il quiz:\n' + errorMsg);
-    }
-});
-</script>
 
 
 </body>
