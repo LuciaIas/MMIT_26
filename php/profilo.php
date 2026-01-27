@@ -49,14 +49,14 @@ $note = $_SESSION['note_temporanee'] ?? '';
 <meta name="description" content="Profilo utente autenticato"/>
 <title>Profilo</title>
 <link rel="stylesheet" href="../css/profilo.css">
-<link rel="icon" href="../immagini/utente.ico" type="image/x-icon">
+<link rel="icon" href="../immagini/user.ico" type="image/X-icon"/>
 
 </head>
 
 <body>
 
 <div class="container-profilo">
-    <h1>Ciao <?= htmlspecialchars($user['username']) ?> 👋</h1>
+    <h1>Ciao <?= htmlspecialchars($user['username']) ?>!</h1>
 
 <div class="info-personali">
     <p><strong>Nome utente:</strong> <span><?= htmlspecialchars($user['username']) ?></span></p>
@@ -86,7 +86,7 @@ $note = $_SESSION['note_temporanee'] ?? '';
         <a href="quiz.php" class="btn">Quiz</a>
 
         <form method="post" style="display:inline;">
-            <button type="submit" name="logout" class="btn btn-logout">Logout</button>
+        <button type="submit" name="logout" class="btn btn-logout">Logout</button>
         </form>
     </div>
 </div>

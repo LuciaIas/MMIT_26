@@ -7,7 +7,7 @@
 
 /* ===== BODY ===== */
 body {
-    font-family: 'Segoe UI', Arial, sans-serif;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
     background: linear-gradient(to bottom, #ffe0f0, #ffd6e0);
     min-height: 100vh;
     display: flex;
@@ -24,7 +24,6 @@ body {
     padding: 35px;
     border-radius: 16px;
     box-shadow: 0 15px 35px rgba(0,0,0,0.15);
-    animation: fadeIn 0.6s ease-in-out;
 }
 
 /* ===== TITOLO ===== */
@@ -78,49 +77,29 @@ body {
     font-weight: bold;
     border: none;
     cursor: pointer;
-    transition: all 0.3s ease;
 }
 
 .btn:hover {
     background: #13a34a;
-    transform: translateY(-2px);
 }
 
 .btn-logout {
+    text-decoration: none;
+    padding: 12px 22px;
     background: #ef4444;
+    color: white;
+    border-radius: 10px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem; /* importante per dimensione */
+    line-height: 1.2; /* allinea il testo verticalmente */
 }
 
 .btn-logout:hover {
     background: #b91c1c;
 }
 
-/* ===== ANIMAZIONE ===== */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(15px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* ===== RESPONSIVE ===== */
-@media (max-width: 600px) {
-    .container-profilo {
-        padding: 25px;
-    }
-
-    .container-profilo h1 {
-        font-size: 1.6em;
-    }
-
-    .info-personali p,
-    .note-personali textarea {
-        font-size: 0.95em;
-    }
-}
 
 /* Nota personale compatta */
 .note-personali {

@@ -2,7 +2,7 @@
    Reset e stili di base
 ================================ */
 html,body {
-    font-family: 'Arial', sans-serif;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
     line-height: 1.6;
     margin: 0;
     padding: 0;
@@ -70,7 +70,7 @@ nav {
     /*flex-wrap: wrap;  utile su mobile */
 }
 
-nav a {
+nav a, .dropbtn {
     color: #fff;
     text-decoration: none;
     margin: 0 10px;
@@ -81,7 +81,7 @@ nav a {
     font-size: 1em;
 }
 
-nav a:hover {
+nav a:hover, .dropbtn:hover {
     color: rgb(38, 204, 255);
 }
 
@@ -331,3 +331,6 @@ nav a:hover {
 .footer p {
     margin: 5px 0;
 }
+
+
+
