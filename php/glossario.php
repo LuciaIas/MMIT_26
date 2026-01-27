@@ -1,6 +1,8 @@
 <?php
 session_start();
 
+$utente_loggato = isset($_SESSION['username']);
+
 /* ===== CONNESSIONE DB ===== */
 $conn_str = "host=localhost port=5432 dbname=gruppo26 user=www password=www";
 $dbconn = pg_connect($conn_str);
@@ -32,7 +34,7 @@ $result = $search_value
 <meta name="author" content="gruppoMMIT26"/>
 <meta name="description" content="Pagina glossario"/>
 <title>Glossario - Tecnologie Web</title>
-<link rel="stylesheet" href="../css/glossario.css?v=5">
+<link rel="stylesheet" href="../css/glossario.css?v=6">
 <link rel="icon" href="../immagini/zoom.ico" type="image/X.icon" />
 </head>
 
@@ -53,6 +55,17 @@ $result = $search_value
 
 <main class="contenitore">
 
+<?php if (!$utente_loggato): ?>
+    <section class="content-box">
+        <h2>Accesso richiesto</h2>
+        <br><p>Per consultare il glossario devi essere registrato ed effettuare l’accesso.</p><br>
+        <p>
+            <a id="btn" href="accesso.php">Accedi</a> oppure
+            <a id="btn" href="accesso.php?register=1" >Registrati</a>
+        </p>
+    </section>
+
+<?php else: ?>
 <section class="content-box">
     <form method="get">
         <input type="text" id="js-search" name="q"
@@ -86,6 +99,7 @@ $result = $search_value
 
 <a id="tornaSu" href="#inizio">Torna su</a>
 
+<?php endif; ?>
 </main>
 
  

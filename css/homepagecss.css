@@ -319,7 +319,7 @@ nav a:hover, .dropbtn:hover {
 /* ================================
    Footer
 ================================ */
-.footer {
+footer {
     background-color: #343a40;
     color: #fff;
     text-align: center;
@@ -328,7 +328,7 @@ nav a:hover, .dropbtn:hover {
     font-size: 0.9em;
 }
 
-.footer p {
+footer p {
     margin: 5px 0;
 }
 

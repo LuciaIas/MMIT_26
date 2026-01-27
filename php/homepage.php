@@ -73,11 +73,10 @@ window.onclick = function(event) {
 <!-- Per aprire registrazione -->
 <a href="accesso.php?form=register">Registrazione</a>
     <?php endif; ?>
-
-    <?php if ($utente_loggato): ?>
-        <!-- UTENTE AUTENTICATO -->
         <a href="quiz.php">Quiz</a>
         <a href="glossario.php">Glossario</a>
+    <?php if ($utente_loggato): ?>
+        <!-- UTENTE AUTENTICATO -->
         <a href="profilo.php">Profilo</a>
     <?php endif; ?>
 
@@ -198,9 +197,10 @@ window.onclick = function(event) {
     </table>
     <br>
     Seguici sui nostri social per non perderti nessuna novità!<br>
-     <a href="https://www.tiktok.com/@gruppo_mmit?_r=1&_t=ZN-93OUU82znuA">
-        <img src="../immagini/tiktok.jpg" alt="Logo TikTok" width="100px">   
-     </a>
+<a href="https://www.tiktok.com/@gruppo_mmit?_r=1&_t=ZN-93OUU82znuA">
+    <img src="../immagini/tiktok.jpg" alt="Logo TikTok" width="100px" style="margin-left: 40px;">
+</a>
+
 </div>
 <?php endif; ?>
 
@@ -280,13 +280,12 @@ window.onclick = function(event) {
 
 <a id="tornaSu" href="#inizio">Torna su</a> 
 
-
-
 <!-- FOOTER -->
-<div class="footer">
+<footer>
     <p>Corso Tecnologie Web – A.A. 2025-2026 | Portale didattico per studenti di Ingegneria Informatica</p>
     <p>Università degli Studi di Salerno - Via Giovanni Paolo II, 132 - 84084 Fisciano (SA)</p>
-</div>
+ </footer>
 
 </body>
+
 </html>
