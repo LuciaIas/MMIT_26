@@ -110,7 +110,7 @@ window.onclick = function(event) {
 
         <p>La homepage offre una panoramica generale dei servizi del portale, mentre, 
             le nostre funzionalità esclusive (approfondimenti, sessioni di studio, quiz di autovalutazione e glossario) sono accessibili solo dopo la registrazione...non perdere tempo:
-            <a href="accesso.php#register" style="color: #fd0d59; font-weight: bold; text-decoration: underline;">Registrati ora!</a>
+            <a href="accesso.php?form=register" style="color: #fd0d59; font-weight: bold; text-decoration: underline;">Registrati ora!</a>
     </p>
 
     <?php endif; ?>
