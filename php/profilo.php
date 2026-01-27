@@ -54,8 +54,7 @@ $note = $_SESSION['note_temporanee'] ?? '';
 </head>
 
 <body>
-
-<div class="container-profilo">
+<div id="profilo-container" class="container-profilo">
     <h1>Ciao <?= htmlspecialchars($user['username']) ?>!</h1>
 
 <div class="info-personali">

@@ -32,7 +32,7 @@ if ($result !== false) {
     <meta name="author" content="gruppoMMIT26"/>
     <meta name="description" content="Homepage"/>
     <title>Portale Tecnologie Web</title>
-    <link rel="stylesheet" href="../css/homepagecss.css" type="text/css">
+    <link rel="stylesheet" href="../css/homepagecss?v=2.css" type="text/css">
     <link rel="icon" href="../immagini/iconarazzo.ico" type="image/X.icon" />
 <script>
 function toggleMenu() {

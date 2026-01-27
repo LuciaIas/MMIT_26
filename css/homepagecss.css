@@ -1,6 +1,4 @@
-/* ================================
-   Reset e stili di base
-================================ */
+/* stili di base */
 html,body {
     font-family:Verdana, Geneva, Tahoma, sans-serif;
     line-height: 1.6;
@@ -24,9 +22,7 @@ p {
     margin: 0.5em 0 1em 0;
 }
 
-/* ================================
-   Header
-================================ */
+/* Header */
 header {
     background-color:#235085;
     color: #fff;
@@ -56,10 +52,7 @@ header {
     margin: 5px 0 0 0;
 }
 
-/* ================================
-   Nav bar
-================================ */
-
+/* Nav Bar */
 
 nav {
     display: flex;
@@ -67,7 +60,6 @@ nav {
     align-items: center; /* allinea verticalmente link e dropdown */
     background-color: #183a60;
     padding: 10px 0;
-    /*flex-wrap: wrap;  utile su mobile */
 }
 
 nav a, .dropbtn {
@@ -113,9 +105,7 @@ nav a:hover, .dropbtn:hover {
 }
 
 
-/* ================================
-   Sommario
-================================ */
+/* Sommario */
  .intro {
     background-color: #fff;
     padding: 20px;
@@ -155,9 +145,8 @@ nav a:hover, .dropbtn:hover {
     text-decoration: underline;
 }
 
-/* ================================
-   Sezione centrale di attenzione
-================================ */
+
+/* Sezione iniziale */
 .focus {
     background-color: blue;
     color: #212529;
@@ -178,25 +167,8 @@ nav a:hover, .dropbtn:hover {
     font-size: 1.1em;
 }
 
-/* Checklist */
-.checklist {
-    text-align: left;
-    margin-top: 20px;
-}
 
-.checklist ul {
-    list-style: none;
-    padding-left: 0;
-}
-
-.checklist ul li {
-    margin: 8px 0;
-    font-size: 1em;
-}
-
-/* ================================
-   Sezioni contenuti
-================================ */
+/* Sezioni contenuti */
 .contenuto {
     background-color: #fff;
     padding: 25px;
@@ -247,10 +219,7 @@ nav a:hover, .dropbtn:hover {
 }
 
 
-/* ================================
-   Tabella Orari Live Study
-================================ */
-
+/* Tabella Orari */
 .tabella-orari {
     width: 100%;
     border-collapse: collapse;
@@ -274,7 +243,9 @@ nav a:hover, .dropbtn:hover {
     background-color: #f2f2f2;
 }
 
-
+.tabella-orari > tbody > tr {
+    background-color: #f9f9f9; 
+}
 
 #orari-live a {
     color: #0d6efd;
@@ -284,14 +255,7 @@ nav a:hover, .dropbtn:hover {
 
 
 
-#orari-live a {
-    color: #0d6efd;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-
-
+/* Pulsante */
 #tornaSu {
     display: inline-block;
     margin: 30px auto;
@@ -316,9 +280,7 @@ nav a:hover, .dropbtn:hover {
 }
 
 
-/* ================================
-   Footer
-================================ */
+/* Footer */
 footer {
     background-color: #343a40;
     color: #fff;

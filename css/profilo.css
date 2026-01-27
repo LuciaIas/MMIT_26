@@ -16,6 +16,11 @@ body {
     padding: 50px 20px;
 }
 
+#profilo-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
 /* ===== CONTAINER PROFILO ===== */
 .container-profilo {
     background: #fff0f5;
@@ -25,6 +30,7 @@ body {
     border-radius: 16px;
     box-shadow: 0 15px 35px rgba(0,0,0,0.15);
 }
+
 
 /* ===== TITOLO ===== */
 .container-profilo h1 {
