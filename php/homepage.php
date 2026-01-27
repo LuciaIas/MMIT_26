@@ -141,7 +141,8 @@ window.onclick = function(event) {
     <p>
     Con l’introduzione del protocollo <span class="highlight">TCP/IP</span> nel 1982, ARPANET si trasforma progressivamente 
     in <span class="highlight">Internet</span>, un’infrastruttura che consente la comunicazione tra computer e dispositivi 
-    distribuiti in tutto il mondo. <p><i>Internet esiste e funziona anche senza il Web, ma è proprio il Web che ne ha 
+    distribuiti in tutto il mondo. <img src="../immagini/website.png" style="width:16px; height:16px; vertical-align:middle;">
+    <p><i>Internet esiste e funziona anche senza il Web, ma è proprio il Web che ne ha 
     favorito la diffusione di massa tra gli utenti.</i></p>Nel 1989 il fisico <span class="highlight">Tim Berners-Lee</span>, 
     lavorando al CERN di Ginevra, propose un sistema per la condivisione di documenti ipertestuali tra ricercatori. 
     Nel 1991 vennero definiti il linguaggio HTML e il protocollo HTTP, che permisero la creazione e il trasferimento 
@@ -155,7 +156,9 @@ window.onclick = function(event) {
 <!-- ORARI LIVE  -->
 <div id="sessioni" class="contenuto">
     <h2>Sessioni di Studio</h2>
-    <p>Partecipa alle nostre live su TikTok per studiare insieme e supportarci durante la sessione!</p>
+    <p>Partecipa alle nostre live su TikTok per studiare insieme e supportarci durante la sessione!
+        <img src="../immagini/clock.png" style="width:16px; height:16px; vertical-align:middle;">
+    </p>
     
     <table class="tabella-orari">
         <thead>
@@ -269,7 +272,7 @@ window.onclick = function(event) {
 <!-- CONTATTI -->
 <div id="contatti" class="contenuto">
     <h2>Contatti utili</h2>
-    <strong>Gruppo MMIT </strong><img src="../immagini/iconauser.png" style="width:16px; height:16px; vertical-align:middle;">
+    <strong>Gruppo MMIT </strong><img src="../immagini/friend.png" style="width:16px; height:16px; vertical-align:middle;">
     <p>
         Lucia Iasevoli   | Email: <a href="mailto:l.iasevoli1@studenti.unisa.it">l.iasevoli1@studenti.unisa.it</a><br>
         Lucia Monetta    | Email: <a href="mailto:l.monetta8@studenti.unisa.it">l.monetta8@studenti.unisa.it</a><br>
