@@ -73,8 +73,8 @@ $note = $_SESSION['note_temporanee'] ?? '';
 
     <div class="note-personali">
         <form method="post">
-            <label for="note_temporanee"><strong>Note personali (temporanee):</strong></label>
-            <textarea cols="20" rows="5" name="note_temporanee" id="note_temporanee" rows="4"><?= htmlspecialchars($note) ?> Le mie note sono: ...</textarea>
+            <label for="note_temporanee"><strong> Appunti di Studio (temporanei):</strong></label>
+            <textarea cols="20" rows="5" name="note_temporanee" id="note_temporanee" rows="4"><?= htmlspecialchars($note) ?></textarea>
             <button type="submit" name="salva_note">Salva note</button>
         </form>
     </div>
