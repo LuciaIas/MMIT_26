@@ -2,6 +2,7 @@
 session_start();
 include __DIR__ . '/db.php';
 
+
 // ===== Imposta quale form aprire =====
 // Default: login
 $apriRegistrazione = false;
@@ -19,7 +20,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $apriRegistrazione = false; // Mantieni login aperto se ci sono errori
     }
 }
-
 
 $messaggio = "";
 $tipo_messaggio = "";
