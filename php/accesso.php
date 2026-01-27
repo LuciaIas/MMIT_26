@@ -115,7 +115,7 @@ if (isset($_POST['register'])) {
 <meta name="author" content="gruppoMMIT26"/>
 <meta name="description" content="Pagina di accesso"/>
 <title>Accesso</title>
-<link rel="stylesheet" href="../css/accesso?v=5.css">
+<link rel="stylesheet" href="../css/accesso?v=5.css" type="text/css">
 <link rel="icon" href="../immagini/lucchetto.ico" type="image/x-icon">
 </head>
 

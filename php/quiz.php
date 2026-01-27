@@ -97,7 +97,7 @@ if($utente_loggato && $_SERVER['REQUEST_METHOD'] === 'POST') {
 <meta name="author" content="gruppoMMIT26"/>
 <meta name="description" content="Pagina di quiz"/>
 <title>Pagina dei quiz</title>
-<link rel="stylesheet" href="../css/quiz.css?v=6">
+<link rel="stylesheet" href="../css/quiz.css?v=6" type="text/css">
 <link rel="shrtcut icon" href="../immagini/note.png" type="image/x-icon">
 <script>
 function resetQuiz() {
