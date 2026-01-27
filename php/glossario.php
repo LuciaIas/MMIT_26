@@ -61,7 +61,7 @@ $result = $search_value
         <br><p>Per consultare il glossario devi essere registrato ed effettuare l’accesso.</p><br>
         <p>
             <a id="btn" href="accesso.php">Login</a> oppure
-            <a id="btn" href="accesso.php?register=1" >Registrati</a>
+            <a id="btn" href="accesso.php?form=register" >Registrati</a>
         </p>
     </section>
 
