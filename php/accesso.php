@@ -2,6 +2,21 @@
 session_start();
 include __DIR__ . '/db.php';
 
+// Controlla se la pagina è stata chiamata con ?form=login o ?form=register
+$apriRegistrazione = false;
+if (isset($_GET['form'])) {
+    if ($_GET['form'] === 'register') {
+        $apriRegistrazione = true; // apri form registrazione
+    } else {
+        $apriRegistrazione = false; // apri form login
+    }
+}
+
+// Se il form è stato inviato
+if (isset($_POST['register'])) $apriRegistrazione = true;
+if (isset($_POST['login'])) $apriRegistrazione = false;
+
+
 $messaggio = "";
 $tipo_messaggio = "";
 
@@ -10,6 +25,8 @@ $email_sticky = htmlspecialchars($_POST['email_reg'] ?? '');
 $username_sticky = htmlspecialchars($_POST['username_reg'] ?? '');
 $sesso_sticky = $_POST['sesso'] ?? '';
 $universita_sticky = $_POST['universita'] ?? '';
+$username_login_sticky = htmlspecialchars($_POST['username'] ?? '');
+
 
 /* ===== LOGIN ===== */
 if (isset($_POST['login'])) {
@@ -151,7 +168,8 @@ window.apriRegistrazione = <?php echo $apriRegistrazione ? 'true' : 'false'; ?>;
 
 <!-- FORM LOGIN -->
 <form id="loginForm" method="post" class="form-active">
-    <input autofocus type="text" name="username" placeholder="Nome utente" required>
+  <input type="text" name="username" placeholder="Nome utente"
+       value="<?= $username_login_sticky ?>" required autofocus>
     <input autofocus type="password" name="password" placeholder="Password" id="loginPassword">
     <label class="show-pass">
         <input type="checkbox" data-target="loginPassword"> Mostra caratteri

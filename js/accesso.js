@@ -31,23 +31,10 @@ document.addEventListener('DOMContentLoaded', () => {
     buttons[0].addEventListener('click', showLogin);
     buttons[1].addEventListener('click', showRegister);
 
-    // ===== MOSTRA IL FORM CORRETTO ALL'APERTURA =====
-    function apriFormCorretta() {
-        // 1. Se c'è hash #register
-        if (window.location.hash === "#register") {
-            showRegister();
-        }
-        // 2. Altrimenti se PHP ha impostato apriRegistrazione
-        else if (typeof window.apriRegistrazione !== 'undefined' && window.apriRegistrazione === true) {
-            showRegister();
-        }
-        // 3. Altrimenti apri login
-        else {
-            showLogin();
-        }
-    }
-
-    apriFormCorretta();
+    document.addEventListener('DOMContentLoaded', () => {
+    if (window.apriRegistrazione) showRegister();
+    else showLogin();
+    });
 
     // ===== MOSTRA CARATTERI PASSWORD =====
     document.querySelectorAll('.show-pass input').forEach(check => {
