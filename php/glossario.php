@@ -60,7 +60,7 @@ $result = $search_value
         <h2>Accesso richiesto</h2>
         <br><p>Per consultare il glossario devi essere registrato ed effettuare l’accesso.</p><br>
         <p>
-            <a id="btn" href="accesso.php">Accedi</a> oppure
+            <a id="btn" href="accesso.php">Login</a> oppure
             <a id="btn" href="accesso.php?register=1" >Registrati</a>
         </p>
     </section>
