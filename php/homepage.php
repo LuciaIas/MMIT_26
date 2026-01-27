@@ -81,8 +81,9 @@ window.onclick = function(event) {
     <div class="dropdown-menu">
         <button class="dropbtn" onclick="toggleMenu()">Menu</button>
         <div id="dropdown-content" class="dropdown-content">
-            <a href="#chisiamo">Chi siamo</a>
+            <a href="#storia">Storia del Web</a>
             <a href="#sessioni"> Sessioni di Studio </a>
+            <a href="#chisiamo">Chi siamo</a>           
             <a href="#feedback">Feedback</a>
             <a href="#contatti">Contatti</a>   
         </div>
@@ -94,17 +95,16 @@ window.onclick = function(event) {
 <div class="intro">
     <?php if($utente_loggato): ?>
         <h1>Benvenuto, <?php echo htmlspecialchars($_SESSION['username']); ?>!</h1>
-            Sei loggato e puoi accedere a tutte le funzionalità del portale: quiz interattivi e glossario.
-            Approfondisci HTML, CSS, JavaScript e PHP e testa le tue competenze!
+            <p>Sei loggato e puoi accedere a tutte le funzionalità del portale!</p>
+            <p>Disponibili ora: approfondimento sulla storia del Web, orari delle sessioni di studio, quiz di autovalutazione e glossario.
         </p>
     <?php else: ?>
         <h1>
-            Sei uno studente di Tecnologie Web?
-            Sei nel posto giusto!
+        Sei uno studente di Tecnologie Web? <br>Sei nel posto giusto!
         </h1>
 
-        <p>È il momento di approfondire HTML, CSS, JavaScript e PHP. </p>
-        <p>La homepage offre una panoramica generale dei servizi del portale, mentre, le nostre funzionalità: il quiz e glossario sono accessibili solo dopo la registrazione...non perdere tempo:
+        <p>La homepage offre una panoramica generale dei servizi del portale, mentre, 
+            le nostre funzionalità esclusive (approfondimenti, sessioni di studio, quiz di autovalutazione e glossario) sono accessibili solo dopo la registrazione...non perdere tempo:
             <a href="accesso.php#register" style="color: #fd0d59; font-weight: bold; text-decoration: underline;">Registrati ora!</a>
     </p>
 
@@ -119,32 +119,31 @@ window.onclick = function(event) {
     </video>
 </div>
 
-<!-- CHI SIAMO -->
-<div id="chisiamo" class="contenuto">
-    <h2>Chi siamo?</h2>
+<!-- DINAMICA -->
+ <?php if($utente_loggato): ?>
+ <!-- STORIA DEL WEB -->
+<div id="storia" class="contenuto">
+    <h2>La storia del World Wide Web</h2>
     <p>
-        Siamo studenti dell'<a href="https://www.unisa.it/">Università di Salerno</a> e frequentiamo il terzo anno di 
-        Ingegneria Informatica. 
-        <p>L'obiettivo di questo portale è semplice ma ambizioso: rendere lo studio chiaro, veloce e accessibile a tutti.</p> 
+       Il <span class="highlight">World Wide Web (WWW)</span> è una rete globale di documenti e risorse multimediali 
+       interconnesse, accessibili tramite Internet e attraverso l’uso di un browser. </p>
+    <p>
+       Nasce come evoluzione delle prime reti di computer sviluppate per favorire la condivisione delle informazioni 
+       tra più nodi. La prima rete significativa fu <span class="highlight">ARPANET</span>, creata alla fine degli 
+       anni ’60 negli Stati Uniti dalla <span class="highlight" title="Defense Advanced Research Projects Agency">
+       DARPA</span> sviluppò ARPANET per scopi militari. 
     </p>
-    <p> 
-<h2>La nostra community</h2>
-<p><strong>MMIT</strong> è tra le prime community per lo studio in Italia. </p>
-<p>Il nostro gruppo non è solo uno spazio digitale: è il punto di riferimento per chi vuole imparare, migliorarsi e 
-sentirsi parte di qualcosa di grande.</p>
-<p>Qui non sarai mai solo: troverai motivazione, amicizie e una rete pronta ad aiutarti a superare ogni sfida universitaria.</p>
-<h2>I fondatori</h2>
-<p>Dietro questo progetto ci siamo noi: studenti proprio come te! <img src="../immagini/smile.png" style="width:16px; height:16px; vertical-align:middle;"> </p>
-
- </p>
-</div>
-
-
-<div class="citazione">
-    <blockquote cite="https://letteralmente.net/frasi-celebri/tim-berners-lee/">
-        "Il Web non si limita a collegare macchine, connette delle persone."
-        <p style="text-align: right;">- Tim Berners Lee</p>
-    </blockquote>
+    <p>
+    Con l’introduzione del protocollo <span class="highlight">TCP/IP</span> nel 1982, ARPANET si trasforma progressivamente 
+    in <span class="highlight">Internet</span>, un’infrastruttura che consente la comunicazione tra computer e dispositivi 
+    distribuiti in tutto il mondo. <p><i>Internet esiste e funziona anche senza il Web, ma è proprio il Web che ne ha 
+    favorito la diffusione di massa tra gli utenti.</i></p>Nel 1989 il fisico <span class="highlight">Tim Berners-Lee</span>, 
+    lavorando al CERN di Ginevra, propose un sistema per la condivisione di documenti ipertestuali tra ricercatori. 
+    Nel 1991 vennero definiti il linguaggio HTML e il protocollo HTTP, che permisero la creazione e il trasferimento 
+    di documenti collegati tramite link. Nasce così ufficialmente il World Wide Web, reso pubblico nel 1993 e destinato 
+    a una crescita esponenziale negli anni successivi.
+   </p>
+  
 </div>
 
 
@@ -191,10 +190,45 @@ sentirsi parte di qualcosa di grande.</p>
             </tr>
         </tbody>
         <tfoot>
-        <tr> <td colspan="2" style="text-align:center;">  <p> Tiktok: <a href="https://www.tiktok.com/@gruppo_mmit?_r=1&_t=ZN-93OUU82znuA">@gruppo_mmit</a> </td> </tr>
+        <tr> 
+            <td colspan="2" style="text-align:center;">  <p> 
+            Tiktok: <a href="https://www.tiktok.com/@gruppo_mmit?_r=1&_t=ZN-93OUU82znuA">@gruppo_mmit</a> </td> </tr>
         </tfoot>
     </table>
 </div>
+<?php endif; ?>
+
+<div class="citazione">
+    <blockquote cite="https://letteralmente.net/frasi-celebri/tim-berners-lee/">
+        "Il Web non si limita a collegare macchine, connette delle persone."
+        <p style="text-align: right;">- Tim Berners Lee</p>
+    </blockquote>
+</div>
+
+
+
+<!-- CHI SIAMO -->
+<div id="chisiamo" class="contenuto">
+    <h2>Chi siamo?</h2>
+    <p>
+        Siamo studenti dell'<a href="https://www.unisa.it/">Università di Salerno</a> e frequentiamo il terzo anno di 
+        Ingegneria Informatica. 
+        <p>L'obiettivo di questo portale è semplice ma ambizioso: rendere lo studio chiaro, veloce e accessibile a tutti.</p> 
+    </p>
+    <p> 
+<h2>La nostra community</h2>
+<p><strong>MMIT</strong> è tra le prime community per lo studio in Italia. </p>
+<p>Il nostro gruppo non è solo uno spazio digitale: è il punto di riferimento per chi vuole imparare, migliorarsi e 
+sentirsi parte di qualcosa di grande.</p>
+<p>Qui non sarai mai solo: troverai motivazione, amicizie e una rete pronta ad aiutarti a superare ogni sfida universitaria.</p>
+<h2>I fondatori</h2>
+<p>Dietro questo progetto ci siamo noi: studenti proprio come te! <img src="../immagini/smile.png" style="width:16px; height:16px; vertical-align:middle;"> </p>
+
+ </p>
+</div>
+
+
+
 
 <div class="citazione">
     <blockquote cite="https://letteralmente.net/frasi-celebri/tim-berners-lee/">
@@ -237,6 +271,10 @@ sentirsi parte di qualcosa di grande.</p>
         Matteo Muccio    | Email: <a href="mailto:m.muccio3@studenti.unisa.it">m.muccio3@studenti.unisa.it</a><br>
         Michele Tamburro | Email: <a href="mailto:m.tamburro@studenti.unisa.it">m.tamburro@studenti.unisa.it</a>
     </p>
+        <p><img src="../immagini/tiktok.jpg" alt="Logo Portale" class="header-img">
+        <img src="../immagini/ig.png"  class="header-img" style="width:120px" >
+    </p>
+    
 </div>
 
 <a id="tornaSu" href="#inizio">Torna su</a> 
