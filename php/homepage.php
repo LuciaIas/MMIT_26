@@ -222,9 +222,10 @@ window.onclick = function(event) {
     <p>
         Siamo studenti dell'<a href="https://www.unisa.it/">Università di Salerno</a> e frequentiamo il terzo anno di 
         Ingegneria Informatica. <br>L'obiettivo di questo portale è semplice ma ambizioso: rendere lo studio chiaro
-        e accessibile a tutti.</p>
+        e accessibile a tutti. <img src="../immagini/cervello.png" style="width:16px; height:16px; vertical-align:middle;">
+    </p>
     <h2>La nostra community</h2>
-    <strong>MMIT</strong> è tra le prime community per lo studio in Italia.<br>
+    <strong>MMIT</strong> è tra le prime community per lo studio in Italia. <img src="../immagini/trofeo.png" style="width:16px; height:16px; vertical-align:middle;"><br>
     Il nostro gruppo non è solo uno spazio digitale, è il punto di riferimento per chi vuole imparare 
     e migliorarsi ogni giorno.<br>
     Qui non sarai mai solo: troverai motivazione, amicizie e una rete pronta ad aiutarti a superare ogni sfida 
