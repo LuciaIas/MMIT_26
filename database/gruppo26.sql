@@ -144,7 +144,7 @@ INSERT INTO domande_completa_frase (id_quiz, frase, risposta_corretta) VALUES
 (2, 'L''URL è un tipo di _ che indica la posizione di una risorsa su Internet.', 'URI');
 
 INSERT INTO domande_output_immagine (id_quiz, immagine, risposta_corretta) 
-VALUES (3, 'quiz_id3.png', 'NO');
+VALUES (3, 'quiz_id3.jpeg', 'NO');
 
 INSERT INTO domande_drag_drop (id_quiz, termine, definizione_corretta) VALUES
 (4, 'HTML', 'Struttura delle pagine'),
