@@ -42,7 +42,7 @@ $result = $search_value
 <body id="inizio">
 
 <header class="main-header">
-    <h1>Glossario Tecnologie Web</h1>
+    <h1>Glossario</h1>
     <p>A tutti può capitare di dimenticare qualcosa!</p>
 </header>
 

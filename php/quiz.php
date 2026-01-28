@@ -97,7 +97,7 @@ if($utente_loggato && $_SERVER['REQUEST_METHOD'] === 'POST') {
 <meta name="author" content="gruppoMMIT26"/>
 <meta name="description" content="Pagina di quiz"/>
 <title>Pagina dei quiz</title>
-<link rel="stylesheet" href="../css/quiz.css?v=8" type="text/css">
+<link rel="stylesheet" href="../css/quiz.css?v=11" type="text/css">
 <link rel="shrtcut icon" href="../immagini/note.png" type="image/x-icon">
 <script>
 function resetQuiz() {
@@ -110,8 +110,7 @@ function resetQuiz() {
 <header>
     <h1>Quiz </h1>
     <?php if($utente_loggato): ?>
-        <p>Ciao, <?= htmlspecialchars($username) ?>! Che aspetti? </p>
-        <p>Metti alla prova le tue competenze!</p>
+        <p>Ciao, <?= htmlspecialchars($username) ?>! Metti alla prova le tue competenze!</p>
     <?php endif; ?>
 </header>
 
