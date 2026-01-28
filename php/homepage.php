@@ -124,32 +124,40 @@ window.onclick = function(event) {
     </video>
 </div>
 
-<!-- DINAMICA -->
- <?php if($utente_loggato): ?>
- <!-- STORIA DEL WEB -->
+
+<!-- STORIA DEL WORLD WIDE WEB -->
 <div id="storia" class="contenuto">
     <h2>La storia del World Wide Web</h2>
     <p>
        Il <span class="highlight">World Wide Web (WWW)</span> è una rete globale di documenti e risorse multimediali 
-       interconnesse, accessibili tramite Internet e attraverso l’uso di un browser. </p>
+       interconnesse, accessibili tramite Internet e attraverso l’uso di un browser.
+    </p>
     <p>
        Nasce come evoluzione delle prime reti di computer sviluppate per favorire la condivisione delle informazioni 
        tra più nodi. La prima rete significativa fu <span class="highlight">ARPANET</span>, creata alla fine degli 
        anni ’60 negli Stati Uniti dalla <span class="highlight" title="Defense Advanced Research Projects Agency">
-       DARPA</span> per scopi militari. 
+       DARPA</span> per scopi militari.
     </p>
+
+    <!-- Paragrafo speciale -->
+    <p class="paragrafo-speciale">
+        <strong>Curiosità:</strong> Nel 1989 il fisico <span class="highlight">Tim Berners-Lee</span> propose un sistema 
+        per la condivisione di documenti ipertestuali al CERN. Questo fu l’inizio ufficiale del World Wide Web, reso 
+        pubblico nel 1993!
+    </p>
+
     <p>
-    Con l’introduzione del protocollo <span class="highlight">TCP/IP</span> nel 1982, ARPANET si trasforma progressivamente 
-    in <span class="highlight">Internet</span>, un’infrastruttura che consente la comunicazione tra computer e dispositivi 
-    distribuiti in tutto il mondo. <img src="../immagini/website.png" style="width:16px; height:16px; vertical-align:middle;">
-    <p><i>Internet esiste e funziona anche senza il Web, ma è proprio il Web che ne ha 
-    favorito la diffusione di massa tra gli utenti.</i></p>Nel 1989 il fisico <span class="highlight">Tim Berners-Lee</span>, 
-    lavorando al CERN di Ginevra, propose un sistema per la condivisione di documenti ipertestuali tra ricercatori. 
-    Nel 1991 vennero definiti il linguaggio HTML e il protocollo HTTP, che permisero la creazione e il trasferimento 
-    di documenti collegati tramite link.<br> Nasce così ufficialmente il World Wide Web, reso pubblico nel 1993 e destinato 
-    a una crescita esponenziale negli anni successivi.
-   </p>
-  
+       Con l’introduzione del protocollo <span class="highlight">TCP/IP</span> nel 1982, ARPANET si trasforma progressivamente 
+       in <span class="highlight">Internet</span>, un’infrastruttura che consente la comunicazione tra computer e dispositivi 
+       distribuiti in tutto il mondo. <img src="../immagini/website.png" style="width:16px; height:16px; vertical-align:middle;">
+    </p>
+    <p><i>Internet esiste e funziona anche senza il Web, ma è proprio il Web che ne ha favorito la diffusione di massa tra gli utenti.</i></p>
+    <p>
+       Nel 1989 il fisico <span class="highlight">Tim Berners-Lee</span>, lavorando al CERN di Ginevra, propose un sistema 
+       per la condivisione di documenti ipertestuali tra ricercatori. Nel 1991 vennero definiti il linguaggio HTML e il protocollo HTTP, 
+       che permisero la creazione e il trasferimento di documenti collegati tramite link.<br> Nasce così ufficialmente il World Wide Web, 
+       reso pubblico nel 1993 e destinato a una crescita esponenziale negli anni successivi.
+    </p>
 </div>
 
 
@@ -204,8 +212,7 @@ window.onclick = function(event) {
     <img src="../immagini/tiktok.jpg" alt="Logo TikTok" width="100px" style="margin-left: 40px;">
 </a>
 
-</div>
-<?php endif; ?>
+
 
 <div class="citazione">
     <blockquote cite="https://letteralmente.net/frasi-celebri/tim-berners-lee/">
