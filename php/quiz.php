@@ -220,7 +220,7 @@ function resetQuiz() {
         $inviato = isset($messaggio_punteggio);
     ?>
     <img class="output-img-large" src="../immagini/<?= htmlspecialchars($row['immagine']) ?>" alt="Quiz codice" style="display:block; margin-bottom:10px;">
-    <img class="output-img-large" src="../immagini/quiz32.png" alt="Pixel ID 32" style="display:block; margin-bottom:10px;">
+    <img class="output-img-large" src="../immagini/<?= htmlspecialchars($row['immagine']) ?>" alt="Quiz codice" style="display:block; margin-bottom:10px;">
     <input type="text" class="big-input" name="risposte[output_img][<?= $id ?>]" placeholder="Scrivi qui la tua risposta" value="<?= htmlspecialchars($user_risposta) ?>" <?= $inviato ? 'disabled' : '' ?>>
     <?php if($inviato): ?>
         <?php if(trim($user_risposta) === trim($corretta)): ?>
