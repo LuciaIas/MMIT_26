@@ -162,6 +162,7 @@ window.onclick = function(event) {
 
 
 <!-- ORARI LIVE  -->
+<?php if($utente_loggato): ?>
 <div id="sessioni" class="contenuto">
     <h2>Sessioni di Studio</h2>
     <p>Partecipa alle nostre live su TikTok per studiare insieme e supportarci durante la sessione!
@@ -211,7 +212,7 @@ window.onclick = function(event) {
 <a href="https://www.tiktok.com/@gruppo_mmit?_r=1&_t=ZN-93OUU82znuA">
     <img src="../immagini/tiktok.jpg" alt="Logo TikTok" width="100px" style="margin-left: 40px;">
 </a>
-
+<?php endif; ?>
 
 
 <div class="citazione">
