@@ -1,4 +1,4 @@
-body {
+body { /*stili di base */
     font-family:Verdana, Geneva, Tahoma, sans-serif;
     background: linear-gradient(180deg, #fff3cd, #07ff72);
     margin: 0;
@@ -6,7 +6,7 @@ body {
     min-height: 100vh;
 }
 
-header {
+header { /* header*/
     background-color: #235085;
     color: #fff;
     padding: 10px 20px;  
@@ -17,7 +17,6 @@ header {
     height: 130px;
 }
 
-
 header h1 {
     font-size: 2.4em;
     margin-bottom: 10px;
@@ -27,7 +26,7 @@ header p {
     color:#ffffffde;
 }
 
-nav {
+nav { /* navigazione */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -47,6 +46,7 @@ nav a:hover {
     color: rgb(38, 204, 255);
 }
 
+/*navigazione quiz (mobile-friendly)*/
 .navquiz {
     display: flex;
     justify-content: center;
@@ -73,8 +73,25 @@ nav a:hover {
 }
 
 
+/*layout generale*/
+.content-box {
+    padding: 40px 20px;
+    flex: 1;
+    background: white;
+    padding: 25px;
+    border-radius: 14px;
+    max-width: 900px;
+    margin: 0 auto 35px;
+    box-shadow: 0 8px 20px rgba(0,0,0,.15);
+}
+.quiz-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
 
-
+/* sezioni principali*/
  .intro {
     background-color: #fff;
     padding: 20px;
@@ -82,17 +99,6 @@ nav a:hover {
     max-width: 900px;
     border-radius: 8px;
     
-}
-
-.quiz-section ol li {
-    margin-bottom: 20px; /* distanza tra ogni elemento della lista */
-}
-
-.quiz-container {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 20px;
-    font-family: Arial, sans-serif;
 }
 
 .quiz-section {
@@ -112,19 +118,25 @@ nav a:hover {
     margin: 10px 0;
 }
 
+.quiz-section ol li {
+    margin-bottom: 20px; /* distanza tra ogni elemento della lista */
+}
+
+h3 {
+    color: #02452c;;
+}
+
+/* form e input */
 .big-input {
     padding: 12px 16px;   /* più spazio = riquadro più grande */
     font-size: 1.1em;     /* opzionale */
 }
+
 /* Drag & Drop */
 .drag-drop-container {
     display: flex;
     gap: 10px;
     margin-bottom: 15px;
-}
-
-h3 {
-    color: #02452c;;
 }
 
 .drag-item {
@@ -155,8 +167,7 @@ h3 {
     background-color: #e0f0ff;
 }
 
-
-
+/* bottoni */
 .buttons {
     display: flex;
     justify-content: center; /* centro orizzontale */
@@ -179,48 +190,6 @@ button:hover {
     background-color: #0056b3;
 }
 
-/* ================================
-   FOOTER
-================================ */
-.main-footer {
-    background-color: #343a40;
-    color: #fff;
-    text-align: center;
-    padding: 22px;
-    font-size: 0.9em;
-}
-
-.main-footer p {
-    margin: 5px 0;
-}
-
-.risultato {
-    background-color: #f9f9f9;
-    padding: 10px;       /* aggiunto padding per estetica */
-    border-radius: 5px;  /* angoli arrotondati */
-    margin-top: 20px;    /* spazio sopra il box */
-}
-
-.risultato p {
-    color: #12b878;
-    font-weight: 500;
-    font-size: 1.1em;    /* leggermente più grande */
-}
-
-
-
-.content-box {
-    padding: 40px 20px;
-    flex: 1;
-    background: white;
-    padding: 25px;
-    border-radius: 14px;
-    max-width: 900px;
-    margin: 0 auto 35px;
-    box-shadow: 0 8px 20px rgba(0,0,0,.15);
-}
-
-
 .btnanonimo {
     display: inline-block;  
     margin: 0 10px;          /* spazio tra i pulsanti */
@@ -241,8 +210,39 @@ button:hover {
     box-shadow: 0 6px 8px rgba(0,0,0,0.15);
 }
 
+/* output e risultati*/
+.risultato {
+    background-color: #f9f9f9;
+    padding: 10px;       /* aggiunto padding per estetica */
+    border-radius: 5px;  /* angoli arrotondati */
+    margin-top: 20px;    /* spazio sopra il box */
+}
+
+.risultato p {
+    color: #12b878;
+    font-weight: 500;
+    font-size: 1.1em;    /* leggermente più grande */
+}
+
 .output-img-large {
     width: 700px;      
     height: 700px;     
     margin-bottom: 10px;
 }
+
+/* ================================
+   FOOTER
+================================ */
+.main-footer {
+    background-color: #343a40;
+    color: #fff;
+    text-align: center;
+    padding: 22px;
+    font-size: 0.9em;
+}
+
+.main-footer p {
+    margin: 5px 0;
+}
+
+

@@ -13,7 +13,6 @@ html,body {
     background-position: center;  /* centra l'immagine */
 }
 
-
 h1, h2, h3 {
     margin: 0.5em 0;
 }
@@ -52,8 +51,7 @@ header {
     margin: 5px 0 0 0;
 }
 
-/* Nav Bar */
-
+/* Navigazione */
 nav {
     display: flex;
     justify-content: center;
@@ -105,7 +103,7 @@ nav a:hover, .dropbtn:hover {
 }
 
 
-/* Sommario */
+/* Sezioni intro e sommario */
  .intro {
     background-color: #fff;
     padding: 20px;
@@ -145,7 +143,6 @@ nav a:hover, .dropbtn:hover {
     text-decoration: underline;
 }
 
-
 /* Sezione iniziale */
 .focus {
     background-color: blue;
@@ -166,7 +163,6 @@ nav a:hover, .dropbtn:hover {
 .focus p {
     font-size: 1.1em;
 }
-
 
 /* Sezioni contenuti */
 .contenuto {
@@ -196,7 +192,6 @@ nav a:hover, .dropbtn:hover {
     box-shadow: 0 6px 12px rgba(0,0,0,0.15);
 }
 
-
 .highlight {
     color: #183a60;            
     font-weight: bold;          /* grassetto */
@@ -213,6 +208,7 @@ nav a:hover, .dropbtn:hover {
     box-shadow: 0 2px 4px rgba(0,0,0,0.05); 
     background: linear-gradient(45deg, #f0f8ff, #87faf6) !important;  
 }
+
 .citazione blockquote {
     font-style: italic;
     border-left: 4px solid rgba(3, 110, 99, 0.855);
@@ -222,7 +218,7 @@ nav a:hover, .dropbtn:hover {
     text-align: center;
 }
 
-
+/* video e media */
 .contenuto-video {
     display: flex;
     justify-content: center; /* centra orizzontalmente */
@@ -233,7 +229,6 @@ nav a:hover, .dropbtn:hover {
     border-radius: 10px; /* angoli arrotondati */
     box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* ombra elegante */
 }
-
 
 /* Tabella Orari */
 .tabella-orari {
@@ -269,9 +264,7 @@ nav a:hover, .dropbtn:hover {
     font-weight: bold;
 }
 
-
-
-/* Pulsante */
+/* Pulsante torna su */
 #tornaSu {
     display: inline-block;
     margin: 30px auto;
@@ -294,7 +287,6 @@ nav a:hover, .dropbtn:hover {
     background-color: #0056b3;
     box-shadow: 0 6px 8px rgba(0,0,0,0.15);
 }
-
 
 /* Footer */
 footer {

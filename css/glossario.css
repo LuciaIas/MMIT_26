@@ -1,11 +1,11 @@
 
-* {
+* { /* box model */
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-body {
+body { /* body e layout principale */
     font-family:Verdana, Geneva, Tahoma, sans-serif;
     background: linear-gradient(180deg, #fff3cd, #07ff72);
     min-height: 100vh;
@@ -38,7 +38,6 @@ body {
     color:#ffffffde;
 }
 
-
 /* NAV BAR */
 nav {
     display: flex;
@@ -60,7 +59,7 @@ nav a:hover {
     color: rgb(38, 204, 255);
 }
 
-/* MAIN */
+/* contenuto principale */
 .contenitore {
     padding: 40px 20px;
     flex: 1;
@@ -83,7 +82,7 @@ nav a:hover {
     border: 1px solid #ccc;
 }
 
-/* BUTTON */
+/* pulsanti generali */
 button {
     padding: 12px 18px;
     border-radius: 8px;
@@ -99,7 +98,7 @@ button:hover {
     background: #06935b;
 }
 
-/*  GRID  */
+/*  GRID dei termini  */
 .terms-grid {
     display: flex;
     gap: 30px;
@@ -111,7 +110,7 @@ button:hover {
     flex: 0 0 auto; 
 }
 
-/* CARD  */
+/* term card */
 .term-card {
     width: 290px;
     background: white;
@@ -137,13 +136,13 @@ button:hover {
 }
 
 
-/*  CONTENT  */
+/*  card CONTENT  */
 .card-content {
     padding: 18px;
     line-height: 1.5em;
 }
 
-/* PULSANTE */
+/* PULSANTi speciali */
 #tornaSu {
     display: block;
     width: fit-content;
@@ -160,20 +159,6 @@ button:hover {
 #tornaSu:hover {
     background-color: #0056b3;
 }
-
-/* FOOTER */
-.main-footer {
-    background-color: #343a40;
-    color: #fff;
-    text-align: center;
-    padding: 22px;
-    font-size: 0.9em;
-}
-
-.main-footer p {
-    margin: 5px 0;
-}
-
 
 #btn {
     display: inline-block;   /* fondamentale */
@@ -194,3 +179,17 @@ button:hover {
     background-color: #0056b3;
     box-shadow: 0 6px 8px rgba(0,0,0,0.15);
 }
+
+/* FOOTER */
+.main-footer {
+    background-color: #343a40;
+    color: #fff;
+    text-align: center;
+    padding: 22px;
+    font-size: 0.9em;
+}
+
+.main-footer p {
+    margin: 5px 0;
+}
+
