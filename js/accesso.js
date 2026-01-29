@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-
+    
     const loginForm = document.getElementById('loginForm');
     const registerForm = document.getElementById('registerForm');
     const buttons = document.querySelectorAll('.form-switch button');
@@ -8,7 +8,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const registerBtn = document.getElementById('registerBtn');
     const uniSelect = document.getElementById('universitaSelect');
 
-    // ===== FUNZIONI VISUALIZZAZIONE FORM =====
     function showLogin() {
         buttons[0].classList.add('active');
         buttons[1].classList.remove('active');
@@ -27,15 +26,12 @@ document.addEventListener('DOMContentLoaded', () => {
         sideText.textContent = "Esercitazione? Soddisfazione ... unisciti a noi!";
     }
 
-    // ===== EVENTI BOTTONE =====
     buttons[0].addEventListener('click', showLogin);
     buttons[1].addEventListener('click', showRegister);
 
-    // Mostra il form corretto in base al PHP
     if (window.apriRegistrazione) showRegister();
     else showLogin();
 
-    // ===== MOSTRA CARATTERI PASSWORD =====
     document.querySelectorAll('.show-pass input').forEach(check => {
         check.addEventListener('change', () => {
             const targets = check.dataset.target.split(',');
@@ -46,7 +42,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // ===== BOTTONE REGISTRATI ATTIVO SOLO SE CAMPi COMPILATI =====
     registerForm.addEventListener('input', () => {
         const email = registerForm.querySelector('[name="email_reg"]').value.trim();
         const username = registerForm.querySelector('[name="username_reg"]').value.trim();
@@ -54,14 +49,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const passwordConf = registerForm.querySelector('[name="password_conf"]').value.trim();
         const sesso = registerForm.querySelector('[name="sesso"]:checked');
         const universita = uniSelect.value;
-
         const ok = email && username && password && passwordConf && sesso && universita && universita !== "";
-
         registerBtn.disabled = !ok;
-        
     });
 
-        // ===== LOGIN: abilita bottone solo se campi compilati =====
     const loginBtn = loginForm.querySelector('button[name="login"]');
 
     loginForm.addEventListener('input', () => {
@@ -70,7 +61,5 @@ document.addEventListener('DOMContentLoaded', () => {
         loginBtn.disabled = !(username && password);
     });
 
-    // All'inizio, disabilita il bottone login
     loginBtn.disabled = true;
-
 });
