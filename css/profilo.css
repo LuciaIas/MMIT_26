@@ -1,11 +1,11 @@
-/* ===== RESET e box model ===== */
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-/* ===== BODY/LAYOUT PRINCIPALE ===== */
+
 body {
     font-family:Verdana, Geneva, Tahoma, sans-serif;
     background: linear-gradient(to bottom, #ffe0f0, #ffd6e0);
@@ -16,12 +16,12 @@ body {
     padding: 50px 20px;
 }
 
+/* CONTENITORE */
 #profilo-container {
     max-width: 800px;
     margin: 0 auto;
 }
 
-/* ===== CONTAINER PROFILO ===== */
 .container-profilo {
     background: #fff0f5;
     width: 100%;
@@ -31,7 +31,6 @@ body {
     box-shadow: 0 15px 35px rgba(0,0,0,0.15);
 }
 
-/* ===== TITOLO PAGINA ===== */
 .container-profilo h1 {
     text-align: center;
     color: #159649;
@@ -39,7 +38,7 @@ body {
     font-size: 2em;
 }
 
-/* ===== INFO PERSONALI ===== */
+/* INFO PERSONALI  */
 .info-personali {
     background: #ffe0e9;
     padding: 20px 25px;
@@ -52,19 +51,17 @@ body {
     font-size: 1rem;
 }
 
-/* Titoli informazioni (Nome utente, Email, Tipo, Sesso, Università, Punteggio) in grassetto e verde */
 .info-personali p strong {
     color: #159649;
     font-weight: bold;
 }
 
-/* Valori informazioni (contenuto) in nero e normale */
 .info-personali p span {
     color: #000;
     font-weight: normal;
 }
 
-/* ===== AZIONI ===== */
+/*  AZIONI  */
 .azioni {
     display: flex;
     justify-content: center;
@@ -72,7 +69,7 @@ body {
     flex-wrap: wrap;
 }
 
-/* ===== BOTTONI ===== */
+/* PULSANTI*/
 .btn {
     text-decoration: none;
     padding: 12px 22px;
@@ -97,8 +94,8 @@ body {
     font-weight: bold;
     border: none;
     cursor: pointer;
-    font-size: 1rem; /* importante per dimensione */
-    line-height: 1.2; /* allinea il testo verticalmente */
+    font-size: 1rem; 
+    line-height: 1.2; 
 }
 
 .btn-logout:hover {
@@ -106,7 +103,7 @@ body {
 }
 
 
-/* Note personalo */
+/* NOTE PERSONALI */
 .note-personali {
     display: flex;
     flex-direction: column;
@@ -123,7 +120,7 @@ body {
 }
 
 .note-personali button {
-    align-self: flex-start; /* il pulsante allinea in alto a sinistra sotto la textarea */
+    align-self: flex-start; 
     background: #159649;
     color: #fff;
     font-weight: bold;

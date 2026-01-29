@@ -1,16 +1,14 @@
-/* stili di base */
+
 html,body {
     font-family:Verdana, Geneva, Tahoma, sans-serif;
     line-height: 1.6;
     margin: 0;
     padding: 0;
-    background: #f0f8ff; /* fallback colore solido */
+    background: #f0f8ff; 
     color: #333;
-    background-image: url('../immagini/razzo.png');
-    
-    background-size: cover;      /* fa sì che l'immagine copra tutto lo schermo */
-   /* background-repeat: no-repeat; evita che si ripeta */
-    background-position: center;  /* centra l'immagine */
+    background-image: url('../immagini/razzo.png');    
+    background-size: cover;      
+    background-position: center;  
 }
 
 h1, h2, h3 {
@@ -21,7 +19,7 @@ p {
     margin: 0.5em 0 1em 0;
 }
 
-/* Header */
+/* HEADER */
 header {
     background-color:#235085;
     color: #fff;
@@ -30,9 +28,9 @@ header {
 
 .header-content {
     display: flex;
-    align-items: center;      /* centra verticalmente immagine e testo */
-    justify-content: center;  /* centra tutto l'insieme orizzontalmente */
-    gap: 20px;                /* spazio tra immagine e testo */
+    align-items: center;     
+    justify-content: center;  
+    gap: 20px;                
     text-align: center;
 }
 
@@ -51,11 +49,11 @@ header {
     margin: 5px 0 0 0;
 }
 
-/* Navigazione */
+/* NAV BAR */
 nav {
     display: flex;
     justify-content: center;
-    align-items: center; /* allinea verticalmente link e dropdown */
+    align-items: center;
     background-color: #183a60;
     padding: 10px 0;
 }
@@ -65,7 +63,7 @@ nav a, .dropbtn {
     text-decoration: none;
     margin: 0 10px;
     font-weight: bold;
-    background: none; /* rimuove sfondo bottone */
+    background: none; 
     border: none;
     cursor: pointer;
     font-size: 1em;
@@ -75,7 +73,7 @@ nav a:hover, .dropbtn:hover {
     color: rgb(38, 204, 255);
 }
 
-/* Dropdown content */
+/* MENU SEZIONI */
 .dropdown-content {
     display: none;
     position: absolute;
@@ -97,13 +95,13 @@ nav a:hover, .dropbtn:hover {
     background-color: #f1f1f1;
 }
 
-/* Mostra contenuto al click */
+/* MOSTRA CONTENUTO AL CLICK*/
 .show {
     display: block;
 }
 
 
-/* Sezioni intro e sommario */
+/* SEZIONI INTRO  */
  .intro {
     background-color: #fff;
     padding: 20px;
@@ -113,58 +111,9 @@ nav a:hover, .dropbtn:hover {
     
 }
 
-.sommario {
-    background-color: #e9ecef;
-    padding: 20px;
-    margin: 20px auto;
-    max-width: 1000px;
-    border-radius: 8px;
-}
 
-.sommario h2 {
-    margin-bottom: 10px;
-}
 
-.sommario ul {
-    list-style-type: none;
-    padding-left: 0;
-}
-
-.sommario ul li {
-    margin: 5px 0;
-}
-
-.sommario ul li a {
-    color: #0d6efd;
-    text-decoration: none;
-}
-
-.sommario ul li a:hover {
-    text-decoration: underline;
-}
-
-/* Sezione iniziale */
-.focus {
-    background-color: blue;
-    color: #212529;
-    text-align: center;
-    padding: 30px 20px;
-    margin: 20px auto;
-    max-width: 900px;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-}
-
-.focus h2 {
-    font-size: 1.8em;
-    margin-bottom: 15px;
-}
-
-.focus p {
-    font-size: 1.1em;
-}
-
-/* Sezioni contenuti */
+/* SEZIONE CONTENUTI */
 .contenuto {
     background-color: #fff;
     padding: 25px;
@@ -178,27 +127,28 @@ nav a:hover, .dropbtn:hover {
     color: #0d6efd;
 }
 
-/* Storia del Web – stile speciale */
+/* STORIA DEL WEB */
 #storia {
-    background-color: #fff9c4;       /* giallo chiaro */
-    border: 3px dashed #fbc02d;     /* bordo stile etichetta, dorato */
-    border-radius: 12px;             /* angoli arrotondati */
-    padding: 25px 30px;              /* spazio interno */
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* ombra leggera */
+    background-color: #fff9c4;      
+    border: 3px dashed #fbc02d;     
+    border-radius: 12px;           
+    padding: 25px 30px;              
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
 }
 
-/* Hover leggero */
 #storia:hover {
     box-shadow: 0 6px 12px rgba(0,0,0,0.15);
 }
 
+/* PAROLE EVIDENZIATE */
 .highlight {
     color: #183a60;            
-    font-weight: bold;          /* grassetto */
-    padding: 2px 4px;          /* piccolo padding per evidenziare meglio */
-    border-radius: 3px;        /* angoli leggermente arrotondati */
+    font-weight: bold;         
+    padding: 2px 4px;         
+    border-radius: 3px;        
 }
 
+/* STILE SPECIALE */
 .citazione {
     background-color: #fff;
     padding: 25px;
@@ -218,7 +168,7 @@ nav a:hover, .dropbtn:hover {
     text-align: center;
 }
 
-/* video e media */
+/* VIDEO */
 .contenuto-video {
     display: flex;
     justify-content: center; /* centra orizzontalmente */
@@ -230,7 +180,7 @@ nav a:hover, .dropbtn:hover {
     box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* ombra elegante */
 }
 
-/* Tabella Orari */
+/* TABELLA ORARI */
 .tabella-orari {
     width: 100%;
     border-collapse: collapse;
@@ -258,13 +208,9 @@ nav a:hover, .dropbtn:hover {
     background-color: #f9f9f9; 
 }
 
-#orari-live a {
-    color: #0d6efd;
-    text-decoration: none;
-    font-weight: bold;
-}
 
-/* Pulsante torna su */
+
+/* PULSANTE TORNA SU */
 #tornaSu {
     display: inline-block;
     margin: 30px auto;
@@ -277,18 +223,17 @@ nav a:hover, .dropbtn:hover {
     border-radius: 25px;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     cursor: pointer;
-    display: block;        /* serve per centrare con margin auto */
-    width: fit-content;    /* il bottone si adatta al testo */
+    display: block;        
+    width: fit-content;    
     margin: 30px auto;
 }
 
-/* Hover effetto */
 #tornaSu:hover {
     background-color: #0056b3;
     box-shadow: 0 6px 8px rgba(0,0,0,0.15);
 }
 
-/* Footer */
+/* FOOTER */
 footer {
     background-color: #343a40;
     color: #fff;

@@ -1,4 +1,4 @@
-body { /*stili di base */
+body { 
     font-family:Verdana, Geneva, Tahoma, sans-serif;
     background: linear-gradient(180deg, #fff3cd, #07ff72);
     margin: 0;
@@ -6,7 +6,8 @@ body { /*stili di base */
     min-height: 100vh;
 }
 
-header { /* header*/
+/* HEAADER*/
+header { 
     background-color: #235085;
     color: #fff;
     padding: 10px 20px;  
@@ -26,7 +27,8 @@ header p {
     color:#ffffffde;
 }
 
-nav { /* navigazione */
+ /* NAV BAR */
+nav {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -46,34 +48,9 @@ nav a:hover {
     color: rgb(38, 204, 255);
 }
 
-/*navigazione quiz (mobile-friendly)*/
-.navquiz {
-    display: flex;
-    justify-content: center;
-    align-items: center; /* allinea verticalmente link e dropdown */
-    background-color: #183a60;
-    padding: 10px 0;
-    flex-wrap: wrap; /* utile su mobile */
-}
-
-.navquiz a, .dropbtn {
-    color: #fff;
-    text-decoration: none;
-    margin: 0 10px;
-    font-weight: bold;
-    transition: color 0.3s;
-    background: none; /* rimuove sfondo bottone */
-    border: none;
-    cursor: pointer;
-    font-size: 1em;
-}
-
-.navquiz a:hover, .dropbtn:hover {
-    color: rgb(38, 204, 255);
-}
 
 
-/*layout generale*/
+/* LAYOUT QUIZ */
 .content-box {
     padding: 40px 20px;
     flex: 1;
@@ -84,6 +61,7 @@ nav a:hover {
     margin: 0 auto 35px;
     box-shadow: 0 8px 20px rgba(0,0,0,.15);
 }
+
 .quiz-container {
     max-width: 900px;
     margin: 0 auto;
@@ -91,15 +69,7 @@ nav a:hover {
     font-family: Arial, sans-serif;
 }
 
-/* sezioni principali*/
- .intro {
-    background-color: #fff;
-    padding: 20px;
-    margin: 20px auto;
-    max-width: 900px;
-    border-radius: 8px;
-    
-}
+/* QUIZ */
 
 .quiz-section {
     border: 1px solid #ccc;
@@ -119,20 +89,20 @@ nav a:hover {
 }
 
 .quiz-section ol li {
-    margin-bottom: 20px; /* distanza tra ogni elemento della lista */
+    margin-bottom: 20px; 
 }
 
 h3 {
     color: #02452c;;
 }
 
-/* form e input */
+/* FORM E INPUT */
 .big-input {
-    padding: 12px 16px;   /* più spazio = riquadro più grande */
-    font-size: 1.1em;     /* opzionale */
+    padding: 12px 16px;   
+    font-size: 1.1em;     
 }
 
-/* Drag & Drop */
+/* DRAG & DROP */
 .drag-drop-container {
     display: flex;
     gap: 10px;
@@ -143,7 +113,7 @@ h3 {
     padding: 8px 12px;
     background-color: #25d796;
     color: #ffffff;
-    border: 4px double #0a8f60; /* spessore + double + colore */
+    border: 4px double #0a8f60; 
     border-radius: 5px;
     cursor: grab;
 }
@@ -167,10 +137,10 @@ h3 {
     background-color: #e0f0ff;
 }
 
-/* bottoni */
+/* PULSANTI */
 .buttons {
     display: flex;
-    justify-content: center; /* centro orizzontale */
+    justify-content: center;
     height: 40px;
     gap: 20px;
 }
@@ -192,7 +162,7 @@ button:hover {
 
 .btnanonimo {
     display: inline-block;  
-    margin: 0 10px;          /* spazio tra i pulsanti */
+    margin: 0 10px;        
     padding: 12px 25px;
     background-color: #183a60;
     color: #fff;
@@ -210,29 +180,28 @@ button:hover {
     box-shadow: 0 6px 8px rgba(0,0,0,0.15);
 }
 
-/* output e risultati*/
+/*  RISULTATI */
 .risultato {
     background-color: #f9f9f9;
-    padding: 10px;       /* aggiunto padding per estetica */
-    border-radius: 5px;  /* angoli arrotondati */
-    margin-top: 20px;    /* spazio sopra il box */
+    padding: 10px;      
+    border-radius: 5px; 
+    margin-top: 20px;    
 }
 
 .risultato p {
     color: #12b878;
     font-weight: 500;
-    font-size: 1.1em;    /* leggermente più grande */
+    font-size: 1.1em;    
 }
 
+/*  FOTO QUIZ OUTPUT */
 .output-img-large {
     width: 700px;      
     height: 700px;     
     margin-bottom: 10px;
 }
 
-/* ================================
-   FOOTER
-================================ */
+/*  FOOTER */
 .main-footer {
     background-color: #343a40;
     color: #fff;

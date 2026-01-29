@@ -1,16 +1,19 @@
-* { /* box model */
-    margin:0; padding:0; box-sizing:border-box; 
+* { 
+    margin:0; 
+    padding:0;
+    box-sizing:border-box; 
 }
 
-body { /* body e layout principale */
+body {
     font-family:Verdana, Geneva, Tahoma, sans-serif;
     background:#dea7bf;
     min-height:100vh;
-    display:flex; /* allineare in modo flessibile gli elem in un contenitore*/
-    justify-content:center; /*allineam orizzontale*/
-    align-items:center; /* allienam verticale */
+    display:flex;
+    justify-content:center;
+    align-items:center;
 }
 
+/*  CONTENITORE  */
 .container-login {
     display:flex;
     width:750px;
@@ -19,8 +22,7 @@ body { /* body e layout principale */
     box-shadow:0 20px 40px rgba(0,0,0,0.1);
 }
 
-
-/* form container e campi input */
+/*  CONTENITORE FORM  */
 .form-container {
     flex:1;
     padding:25px 20px;
@@ -28,24 +30,26 @@ body { /* body e layout principale */
     min-width:350px;
 }
 
-input, select, textarea {
-    width:100%;
-    padding:10px;
-    border-radius:8px;
-    border:1px solid #bbb;
-    font-size:0.9rem;
+/*  IMMAGINE  */
+.avatar {
+    display:flex;
+    justify-content:center;
+    margin-bottom:8px;
 }
 
-textarea { 
-    resize:none; 
+.avatar img {
+    width:130px;      
+    height:130px;
+    object-fit:contain;
 }
 
-
+/*  TESTO  */
 h2 { 
-    color:#333; margin-bottom:15px; 
+    color:#333; 
+    margin-bottom:15px; 
 }
 
-/* switch form (login/register) */
+/*  FORM  */
 .form-switch {
     display:flex;
     justify-content:center;
@@ -61,19 +65,37 @@ h2 {
     cursor:pointer;
     font-weight:bold;
     border-radius:8px;
-    transition:0.3s;
 }
 
 .form-switch button.active {
-     background:#6be29b; color:white;
+     background:#6be29b; 
+     color:white;
      }
 
+form { 
+    display:none; 
+    flex-direction:column; 
+    gap:12px; 
+}
 
-/* ===== MOSTRA CARATTERI password ===== */
+form.form-active { 
+    display:flex; 
+}
+
+
+input, select, textarea {
+    width:100%;
+    padding:10px;
+    border-radius:8px;
+    border:1px solid #bbb;
+    font-size:0.9rem;
+}
+
+/* MOSTRA CARATTERI */
 .show-pass {
-    display: inline-flex;         /* inline con input */
-    align-items: center;          /* centra quadratino e testo */
-    gap: 4px;                     /* distanza minima tra quadratino e testo */
+    display: inline-flex;         
+    align-items: center;          
+    gap: 4px;                     
     font-size:0.85rem;
     color:#333;
     margin-top:0;
@@ -89,13 +111,13 @@ h2 {
 }
 
 .show-pass span {
-    cursor:pointer;              /* cliccando sul testo si attiva il checkbox */
+    cursor:pointer;              
 }
 
-/* ===== RADIO BUTTON SESSO ===== */
+/* RADIO BUTTON SESSO  */
 .radio-group {
     display:flex;
-    align-items:center;           /* allinea Sesso: e radio verticalmente */
+    align-items:center;           
     gap:10px;
     margin-bottom:12px;
     font-size:0.9rem;
@@ -106,19 +128,19 @@ h2 {
 }
 
 .radio-options {
-    display:flex;                 /* affianca Maschio e Femmina */
+    display:flex;                 
     gap:15px;
-    align-items:center;           /* centra verticalmente i pallini */
+    align-items:center;           
 }
 
 .radio-options label {
     display:flex;
     align-items:center;
-    gap:4px;                      /* distanza tra pallino e testo */
+    gap:4px;                      
     cursor:pointer;
 }
 
-/* ===== BOTTONI ===== */
+/*  PULSANTI  */
 button[name="login"], button[name="register"] {
     width:100%;
     padding:12px;
@@ -150,18 +172,9 @@ button:disabled {
     cursor:not-allowed; 
 }
 
-/* form visibile/nascosto */
-form { 
-    display:none; 
-    flex-direction:column; 
-    gap:12px; 
-}
 
-form.form-active { 
-    display:flex; 
-}
 
-/* messaggi di feedback */
+/*  MESSAGGI  */
 .message {
     padding:12px;
     border-radius:10px;
@@ -179,7 +192,7 @@ form.form-active {
     color:#166534; 
 }
 
-/*side panel*/
+/*  PANNELLO LATERALE  */
 .side-panel {
     flex:0.5;
     background:linear-gradient(135deg,#67dd90,#4fcb7a);
@@ -200,17 +213,4 @@ form.form-active {
 .side-panel p { 
     font-size:1rem; 
     line-height:1.5; 
-}
-
-/* avatar immagine */
-.avatar {
-    display:flex;
-    justify-content:center;
-    margin-bottom:8px;
-}
-
-.avatar img {
-    width:130px;      /* immagine abbastanza grande */
-    height:130px;
-    object-fit:contain;
 }

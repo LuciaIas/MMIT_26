@@ -1,11 +1,11 @@
 
-* { /* box model */
+* { 
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-body { /* body e layout principale */
+body { 
     font-family:Verdana, Geneva, Tahoma, sans-serif;
     background: linear-gradient(180deg, #fff3cd, #07ff72);
     min-height: 100vh;
@@ -59,13 +59,13 @@ nav a:hover {
     color: rgb(38, 204, 255);
 }
 
-/* contenuto principale */
+/* CONTENITORE PRINCIPALE */
 .contenitore {
     padding: 40px 20px;
     flex: 1;
 }
 
-/*  SEARCH BOX */
+/*  CONTENITORI SECONDARI */
 .content-box {
     background: white;
     padding: 25px;
@@ -82,7 +82,7 @@ nav a:hover {
     border: 1px solid #ccc;
 }
 
-/* pulsanti generali */
+/* PULSANTI */
 button {
     padding: 12px 18px;
     border-radius: 8px;
@@ -91,14 +91,14 @@ button {
     color: white;
     font-weight: bold;
     cursor: pointer;
-    margin-left: 10px; /* spazio tra i due pulsanti */
+    margin-left: 10px; 
 }
 
 button:hover {
     background: #06935b;
 }
 
-/*  GRID dei termini  */
+/*  GRID DEI TERMINI  */
 .terms-grid {
     display: flex;
     gap: 30px;
@@ -110,7 +110,7 @@ button:hover {
     flex: 0 0 auto; 
 }
 
-/* term card */
+/* CARD DEI TERMINI */
 .term-card {
     width: 290px;
     background: white;
@@ -123,8 +123,8 @@ button:hover {
 
 .term-card header {
     display: flex;
-    justify-content: center;  /* centra orizzontalmente tutto */
-    align-items: center;      /* centra verticalmente */
+    justify-content: center;  
+    align-items: center;      
     padding: 16px;
     background-color: rgba(193, 247, 223, 0.995);
 }
@@ -136,13 +136,13 @@ button:hover {
 }
 
 
-/*  card CONTENT  */
+/*  CONTENITORE CARD  */
 .card-content {
     padding: 18px;
     line-height: 1.5em;
 }
 
-/* PULSANTi speciali */
+/* PULSANTI  */
 #tornaSu {
     display: block;
     width: fit-content;
@@ -161,8 +161,8 @@ button:hover {
 }
 
 #btn {
-    display: inline-block;   /* fondamentale */
-    margin: 0 10px;          /* spazio tra i pulsanti */
+    display: inline-block;   
+    margin: 0 10px;         
     padding: 12px 25px;
     background-color: #183a60;
     color: #fff;
