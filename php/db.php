@@ -6,9 +6,5 @@ $dbname = "gruppo26";
 $user = "www";
 $password = "www";
 
-$conn = pg_connect("host=$host port=$port dbname=$dbname user=$user password=$password");
-
-if (!$conn) {
-    die("Connessione fallita: " . pg_last_error());
-}
+$conn = pg_connect("host=$host port=$port dbname=$dbname user=$user password=$password") or die('Impossibile connettersi al database: ' . pg_last_error());
 ?>
