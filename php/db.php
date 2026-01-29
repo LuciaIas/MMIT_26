@@ -1,6 +1,5 @@
 <?php
-// db.php - Connessione a PostgreSQL
-
+//Connessione a PostgreSQL
 $host = "localhost";
 $port = "5432";
 $dbname = "gruppo26";
@@ -12,6 +11,4 @@ $conn = pg_connect("host=$host port=$port dbname=$dbname user=$user password=$pa
 if (!$conn) {
     die("Connessione fallita: " . pg_last_error());
 }
-
-
 ?>

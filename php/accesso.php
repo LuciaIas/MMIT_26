@@ -2,17 +2,13 @@
 session_start();
 include __DIR__ . '/db.php';
 
-
-// ===== Imposta quale form aprire =====
-// Default: login
+//Scelta del form da aprire (default login)
 $apriRegistrazione = false;
 
-// Se arrivi da link con ?form=register apri registrazione
 if (isset($_GET['form']) && $_GET['form'] === 'register') {
     $apriRegistrazione = true;
 }
 
-// Se il form è stato inviato
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['register'])) {
         $apriRegistrazione = true;  // Mantieni registrazione aperta se ci sono errori
@@ -21,17 +17,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
+//Variabili per msg di errore/successo
 $messaggio = "";
 $tipo_messaggio = "";
 
-/* ===== VARIABILI STICKY ===== */
+//Variabili sticky
 $email_sticky = htmlspecialchars($_POST['email_reg'] ?? '');
 $username_sticky = htmlspecialchars($_POST['username_reg'] ?? '');
 $sesso_sticky = $_POST['sesso'] ?? '';
 $universita_sticky = $_POST['universita'] ?? '';
 $username_login_sticky = htmlspecialchars($_POST['username'] ?? '');
 
-/* ===== LOGIN ===== */
+//LOGIN
 if (isset($_POST['login'])) {
     $username = trim($_POST['username']);
     $password = trim($_POST['password']);
@@ -60,11 +57,9 @@ if (isset($_POST['login'])) {
     }
 }
 
-/* ===== REGISTRAZIONE ===== */
+//REGISTRAZIONE
 if (isset($_POST['register'])) {
-
     $errore = false;
-
     $sesso = $_POST['sesso'] ?? '';
     $username = trim($_POST['username_reg']);
     $email = trim($_POST['email_reg']);
@@ -72,7 +67,6 @@ if (isset($_POST['register'])) {
     $password_conf = trim($_POST['password_conf']);
     $universita = $_POST['universita'] ?? '';
 
-    // Controlli obbligatori
     if (!$sesso || !$username || !$email || !$password || !$password_conf || !$universita) {
         $messaggio = "Compila tutti i campi obbligatori.";
         $errore = true;
@@ -91,8 +85,6 @@ if (isset($_POST['register'])) {
     }
 
     if (!$errore) {
-
-        // Controllo se username già esiste
         $check = pg_query_params(
             $conn,
             "SELECT 1 FROM utenti WHERE username=$1",
@@ -103,9 +95,7 @@ if (isset($_POST['register'])) {
             $messaggio = "Nome utente già esistente.";
             $tipo_messaggio = "error";
         } else {
-
             $hash = password_hash($password, PASSWORD_DEFAULT);
-
             $insert = pg_query_params(
                 $conn,
                 "INSERT INTO utenti (username,email,password,tipo_utente,sesso,universita)
@@ -177,7 +167,6 @@ window.apriRegistrazione = <?php echo $apriRegistrazione ? 'true' : 'false'; ?>;
 
 <!-- FORM REGISTRAZIONE -->
 <form id="registerForm" method="post">
-
     <div class="radio-group">
         <span class="radio-label">Sesso:</span>
         <div class="radio-options">
@@ -227,7 +216,6 @@ window.apriRegistrazione = <?php echo $apriRegistrazione ? 'true' : 'false'; ?>;
     <button name="register" id="registerBtn" disabled>Registrati</button>
     <button type="button" class="btn-back" onclick="window.location.href='homepage.php'">Indietro</button>
 </form>
-
 </div>
 
 <div class="side-panel">
