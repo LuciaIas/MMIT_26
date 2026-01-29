@@ -1,14 +1,14 @@
-* { 
+* { /* box model */
     margin:0; padding:0; box-sizing:border-box; 
 }
 
-body {
+body { /* body e layout principale */
     font-family:Verdana, Geneva, Tahoma, sans-serif;
     background:#dea7bf;
     min-height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
+    display:flex; /* allineare in modo flessibile gli elem in un contenitore*/
+    justify-content:center; /*allineam orizzontale*/
+    align-items:center; /* allienam verticale */
 }
 
 .container-login {
@@ -19,6 +19,8 @@ body {
     box-shadow:0 20px 40px rgba(0,0,0,0.1);
 }
 
+
+/* form container e campi input */
 .form-container {
     flex:1;
     padding:25px 20px;
@@ -26,22 +28,24 @@ body {
     min-width:350px;
 }
 
-.avatar {
-    display:flex;
-    justify-content:center;
-    margin-bottom:8px;
+input, select, textarea {
+    width:100%;
+    padding:10px;
+    border-radius:8px;
+    border:1px solid #bbb;
+    font-size:0.9rem;
 }
 
-.avatar img {
-    width:130px;      /* avatar abbastanza grande */
-    height:130px;
-    object-fit:contain;
+textarea { 
+    resize:none; 
 }
+
 
 h2 { 
     color:#333; margin-bottom:15px; 
 }
 
+/* switch form (login/register) */
 .form-switch {
     display:flex;
     justify-content:center;
@@ -64,19 +68,8 @@ h2 {
      background:#6be29b; color:white;
      }
 
-input, select, textarea {
-    width:100%;
-    padding:10px;
-    border-radius:8px;
-    border:1px solid #bbb;
-    font-size:0.9rem;
-}
 
-textarea { 
-    resize:none; 
-}
-
-/* ===== MOSTRA CARATTERI ===== */
+/* ===== MOSTRA CARATTERI password ===== */
 .show-pass {
     display: inline-flex;         /* inline con input */
     align-items: center;          /* centra quadratino e testo */
@@ -157,6 +150,7 @@ button:disabled {
     cursor:not-allowed; 
 }
 
+/* form visibile/nascosto */
 form { 
     display:none; 
     flex-direction:column; 
@@ -167,6 +161,7 @@ form.form-active {
     display:flex; 
 }
 
+/* messaggi di feedback */
 .message {
     padding:12px;
     border-radius:10px;
@@ -184,6 +179,7 @@ form.form-active {
     color:#166534; 
 }
 
+/*side panel*/
 .side-panel {
     flex:0.5;
     background:linear-gradient(135deg,#67dd90,#4fcb7a);
@@ -204,4 +200,17 @@ form.form-active {
 .side-panel p { 
     font-size:1rem; 
     line-height:1.5; 
+}
+
+/* avatar immagine */
+.avatar {
+    display:flex;
+    justify-content:center;
+    margin-bottom:8px;
+}
+
+.avatar img {
+    width:130px;      /* immagine abbastanza grande */
+    height:130px;
+    object-fit:contain;
 }
