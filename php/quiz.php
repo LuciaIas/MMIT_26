@@ -295,7 +295,7 @@ function resetQuiz() {
 <br>
     </div>
 </form>
-<script src="../js/quiz.js"></script>
+<script src="../js/quiz.js" type="text/javascript" ></script>
 
 <footer class="main-footer">
      <p>Corso Tecnologie Web – A.A. 2025-2026 | Portale didattico per studenti di Ingegneria Informatica</p>

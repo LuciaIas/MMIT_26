@@ -98,5 +98,7 @@ $result = $search_value
      <p>Corso Tecnologie Web – A.A. 2025-2026 | Portale didattico per studenti di Ingegneria Informatica</p>
     <p>Università degli Studi di Salerno - Via Giovanni Paolo II, 132 - 84084 Fisciano (SA)</p>
 </footer>
+
+<script src="../js/glossario.js" type="text/javascript" ></script>
 </body>
 </html>

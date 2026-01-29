@@ -224,6 +224,6 @@ window.apriRegistrazione = <?php echo $apriRegistrazione ? 'true' : 'false'; ?>;
 </div>
 </div>
 
-<script src="../js/accesso.js"></script>
+<script src="../js/accesso.js" type="text/javascript" ></script>
 </body>
 </html>
