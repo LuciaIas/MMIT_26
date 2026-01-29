@@ -1,7 +1,6 @@
 <?php
 session_start();
 
-/* ===== LOGOUT INLINE ===== */
 if (isset($_POST['logout'])) {
     session_unset();
     session_destroy();
@@ -9,7 +8,6 @@ if (isset($_POST['logout'])) {
     exit;
 }
 
-/* ===== ACCESSO ===== */
 if (!isset($_SESSION['username'])) {
     header("Location: accesso.php");
     exit;
@@ -18,13 +16,11 @@ if (!isset($_SESSION['username'])) {
 include __DIR__ . '/db.php';
 $username = $_SESSION['username'];
 
-/* ===== DATI UTENTE ===== */
 $query = "SELECT username, email, tipo_utente, sesso, universita
           FROM utenti WHERE username=$1";
 $result = pg_query_params($conn, $query, [$username]);
 $user = pg_fetch_assoc($result);
 
-/* ===== RISULTATI QUIZ ===== */
 $queryRisultati = "SELECT punteggio FROM risultati_quiz WHERE username=$1";
 $resRisultati = pg_query_params($conn, $queryRisultati, [$username]);
 
@@ -34,7 +30,6 @@ while ($row = pg_fetch_assoc($resRisultati)) {
     $totalePunteggio += (int)$row['punteggio'];
 }
 
-/* ===== NOTE TEMPORANEE SESSION ===== */
 if (isset($_POST['salva_note'])) {
     $_SESSION['note_temporanee'] = $_POST['note_temporanee'] ?? '';
 }
@@ -50,7 +45,6 @@ $note = $_SESSION['note_temporanee'] ?? '';
 <title>Profilo</title>
 <link rel="stylesheet" href="../css/profilo.css" type="text/css">
 <link rel="icon" href="../immagini/user1.ico" type="image/X-icon"/>
-
 </head>
 
 <body>
@@ -70,7 +64,6 @@ $note = $_SESSION['note_temporanee'] ?? '';
     <?php endif; ?>
 </div>
 
-
     <div class="note-personali">
         <form method="post">
             <label for="note_temporanee"><strong>Appunti di studio:</strong></label>
@@ -89,6 +82,5 @@ $note = $_SESSION['note_temporanee'] ?? '';
         </form>
     </div>
 </div>
-
 </body>
 </html>

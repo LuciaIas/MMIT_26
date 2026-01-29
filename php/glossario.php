@@ -1,9 +1,8 @@
 <?php
 session_start();
-
 $utente_loggato = isset($_SESSION['username']);
 
-/* ===== CONNESSIONE DB ===== */
+//CONNESSIONE DB
 $conn_str = "host=localhost port=5432 dbname=gruppo26 user=www password=www";
 $dbconn = pg_connect($conn_str);
 
@@ -11,7 +10,6 @@ if (!$dbconn) {
     die("Errore di connessione al database.");
 }
 
-/* ===== RICERCA ===== */
 $search_value = "";
 $query_sql = "SELECT * FROM glossario";
 
@@ -38,15 +36,12 @@ $result = $search_value
 <link rel="icon" href="../immagini/zoom.ico" type="image/X.icon" />
 </head>
 
-
 <body id="inizio">
-
 <header class="main-header">
     <h1>Glossario</h1>
     <p>A tutti può capitare di dimenticare qualcosa!</p>
 </header>
 
-<!-- NAV BAR PRINCIPALE -->
 <nav>
     <a href="homepage.php">Home</a>
     <a href="quiz.php">Quiz</a>
@@ -64,7 +59,7 @@ $result = $search_value
             <a id="btn" href="accesso.php?form=register" >Registrati</a>
         </p>
     </section>
-
+    
 <?php else: ?>
 <section class="content-box">
     <form method="get">
@@ -82,11 +77,8 @@ $result = $search_value
     <article class="term-card">
         <header>
             <h3><?= htmlspecialchars($row['termine']) ?></h3>
-        
-           <!--  <span class="category-badge">
                 <?= htmlspecialchars($row['categoria']) ?>
-            </span>
--->
+            
         </header>
 
         <div class="card-content">
@@ -102,14 +94,9 @@ $result = $search_value
 <?php endif; ?>
 </main>
 
- 
-
-<!-- FOOTER -->
 <footer class="main-footer">
      <p>Corso Tecnologie Web – A.A. 2025-2026 | Portale didattico per studenti di Ingegneria Informatica</p>
     <p>Università degli Studi di Salerno - Via Giovanni Paolo II, 132 - 84084 Fisciano (SA)</p>
 </footer>
-
-
 </body>
 </html>

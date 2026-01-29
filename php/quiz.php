@@ -5,7 +5,6 @@ include __DIR__ . '/db.php';
 $utente_loggato = isset($_SESSION['username']);
 $username = $utente_loggato ? $_SESSION['username'] : null;
 
-// Funzione sicura per recuperare domande
 function get_domande($conn, $tabella, $id_quiz) {
     $query = "SELECT * FROM $tabella WHERE id_quiz=$1 ORDER BY id";
     $res = pg_query_params($conn, $query, [$id_quiz]);
@@ -19,56 +18,46 @@ function get_domande($conn, $tabella, $id_quiz) {
     return $domande;
 }
 
-// Carica le domande dai DB
 $domande_vf = get_domande($conn, 'domande_vero_falso', 1);
 $domande_cf = get_domande($conn, 'domande_completa_frase', 2);
 $domande_output_img = get_domande($conn, 'domande_output_immagine', 3);
 $domande_dd = get_domande($conn, 'domande_drag_drop', 4);
 
-// Gestione invio risposte
 if($utente_loggato && $_SERVER['REQUEST_METHOD'] === 'POST') {
     $risposte = $_POST['risposte'] ?? [];
     $risposte_json = json_encode($risposte);
     
-    // Punteggi parziali
     $punteggio_vf = 0;
     $punteggio_cf = 0;
     $punteggio_output_img = 0;
     $punteggio_dd = 0;
 
-    // Vero/Falso
     foreach($risposte['vf'] ?? [] as $id => $risposta) {
         $query = pg_query_params($conn, "SELECT risposta_corretta FROM domande_vero_falso WHERE id=$1", [$id]);
         $row = pg_fetch_assoc($query);
         if($row && ((bool)$risposta === (bool)$row['risposta_corretta'])) $punteggio_vf++;
     }
 
-    // Completa frase
     foreach($risposte['cf'] ?? [] as $id => $risposta) {
         $query = pg_query_params($conn, "SELECT risposta_corretta FROM domande_completa_frase WHERE id=$1", [$id]);
         $row = pg_fetch_assoc($query);
         if($row && strtolower(trim($risposta)) === strtolower(trim($row['risposta_corretta']))) $punteggio_cf++;
     }
 
-    // Output immagine
     foreach($risposte['output_img'] ?? [] as $id => $risposta) {
         $query = pg_query_params($conn, "SELECT risposta_corretta FROM domande_output_immagine WHERE id=$1", [$id]);
         $row = pg_fetch_assoc($query);
         if($row && trim($risposta) === trim($row['risposta_corretta'])) $punteggio_output_img++;
     }
 
-    // Drag & Drop
     foreach($risposte['dd'] ?? [] as $id => $termine_utente) {
     $query = pg_query_params($conn, "SELECT termine FROM domande_drag_drop WHERE id=$1", [$id]);
     $row = pg_fetch_assoc($query);
     if($row && trim($termine_utente) === trim($row['termine'])) $punteggio_dd++;
 }
 
-
-    // Punteggio totale
     $punteggio_totale = $punteggio_vf + $punteggio_cf + $punteggio_output_img + $punteggio_dd;
 
-    // Inserisci o aggiorna il punteggio nel DB
     $existing = pg_query_params($conn, "SELECT id FROM risultati_quiz WHERE username=$1 AND id_quiz=$2", [$username, 1]);
     if(pg_num_rows($existing) > 0){
         $row = pg_fetch_assoc($existing);
@@ -79,7 +68,6 @@ if($utente_loggato && $_SERVER['REQUEST_METHOD'] === 'POST') {
             [$username, 1, $punteggio_totale, $risposte_json]);
     }
 
-    // Messaggi punteggio
     $messaggio_punteggio = [
         'vf' => $punteggio_vf,
         'cf' => $punteggio_cf,
@@ -134,7 +122,6 @@ function resetQuiz() {
     <p><i> Nota: tutte le risposte vanno inserite in MAIUSCOLO.</i></p>
 <form id="quizForm" method="post">
 
-    <!-- Vero/Falso -->
     <?php if(count($domande_vf) > 0): ?>
 <section class="quiz-section">
     <h2>1) Vero o Falso</h2>
@@ -178,7 +165,6 @@ function resetQuiz() {
 </section>
 <?php endif; ?>
 
-<!-- Completa la frase -->
 <?php if(count($domande_cf) > 0): ?>
 <section class="quiz-section">
     <h2>2) Completa la frase</h2>
@@ -209,7 +195,6 @@ function resetQuiz() {
 </section>
 <?php endif; ?>
 
-<!-- Output immagine -->
 <?php if(count($domande_output_img) > 0): ?>
 <section class="quiz-section">
     <h2>3) I due codici hanno lo stesso output?</h2>
@@ -237,7 +222,6 @@ function resetQuiz() {
 </section>
 <?php endif; ?>
 
-<!-- Drag & Drop -->
 <?php if(count($domande_dd) > 0): ?>
 <section class="quiz-section">
     <h2>4) Drag & Drop</h2>
@@ -292,8 +276,6 @@ function resetQuiz() {
 <?php endif; ?>
 
 
-
-
 <?php if(isset($messaggio_punteggio)): ?>
 <div class="risultato">
     <?php if(isset($messaggio_punteggio)): ?>
@@ -312,17 +294,13 @@ function resetQuiz() {
 </div>
 <br>
     </div>
-</form> <!-- Chiudo il form qui -->
+</form>
 <script src="../js/quiz.js"></script>
-
 
 <footer class="main-footer">
      <p>Corso Tecnologie Web – A.A. 2025-2026 | Portale didattico per studenti di Ingegneria Informatica</p>
     <p>Università degli Studi di Salerno - Via Giovanni Paolo II, 132 - 84084 Fisciano (SA)</p>
 </footer>
 <?php endif; ?>
-
-
-
 </body>
 </html>

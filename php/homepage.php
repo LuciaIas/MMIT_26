@@ -1,18 +1,15 @@
 <?php
 session_start();
 include __DIR__ . '/db.php';
-
 $utente_loggato = isset($_SESSION['username']);
 
 $visite = 0;
 
-// prova a inserire una visita e controlla errore
 $result_insert = pg_query($conn, "INSERT INTO visite_sito DEFAULT VALUES");
 if (!$result_insert) {
     die("Errore inserimento visite: " . pg_last_error($conn));
 }
 
-// conta tutte le visite
 $result = pg_query($conn, "SELECT COUNT(*) FROM visite_sito");
 if ($result !== false) {
     $row = pg_fetch_row($result);
@@ -20,13 +17,10 @@ if ($result !== false) {
 } else {
     die("Errore conteggio visite: " . pg_last_error($conn));
 }
-
 ?>
-
 
 <!DOCTYPE html>
 <html lang="it">
-
 <head>
     <meta charset="UTF-8">    
     <meta name="author" content="gruppoMMIT26"/>
@@ -50,7 +44,6 @@ window.onclick = function(event) {
 </script>
 </head>
 
-
 <body>
 <header>
     <div id="inizio" class="header-content">
@@ -65,22 +58,17 @@ window.onclick = function(event) {
 <nav>
 
     <?php if (!$utente_loggato): ?>
-        <!-- UTENTE ANONIMO -->
         
-<!-- Per aprire login -->
 <a href="accesso.php?form=login">Login</a>
 
-<!-- Per aprire registrazione -->
 <a href="accesso.php?form=register">Registrazione</a>
     <?php endif; ?>
         <a href="quiz.php">Quiz</a>
         <a href="glossario.php">Glossario</a>
     <?php if ($utente_loggato): ?>
-        <!-- UTENTE AUTENTICATO -->
         <a href="profilo.php">Profilo</a>
     <?php endif; ?>
 
-        <!-- SEMPRE VISIBILE -->
     <div class="dropdown-menu">
         <button class="dropbtn" onclick="toggleMenu()">Menu</button>
         <div id="dropdown-content" class="dropdown-content">
@@ -93,10 +81,8 @@ window.onclick = function(event) {
             <a href="#contatti">Contatti</a>   
         </div>
     </div>
-
 </nav>
 
-<!-- SEZIONE INTRO DINAMICA -->
 <div class="intro">
     <?php if($utente_loggato): ?>
         <h1>Benvenuto, <?php echo htmlspecialchars($_SESSION['username']); ?>!</h1>
@@ -116,7 +102,6 @@ window.onclick = function(event) {
     <?php endif; ?>
 </div>
 
-<!-- VIDEO -->
 <div class="contenuto-video">
     <video controls autoplay muted loop width="68%" >
         <source src="../video/pc.mp4" type="video/mp4">
@@ -124,8 +109,6 @@ window.onclick = function(event) {
     </video>
 </div>
 
-
-<!-- STORIA DEL WORLD WIDE WEB -->
 <div id="storia" class="contenuto">
     <h2>La storia del World Wide Web</h2>
     <p>
@@ -139,7 +122,6 @@ window.onclick = function(event) {
        DARPA</span> per scopi militari.
     </p>
 
-    <!-- Paragrafo speciale -->
     <p class="paragrafo-speciale">
         <strong>Curiosità:</strong> Nel 1989 il fisico <span class="highlight">Tim Berners-Lee</span> propose un sistema 
         per la condivisione di documenti ipertestuali al CERN. Questo fu l’inizio ufficiale del World Wide Web, reso 
@@ -160,8 +142,6 @@ window.onclick = function(event) {
     </p>
 </div>
 
-
-<!-- ORARI LIVE  -->
 <?php if($utente_loggato): ?>
 <div id="sessioni" class="contenuto">
     <h2>Sessioni di Studio</h2>
@@ -215,7 +195,6 @@ window.onclick = function(event) {
 </div>
 <?php endif; ?>
 
-
 <div class="citazione">
     <blockquote cite="https://letteralmente.net/frasi-celebri/tim-berners-lee/">
         "Il Web non si limita a collegare macchine, connette delle persone."
@@ -223,9 +202,6 @@ window.onclick = function(event) {
     </blockquote>
 </div>
 
-
-
-<!-- CHI SIAMO -->
 <div id="chisiamo" class="contenuto">
     <h2>Chi siamo?</h2>
     <p>
@@ -246,20 +222,14 @@ window.onclick = function(event) {
  </p>
 </div>
 
-
-
-
 <div class="citazione">
     <blockquote cite="https://letteralmente.net/frasi-celebri/tim-berners-lee/">
         "Considero il Web come un tutto potenzialmente collegato a tutto, come un'utopia 
         che ci regala una libertà mai vista prima."
         <p style="text-align: right;">- Tim Berners Lee</p>
     </blockquote>
-    
-
 </div>
 
-<!-- STATISTICHE E FEEDBACK -->
 <div id="feedback" class="contenuto">
     <h2>Feedback</h2>
     <ul>
@@ -279,8 +249,6 @@ window.onclick = function(event) {
     </blockquote>
 </div>
 
-
-<!-- CONTATTI -->
 <div id="contatti" class="contenuto">
     <h2>Contatti utili</h2>
     <strong>Gruppo MMIT </strong><img src="../immagini/friend.png" style="width:16px; height:16px; vertical-align:middle;">
@@ -289,17 +257,14 @@ window.onclick = function(event) {
         Email: <a href="mailto:l.monetta8@studenti.unisa.it">l.monetta8@studenti.unisa.it</a><br>
         Email: <a href="mailto:m.muccio3@studenti.unisa.it">m.muccio3@studenti.unisa.it</a><br>
         Email: <a href="mailto:m.tamburro@studenti.unisa.it">m.tamburro@studenti.unisa.it</a>
-    
 </div>
 
 <a id="tornaSu" href="#inizio">Torna su</a> 
 
-<!-- FOOTER -->
 <footer>
     <p>Corso Tecnologie Web – A.A. 2025-2026 | Portale didattico per studenti di Ingegneria Informatica</p>
     <p>Università degli Studi di Salerno - Via Giovanni Paolo II, 132 - 84084 Fisciano (SA)</p>
  </footer>
-
+ 
 </body>
-
 </html>
