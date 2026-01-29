@@ -32,7 +32,7 @@ if ($result !== false) {
     <meta name="author" content="gruppoMMIT26"/>
     <meta name="description" content="Homepage"/>
     <title>Portale Tecnologie Web</title>
-    <link rel="stylesheet" href="../css/homepagecss?v=2.css" type="text/css">
+    <link rel="stylesheet" href="../css/homepagecss?v=3.css" type="text/css">
     <link rel="icon" href="../immagini/iconarazzo.ico" type="image/X.icon" />
 <script>
 function toggleMenu() {
@@ -85,9 +85,9 @@ window.onclick = function(event) {
         <button class="dropbtn" onclick="toggleMenu()">Menu</button>
         <div id="dropdown-content" class="dropdown-content">
                 <?php if($utente_loggato): ?>
-            <a href="#storia">Storia del Web</a>
             <a href="#sessioni">Sessioni di Studio </a>
                 <?php endif; ?>
+            <a href="#storia">Storia del Web</a>
             <a href="#chisiamo">Chi siamo</a>           
             <a href="#feedback">Feedback</a>
             <a href="#contatti">Contatti</a>   
@@ -100,8 +100,8 @@ window.onclick = function(event) {
 <div class="intro">
     <?php if($utente_loggato): ?>
         <h1>Benvenuto, <?php echo htmlspecialchars($_SESSION['username']); ?>!</h1>
-            <p>Sei loggato e puoi accedere a tutte le funzionalità del portale!</p>
-            <p>Disponibili ora: approfondimento sulla storia del Web, orari delle sessioni di studio, quiz di autovalutazione e glossario.
+            <p>Sei loggato e puoi accedere a tutte le funzionalità del portale!
+            <br>Disponibili ora: orari delle sessioni di studio, nuovi quiz settimanali e glossario.
         </p>
     <?php else: ?>
         <h1>
@@ -109,7 +109,7 @@ window.onclick = function(event) {
         </h1>
 
         <p>La homepage offre una panoramica generale dei servizi del portale, mentre, 
-            le nostre funzionalità esclusive (approfondimenti, sessioni di studio, quiz di autovalutazione e glossario) sono accessibili solo dopo la registrazione...non perdere tempo:
+            le nostre funzionalità esclusive (sessioni di studio, quiz settimanali e glossario) sono accessibili solo dopo la registrazione...<br>non perdere tempo:
             <a href="accesso.php?form=register" style="color: #fd0d59; font-weight: bold; text-decoration: underline;">Registrati ora!</a>
     </p>
 
@@ -212,6 +212,7 @@ window.onclick = function(event) {
 <a href="https://www.tiktok.com/@gruppo_mmit?_r=1&_t=ZN-93OUU82znuA">
     <img src="../immagini/tiktok.jpg" alt="Logo TikTok" width="100px" style="margin-left: 40px;">
 </a>
+</div>
 <?php endif; ?>
 
 
@@ -239,8 +240,9 @@ window.onclick = function(event) {
     Qui non sarai mai solo: troverai motivazione, amicizie e una rete pronta ad aiutarti a superare ogni sfida 
     universitaria.
    <h2>I fondatori</h2>
-   Dietro questo progetto ci siamo noi: studenti proprio come te! <img src="../immagini/smile.png" style="width:16px; height:16px; vertical-align:middle;"> </p>
-
+   Dietro questo progetto ci siamo noi: Lucia Iasevoli, Lucia Monetta, Matteo Muccio e Michele Tamburro...
+   <br> studenti proprio come te! 
+    <img src="../immagini/smile.png" style="width:16px; height:16px; vertical-align:middle;"> </p>
  </p>
 </div>
 
@@ -283,10 +285,10 @@ window.onclick = function(event) {
     <h2>Contatti utili</h2>
     <strong>Gruppo MMIT </strong><img src="../immagini/friend.png" style="width:16px; height:16px; vertical-align:middle;">
     <p>
-        Lucia Iasevoli   | Email: <a href="mailto:l.iasevoli1@studenti.unisa.it">l.iasevoli1@studenti.unisa.it</a><br>
-        Lucia Monetta    | Email: <a href="mailto:l.monetta8@studenti.unisa.it">l.monetta8@studenti.unisa.it</a><br>
-        Matteo Muccio    | Email: <a href="mailto:m.muccio3@studenti.unisa.it">m.muccio3@studenti.unisa.it</a><br>
-        Michele Tamburro | Email: <a href="mailto:m.tamburro@studenti.unisa.it">m.tamburro@studenti.unisa.it</a>
+        Email: <a href="mailto:l.iasevoli1@studenti.unisa.it">l.iasevoli1@studenti.unisa.it</a><br>
+        Email: <a href="mailto:l.monetta8@studenti.unisa.it">l.monetta8@studenti.unisa.it</a><br>
+        Email: <a href="mailto:m.muccio3@studenti.unisa.it">m.muccio3@studenti.unisa.it</a><br>
+        Email: <a href="mailto:m.tamburro@studenti.unisa.it">m.tamburro@studenti.unisa.it</a>
     
 </div>
 
