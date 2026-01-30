@@ -19,9 +19,13 @@ function get_domande($conn, $tabella, $id_quiz) {
 }
 
 $domande_vf = get_domande($conn, 'domande_vero_falso', 1);
+shuffle($domande_vf);
 $domande_cf = get_domande($conn, 'domande_completa_frase', 2);
+shuffle($domande_cf);
 $domande_output_img = get_domande($conn, 'domande_output_immagine', 3);
 $domande_dd = get_domande($conn, 'domande_drag_drop', 4);
+$termini_dd = $domande_dd;
+shuffle($termini_dd);
 
 if($utente_loggato && $_SERVER['REQUEST_METHOD'] === 'POST') {
     $risposte = $_POST['risposte'] ?? [];
@@ -50,6 +54,7 @@ if($utente_loggato && $_SERVER['REQUEST_METHOD'] === 'POST') {
         if($row && trim($risposta) === trim($row['risposta_corretta'])) $punteggio_output_img++;
     }
 
+    
     foreach($risposte['dd'] ?? [] as $id => $termine_utente) {
     $query = pg_query_params($conn, "SELECT termine FROM domande_drag_drop WHERE id=$1", [$id]);
     $row = pg_fetch_assoc($query);
@@ -94,6 +99,7 @@ function resetQuiz() {
 </script>
 </head>
 <body>
+<a id="top"></a>
 
 <header>
     <h1>Quiz </h1>
@@ -230,14 +236,14 @@ function resetQuiz() {
     <div class="drag-drop-container">
         <div class="drag-items">
             <h3>Termini</h3>
-            <?php foreach($domande_dd as $row): 
-                $id = $row['id'];
-                $inviato = isset($messaggio_punteggio);
-            ?>
-                <div class="drag-item" id="term<?= $id ?>" draggable="<?= $inviato ? 'false' : 'true' ?>">
-                    <?= htmlspecialchars($row['termine']) ?>
-                </div>
-            <?php endforeach; ?>
+            <?php foreach($termini_dd as $row): 
+    $id = $row['id'];
+    $inviato = isset($messaggio_punteggio);
+?>
+    <div class="drag-item" id="term<?= $id ?>" draggable="<?= $inviato ? 'false' : 'true' ?>">
+        <?= htmlspecialchars($row['termine']) ?>
+    </div>
+<?php endforeach; ?>
         </div>
 
         <div class="drop-zones">
@@ -291,6 +297,7 @@ function resetQuiz() {
         <button type="submit">Invia Risposte</button>
     <?php endif; ?>
     <button type="button" onclick="window.location='quiz.php';">Reset</button>
+    <button type="button" onclick="location.href='#top';">Torna su</button>
 </div>
 <br>
     </div>

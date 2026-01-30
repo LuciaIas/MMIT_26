@@ -21,22 +21,57 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         zone.addEventListener('drop', e => {
-            e.preventDefault();
-            zone.classList.remove('over');
+    e.preventDefault();
+    zone.classList.remove('over');
 
-            const id = e.dataTransfer.getData('text/plain');
-            const draggedEl = document.getElementById(id);
-            if (!draggedEl) return;
+    // se il quiz è già inviato, non permettere modifiche
+    if (zone.dataset.disabled === 'true') return;
 
-            zone.textContent = draggedEl.textContent;
+    const id = e.dataTransfer.getData('text/plain');
+    const draggedEl = document.getElementById(id);
+    if (!draggedEl) return;
 
-            const hiddenInput = zone.nextElementSibling;
-            if (hiddenInput && hiddenInput.tagName === 'INPUT') {
-                hiddenInput.value = draggedEl.textContent;
-            }
+    // se la drop-zone contiene già un termine, rimettilo tra i termini
+    const existing = zone.querySelector('.drag-item');
+    if (existing) {
+        document.querySelector('.drag-items').appendChild(existing);
+    }
 
-            draggedEl.style.display = 'none';
-        });
+    // inserisci il nuovo termine
+    zone.innerHTML = '';
+    zone.appendChild(draggedEl);
+
+    // aggiorna input hidden
+    const hiddenInput = zone.nextElementSibling;
+    if (hiddenInput && hiddenInput.tagName === 'INPUT') {
+        hiddenInput.value = draggedEl.textContent.trim();
+    }
+});
+const dragContainer = document.querySelector('.drag-items');
+
+dragContainer.addEventListener('dragover', e => {
+    e.preventDefault();
+});
+
+dragContainer.addEventListener('drop', e => {
+    e.preventDefault();
+
+    const id = e.dataTransfer.getData('text/plain');
+    const draggedEl = document.getElementById(id);
+    if (!draggedEl) return;
+
+    dragContainer.appendChild(draggedEl);
+
+    // svuota l’input hidden della zona da cui proviene
+    document.querySelectorAll('.drop-zone').forEach(zone => {
+        const hidden = zone.nextElementSibling;
+        if (hidden && hidden.value.trim() === draggedEl.textContent.trim()) {
+            hidden.value = '';
+            zone.innerHTML = '';
+        }
+    });
+});
+
     });
 
     const quizForm = document.getElementById('quizForm');
