@@ -214,4 +214,30 @@ button:hover {
     margin: 5px 0;
 }
 
+#quizForm {
+    border: 2px solid #25d796;
+    padding: 15px;
+    border-radius: 12px;
+}
+
+button, .btnanonimo {
+    font-family: Verdana, Geneva, sans-serif;
+    letter-spacing: 0.5px;
+}
+
+.quiz-section h2::before {
+    content: "";
+    display: inline-block;
+    width: 4px;               
+    height: 14px;             
+    background-color: #25d796; 
+    margin-right: 8px;        
+    vertical-align: middle;
+    border-radius: 3px;       
+}
+
+.quiz-section p:first-child {
+    font-weight: bold;
+    color: #02452c;
+}
 

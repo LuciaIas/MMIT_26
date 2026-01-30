@@ -38,6 +38,17 @@ body {
     font-size: 2em;
 }
 
+.container-profilo h1::before {
+    content: "";
+    display: inline-block;
+    width: 25px;
+    height: 4px;
+    background-color: #159649;
+    margin-right: 8px;
+    vertical-align: middle;
+    border-radius: 2px;
+}
+
 /* INFO PERSONALI  */
 .info-personali {
     background: #ffe0e9;
@@ -98,6 +109,11 @@ body {
     line-height: 1.2; 
 }
 
+.btn, .btn-logout {
+    font-family: Verdana, Geneva, sans-serif;
+    font-weight: 600;
+}
+
 .btn-logout:hover {
     background: #b91c1c;
 }
@@ -132,3 +148,5 @@ body {
 .note-personali button:hover {
     background: #12733d;
 }
+
+
