@@ -226,7 +226,6 @@ button:hover {
 
 .card-header h3, .categoria {  
     letter-spacing: 1px; 
-    transition: all 0.3s ease; 
 }
 
 .card-header:hover h3, .card-header:hover .categoria {
