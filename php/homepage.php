@@ -237,7 +237,7 @@ window.onclick = function(event) {
         <li>Le opinioni raccolte evidenziano l'efficacia del materiale interattivo come strumento di supporto alla preparazione dell'esame.</li>
         <li>Ogni tua visita conta! Grazie a studenti come te, il nostro portale continua a crescere e migliorare ogni giorno.</li>
         <li>Numero di visite totali al sito: <strong><?php echo number_format($visite); ?></strong></li>
-        <li>Unisciti alla nostra community e affronta gli esami con noi... cosa aspetti? <img src="../immagini/cuoricino.png" alt="cuore" width="16" height="16" style="vertical-align:middle;">
+        <li>Unisciti alla nostra community e affronta gli esami con noi... cosa aspetti? <img src="../immagini/blink.png" alt="cuore" width="16" height="16" style="vertical-align:middle;">
 </li> </li>
     </ul>
 </div>

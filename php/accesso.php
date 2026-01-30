@@ -86,15 +86,25 @@ if (isset($_POST['register'])) {
 
     if (!$errore) {
         $check = pg_query_params(
-            $conn,
-            "SELECT 1 FROM utenti WHERE username=$1",
-            [$username]
-        );
+    $conn,
+    "SELECT username, email FROM utenti WHERE username=$1 OR email=$2",
+    [$username, $email]
+);
 
-        if (pg_num_rows($check) > 0) {
-            $messaggio = "Nome utente già esistente.";
-            $tipo_messaggio = "error";
-        } else {
+if (pg_num_rows($check) > 0) {
+    $row = pg_fetch_assoc($check);
+
+    if ($row['username'] === $username && $row['email'] === $email) {
+        $messaggio = "Nome utente ed email sono già registrati.";
+    } elseif ($row['username'] === $username) {
+        $messaggio = "Nome utente già esistente.";
+    } else {
+        $messaggio = "Email già registrata.";
+    }
+
+    $tipo_messaggio = "error";
+    $errore = true;
+} else {
             $hash = password_hash($password, PASSWORD_DEFAULT);
             $insert = pg_query_params(
                 $conn,
