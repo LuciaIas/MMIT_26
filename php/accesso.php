@@ -158,8 +158,8 @@ window.apriRegistrazione = <?php echo $apriRegistrazione ? 'true' : 'false'; ?>;
 <?php endif; ?>
 
 <div class="form-switch">
-    <button data-form="login" class="active">Login</button>
-    <button data-form="register">Registrazione</button>
+    <button type="button" data-form="login" class="active">Login</button>
+    <button type="button" data-form="register">Registrazione</button>
 </div>
 <br>
 
