@@ -176,7 +176,7 @@ window.apriRegistrazione = <?php echo $apriRegistrazione ? 'true' : 'false'; ?>;
 </form>
 
 <!-- FORM REGISTRAZIONE -->
-<form id="registerForm" method="post">
+<form id="registerForm" method="post" novalidate>
     <div class="radio-group">
         <span class="radio-label">Sesso:</span>
         <div class="radio-options">

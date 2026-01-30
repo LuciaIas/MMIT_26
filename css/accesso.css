@@ -78,7 +78,7 @@ form {
     gap:12px; 
 }
 
-form.form-active { 
+#loginForm.form-active { 
     display:flex; 
 }
 

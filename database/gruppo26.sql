@@ -53,7 +53,8 @@ CREATE TABLE domande_drag_drop (
 CREATE TABLE glossario (
     id SERIAL PRIMARY KEY,
     termine VARCHAR(50) NOT NULL,
-    definizione TEXT NOT NULL
+    definizione TEXT NOT NULL,
+    categoria VARCHAR(50) NOT NULL
 );
 
 CREATE TABLE risultati_quiz (
@@ -140,47 +141,47 @@ INSERT INTO domande_completa_frase (id_quiz, frase, risposta_corretta) VALUES
 (2, 'Il linguaggio _ serve a creare la struttura delle pagine web.', 'HTML'),
 (2, 'Il protocollo _ permette la trasmissione di pagine web.', 'HTTP'),
 (2, '_ è un linguaggio lato server molto diffuso.', 'PHP'),
-(2, 'Il Web 1.0 era caratterizzato da pagine _,  e con utenti lettori', 'STATICHE'),
+(2, 'Il Web 1.0 era caratterizzato da pagine _ e da utenti principalmente lettori', 'STATICHE'),
 (2, 'L''URL è un tipo di _ che indica la posizione di una risorsa su Internet.', 'URI');
 
 INSERT INTO domande_output_immagine (id_quiz, immagine, risposta_corretta) 
 VALUES (3, 'quiz_id3.jpeg', 'NO');
 
 INSERT INTO domande_drag_drop (id_quiz, termine, definizione_corretta) VALUES
-(4, 'HTML', 'Struttura delle pagine'),
-(4, 'CSS', 'Stile delle pagine'),
-(4, 'JavaScript', 'Interattività lato client'),
-(4, 'PHP', 'Esecuzione lato server');
+(4, 'HTML', 'Struttura delle pagine web'),
+(4, 'CSS', 'Stile e presentazione delle pagine web'),
+(4, 'JavaScript', 'Interattività e comportamento lato client'),
+(4, 'PHP', 'ELaborazione ed esecuzione lato server');
 
-INSERT INTO glossario (termine, definizione) VALUES
-('Client', 'Dispositivo che richiede servizi al server.'),
-('Server', 'Sistema che fornisce servizi ai client.'),
-('HTTP', 'Protocollo di comunicazione tra client e server.'),
-('Database', 'Archivio strutturato di dati accessibile da applicazioni.'),
-('HTML', 'HTML è il linguaggio standard per creare e strutturare pagine web (definisce titoli, paragrafi, elenchi, link, immagini e altri elementi). Il suo funzionamento si basa sui tag che indicano al browser come visualizzare il contenuto. HTML è fondamentale per qualsiasi sito web in quanto stabilisce la struttura (ma non lo stile estetico) della pagina.'),
-('CSS', 'CSS definisce l''aspetto delle pagine web (colori, font, spaziature e layout), trasformando l''HTML in pagine leggibili ed esteticamente gradevoli separando la struttura dalla presentazione. Il CSS, inoltre, rende più semplice aggiornare lo stile e permette di adattare i contenuti a diversi dispositivi.'),
-('JavaScript', 'JavaScript aggiunge interattività ai siti web: risponde alle azioni dell''utente, aggiorna contenuti senza ricaricare la pagina e crea animazioni/giochi. JavaScript quindi, eseguito dal browser, garantisce un''interazione fluida rendendo i siti attivi e coinvolgenti.'),
-('PHP', 'PHP è un linguaggio lato server che fornisce HTML pronto al browser; è essenziale per i siti interattivi e applicazioni web complesse in quanto ha il compito di gestire login, registrazioni, moduli e interazioni con database. PHP, inoltre, elabora richieste e genera pagine personalizzate in base ai dati.'),
-('Web 1.0', 'Prima fase del Web (anni ''90). Caratterizzato da pagine statiche, utenti lettori, ipertesti e URL.'),
-('Web 2.0', 'Web dinamico e partecipativo, formato da blog, social network, wiki e video sharing.'),
-('Web 3.0', 'Web semantico e AI. Fornisce servizi personalizzati con metadati, cookie e geolocalizzazione.'),
-('Web 4.0', 'Basato sull''Internet of Things: oggetti intelligenti connessi, domotica e veicoli autonomi.'),
-('Internet', 'Rete globale di reti di computer interconnessi che comunicano tramite protocolli standard (come TCP/IP).'),
-('Web', 'Servizio che utilizza Internet per fornire pagine ipertestuali accessibili tramite browser.'),
-('Ipertesto', 'Testo che contiene collegamenti ad altre risorse o documenti, permettendo una navigazione non lineare.'),
-('URI', 'Identificatore generico usato per identificare una risorsa su Internet. Include URL e URN.'),
-('URL', 'Tipo di URI che specifica la posizione di una risorsa e il metodo per accedervi.'),
-('IRI', 'Estensione di URI che permette l''uso di caratteri internazionali non ASCII.'),
-('Browser', 'Programma che consente di navigare il Web e visualizzare pagine web.'),
-('Loopback', 'Meccanismo di rete che permette a un dispositivo di comunicare con sé stesso, usato per test.'),
-('Indirizzo IP', 'Numero univoco che identifica un dispositivo all’interno di una rete.'),
-('DNS', 'Sistema che traduce i nomi di dominio in indirizzi IP.'),
-('GET', 'Metodo HTTP utilizzato per richiedere dati a un server.'),
-('POST', 'Metodo HTTP utilizzato per inviare dati a un server.'),
-('Wireframe', 'Rappresentazione schematica e semplificata della struttura di una pagina web o applicazione.'),
-('Mockup', 'Rappresentazione grafica dettagliata di un''interfaccia che mostra l''aspetto visivo finale.'),
-('HTML5', 'Versione più recente del linguaggio HTML che introduce nuovi elementi semantici, multimediali e API.'),
-('DOM (Document Object Model)', 'Rappresentazione ad albero della struttura di una pagina web, che permette di accedere e modificare contenuti, elementi e attributi tramite linguaggi come JavaScript.');
+INSERT INTO glossario (termine, definizione, categoria) VALUES
+('Client', 'Dispositivo che richiede servizi al server.', 'Concetto'),
+('Server', 'Sistema che fornisce servizi ai client.', 'Concetto'),
+('HTTP', 'Protocollo di comunicazione tra client e server.', 'Protocollo'),
+('Database', 'Archivio strutturato di dati accessibile da applicazioni.', 'Concetto'),
+('HTML', 'HTML è il linguaggio standard per creare e strutturare pagine web. Stabilisce la struttura della pagina.', 'Linguaggio'),
+('CSS', 'CSS definisce l''aspetto delle pagine web, separando struttura e presentazione.', 'Linguaggio'),
+('JavaScript', 'JavaScript aggiunge interattività ai siti web e aggiorna contenuti senza ricaricare la pagina.', 'Linguaggio'),
+('PHP', 'PHP è un linguaggio lato server che genera contenuti HTML dinamici e gestisce dati e interazioni.', 'Linguaggio'),
+('Web 1.0', 'Prima fase del Web (anni ''90) caratterizzata da pagine statiche e utenti lettori.', 'Concetto'),
+('Web 2.0', 'Web dinamico e partecipativo, formato da blog, social network e wiki.', 'Concetto'),
+('Web 3.0', 'Web semantico e basato su AI che offre servizi personalizzati.', 'Concetto'),
+('Web 4.0', 'Web basato su Internet of Things con oggetti intelligenti connessi.', 'Concetto'),
+('Internet', 'Rete globale di reti di computer interconnessi tramite protocolli standard.', 'Concetto'),
+('Web', 'Servizio che utilizza Internet per fornire pagine ipertestuali accessibili tramite browser.', 'Concetto'),
+('Ipertesto', 'Testo che contiene collegamenti ad altre risorse, permettendo navigazione non lineare.', 'Concetto'),
+('URI', 'Identificatore generico che identifica una risorsa su Internet.', 'Concetto'),
+('URL', 'Tipo di URI che specifica la posizione di una risorsa e come accedervi.', 'Concetto'),
+('IRI', 'Estensione di URI che permette l''uso di caratteri internazionali non ASCII.', 'Concetto'),
+('Browser', 'Programma che consente di navigare il Web e visualizzare pagine web.', 'Strumento/Software'),
+('Loopback', 'Meccanismo di rete che permette a un dispositivo di comunicare con sé stesso.', 'Concetto'),
+('Indirizzo IP', 'Numero univoco che identifica un dispositivo all’interno di una rete.', 'Concetto'),
+('DNS', 'Sistema che traduce i nomi di dominio in indirizzi IP.', 'Protocollo'),
+('GET', 'Metodo HTTP utilizzato per richiedere dati a un server.', 'Protocollo'),
+('POST', 'Metodo HTTP utilizzato per inviare dati a un server.', 'Protocollo'),
+('Wireframe', 'Rappresentazione schematica e semplificata della struttura di una pagina web o applicazione.', 'Strumento/Software'),
+('Mockup', 'Rappresentazione grafica dettagliata di un''interfaccia, mostrando l''aspetto finale.', 'Strumento/Software'),
+('HTML5', 'Versione più recente del linguaggio HTML che introduce nuovi elementi semantici, multimediali e API.', 'Linguaggio'),
+('DOM (Document Object Model)', 'Rappresentazione ad albero della struttura di una pagina web, accessibile tramite JavaScript.', 'Linguaggio');
 
 
 GRANT ALL PRIVILEGES ON DATABASE gruppo26 TO www;
