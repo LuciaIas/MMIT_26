@@ -26,41 +26,25 @@ if ($result !== false) {
     <meta name="author" content="gruppoMMIT26"/>
     <meta name="description" content="Homepage"/>
     <title>Portale Tecnologie Web</title>
-    <link rel="stylesheet" href="../css/homepagecss?v=3.css" type="text/css">
+    <link rel="stylesheet" href="../css/homepagecss?v=6.css" type="text/css">
     <link rel="icon" href="../immagini/iconarazzo.ico" type="image/X.icon" />
-<script>
-function toggleMenu() {
-    document.getElementById("dropdown-content").classList.toggle("show");
-}
 
-window.onclick = function(event) {
-  if (!event.target.matches('.dropbtn')) {
-    var dropdowns = document.getElementsByClassName("dropdown-content");
-    for (var i = 0; i < dropdowns.length; i++) {
-      dropdowns[i].classList.remove('show');
-    }
-  }
-}
-</script>
 </head>
 
 <body>
-<header>
-    <div id="inizio" class="header-content">
-        <img src="../immagini/logo.png" alt="Logo Portale" class="header-img">
-        <div class="header-text">
-            <h1>Benvenuto nel Portale Tecnologie Web</h1>
-            <p>Il tuo spazio per imparare, ripassare e testare le tue competenze!</p>
-        </div>
+<div id="inizio"></div>
+
+<nav class="navbar">
+    <div class="navbar-left">
+
+        <img src="../immagini/logo111.png" alt="Logo Portale" class="logo">
+        <span class="title">Portale di Tecnologie Web</span>
     </div>
-</header>
 
-<nav>
+<div class="navbar-links">
 
-    <?php if (!$utente_loggato): ?>
-        
+    <?php if (!$utente_loggato): ?> 
 <a href="accesso.php?form=login">Login</a>
-
 <a href="accesso.php?form=register">Registrazione</a>
     <?php endif; ?>
         <a href="quiz.php">Quiz</a>
@@ -81,6 +65,7 @@ window.onclick = function(event) {
             <a href="#contatti">Contatti</a>   
         </div>
     </div>
+</div>
 </nav>
 
 <div class="intro">
@@ -251,7 +236,7 @@ window.onclick = function(event) {
 
 <div id="contatti" class="contenuto">
     <h2>Contatti utili</h2>
-    <strong>Gruppo MMIT </strong><img src="../immagini/friend.png" style="width:16px; height:16px; vertical-align:middle;">
+    <strong>Gruppo MMIT </strong><img src="../immagini/letter.png" style="width:16px; height:16px; vertical-align:middle;">
     <p>
         Email: <a href="mailto:l.iasevoli1@studenti.unisa.it">l.iasevoli1@studenti.unisa.it</a><br>
         Email: <a href="mailto:l.monetta8@studenti.unisa.it">l.monetta8@studenti.unisa.it</a><br>
@@ -265,6 +250,6 @@ window.onclick = function(event) {
     <p>Corso Tecnologie Web – A.A. 2025-2026 | Portale didattico per studenti di Ingegneria Informatica</p>
     <p>Università degli Studi di Salerno - Via Giovanni Paolo II, 132 - 84084 Fisciano (SA)</p>
  </footer>
- 
+ <script src="../js/homepage.js" type="text/javascript" ></script>
 </body>
 </html>
