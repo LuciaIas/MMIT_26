@@ -65,7 +65,7 @@ nav a:hover {
     flex: 1;
 }
 
-/*  CONTENITORI SECONDARI */
+/*  CONTENITORE BARRA DI RICERCA */
 .content-box {
     background: white;
     padding: 25px;
@@ -135,11 +135,48 @@ button:hover {
     text-align: center;
 }
 
+.term-card:hover {
+    background-color: rgb(233, 233, 233);
+}
 
-/*  CONTENITORE CARD  */
+/*  CARD  */
 .card-content {
     padding: 18px;
     line-height: 1.5em;
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* chiave */
+    gap: 12px;
+    padding: 16px;
+    background-color: rgba(193, 247, 223, 0.995);
+}
+
+/* TITOLO */
+.term-title {
+    margin: 0;
+    color: #02452c;
+    font-weight: 800;
+    font-size: 1.1em;
+    max-width: 70%;  /* evita che il titolo schiacci il badge */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* CATEGORIA */
+.categoria {
+    background-color: #235085;
+    color: #fff;
+    font-size: 0.75em;
+    font-weight: bold;
+    padding: 5px 12px;
+    border-radius: 20px;
+    letter-spacing: 0.6px;
+    white-space: nowrap;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
 }
 
 /* PULSANTI  */
@@ -192,4 +229,3 @@ button:hover {
 .main-footer p {
     margin: 5px 0;
 }
-

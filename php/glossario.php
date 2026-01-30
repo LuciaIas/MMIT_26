@@ -32,7 +32,7 @@ $result = $search_value
 <meta name="author" content="gruppoMMIT26"/>
 <meta name="description" content="Pagina glossario"/>
 <title>Glossario - Tecnologie Web</title>
-<link rel="stylesheet" href="../css/glossario.css?v=6">
+<link rel="stylesheet" href="../css/glossario.css?v=8">
 <link rel="icon" href="../immagini/zoom.ico" type="image/X.icon" />
 </head>
 
@@ -74,12 +74,11 @@ $result = $search_value
 <section class="terms-grid">
 
 <?php while ($row = pg_fetch_assoc($result)): ?>
-    <article class="term-card">
-        <header>
-            <h3><?= htmlspecialchars($row['termine']) ?></h3>
-                <?= htmlspecialchars($row['categoria']) ?>
-            
-        </header>
+<article class="term-card">
+     <header class="card-header"> 
+        <h3 class="term-title"> <?= htmlspecialchars($row['termine']) ?> </h3> 
+        <span class="categoria"> <?= htmlspecialchars($row['categoria']) ?> </span>
+     </header>
 
         <div class="card-content">
             <p><?= htmlspecialchars($row['definizione']) ?></p>
