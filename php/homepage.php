@@ -34,16 +34,15 @@ if ($result !== false) {
 <body>
 <div id="inizio"></div>
 
+<header>
 <nav class="navbar">
     <div class="navbar-left">
-
         <img src="../immagini/logo111.png" alt="Logo Portale" class="logo">
         <span class="title">Portale di Tecnologie Web</span>
     </div>
 
 <div class="navbar-links">
-
-    <?php if (!$utente_loggato): ?> 
+<?php if (!$utente_loggato): ?> 
 <a href="accesso.php?form=login">Login</a>
 <a href="accesso.php?form=register">Registrazione</a>
     <?php endif; ?>
@@ -67,6 +66,7 @@ if ($result !== false) {
     </div>
 </div>
 </nav>
+</header>
 
 <div class="intro">
     <?php if($utente_loggato): ?>

@@ -23,32 +23,6 @@ p {
     margin: 0.5em 0 1em 0;
 }
 
-/* HEADER */
-header {
-    background-color:#235085;
-    color: #fff;
-    padding: 20px 20px;
-}
-
-.header-content {
-    display: flex;
-    align-items: center;     
-    justify-content: center;               
-    text-align: center;
-}
-
-.header-img {
-    width: 200px;
-}
-
-.header-text h1 {
-    margin: 0;
-    font-size: 2em;
-}
-
-.header-text p {
-    margin: 5px 0 0 0;
-}
 
 /* NAV BAR */
 /* Navbar fissa in alto */
@@ -61,7 +35,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px; /* spazio a sinistra e destra */
+    padding: 10px 10px; /* spazio a sinistra e destra */
     box-shadow: 0 2px 5px rgba(0,0,0,0.3);
     z-index: 1000;
 }
@@ -69,12 +43,12 @@ header {
 .navbar-links {
     display: flex;
     align-items: center;
-    padding-right: 500px; /* spazio dal bordo destro */
+    margin-left: auto; /* spinge tutti i link a destra */
+    gap: 5px;         /* distanza tra i link */
+    padding-right: 100px; /* spazio dal bordo destro */
 }
 
-.navbar-links a:last-child {
-    margin-right: 100px; /* spazio extra a destra */
-}
+
 .navbar-left {
     display: flex;
     align-items: center; /* allinea verticalmente logo e titolo */
@@ -82,6 +56,7 @@ header {
 
 .navbar-left .logo {
     height: 50px; /* altezza logo */
+    width: 80px;
     margin-right: 10px; /* spazio tra logo e titolo */
 }
 
@@ -91,13 +66,14 @@ header {
     font-weight: bold;
 }
 
+
 .navbar-links a, .dropbtn {
     color: #fff;
     text-decoration: none;
     font-size: 1.3em;
-    margin-left: 30px; /* distanza tra i link */
+    margin-left: 70px; /* distanza tra i link */
     font-weight: 600;
-    padding: 6px 10px;
+    padding: 6px 0px;
     border-radius: 4px;
     background: none;
     border: none;
@@ -106,8 +82,7 @@ header {
 
 
 .navbar-links a:hover, .dropbtn:hover {
-    background-color: #fd0d59;
-    color: #fff;
+  color: rgb(38, 204, 255);
 }
 
 /* Dropdown */
@@ -115,25 +90,31 @@ header {
     position: relative;
 }
 
+/* Menu a tendina */
 .dropdown-content {
     display: none;
     position: absolute;
     background-color: #183a60;
-    min-width: 160px;
-    right: 0; /* mantiene il dropdown allineato al pulsante menu */
+    min-width: 150px;        /* larghezza minima */
     border-radius: 4px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.3);
     z-index: 1001;
+    left: 0;                 /* allinea il menu al bordo sinistro del bottone */
+    padding: 0;              /* rimuove padding extra */
 }
 
 .dropdown-content a {
     display: block;
-    padding: 10px;
+    padding: 8px 12px;       /* solo padding interno per click-friendly */
+    margin: 0;                /* rimuove qualsiasi margin */
     color: #fff;
+    font-size: 0.9em;
+    text-align: left;         /* testo allineato a sinistra */
 }
 
 .dropdown-content a:hover {
-    background-color: #fd0d59;
+    color: rgb(38, 204, 255);
+    background-color: rgba(255, 255, 255, 0.1); /* optional hover */
 }
 
 /* Mostra dropdown */
@@ -288,4 +269,12 @@ footer {
 
 footer p {
     margin: 5px 0;
+}
+
+#storia,
+#sessioni,
+#chisiamo,
+#feedback,
+#contatti {
+    scroll-margin-top: 80px; /* se la navbar è alta 60px, metti 70 per margine extra */
 }
