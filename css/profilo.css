@@ -38,16 +38,6 @@ body {
     font-size: 2em;
 }
 
-.container-profilo h1::before {
-    content: "";
-    display: inline-block;
-    width: 25px;
-    height: 4px;
-    background-color: #159649;
-    margin-right: 8px;
-    vertical-align: middle;
-    border-radius: 2px;
-}
 
 /* INFO PERSONALI  */
 .info-personali {
@@ -71,6 +61,18 @@ body {
     color: #000;
     font-weight: normal;
 }
+
+.note-personali label::before {
+    content: "";
+    display: inline-block;
+    width: 7px;       
+    height: 3px;
+    background-color: #000;
+    margin-right: 6px;
+    vertical-align: middle;
+    border-radius: 2px;
+}
+
 
 /*  AZIONI  */
 .azioni {

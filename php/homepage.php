@@ -26,7 +26,7 @@ if ($result !== false) {
     <meta name="author" content="gruppoMMIT26"/>
     <meta name="description" content="Homepage"/>
     <title>Portale Tecnologie Web</title>
-    <link rel="stylesheet" href="../css/homepagecss?v=6.css" type="text/css">
+    <link rel="stylesheet" href="../css/homepagecss?v=9.css" type="text/css">
     <link rel="icon" href="../immagini/iconarazzo.ico" type="image/X.icon" />
 
 </head>
@@ -35,6 +35,9 @@ if ($result !== false) {
 <div id="inizio"></div>
 
 <header>
+    <span class="status-dot"></span> <span class="status-dot"></span> <span class="status-dot"></span> 
+</header>
+
 <nav class="navbar">
     <div class="navbar-left">
         <img src="../immagini/logo111.png" alt="Logo Portale" class="logo">
@@ -66,7 +69,7 @@ if ($result !== false) {
     </div>
 </div>
 </nav>
-</header>
+
 
 <div class="intro">
     <?php if($utente_loggato): ?>
