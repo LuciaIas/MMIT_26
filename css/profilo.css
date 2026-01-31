@@ -1,4 +1,3 @@
-
 * {
     box-sizing: border-box;
     margin: 0;
@@ -15,7 +14,7 @@ body {
     padding: 50px 20px;
 }
 
-/* CONTENITORE */
+/* CONTENITORE PRINCIPALE */
 #profilo-container {
     max-width: 800px;
     margin: 0 auto;
@@ -60,63 +59,6 @@ body {
     font-weight: normal;
 }
 
-.note-personali label::before {
-    content: "";
-    display: inline-block;
-    width: 7px;       
-    height: 3px;
-    background-color: #000;
-    margin-right: 6px;
-    vertical-align: middle;
-    border-radius: 2px;
-}
-
-/*  AZIONI  */
-.azioni {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    flex-wrap: wrap;
-}
-
-/* PULSANTI*/
-.btn {
-    text-decoration: none;
-    padding: 12px 22px;
-    background: #159649;
-    color: white;
-    border-radius: 10px;
-    font-weight: bold;
-    border: none;
-    cursor: pointer;
-}
-
-.btn:hover {
-    background: #13a34a;
-}
-
-.btn-logout {
-    text-decoration: none;
-    padding: 12px 22px;
-    background: #ef4444;
-    color: white;
-    border-radius: 10px;
-    font-weight: bold;
-    border: none;
-    cursor: pointer;
-    font-size: 1rem; 
-    line-height: 1.2; 
-}
-
-.btn, .btn-logout {
-    font-family: Verdana, Geneva, sans-serif;
-    font-weight: 600;
-}
-
-.btn-logout:hover {
-    background: #b91c1c;
-}
-
 /* NOTE PERSONALI */
 .note-personali {
     display: flex;
@@ -147,5 +89,57 @@ body {
 .note-personali button:hover {
     background: #12733d;
 }
+
+.note-personali label::before {
+    content: "";
+    display: inline-block;
+    width: 7px;       
+    height: 3px;
+    background-color: #000;
+    margin-right: 6px;
+    vertical-align: middle;
+    border-radius: 2px;
+}
+
+/*  AZIONI E PULSANTI  */
+.azioni {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+/* PULSANTI*/
+.btn, .btn-logout {
+    text-decoration: none;
+    padding: 12px 22px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    font-family: Verdana, Geneva, sans-serif;
+    font-weight: 600;
+}
+
+.btn {
+    background: #159649;
+    color: white;
+}
+
+.btn:hover {
+    background: #13a34a;
+}
+
+.btn-logout {
+    background: #ef4444;
+    color: white;
+    font-size: 1rem; 
+    line-height: 1.2;
+}
+
+.btn-logout:hover {
+    background: #b91c1c;
+}
+
+
 
 
