@@ -27,7 +27,7 @@ if ($result !== false) {
     <meta name="description" content="Homepage"/>
     <title>Portale Tecnologie Web</title>
     <link rel="stylesheet" href="../css/homepagecss?v=7.css" type="text/css">
-    <link rel="icon" href="../immagini/logotagliato.png" type="image/X.icon" />
+    <link rel="icon" href="../immagini/logoMMIThd.png" type="image/X.icon" />
 
 </head>
 
