@@ -27,7 +27,7 @@ if ($result !== false) {
     <meta name="description" content="Homepage"/>
     <title>Portale Tecnologie Web</title>
     <link rel="stylesheet" href="../css/homepagecss?v=7.css" type="text/css">
-    <link rel="icon" href="../immagini/mmit.png" type="image/X.icon" />
+    <link rel="icon" href="../immagini/iconalogo.png" type="image/X.icon" />
 
 </head>
 
@@ -35,7 +35,7 @@ if ($result !== false) {
 <div id="inizio"></div>
 
 <header>
-    <i> <img src="../immagini/iconacasettabianca.png" style="width:16px; height:16px; vertical-align:middle;"></i>
+    <i> Da studenti, per studenti.</i>
 </header>
 
 <nav class="navbar">
@@ -82,8 +82,8 @@ if ($result !== false) {
         Sei uno studente di Tecnologie Web? <br>Sei nel posto giusto!
         </h1>
 
-        <p>La homepage offre una panoramica generale dei servizi del portale, mentre, 
-            le nostre funzionalità esclusive (sessioni di studio, quiz settimanali e glossario) sono accessibili solo dopo la registrazione...<br>non perdere tempo:
+        <p>La Homepage offre una panoramica dei servizi del portale.<br> 
+            Le funzionalità esclusive: sessioni di studio, quiz settimanali e glossario, sono accessibili solo dopo la registrazione...<br>non perdere tempo:
             <a href="accesso.php?form=register" style="color: #fd0d59; font-weight: bold; text-decoration: underline;">Registrati ora!</a>
     </p>
 
@@ -91,7 +91,7 @@ if ($result !== false) {
 </div>
 
 <div class="contenuto-video">
-    <video controls autoplay muted loop width="68%" >
+       <video class="responsive-video" controls autoplay muted loop>
         <source src="../video/pc.mp4" type="video/mp4">
         Il tuo browser non supporta il video.
     </video>
@@ -99,35 +99,32 @@ if ($result !== false) {
 
 <div id="storia" class="contenuto">
     <h2>La storia del World Wide Web</h2>
+
     <p>
        Il <span class="highlight">World Wide Web (WWW)</span> è una rete globale di documenti e risorse multimediali 
-       interconnesse, accessibili tramite Internet e attraverso l’uso di un browser.
+       accessibili tramite Internet grazie all’uso di un browser.
     </p>
+
     <p>
-       Nasce come evoluzione delle prime reti di computer sviluppate per favorire la condivisione delle informazioni 
-       tra più nodi. La prima rete significativa fu <span class="highlight">ARPANET</span>, creata alla fine degli 
-       anni ’60 negli Stati Uniti dalla <span class="highlight" title="Defense Advanced Research Projects Agency">
-       DARPA</span> per scopi militari.
+       Nasce dall’evoluzione delle prime reti di computer create per condividere informazioni. La più importante fu 
+       <span class="highlight">ARPANET</span>, sviluppata alla fine degli anni ’60 negli Stati Uniti dalla 
+       <span class="highlight" title="Defense Advanced Research Projects Agency">DARPA</span> per scopi militari.
+    </p>
+
+    <p>
+       Con l’introduzione del protocollo <span class="highlight">TCP/IP</span> nel 1982, ARPANET si trasformò progressivamente 
+       in <span class="highlight">Internet</span>, un’infrastruttura che collega computer e dispositivi in tutto il mondo.
+       <img src="../immagini/website.png" style="width:16px; height:16px; vertical-align:middle;">
     </p>
 
     <p class="paragrafo-speciale">
-        <strong>Curiosità:</strong> Nel 1989 il fisico <span class="highlight">Tim Berners-Lee</span> propose un sistema 
-        per la condivisione di documenti ipertestuali al CERN. Questo fu l’inizio ufficiale del World Wide Web, reso 
-        pubblico nel 1993!
+        <strong>Curiosità:</strong> Nel 1989 il fisico <span class="highlight">Tim Berners-Lee</span>, al 
+        <span class="highlight">CERN</span> di Ginevra, propose un sistema di documenti ipertestuali collegati tra loro. 
+        Nel 1991 nacquero il linguaggio <span class="highlight">HTML</span> e il protocollo <span class="highlight">HTTP</span>, 
+        rendendo possibile la creazione e la navigazione delle pagine web. Il World Wide Web fu reso pubblico nel 1993!
     </p>
 
-    <p>
-       Con l’introduzione del protocollo <span class="highlight">TCP/IP</span> nel 1982, ARPANET si trasforma progressivamente 
-       in <span class="highlight">Internet</span>, un’infrastruttura che consente la comunicazione tra computer e dispositivi 
-       distribuiti in tutto il mondo. <img src="../immagini/website.png" style="width:16px; height:16px; vertical-align:middle;">
-    </p>
     <p><i>Internet esiste e funziona anche senza il Web, ma è proprio il Web che ne ha favorito la diffusione di massa tra gli utenti.</i></p>
-    <p>
-       Nel 1989 il fisico <span class="highlight">Tim Berners-Lee</span>, lavorando al CERN di Ginevra, propose un sistema 
-       per la condivisione di documenti ipertestuali tra ricercatori. Nel 1991 vennero definiti il linguaggio HTML e il protocollo HTTP, 
-       che permisero la creazione e il trasferimento di documenti collegati tramite link.<br> Nasce così ufficialmente il World Wide Web, 
-       reso pubblico nel 1993 e destinato a una crescita esponenziale negli anni successivi.
-    </p>
 </div>
 
 <?php if($utente_loggato): ?>

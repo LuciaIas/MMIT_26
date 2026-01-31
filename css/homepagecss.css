@@ -252,6 +252,13 @@ header p {
     box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* ombra elegante */
 }
 
+.responsive-video {
+    width: 100%;      /* si adatta al contenitore */
+    height: auto;     /* mantiene proporzioni */
+    max-width: 1000px; /* opzionale: per non farlo diventare gigante su schermi enormi */
+    border-radius: 10px; /* mantiene i bordi arrotondati */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* ombra elegante */
+}
 /* TABELLA ORARI */
 .tabella-orari {
     width: 100%;
