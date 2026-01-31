@@ -61,7 +61,7 @@ CREATE TABLE risultati_quiz (
     id SERIAL PRIMARY KEY,
     username VARCHAR(50) REFERENCES utenti(username) ON DELETE CASCADE,
     id_quiz INT REFERENCES quiz(id) ON DELETE CASCADE,
-    punteggio INT,
+    punteggio INT
 );
 
 
@@ -115,17 +115,17 @@ INSERT INTO domande_vero_falso (id_quiz, testo, risposta_corretta) VALUES
 (1, 'Il tag <div> serve a creare divisioni logiche di contenuto senza influenzare lo stile.', true),
 (1, 'Il tag <span> è utilizzato principalmente per applicare stili inline su una parte di testo.', true),
 (1, 'I commenti in HTML si scrivono così: <!-- commento -->.', true),
-(1, 'In CSS, la proprietà color cambia il colore dello sfondo.', false),
+(1, 'In CSS, la proprietà "color: " cambia il colore dello sfondo.', false),
 (1, 'In JavaScript, document.getElementById(''id'') restituisce un array di elementi con quell''ID.', false),
 (1, 'Il tag <a> serve a creare link ipertestuali tra pagine web.', true),
-(1, 'Le proprietà CSS margin e padding hanno lo stesso effetto sul layout.', false),
+(1, 'Le proprietà CSS "margin: " e "padding: " hanno lo stesso effetto sul layout.', false),
 (1, 'JavaScript può modificare dinamicamente il contenuto di una pagina web.', true),
 (1, 'L''attributo target="_self" apre il link nella stessa scheda, mentre target="_blank" apre il link in una nuova scheda.', true),
 (1, 'È obbligatorio rispettare la gerarchia dei titoli (h1, h2, h3, ...).', false),
 (1, 'CSS supporta unità di misura assolute e relative.', true),
 (1, 'Il margin è lo spazio tra il bordo dell''elemento e tutto ciò che lo circonda nella pagina.', true),
-(1, 'La pseudoclasse :hover si applica quando un elemento è stato attivato dall''utente.', false),
-(1, 'PHP è un linguaggio non tipato.', true),
+(1, 'La pseudoclasse  " :hover " si applica quando il mouse passa sopra un elemento', true),
+(1, 'PHP è un linguaggio debolmente tipato.', true),
 (1, 'Un parametro con valore di default può venire prima dei parametri obbligatori.', false),
 (1, 'HTTP è un protocollo stateful.', false),
 (1, 'Nella funzione setcookie(nome, valore, expire, path, domain, secure) solo il nome è obbligatorio.', true),
@@ -172,16 +172,19 @@ INSERT INTO glossario (termine, definizione, categoria) VALUES
 ('URI', 'Identificatore generico che identifica una risorsa su Internet.', 'Concetto'),
 ('URL', 'Tipo di URI che specifica la posizione di una risorsa e come accedervi.', 'Concetto'),
 ('IRI', 'Estensione di URI che permette l''uso di caratteri internazionali non ASCII.', 'Concetto'),
-('Browser', 'Programma che consente di navigare il Web e visualizzare pagine web.', 'Strumento/Software'),
+('Browser', 'Programma che consente di navigare il Web e visualizzare pagine web.', 'Software'),
 ('Loopback', 'Meccanismo di rete che permette a un dispositivo di comunicare con sé stesso.', 'Concetto'),
 ('Indirizzo IP', 'Numero univoco che identifica un dispositivo all’interno di una rete.', 'Concetto'),
 ('DNS', 'Sistema che traduce i nomi di dominio in indirizzi IP.', 'Protocollo'),
 ('GET', 'Metodo HTTP utilizzato per richiedere dati a un server.', 'Protocollo'),
 ('POST', 'Metodo HTTP utilizzato per inviare dati a un server.', 'Protocollo'),
-('Wireframe', 'Rappresentazione schematica e semplificata della struttura di una pagina web o applicazione.', 'Strumento/Software'),
-('Mockup', 'Rappresentazione grafica dettagliata di un''interfaccia, mostrando l''aspetto finale.', 'Strumento/Software'),
+('Wireframe', 'Rappresentazione schematica e semplificata della struttura di una pagina web o applicazione.', 'Strumento'),
+('Mockup', 'Rappresentazione grafica dettagliata di un''interfaccia, mostrando l''aspetto finale.', 'Strumento'),
 ('HTML5', 'Versione più recente del linguaggio HTML che introduce nuovi elementi semantici, multimediali e API.', 'Linguaggio'),
 ('DOM', 'Rappresentazione ad albero della struttura di una pagina web, accessibile tramite JavaScript.', 'Linguaggio');
 
+GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO www;
+ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT ALL ON TABLES TO www;
 
-GRANT ALL PRIVILEGES ON DATABASE gruppo26 TO www;
+GRANT ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public TO www;
+ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT ALL ON SEQUENCES TO www;
