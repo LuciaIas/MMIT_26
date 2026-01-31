@@ -2,7 +2,6 @@
 session_start();
 include __DIR__ . '/db.php';
 
-//Scelta del form da aprire (default login)
 $apriRegistrazione = false;
 
 if (isset($_GET['form']) && $_GET['form'] === 'register') {
@@ -11,17 +10,15 @@ if (isset($_GET['form']) && $_GET['form'] === 'register') {
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['register'])) {
-        $apriRegistrazione = true;  // Mantieni registrazione aperta se ci sono errori
+        $apriRegistrazione = true; 
     } elseif (isset($_POST['login'])) {
-        $apriRegistrazione = false; // Mantieni login aperto se ci sono errori
+        $apriRegistrazione = false; 
     }
 }
 
-//Variabili per msg di errore/successo
 $messaggio = "";
 $tipo_messaggio = "";
 
-//Variabili sticky
 $email_sticky = htmlspecialchars($_POST['email_reg'] ?? '');
 $username_sticky = htmlspecialchars($_POST['username_reg'] ?? '');
 $sesso_sticky = $_POST['sesso'] ?? '';
@@ -158,8 +155,8 @@ window.apriRegistrazione = <?php echo $apriRegistrazione ? 'true' : 'false'; ?>;
 <?php endif; ?>
 
 <div class="form-switch">
-    <button type="button" data-form="login" class="active">Login</button>
-    <button type="button" data-form="register">Registrazione</button>
+    <button data-form="login" class="active">Login</button>
+    <button data-form="register">Registrazione</button>
 </div>
 <br>
 

@@ -1,14 +1,8 @@
 <?php
 session_start();
+include __DIR__ . '/db.php';
+
 $utente_loggato = isset($_SESSION['username']);
-
-//CONNESSIONE DB
-$conn_str = "host=localhost port=5432 dbname=gruppo26 user=www password=www";
-$dbconn = pg_connect($conn_str);
-
-if (!$dbconn) {
-    die("Errore di connessione al database.");
-}
 
 $search_value = "";
 $query_sql = "SELECT * FROM glossario";
@@ -21,8 +15,8 @@ if (isset($_GET['q']) && trim($_GET['q']) !== "") {
 $query_sql .= " ORDER BY termine ASC";
 
 $result = $search_value
-    ? pg_query_params($dbconn, $query_sql, ['%' . $search_value . '%'])
-    : pg_query($dbconn, $query_sql);
+    ? pg_query_params($conn, $query_sql, ['%' . $search_value . '%'])
+    : pg_query($conn, $query_sql);
 ?>
 
 <!DOCTYPE html>

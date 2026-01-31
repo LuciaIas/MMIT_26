@@ -24,24 +24,20 @@ document.addEventListener('DOMContentLoaded', () => {
     e.preventDefault();
     zone.classList.remove('over');
 
-    // se il quiz è già inviato, non permettere modifiche
     if (zone.dataset.disabled === 'true') return;
 
     const id = e.dataTransfer.getData('text/plain');
     const draggedEl = document.getElementById(id);
     if (!draggedEl) return;
 
-    // se la drop-zone contiene già un termine, rimettilo tra i termini
     const existing = zone.querySelector('.drag-item');
     if (existing) {
         document.querySelector('.drag-items').appendChild(existing);
     }
 
-    // inserisci il nuovo termine
     zone.innerHTML = '';
     zone.appendChild(draggedEl);
 
-    // aggiorna input hidden
     const hiddenInput = zone.nextElementSibling;
     if (hiddenInput && hiddenInput.tagName === 'INPUT') {
         hiddenInput.value = draggedEl.textContent.trim();
@@ -62,7 +58,6 @@ dragContainer.addEventListener('drop', e => {
 
     dragContainer.appendChild(draggedEl);
 
-    // svuota l’input hidden della zona da cui proviene
     document.querySelectorAll('.drop-zone').forEach(zone => {
         const hidden = zone.nextElementSibling;
         if (hidden && hidden.value.trim() === draggedEl.textContent.trim()) {

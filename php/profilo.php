@@ -1,5 +1,6 @@
 <?php
 session_start();
+include __DIR__ . '/db.php';
 
 if (isset($_POST['logout'])) {
     session_unset();
@@ -13,7 +14,6 @@ if (!isset($_SESSION['username'])) {
     exit;
 }
 
-include __DIR__ . '/db.php';
 $username = $_SESSION['username'];
 
 $query = "SELECT username, email, tipo_utente, sesso, universita
