@@ -34,14 +34,15 @@ if ($result !== false) {
 <body>
 <div id="inizio"></div>
 
+<header>
+    <i> <img src="../immagini/iconacasettabianca.png" style="width:16px; height:16px; vertical-align:middle;"></i>
+</header>
+
 <nav class="navbar">
     <div class="navbar-left">
         <img src="../immagini/logo111.png" alt="Logo Portale" class="logo">
         <span class="title">Portale di Tecnologie Web</span>
     </div>
-<header>
-    <i> <img src="../immagini/home.png" style="width:16px; height:16px; vertical-align:middle;"></i>
-</header>
 
 <div class="navbar-links">
 <?php if (!$utente_loggato): ?> 

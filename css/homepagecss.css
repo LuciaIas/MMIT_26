@@ -1,4 +1,8 @@
 
+* {
+    box-sizing: border-box;
+}
+
 html,body {
     font-family:Verdana, Geneva, Tahoma, sans-serif;
     line-height: 1.6;
@@ -12,7 +16,7 @@ html,body {
 }
 
 body {
-    padding-top: 95px; /* altezza navbar */
+    padding-top: 0; /* la navbar si attacca al top */
 }
 
 h1, h2, h3 {
@@ -28,11 +32,11 @@ p {
 }
 
 header {
-    position: fixed;
+    position: relative; /* o static */
     top: 0;
     left: 0;
     width: 100%;
-    height: 20px;
+    height: 40px;
     background-color: #183a60;
     color: #fff;
     display: flex;
@@ -40,8 +44,8 @@ header {
     justify-content: center;
     font-size: 0.9em;
     font-weight: 500;
-    z-index: 1001;
     border-bottom: 1px solid rgba(255,255,255,0.2);
+    z-index: 1000;
 }
 
 header p {
@@ -60,8 +64,8 @@ header p {
 /* NAV BAR */
 /* Navbar fissa in alto */
 .navbar {
-    position: fixed;
-    top: 15px; /* altezza della top-header */
+    position: sticky; /* o fixed se vuoi assoluto */
+    top: 0; /* attaccata in alto */
     left: 0;
     width: 100%;
     background-color: #183a60;
@@ -70,7 +74,7 @@ header p {
     align-items: center;
     padding: 10px 10px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-    z-index: 1000;
+    z-index: 1001; /* sopra tutti gli altri contenuti */
 }
 
 .navbar-links {
