@@ -26,7 +26,7 @@ $result = $search_value
 <meta name="author" content="gruppoMMIT26"/>
 <meta name="description" content="Pagina glossario"/>
 <title>Glossario - Tecnologie Web</title>
-<link rel="stylesheet" href="../css/glossario.css">
+<link rel="stylesheet" href="../css/glossario?v=9.css">
 <link rel="icon" href="../immagini/zoom.ico" type="image/X.icon" />
 </head>
 
