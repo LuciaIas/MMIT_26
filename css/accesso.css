@@ -85,11 +85,9 @@ input, select, textarea {
 
 /* MOSTRA PASSWORD */
 .show-pass {
-    display: inline-flex;         
-    align-items: center;          
+    display: inline-flex;               
     gap: 4px;                     
     font-size:0.85rem;
-    color:#333;
     margin-bottom:6px;
 }
 

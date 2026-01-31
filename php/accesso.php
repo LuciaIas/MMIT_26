@@ -18,14 +18,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 $messaggio = "";
 $tipo_messaggio = "";
-
 $email_sticky = htmlspecialchars($_POST['email_reg'] ?? '');
 $username_sticky = htmlspecialchars($_POST['username_reg'] ?? '');
 $sesso_sticky = $_POST['sesso'] ?? '';
 $universita_sticky = $_POST['universita'] ?? '';
 $username_login_sticky = htmlspecialchars($_POST['username'] ?? '');
 
-//LOGIN
 if (isset($_POST['login'])) {
     $username = trim($_POST['username']);
     $password = trim($_POST['password']);
@@ -54,7 +52,6 @@ if (isset($_POST['login'])) {
     }
 }
 
-//REGISTRAZIONE
 if (isset($_POST['register'])) {
     $errore = false;
     $sesso = $_POST['sesso'] ?? '';
@@ -80,7 +77,6 @@ if (isset($_POST['register'])) {
         $messaggio = "Le password non coincidono.";
         $errore = true;
     }
-
     if (!$errore) {
         $check = pg_query_params(
     $conn,
@@ -90,7 +86,6 @@ if (isset($_POST['register'])) {
 
 if (pg_num_rows($check) > 0) {
     $row = pg_fetch_assoc($check);
-
     if ($row['username'] === $username && $row['email'] === $email) {
         $messaggio = "Nome utente ed email sono già registrati.";
     } elseif ($row['username'] === $username) {
@@ -98,7 +93,6 @@ if (pg_num_rows($check) > 0) {
     } else {
         $messaggio = "Email già registrata.";
     }
-
     $tipo_messaggio = "error";
     $errore = true;
 } else {
@@ -109,7 +103,6 @@ if (pg_num_rows($check) > 0) {
                  VALUES ($1,$2,$3,'studente',$4,$5)",
                 [$username, $email, $hash, $sesso, $universita]
             );
-
             if ($insert) {
                 $_SESSION['username'] = $username;
                 header("Location: profilo.php");
@@ -160,7 +153,6 @@ window.apriRegistrazione = <?php echo $apriRegistrazione ? 'true' : 'false'; ?>;
 </div>
 <br>
 
-<!-- FORM LOGIN -->
 <form id="loginForm" method="post" class="form-active">
   <input type="text" name="username" placeholder="Nome utente"
        value="<?= $username_login_sticky ?>" required autofocus>
@@ -172,7 +164,6 @@ window.apriRegistrazione = <?php echo $apriRegistrazione ? 'true' : 'false'; ?>;
     <button type="button" class="btn-back" onclick="window.location.href='homepage.php'">Indietro</button>
 </form>
 
-<!-- FORM REGISTRAZIONE -->
 <form id="registerForm" method="post" novalidate>
     <div class="radio-group">
         <span class="radio-label">Sesso:</span>
@@ -219,7 +210,7 @@ window.apriRegistrazione = <?php echo $apriRegistrazione ? 'true' : 'false'; ?>;
         }
         ?>
     </select>
-
+    
     <button name="register" id="registerBtn" disabled>Registrati</button>
     <button type="button" class="btn-back" onclick="window.location.href='homepage.php'">Indietro</button>
 </form>
@@ -232,5 +223,8 @@ window.apriRegistrazione = <?php echo $apriRegistrazione ? 'true' : 'false'; ?>;
 </div>
 
 <script src="../js/accesso.js" type="text/javascript" ></script>
+<?php
+pg_close($conn);
+?>
 </body>
 </html>
