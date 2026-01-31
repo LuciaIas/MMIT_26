@@ -5,7 +5,7 @@
 }
 
 body { 
-    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     background: linear-gradient(180deg, #fff3cd, #07ff72);
     min-height: 100vh;
     display: flex;
@@ -34,6 +34,7 @@ header {
 header h1 {
     font-size: 2.4em;
     margin: 0; 
+    padding-bottom: 20px;
 }
 
 header p {
@@ -52,7 +53,7 @@ header p {
     display: flex;
     justify-content: center; 
     align-items: center;
-    padding: 10px 10px;
+    padding: 10px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.3);
     z-index: 1001;
 }
@@ -61,8 +62,6 @@ header p {
     display: flex;
     align-items: center;
     gap: 20px; 
-    padding: 0; 
-    margin: 0;  
 }
 
 .navbar-links a {
@@ -129,10 +128,6 @@ button:hover {
     justify-content: center;
 }
 
-.terms-grid > .term-card { 
-    flex: 0 0 auto; 
-}
-
 /* CARD DEI TERMINI */
 .term-card {
     width: 290px;
@@ -141,56 +136,40 @@ button:hover {
     box-shadow: 0 10px 25px rgba(0,0,0,.18);
     overflow: hidden;
     position: relative;
+    cursor: pointer;
 }
 
-/* CARD DEI TERMINI */
-.term-card:hover {
-    background-color: rgb(233, 233, 233);
-}
-
-
+/* HEADER TERMINI */
 .term-card header {
-    display: flex;
-    justify-content: center;  
-    flex-direction:row;
-    height: auto;
-    align-items: center;      
-    padding: 16px;
-    background-color: rgba(193, 247, 223, 0.995);
-}
-
-.term-card h3 {
-    color: #02452c;
-    font-weight: 800;
-    text-align: center;
-}
-
-
-/*  CARD  */
-.card-content {
-    padding: 18px;
-    line-height: 1.5em;
+    height: 70px;
 }
 
 .card-header {
     display: flex;
     align-items: center;
     justify-content: space-between; 
-    gap: 12px;
-    padding: 16px;
+    padding: 16px; /* puoi aggiustare se vuoi più/meno spazio */
+    gap: 10px; /* sostituisce il gap di .card-top */
     background-color: rgba(193, 247, 223, 0.995);
+}
+
+/* CARD-TOP */
+.card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 8px 12px;
 }
 
 /* TITOLO */
 .term-title {
     margin: 0;
-    color: #02452c;
     font-weight: 800;
-    font-size: 1.1em;
-    max-width: 70%;  
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    color: #02452c;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    flex-shrink: 1; 
 }
 
 /* CATEGORIA */
@@ -206,7 +185,22 @@ button:hover {
     box-shadow: 0 2px 6px rgba(0,0,0,0.15);
 }
 
-/* PULSANTI  */
+/* CONTENUTO CARD*/
+.card-content {
+    padding: 18px;
+    line-height: 1.5em;
+}
+
+/* HOVER */
+.term-card:hover {
+    background-color: rgb(233, 233, 233);
+}
+
+.term-card:hover h3, .term-card:hover .categoria {
+    color: #03c793;
+}
+
+/* PULSANTE TORNA SU */
 #tornaSu {
     display: block;
     width: fit-content;
@@ -224,7 +218,8 @@ button:hover {
     background-color: #0056b3;
 }
 
-#btn {
+/* PULSANTI */
+.btn {
     display: inline-block;   
     margin: 0 10px;         
     padding: 12px 25px;
@@ -239,27 +234,9 @@ button:hover {
     width: fit-content;
 }
 
-#btn:hover {
+.btn:hover {
     background-color: #0056b3;
     box-shadow: 0 6px 8px rgba(0,0,0,0.15);
-}
-
-.card-header{
-      border-bottom: 2px solid #0a6b4c; 
-}
-
-.card-header h3 {   
-    text-transform: uppercase;
-    color: #0a6b4c; 
-    padding-bottom: 4px;
-}
-
-.card-header h3, .categoria {  
-    letter-spacing: 1px; 
-}
-
-.card-header:hover h3, .card-header:hover .categoria {
-    color: #03c793;
 }
 
 /* FOOTER */
@@ -274,3 +251,4 @@ button:hover {
 .main-footer p {
     margin: 5px 0;
 }
+

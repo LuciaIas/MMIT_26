@@ -116,8 +116,8 @@ if ($result !== false) {
        <img src="../immagini/website.png" class="immagini">
     </p>
 
-    <p class="paragrafo-speciale">
-        <strong>Curiosità:</strong> Nel 1989 il fisico <span class="highlight">Tim Berners-Lee</span>, al 
+    <p>
+        <span class="highlight">Curiosità:</span> Nel 1989 il fisico <span class="highlight">Tim Berners-Lee</span>, al 
         <span class="highlight">CERN</span> di Ginevra, propose un sistema di documenti ipertestuali collegati tra loro. 
         Nel 1991 nacquero il linguaggio <span class="highlight">HTML</span> e il protocollo <span class="highlight">HTTP</span>, 
         rendendo possibile la creazione e la navigazione delle pagine web. Il World Wide Web fu reso pubblico nel 1993!
@@ -215,7 +215,7 @@ if ($result !== false) {
 </div>
 
 
-<div id="box-finali" class="box-container">
+<div class="box-container">
 <div id="contatti" class="box">
     <h2>Contatti utili</h2>
       <p>

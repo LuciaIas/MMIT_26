@@ -15,7 +15,7 @@ html,body {
 }
 
 body {
-    padding-top: 110px; /* 40 header + ~70 navbar */
+    padding-top: 110px; 
 }
 
 h1, h2, h3 {
@@ -52,12 +52,10 @@ header p {
 }
 
 
-
 /* NAV BAR */
-/* Navbar fissa in alto */
 .navbar {
     position: fixed;
-    top: 40px;              /* ESATTAMENTE l’altezza dell’header */
+    top: 40px;              
     left: 0;
     width: 100%;
     background-color: #183a60;
@@ -65,27 +63,26 @@ header p {
     justify-content: space-between;
     align-items: center;
     padding: 10px 10px;
-    z-index: 1001;
-    box-shadow: none;       /* niente repaint */
+    z-index: 1001;     
 }
 
 .navbar-links {
     display: flex;
     align-items: center;
-    margin-left: auto; /* spinge tutti i link a destra */
-    gap: 5px;         /* distanza tra i link */
-    padding-right: 100px; /* spazio dal bordo destro */
+    margin-left: auto; 
+    gap: 5px;         
+    padding-right: 100px; 
 }
 
 .navbar-left {
     display: flex;
-    align-items: center; /* allinea verticalmente logo e titolo */
+    align-items: center; 
 }
 
 .navbar-left .logo {
-    height: 50px; /* altezza logo */
+    height: 50px; 
     width: 80px;
-    margin-right: 10px; /* spazio tra logo e titolo */
+    margin-right: 10px; 
 }
 
 .navbar-left .title {
@@ -98,7 +95,7 @@ header p {
     color: #fff;
     text-decoration: none;
     font-size: 1.3em;
-    margin-left: 70px; /* distanza tra i link */
+    margin-left: 70px; 
     font-weight: 600;
     padding: 6px 0px;
     border-radius: 4px;
@@ -111,12 +108,12 @@ header p {
   color: rgb(38, 204, 255);
 }
 
-/* Dropdown */
+/* DROPDOWN */
 .dropdown-menu {
     position: relative;
 }
 
-/* Menu a tendina */
+/* MENU A TENDINA */
 .dropdown-content {
     display: none;
     position: absolute;
@@ -147,7 +144,11 @@ header p {
     display: block;
 }
 
-/* SEZIONI INTRO  */
+#storia, #sessioni, #chisiamo, #feedback, #contatti {
+    scroll-margin-top: 80px;
+}
+
+/* SEZIONE INTRO  */
  .intro {
     background-color: #fff;
     padding: 20px;
@@ -225,7 +226,11 @@ header p {
     border-radius: 3px;        
 }
 
-/* STILE SPECIALE */
+p > .highlight:first-child {
+    padding-left: 0;
+}
+
+/* STILE CITAZIONI */
 .citazione {
     background-color: #fff;
     padding: 25px;
@@ -257,11 +262,6 @@ header p {
     margin: 20px 0;
 }
 
-.contenuto-video video {
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2); 
-}
-
 .responsive-video {
     width: 100%;    
     height: auto;    
@@ -269,6 +269,7 @@ header p {
     border-radius: 10px; 
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
+
 /* TABELLA ORARI */
 .tabella-orari {
     width: 100%;
@@ -300,7 +301,6 @@ header p {
 /* PULSANTE TORNA SU */
 #tornaSu {
     display: inline-block;
-    margin: 30px auto;
     padding: 12px 25px;
     background-color: #183a60;
     color: #fff;
@@ -320,28 +320,7 @@ header p {
     box-shadow: 0 6px 8px rgba(0,0,0,0.15);
 }
 
-/* FOOTER */
-footer {
-    background-color: #343a40;
-    color: #fff;
-    text-align: center;
-    padding: 20px;
-    margin-top: 30px;
-    font-size: 0.9em;
-}
-
-footer p {
-    margin: 5px 0;
-}
-
-#storia,
-#sessioni,
-#chisiamo,
-#feedback,
-#contatti {
-    scroll-margin-top: 80px;
-}
-
+/* CONTATTI E FEEDBACK*/
 .box-container {
     display: flex;
     gap: 40px;
@@ -370,6 +349,21 @@ footer p {
     margin-bottom: 15px;
 }
 
+/* FOOTER */
+footer {
+    background-color: #343a40;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    margin-top: 30px;
+    font-size: 0.9em;
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+/* BACKGROUND DI FALLBACK */
 html, body {
     background-color: #183a60;
 }

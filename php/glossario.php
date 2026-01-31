@@ -33,7 +33,7 @@ $result = $search_value
 <body id="inizio">
     
 <header>
-     <h1>Glossario</h1><br>
+     <h1>Glossario</h1>
      <?php if ($utente_loggato): ?>
       <p>A tutti può capitare di dimenticare qualcosa!</p>
       <?php endif; ?>
@@ -54,8 +54,8 @@ $result = $search_value
         <h2>Accesso richiesto</h2>
         <br><p>Per consultare il glossario devi essere registrato ed effettuare l’accesso.</p><br>
         <p>
-            <a id="btn" href="accesso.php">Login</a> oppure
-            <a id="btn" href="accesso.php?form=register" >Registrati</a>
+            <a class="btn" href="accesso.php">Login</a> oppure
+            <a class="btn" href="accesso.php?form=register" >Registrati</a>
         </p>
     </section>
     
@@ -78,11 +78,12 @@ while ($row = pg_fetch_assoc($result)):
     $found = true;
 ?>
 <article class="term-card" data-term="<?= strtolower(htmlspecialchars($row['termine'])) ?>">
-     <header class="card-header"> 
+    <header class="card-header">
+        <div class="card-top">
         <h3 class="term-title"> <?= htmlspecialchars($row['termine']) ?> </h3> 
         <span class="categoria"> <?= htmlspecialchars($row['categoria']) ?> </span>
+        </div>
      </header>
-
         <div class="card-content">
             <p><?= htmlspecialchars($row['definizione']) ?></p>
         </div>
@@ -97,14 +98,19 @@ while ($row = pg_fetch_assoc($result)):
 
 <a id="tornaSu" href="#inizio">Torna su</a>
 
-
 </main>
 
 <footer class="main-footer">
-     <p> © Corso Tecnologie Web – A.A. 2025-2026 | Portale didattico per studenti di Ingegneria Informatica</p>
+    <p> © Corso Tecnologie Web – A.A. 2025-2026 | Portale didattico per studenti di Ingegneria Informatica</p>
     <p>Università degli Studi di Salerno - Via Giovanni Paolo II, 132 - 84084 Fisciano (SA)</p>
 </footer>
 <?php endif; ?>
+
 <script src="../js/glossario.js" type="text/javascript" ></script>
+
+<?php
+pg_close($conn);
+?>
+
 </body>
 </html>
