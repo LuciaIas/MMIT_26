@@ -192,6 +192,22 @@ header p {
     box-shadow: 0 6px 12px rgba(0,0,0,0.15);
 }
 
+#storia h2 {
+    position: relative;
+    padding-left: 14px;
+    color:#183a60;  
+}
+
+#storia h2::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background-color:#183a60;  
+    border-radius: 2px;
+}
+
 /* PAROLE EVIDENZIATE */
 .highlight {
     color: #183a60;            
@@ -283,22 +299,7 @@ header p {
     box-shadow: 0 6px 8px rgba(0,0,0,0.15);
 }
 
-#storia h2 {
-    position: relative;
-    padding-left: 14px;
-    color:#183a60;  
-}
 
-#storia h2::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    
-    width: 4px;
-    height: 100%;
-    background-color:#183a60;  
-    border-radius: 2px;
-}
 /* FOOTER */
 footer {
     background-color: #343a40;
@@ -319,4 +320,32 @@ footer p {
 #feedback,
 #contatti {
     scroll-margin-top: 80px; /* se la navbar è alta 60px, metti 70 per margine extra */
+}
+
+.box-container {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    align-items: stretch;
+    margin: 40px auto;
+    max-width: 1000px;
+}
+
+.box {
+    flex: 1; /* stessa larghezza */
+    padding: 30px 25px;
+    border-radius: 20px;
+    text-align: center;
+    background: transparent; /* ← trasparenza totale */
+    backdrop-filter: blur(6px); /* effetto vetro */
+    -webkit-backdrop-filter: blur(6px);
+
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+
+    min-height: 180px; /* rettangolare orizzontale */
+}
+
+.box h2 {
+    margin-bottom: 15px;
 }

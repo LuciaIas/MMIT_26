@@ -26,23 +26,22 @@ if ($result !== false) {
     <meta name="author" content="gruppoMMIT26"/>
     <meta name="description" content="Homepage"/>
     <title>Portale Tecnologie Web</title>
-    <link rel="stylesheet" href="../css/homepagecss?v=9.css" type="text/css">
-    <link rel="icon" href="../immagini/iconarazzo.ico" type="image/X.icon" />
+    <link rel="stylesheet" href="../css/homepagecss?v=7.css" type="text/css">
+    <link rel="icon" href="../immagini/mmit.png" type="image/X.icon" />
 
 </head>
 
 <body>
 <div id="inizio"></div>
 
-<header>
-    <span class="status-dot"></span> <span class="status-dot"></span> <span class="status-dot"></span> 
-</header>
-
 <nav class="navbar">
     <div class="navbar-left">
         <img src="../immagini/logo111.png" alt="Logo Portale" class="logo">
         <span class="title">Portale di Tecnologie Web</span>
     </div>
+<header>
+    <i> <img src="../immagini/home.png" style="width:16px; height:16px; vertical-align:middle;"></i>
+</header>
 
 <div class="navbar-links">
 <?php if (!$utente_loggato): ?> 
@@ -56,7 +55,7 @@ if ($result !== false) {
     <?php endif; ?>
 
     <div class="dropdown-menu">
-        <button class="dropbtn" onclick="toggleMenu()">Menu</button>
+        <button class="dropbtn" onclick="toggleMenu()">Menu ▾</button>
         <div id="dropdown-content" class="dropdown-content">
                 <?php if($utente_loggato): ?>
             <a href="#sessioni">Sessioni di Studio </a>
@@ -218,39 +217,30 @@ if ($result !== false) {
     </blockquote>
 </div>
 
-<div id="feedback" class="contenuto">
-    <h2>Feedback</h2>
-    <ul>
-        <li>Questo portale ha supportato centinaia di studenti nello studio di Tecnologie Web.</li>
-        <li>Le opinioni raccolte evidenziano l'efficacia del materiale interattivo come strumento di supporto alla preparazione dell'esame.</li>
-        <li>Ogni tua visita conta! Grazie a studenti come te, il nostro portale continua a crescere e migliorare ogni giorno.</li>
-        <li>Numero di visite totali al sito: <strong><?php echo number_format($visite); ?></strong></li>
-        <li>Unisciti alla nostra community e affronta gli esami con noi... cosa aspetti? <img src="../immagini/blink.png" alt="cuore" width="16" height="16" style="vertical-align:middle;">
-</li> </li>
-    </ul>
-</div>
 
-<div class="citazione">
-    <blockquote cite="https://netrise.it/aforismi-sul-mondo-digitale/">
-        "Internet è il più grande veicolo di autodivulgazione di tutti i tempi”.
-        <p style="text-align: right;">- Bill Gates</p>
-    </blockquote>
-</div>
 
-<div id="contatti" class="contenuto">
+<div id="box-finali" class="box-container">
+<div id="contatti" class="box">
     <h2>Contatti utili</h2>
-    <strong>Gruppo MMIT </strong><img src="../immagini/letter.png" style="width:16px; height:16px; vertical-align:middle;">
-    <p>
-        Email: <a href="mailto:l.iasevoli1@studenti.unisa.it">l.iasevoli1@studenti.unisa.it</a><br>
-        Email: <a href="mailto:l.monetta8@studenti.unisa.it">l.monetta8@studenti.unisa.it</a><br>
-        Email: <a href="mailto:m.muccio3@studenti.unisa.it">m.muccio3@studenti.unisa.it</a><br>
-        Email: <a href="mailto:m.tamburro@studenti.unisa.it">m.tamburro@studenti.unisa.it</a>
+      <p>
+            Hai domande, suggerimenti o vuoi collaborare con noi? <img src="../immagini/letter.png" style="width:16px; height:16px; vertical-align:middle;"><br>
+            Scrivi a: <a href="mailto:gruppo26MMIT@studenti.unisa.it">gruppo26MMIT@studenti.unisa.it</a><br>
+         </p>
+</div>
+ <div id="feedback" class="box">
+        <h2>Feedback</h2>
+        <p>
+       La totalità degli studenti considera il portale uno strumento efficace per prepararsi all’esame.<br>
+La community continua a crescere, con <strong><?php echo number_format($visite); ?></strong></li> accessi registrati.<br>
+        </p>
+    </div>
+
 </div>
 
 <a id="tornaSu" href="#inizio">Torna su</a> 
 
 <footer>
-    <p>Corso Tecnologie Web – A.A. 2025-2026 | Portale didattico per studenti di Ingegneria Informatica</p>
+    <p> © Corso Tecnologie Web – A.A. 2025-2026 | Portale didattico per studenti di Ingegneria Informatica</p>
     <p>Università degli Studi di Salerno - Via Giovanni Paolo II, 132 - 84084 Fisciano (SA)</p>
  </footer>
  <script src="../js/homepage.js" type="text/javascript" ></script>

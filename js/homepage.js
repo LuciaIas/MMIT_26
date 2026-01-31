@@ -10,4 +10,18 @@ window.onclick = function(event) {
       dropdowns[i].classList.remove('show');
     }
   }
-};
+}
+window.addEventListener('scroll', function() {
+    const header = document.querySelector('header');
+    const navbar = document.querySelector('.navbar');
+
+    if (window.scrollY > header.offsetHeight) {
+        // scroll passato l'header → header scompare
+        header.style.display = 'none';
+        navbar.style.top = '0'; // navbar si attacca al top
+    } else {
+        // siamo in cima → mostra header
+        header.style.display = 'flex';
+        navbar.style.top = header.offsetHeight + 'px'; // navbar sotto l'header
+    }
+});
