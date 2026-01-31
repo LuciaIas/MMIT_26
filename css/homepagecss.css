@@ -51,13 +51,6 @@ header p {
     margin: 0;
 }
 
-.status-dot {
-    width: 6px;
-    height: 6px;
-    background-color: rgba(255, 255, 255, 0.7);
-    border-radius: 50%;
-    margin-left: 10px;
-}
 header, .navbar {
     will-change: transform; /* aiuta il browser a ottimizzare lo scroll */
     backface-visibility: hidden;
@@ -181,6 +174,24 @@ header, .navbar {
     color: #0d6efd;
 }
 
+#registrati {
+   color: #fd0d59;
+    font-weight: bold; 
+    text-decoration: underline;
+}
+
+.immagini {
+   width:16px; 
+   height:16px; 
+   vertical-align:middle;
+}
+
+#tiktok {
+    width:100px;
+    height: auto;         
+    margin-left: 40px;
+}
+
 /* STORIA DEL WEB */
 #storia {
     background-color: #fff9c4;      
@@ -236,6 +247,11 @@ header, .navbar {
     color: rgba(3, 110, 99, 0.855);
     margin: 15px 0;
     text-align: center;
+}
+.citazione blockquote p {
+    text-align: right;  
+    font-style: italic;   
+    margin-top: 5px;     
 }
 
 /* VIDEO */

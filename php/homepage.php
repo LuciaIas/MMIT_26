@@ -83,7 +83,7 @@ if ($result !== false) {
 
         <p>La Homepage offre una panoramica dei servizi del portale.<br> 
             Le funzionalità esclusive: sessioni di studio, quiz settimanali e glossario, sono accessibili solo dopo la registrazione...<br>non perdere tempo:
-            <a href="accesso.php?form=register" style="color: #fd0d59; font-weight: bold; text-decoration: underline;">Registrati ora!</a>
+            <a href="accesso.php?form=register" id="registrati">Registrati ora!</a>
     </p>
 
     <?php endif; ?>
@@ -113,7 +113,7 @@ if ($result !== false) {
     <p>
        Con l’introduzione del protocollo <span class="highlight">TCP/IP</span> nel 1982, ARPANET si trasformò progressivamente 
        in <span class="highlight">Internet</span>, un’infrastruttura che collega computer e dispositivi in tutto il mondo.
-       <img src="../immagini/website.png" style="width:16px; height:16px; vertical-align:middle;">
+       <img src="../immagini/website.png" class="immagini">
     </p>
 
     <p class="paragrafo-speciale">
@@ -130,7 +130,7 @@ if ($result !== false) {
 <div id="sessioni" class="contenuto">
     <h2>Sessioni di Studio</h2>
     <p>Partecipa alle nostre live su TikTok per studiare insieme e supportarci durante la sessione!
-        <img src="../immagini/clock.png" style="width:16px; height:16px; vertical-align:middle;">
+        <img src="../immagini/clock.png" class="immagini">
     </p>
     
     <table class="tabella-orari">
@@ -174,7 +174,7 @@ if ($result !== false) {
     <br>
     Seguici sui nostri social per non perderti nessuna novità!<br>
 <a href="https://www.tiktok.com/@gruppo_mmit?_r=1&_t=ZN-93OUU82znuA">
-    <img src="../immagini/tiktok.jpg" alt="Logo TikTok" width="100px" style="margin-left: 40px;">
+    <img src="../immagini/tiktok.jpg" alt="Logo TikTok" id="tiktok">
 </a>
 </div>
 <?php endif; ?>
@@ -182,7 +182,7 @@ if ($result !== false) {
 <div class="citazione">
     <blockquote cite="https://letteralmente.net/frasi-celebri/tim-berners-lee/">
         "Il Web non si limita a collegare macchine, connette delle persone."
-        <p style="text-align: right;">- Tim Berners Lee</p>
+        <p>- Tim Berners Lee</p>
     </blockquote>
 </div>
 
@@ -191,10 +191,10 @@ if ($result !== false) {
     <p>
         Siamo studenti dell'<a href="https://www.unisa.it/">Università di Salerno</a> e frequentiamo il terzo anno di 
         Ingegneria Informatica. <br>L'obiettivo di questo portale è semplice ma ambizioso: rendere lo studio chiaro
-        e accessibile a tutti. <img src="../immagini/cervello.png" style="width:16px; height:16px; vertical-align:middle;">
+        e accessibile a tutti. <img src="../immagini/cervello.png" class="immagini">
     </p>
     <h2>La nostra community</h2>
-    <strong>MMIT</strong> è tra le prime community per lo studio in Italia. <img src="../immagini/trofeo.png" style="width:16px; height:16px; vertical-align:middle;"><br>
+    <strong>MMIT</strong> è tra le prime community per lo studio in Italia. <img src="../immagini/trofeo.png" class="immagini"><br>
     Il nostro gruppo non è solo uno spazio digitale, è il punto di riferimento per chi vuole imparare 
     e migliorarsi ogni giorno.<br>
     Qui non sarai mai solo: troverai motivazione, amicizie e una rete pronta ad aiutarti a superare ogni sfida 
@@ -202,7 +202,7 @@ if ($result !== false) {
    <h2>I fondatori</h2>
    Dietro questo progetto ci siamo noi: Lucia Iasevoli, Lucia Monetta, Matteo Muccio e Michele Tamburro...
    <br> studenti proprio come te! 
-    <img src="../immagini/smile.png" style="width:16px; height:16px; vertical-align:middle;"> </p>
+    <img src="../immagini/smile.png" class="immagini"> </p>
  </p>
 </div>
 
@@ -210,7 +210,7 @@ if ($result !== false) {
     <blockquote cite="https://letteralmente.net/frasi-celebri/tim-berners-lee/">
         "Considero il Web come un tutto potenzialmente collegato a tutto, come un'utopia 
         che ci regala una libertà mai vista prima."
-        <p style="text-align: right;">- Tim Berners Lee</p>
+        <p>- Tim Berners Lee</p>
     </blockquote>
 </div>
 
@@ -219,7 +219,7 @@ if ($result !== false) {
 <div id="contatti" class="box">
     <h2>Contatti utili</h2>
       <p>
-            Hai domande, suggerimenti o vuoi collaborare con noi? <img src="../immagini/letter.png" style="width:16px; height:16px; vertical-align:middle;"><br>
+            Hai domande, suggerimenti o vuoi collaborare con noi? <img src="../immagini/letter.png" class="immagini"><br>
             Scrivi a: <a href="mailto:gruppo26MMIT@studenti.unisa.it">gruppo26MMIT@studenti.unisa.it</a><br>
          </p>
 </div>
