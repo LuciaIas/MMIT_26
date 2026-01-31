@@ -15,7 +15,7 @@ html,body {
 }
 
 body {
-    padding-top: 0; /* la navbar si attacca al top */
+    padding-top: 0;
 }
 
 h1, h2, h3 {
@@ -27,11 +27,11 @@ p {
 }
 
 #inizio {
-    scroll-margin-top: 115px; /* altezza navbar + header */
+    scroll-margin-top: 115px; 
 }
 
 header {
-    position: relative; /* o static */
+    position: relative; 
     top: 0;
     left: 0;
     width: 100%;
@@ -52,15 +52,15 @@ header p {
 }
 
 header, .navbar {
-    will-change: transform; /* aiuta il browser a ottimizzare lo scroll */
+    will-change: transform; 
     backface-visibility: hidden;
 }
 
 /* NAV BAR */
 /* Navbar fissa in alto */
 .navbar {
-    position: sticky; /* o fixed se vuoi assoluto */
-    top: 0; /* attaccata in alto */
+    position: sticky; 
+    top: 0; 
     left: 0;
     width: 100%;
     background-color: #183a60;
@@ -69,7 +69,7 @@ header, .navbar {
     align-items: center;
     padding: 10px 10px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-    z-index: 1001; /* sopra tutti gli altri contenuti */
+    z-index: 1001; 
 }
 
 .navbar-links {
@@ -124,29 +124,28 @@ header, .navbar {
     display: none;
     position: absolute;
     background-color: #183a60;
-    min-width: 150px;        /* larghezza minima */
+    min-width: 150px; 
     border-radius: 4px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.3);
     z-index: 1001;
-    left: 0;                 /* allinea il menu al bordo sinistro del bottone */
-    padding: 0;              /* rimuove padding extra */
+    left: 0;                
+    padding: 0;              
 }
 
 .dropdown-content a {
     display: block;
-    padding: 8px 12px;       /* solo padding interno per click-friendly */
-    margin: 0;                /* rimuove qualsiasi margin */
+    padding: 8px 12px;    
+    margin: 0;                
     color: #fff;
     font-size: 0.9em;
-    text-align: left;         /* testo allineato a sinistra */
+    text-align: left;       
 }
 
 .dropdown-content a:hover {
     color: rgb(38, 204, 255);
-    background-color: rgba(255, 255, 255, 0.1); /* optional hover */
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
-/* Mostra dropdown */
 .show {
     display: block;
 }
@@ -257,21 +256,21 @@ header, .navbar {
 /* VIDEO */
 .contenuto-video {
     display: flex;
-    justify-content: center; /* centra orizzontalmente */
+    justify-content: center; 
     margin: 20px 0;
 }
 
 .contenuto-video video {
-    border-radius: 10px; /* angoli arrotondati */
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* ombra elegante */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2); 
 }
 
 .responsive-video {
-    width: 100%;      /* si adatta al contenitore */
-    height: auto;     /* mantiene proporzioni */
-    max-width: 1000px; /* opzionale: per non farlo diventare gigante su schermi enormi */
-    border-radius: 10px; /* mantiene i bordi arrotondati */
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* ombra elegante */
+    width: 100%;    
+    height: auto;    
+    max-width: 1000px; 
+    border-radius: 10px; 
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 /* TABELLA ORARI */
 .tabella-orari {
@@ -343,7 +342,7 @@ footer p {
 #chisiamo,
 #feedback,
 #contatti {
-    scroll-margin-top: 80px; /* se la navbar è alta 60px, metti 70 per margine extra */
+    scroll-margin-top: 80px;
 }
 
 .box-container {
@@ -356,18 +355,18 @@ footer p {
 }
 
 .box {
-    flex: 1; /* stessa larghezza */
+    flex: 1;
     padding: 30px 25px;
     border-radius: 20px;
     text-align: center;
-    background: transparent; /* ← trasparenza totale */
-    backdrop-filter: blur(6px); /* effetto vetro */
+    background: transparent; 
+    backdrop-filter: blur(6px); 
     -webkit-backdrop-filter: blur(6px);
 
     border: 1px solid rgba(255, 255, 255, 0.4);
     box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 
-    min-height: 180px; /* rettangolare orizzontale */
+    min-height: 180px; 
 }
 
 .box h2 {
