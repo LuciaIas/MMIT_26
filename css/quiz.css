@@ -6,7 +6,7 @@ body {
     min-height: 100vh;
 }
 
-/* HEAADER*/
+/* HEADER*/
 header { 
     background-color: #235085;
     color: #fff;
@@ -48,8 +48,6 @@ nav a:hover {
     color: rgb(38, 204, 255);
 }
 
-
-
 /* LAYOUT QUIZ */
 .content-box {
     padding: 40px 20px;
@@ -70,7 +68,6 @@ nav a:hover {
 }
 
 /* QUIZ */
-
 .quiz-section {
     border: 1px solid #ccc;
     border-radius: 10px;

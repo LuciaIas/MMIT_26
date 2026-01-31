@@ -5,7 +5,6 @@
     padding: 0;
 }
 
-
 body {
     font-family:Verdana, Geneva, Tahoma, sans-serif;
     background: linear-gradient(to bottom, #ffe0f0, #ffd6e0);
@@ -37,7 +36,6 @@ body {
     margin-bottom: 30px;
     font-size: 2em;
 }
-
 
 /* INFO PERSONALI  */
 .info-personali {
@@ -72,7 +70,6 @@ body {
     vertical-align: middle;
     border-radius: 2px;
 }
-
 
 /*  AZIONI  */
 .azioni {
