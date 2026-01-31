@@ -31,15 +31,18 @@ $result = $search_value
 </head>
 
 <body id="inizio">
-<header class="main-header">
-    <h1>Glossario</h1>
-    <p>A tutti può capitare di dimenticare qualcosa!</p>
+    
+<header>
+     <h1>Glossario</h1><br>
+      <p>A tutti può capitare di dimenticare qualcosa!</p>
 </header>
 
-<nav>
+<nav class="navbar">
+    <div class="navbar-links">
     <a href="homepage.php">Home</a>
     <a href="quiz.php">Quiz</a>
     <a href="profilo.php">Profilo</a>
+</div>
 </nav>
 
 <main class="contenitore">
@@ -67,8 +70,12 @@ $result = $search_value
 
 <section class="terms-grid">
 
-<?php while ($row = pg_fetch_assoc($result)): ?>
-<article class="term-card">
+<?php 
+$found = false;
+while ($row = pg_fetch_assoc($result)): 
+    $found = true;
+?>
+<article class="term-card" data-term="<?= strtolower(htmlspecialchars($row['termine'])) ?>">
      <header class="card-header"> 
         <h3 class="term-title"> <?= htmlspecialchars($row['termine']) ?> </h3> 
         <span class="categoria"> <?= htmlspecialchars($row['categoria']) ?> </span>
@@ -77,8 +84,12 @@ $result = $search_value
         <div class="card-content">
             <p><?= htmlspecialchars($row['definizione']) ?></p>
         </div>
-    </article>
+</article>
 <?php endwhile; ?>
+
+<?php if (!$found): ?>
+    <p style="text-align:center; font-weight:bold; margin-top:20px;">Nessun risultato trovato.</p>
+<?php endif; ?>
 
 </section>
 
@@ -88,7 +99,7 @@ $result = $search_value
 </main>
 
 <footer class="main-footer">
-     <p>Corso Tecnologie Web – A.A. 2025-2026 | Portale didattico per studenti di Ingegneria Informatica</p>
+     <p> © Corso Tecnologie Web – A.A. 2025-2026 | Portale didattico per studenti di Ingegneria Informatica</p>
     <p>Università degli Studi di Salerno - Via Giovanni Paolo II, 132 - 84084 Fisciano (SA)</p>
 </footer>
 

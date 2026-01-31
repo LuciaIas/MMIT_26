@@ -1,17 +1,17 @@
 document.addEventListener("DOMContentLoaded", function() {
-    
-    var searchInput = document.getElementById('js-search');
-    var cards = document.querySelectorAll('.term-card');
+    const searchInput = document.getElementById('js-search');
+    const tornaSu = document.getElementById('tornaSu');
+    const termsGrid = document.querySelector('.terms-grid');
 
-    if (searchInput) {
-        searchInput.addEventListener('keyup', function(evento) {
-            
-            var testoUtente = searchInput.value.toLowerCase();
+    // FILTRO LIVE
+    if (searchInput && termsGrid) {
+        searchInput.addEventListener('keyup', function() {
+            const testoUtente = searchInput.value.toLowerCase();
+            const cards = termsGrid.querySelectorAll('.term-card');
 
-            cards.forEach(function(card) {
-                var termineCard = card.getAttribute('data-term');
-
-                if (termineCard.includes(testoUtente)) {
+            cards.forEach(card => {
+                const termineCard = card.getAttribute('data-term').toLowerCase();
+                if (termineCard.includes(testoUtente) || testoUtente === "") {
                     card.style.display = "block";
                 } else {
                     card.style.display = "none";
@@ -19,4 +19,6 @@ document.addEventListener("DOMContentLoaded", function() {
             });
         });
     }
+
+
 });

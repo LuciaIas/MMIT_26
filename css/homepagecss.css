@@ -1,4 +1,3 @@
-
 * {
     box-sizing: border-box;
 }
@@ -59,7 +58,10 @@ header p {
     border-radius: 50%;
     margin-left: 10px;
 }
-
+header, .navbar {
+    will-change: transform; /* aiuta il browser a ottimizzare lo scroll */
+    backface-visibility: hidden;
+}
 
 /* NAV BAR */
 /* Navbar fissa in alto */
@@ -85,7 +87,6 @@ header p {
     padding-right: 100px; /* spazio dal bordo destro */
 }
 
-
 .navbar-left {
     display: flex;
     align-items: center; /* allinea verticalmente logo e titolo */
@@ -103,7 +104,6 @@ header p {
     font-weight: bold;
 }
 
-
 .navbar-links a, .dropbtn {
     color: #fff;
     text-decoration: none;
@@ -116,7 +116,6 @@ header p {
     border: none;
     cursor: pointer;
 }
-
 
 .navbar-links a:hover, .dropbtn:hover {
   color: rgb(38, 204, 255);
@@ -167,7 +166,6 @@ header p {
     max-width: 1000px;
     border-radius: 8px;   
 }
-
 
 /* SEZIONE CONTENUTI */
 .contenuto {
@@ -309,7 +307,6 @@ header p {
     background-color: #0056b3;
     box-shadow: 0 6px 8px rgba(0,0,0,0.15);
 }
-
 
 /* FOOTER */
 footer {

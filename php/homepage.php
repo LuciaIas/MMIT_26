@@ -70,7 +70,6 @@ if ($result !== false) {
 </div>
 </nav>
 
-
 <div class="intro">
     <?php if($utente_loggato): ?>
         <h1>Benvenuto, <?php echo htmlspecialchars($_SESSION['username']); ?>!</h1>
@@ -214,7 +213,6 @@ if ($result !== false) {
         <p style="text-align: right;">- Tim Berners Lee</p>
     </blockquote>
 </div>
-
 
 
 <div id="box-finali" class="box-container">
