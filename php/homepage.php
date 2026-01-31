@@ -26,7 +26,7 @@ if ($result !== false) {
     <meta name="author" content="gruppoMMIT26"/>
     <meta name="description" content="Homepage"/>
     <title>Portale Tecnologie Web</title>
-    <link rel="stylesheet" href="../css/homepagecss?v=7.css" type="text/css">
+    <link rel="stylesheet" href="../css/homepagecss?v=8.css" type="text/css">
     <link rel="icon" href="../immagini/logoMMIThd.png" type="image/X.icon" />
 
 </head>
@@ -40,7 +40,7 @@ if ($result !== false) {
 
 <nav class="navbar">
     <div class="navbar-left">
-        <img src="../immagini/logo111.png" alt="Logo Portale" class="logo">
+        <img src="../immagini/logonavbar.png" alt="Logo Portale" class="logo">
         <span class="title">Portale di Tecnologie Web</span>
     </div>
 

@@ -15,7 +15,7 @@ html,body {
 }
 
 body {
-    padding-top: 0;
+    padding-top: 110px; /* 40 header + ~70 navbar */
 }
 
 h1, h2, h3 {
@@ -31,7 +31,7 @@ p {
 }
 
 header {
-    position: relative; 
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -44,23 +44,20 @@ header {
     font-size: 0.9em;
     font-weight: 500;
     border-bottom: 1px solid rgba(255,255,255,0.2);
-    z-index: 1000;
+    z-index: 1002;
 }
 
 header p {
     margin: 0;
 }
 
-header, .navbar {
-    will-change: transform; 
-    backface-visibility: hidden;
-}
+
 
 /* NAV BAR */
 /* Navbar fissa in alto */
 .navbar {
-    position: sticky; 
-    top: 0; 
+    position: fixed;
+    top: 40px;              /* ESATTAMENTE l’altezza dell’header */
     left: 0;
     width: 100%;
     background-color: #183a60;
@@ -68,8 +65,8 @@ header, .navbar {
     justify-content: space-between;
     align-items: center;
     padding: 10px 10px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-    z-index: 1001; 
+    z-index: 1001;
+    box-shadow: none;       /* niente repaint */
 }
 
 .navbar-links {
@@ -371,4 +368,8 @@ footer p {
 
 .box h2 {
     margin-bottom: 15px;
+}
+
+html, body {
+    background-color: #183a60;
 }
