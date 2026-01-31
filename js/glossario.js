@@ -3,7 +3,6 @@ document.addEventListener("DOMContentLoaded", function() {
     const tornaSu = document.getElementById('tornaSu');
     const termsGrid = document.querySelector('.terms-grid');
 
-    // FILTRO LIVE
     if (searchInput && termsGrid) {
         searchInput.addEventListener('keyup', function() {
             const testoUtente = searchInput.value.toLowerCase();
@@ -19,6 +18,4 @@ document.addEventListener("DOMContentLoaded", function() {
             });
         });
     }
-
-
 });
