@@ -34,7 +34,9 @@ $result = $search_value
     
 <header>
      <h1>Glossario</h1><br>
+     <?php if ($utente_loggato): ?>
       <p>A tutti può capitare di dimenticare qualcosa!</p>
+      <?php endif; ?>
 </header>
 
 <nav class="navbar">
@@ -95,14 +97,14 @@ while ($row = pg_fetch_assoc($result)):
 
 <a id="tornaSu" href="#inizio">Torna su</a>
 
-<?php endif; ?>
+
 </main>
 
 <footer class="main-footer">
      <p> © Corso Tecnologie Web – A.A. 2025-2026 | Portale didattico per studenti di Ingegneria Informatica</p>
     <p>Università degli Studi di Salerno - Via Giovanni Paolo II, 132 - 84084 Fisciano (SA)</p>
 </footer>
-
+<?php endif; ?>
 <script src="../js/glossario.js" type="text/javascript" ></script>
 </body>
 </html>

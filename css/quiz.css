@@ -6,6 +6,8 @@ body {
     min-height: 100vh;
 }
 
+
+
 /* HEADER */
 header {
     position: relative; 
@@ -40,13 +42,13 @@ header p {
 nav {
     position: sticky;               
     top: 0;
-    left: 0;
-    width: 100%;
+    width: 100%;         /* ridotta rispetto al 100% */
+    margin: 0 auto;     /* centrata */
     background-color: #183a60;       
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 10px 10px;            
+    padding: 10px 0;            
     box-shadow: 0 2px 5px rgba(0,0,0,0.3); 
     z-index: 1001;                
     border-bottom: 1px solid rgba(255,255,255,0.2);
@@ -67,6 +69,7 @@ nav a:hover {
 }
 
 /* LAYOUT QUIZ */
+
 .content-box {
     padding: 40px 20px;
     flex: 1;
@@ -76,6 +79,31 @@ nav a:hover {
     max-width: 900px;
     margin: 0 auto 35px;
     box-shadow: 0 8px 20px rgba(0,0,0,.15);
+}
+
+
+.note-centrata {
+    display: inline-block;
+    margin: 20px 0;
+    text-align: left;
+    font-weight: bold;
+    color: #075736;
+    position: relative;
+    padding: 2px 6px;   /* piccolo padding verticale */
+    margin-left: 300px;
+}
+
+.note-centrata::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 2px;          /* distanza dall’inizio del blocco */
+    width: 100%;
+    height: calc(100% - 4px); /* altezza leggermente più piccola del blocco */
+    background-color: #25d796;
+    opacity: 0.3;
+    z-index: -1;
+    border-radius: 4px;
 }
 
 .quiz-container {
@@ -89,8 +117,11 @@ nav a:hover {
 .quiz-section {
     border: 1px solid #ccc;
     border-radius: 10px;
+    width: 90%;           /* larghezza relativa alla pagina */
+    max-width: 900px;     /* larghezza massima */
+    height: auto;
     padding: 15px;
-    margin-bottom: 30px;
+    margin: 0 auto 30px;  /* centra il blocco e mette spazio sotto */
     background-color: #f9f9f9;
 }
 
@@ -230,9 +261,12 @@ button:hover {
 }
 
 #quizForm {
-    border: 2px solid #25d796;
-    padding: 15px;
+    border: 2px solid #25d796; /* il bordo verde */
     border-radius: 12px;
+    margin: 0 auto 30px;       /* centrato con spazio sotto */
+    padding: 40px 5px 5px 5px; /* più spazio sopra, spazio normale ai lati e sotto */
+    max-width: 1000px;           /* larghezza massima del form */
+    box-sizing: border-box;
 }
 
 button, .btnanonimo {
@@ -240,19 +274,10 @@ button, .btnanonimo {
     letter-spacing: 0.5px;
 }
 
-.quiz-section h2::before {
-    content: "";
-    display: inline-block;
-    width: 4px;               
-    height: 14px;             
-    background-color: #25d796; 
-    margin-right: 8px;        
-    vertical-align: middle;
-    border-radius: 3px;       
-}
 
 .quiz-section p:first-child {
     font-weight: bold;
     color: #02452c;
 }
+
 

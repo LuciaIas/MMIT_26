@@ -90,7 +90,7 @@ if($utente_loggato && $_SERVER['REQUEST_METHOD'] === 'POST') {
 <meta name="author" content="gruppoMMIT26"/>
 <meta name="description" content="Pagina di quiz"/>
 <title>Pagina dei quiz</title>
-<link rel="stylesheet" href="../css/quiz.css?v=11" type="text/css">
+<link rel="stylesheet" href="../css/quiz.css" type="text/css">
 <link rel="shrtcut icon" href="../immagini/note.png" type="image/x-icon">
 <script>
 function resetQuiz() {
@@ -102,7 +102,7 @@ function resetQuiz() {
 <a id="top"></a>
 
 <header>
-    <h1>Quiz </h1>
+    <h1>Quiz </h1><br>
     <?php if($utente_loggato): ?>
         <p>Ciao, <?= htmlspecialchars($username) ?>! Metti alla prova le tue competenze!</p>
     <?php endif; ?>
@@ -116,6 +116,7 @@ function resetQuiz() {
 </nav>
 <br>
 
+
 <?php if (!$utente_loggato): ?>
     <section class="content-box">
         <h2>Accesso richiesto</h2>
@@ -125,12 +126,12 @@ function resetQuiz() {
     </section>
 
 <?php else: ?>
-    <p><i> Nota: tutte le risposte vanno inserite in MAIUSCOLO.</i></p>
+    <p class="note-centrata"><i> Nota: tutte le risposte vanno inserite in MAIUSCOLO.</i></p>
 <form id="quizForm" method="post">
 
     <?php if(count($domande_vf) > 0): ?>
 <section class="quiz-section">
-    <h2>1) Vero o Falso</h2>
+    <h2>1&#41; Vero o Falso</h2>
     <ol>
         <?php foreach($domande_vf as $row): 
             $id = $row['id'];
@@ -173,7 +174,7 @@ function resetQuiz() {
 
 <?php if(count($domande_cf) > 0): ?>
 <section class="quiz-section">
-    <h2>2) Completa la frase</h2>
+    <h2>2&#41; Completa la frase</h2>
     <ol>
         <?php foreach($domande_cf as $row): 
             $id = $row['id'];
@@ -203,7 +204,7 @@ function resetQuiz() {
 
 <?php if(count($domande_output_img) > 0): ?>
 <section class="quiz-section">
-    <h2>3) I due codici hanno lo stesso output?</h2>
+    <h2>3&#41; I due codici hanno lo stesso output?</h2>
     <?php foreach($domande_output_img as $row): 
         $id = $row['id'];
         $user_risposta = $risposte['output_img'][$id] ?? '';
@@ -230,7 +231,7 @@ function resetQuiz() {
 
 <?php if(count($domande_dd) > 0): ?>
 <section class="quiz-section">
-    <h2>4) Drag & Drop</h2>
+    <h2>4&#41; Drag & Drop</h2>
     <p>Trascina i termini nella definizione corretta:</p>
 
     <div class="drag-drop-container">
@@ -304,8 +305,9 @@ function resetQuiz() {
 </form>
 <script src="../js/quiz.js" type="text/javascript" ></script>
 
+
 <footer class="main-footer">
-     <p>Corso Tecnologie Web – A.A. 2025-2026 | Portale didattico per studenti di Ingegneria Informatica</p>
+     <p> © Corso Tecnologie Web – A.A. 2025-2026 | Portale didattico per studenti di Ingegneria Informatica</p>
     <p>Università degli Studi di Salerno - Via Giovanni Paolo II, 132 - 84084 Fisciano (SA)</p>
 </footer>
 <?php endif; ?>
