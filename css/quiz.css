@@ -6,45 +6,60 @@ body {
     min-height: 100vh;
 }
 
-/* HEADER*/
-header { 
-    position: relative;           
-    background-color: #183a60;
+/* HEADER */
+header {
+    position: relative; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 140px;                 /* altezza come glossario */
+    background-color: #183a60;     /* stesso colore glossario */
     color: #fff;
-    padding: 10px 20px;  
-    text-align: center;
-    height: 130px;
-    z-index: 500;   
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;        /* titolo sopra, paragrafo sotto */
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9em;              /* come glossario */
+    font-weight: 500;
+    border-bottom: 1px solid rgba(255,255,255,0.2); /* linea separatrice */
+    z-index: 1000;
 }
 
 header h1 {
-    font-size: 2.4em;
-    margin-bottom: 10px;
+    font-size: 2.4em;  /* titolo grande come glossario */
+    margin: 0;          /* zero margini */
 }
 
 header p {
-    color:#ffffffde;
+    margin: 5px 0 0 0;   /* piccolo margine sopra */
+    color: #ffffffde;
+    text-align: center;
 }
 
- /* NAV BAR */
+/* NAVBAR */
 nav {
-    position: sticky;
+    position: sticky;               
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #183a60;       /* stesso colore glossario */
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #183a60;
-    padding: 12px 0;
-    top: 0;
-    z-index: 1000; 
+    padding: 10px 10px;              /* padding come glossario */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3); /* leggero ombra */
+    z-index: 1001;                   /* sopra tutto il resto */
+    border-bottom: 1px solid rgba(255,255,255,0.2); /* linea separatrice sottile */
 }
 
 nav a {
     color: #fff;
     text-decoration: none;
-    margin: 0 14px;
-    font-weight: bold;
-    font-size: 1em;
+    margin: 0 20px;    
+    font-weight: 600; 
+    font-size: 1.3em; 
+    padding: 6px 12px; 
+    border-radius: 4px;
 }
 
 nav a:hover {
