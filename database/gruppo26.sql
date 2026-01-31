@@ -181,7 +181,7 @@ INSERT INTO glossario (termine, definizione, categoria) VALUES
 ('Wireframe', 'Rappresentazione schematica e semplificata della struttura di una pagina web o applicazione.', 'Strumento/Software'),
 ('Mockup', 'Rappresentazione grafica dettagliata di un''interfaccia, mostrando l''aspetto finale.', 'Strumento/Software'),
 ('HTML5', 'Versione più recente del linguaggio HTML che introduce nuovi elementi semantici, multimediali e API.', 'Linguaggio'),
-('DOM (Document Object Model)', 'Rappresentazione ad albero della struttura di una pagina web, accessibile tramite JavaScript.', 'Linguaggio');
+('DOM', 'Rappresentazione ad albero della struttura di una pagina web, accessibile tramite JavaScript.', 'Linguaggio');
 
 
 GRANT ALL PRIVILEGES ON DATABASE gruppo26 TO www;

@@ -19,7 +19,6 @@ body {
     width:750px;
     background:#ffffff;
     border-radius:20px;
-    box-shadow:0 20px 40px rgba(0,0,0,0.1);
 }
 
 /*  CONTENITORE FORM  */
@@ -31,16 +30,9 @@ body {
 }
 
 /*  IMMAGINE  */
-.avatar {
-    display:flex;
-    justify-content:center;
-    margin-bottom:8px;
-}
-
 .avatar img {
     width:130px;      
     height:130px;
-    object-fit:contain;
 }
 
 /*  TESTO  */
@@ -70,7 +62,7 @@ h2 {
 .form-switch button.active {
      background:#6be29b; 
      color:white;
-     }
+}
 
 /* FORM */
 form { 
@@ -80,7 +72,7 @@ form {
 }
 
 #loginForm.form-active, #registerForm.form-active { 
-    display:flex; 
+    display: flex;
 }
 
 input, select, textarea {
@@ -98,26 +90,18 @@ input, select, textarea {
     gap: 4px;                     
     font-size:0.85rem;
     color:#333;
-    margin-top:0;
     margin-bottom:6px;
 }
 
 .show-pass input[type="checkbox"] {
-    margin:0;
     width:16px;
     height:16px;
-    vertical-align:middle;
     cursor:pointer;
-}
-
-.show-pass span {
-    cursor:pointer;              
 }
 
 /* RADIO BUTTON SESSO  */
 .radio-group {
-    display:flex;
-    align-items:center;           
+    display:flex;     
     gap:10px;
     margin-bottom:12px;
     font-size:0.9rem;
@@ -135,7 +119,6 @@ input, select, textarea {
 
 .radio-options label {
     display:flex;
-    align-items:center;
     gap:4px;                      
     cursor:pointer;
 }
