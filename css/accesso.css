@@ -72,6 +72,7 @@ h2 {
      color:white;
      }
 
+/* FORM */
 form { 
     display:none; 
     flex-direction:column; 
@@ -90,7 +91,7 @@ input, select, textarea {
     font-size:0.9rem;
 }
 
-/* MOSTRA CARATTERI */
+/* MOSTRA PASSWORD */
 .show-pass {
     display: inline-flex;         
     align-items: center;          
@@ -140,18 +141,7 @@ input, select, textarea {
 }
 
 /*  PULSANTI  */
-button[name="login"], button[name="register"] {
-    width:100%;
-    padding:12px;
-    border:none;
-    background:#6be29b;
-    color:white;
-    border-radius:8px;
-    margin-top:10px;
-    cursor:pointer;
-}
-
-.btn-back {
+button[name="login"], button[name="register"], .btn-back {
     width:100%;
     padding:12px;
     border:none;
