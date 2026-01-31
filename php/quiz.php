@@ -108,6 +108,7 @@ function resetQuiz() {
     <?php endif; ?>
 </header>
 
+<div class="main-content">
 <nav>
     <a href="homepage.php" class="home-btn">Home</a>
     <a href="glossario.php" class="home-btn">Glossario</a>
@@ -124,7 +125,6 @@ function resetQuiz() {
     </section>
 
 <?php else: ?>
-<div class="quiz-container">
     <p><i> Nota: tutte le risposte vanno inserite in MAIUSCOLO.</i></p>
 <form id="quizForm" method="post">
 

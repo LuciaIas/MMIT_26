@@ -8,14 +8,14 @@ body {
 
 /* HEADER*/
 header { 
-    background-color: #235085;
+    position: relative;           
+    background-color: #183a60;
     color: #fff;
     padding: 10px 20px;  
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
     text-align: center;
     height: 130px;
+    z-index: 500;   
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 header h1 {
@@ -29,11 +29,14 @@ header p {
 
  /* NAV BAR */
 nav {
+    position: sticky;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: #183a60;
     padding: 12px 0;
+    top: 0;
+    z-index: 1000; 
 }
 
 nav a {
