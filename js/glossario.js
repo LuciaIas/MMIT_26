@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
     const searchInput = document.getElementById('js-search');
-    const tornaSu = document.getElementById('tornaSu');
     const termsGrid = document.querySelector('.terms-grid');
 
     if (searchInput && termsGrid) {
@@ -10,11 +9,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
             cards.forEach(card => {
                 const termineCard = card.getAttribute('data-term').toLowerCase();
-                if (termineCard.includes(testoUtente) || testoUtente === "") {
-                    card.style.display = "block";
-                } else {
-                    card.style.display = "none";
-                }
+                card.style.display = termineCard.includes(testoUtente) ? "block" : "none";
             });
         });
     }

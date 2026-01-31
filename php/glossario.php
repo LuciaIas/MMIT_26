@@ -26,7 +26,7 @@ $result = $search_value
 <meta name="author" content="gruppoMMIT26"/>
 <meta name="description" content="Pagina glossario"/>
 <title>Glossario - Tecnologie Web</title>
-<link rel="stylesheet" href="../css/glossario.css?v=9">
+<link rel="stylesheet" href="../css/glossario.css">
 <link rel="icon" href="../immagini/zoom.ico" type="image/X.icon" />
 </head>
 
@@ -80,18 +80,19 @@ while ($row = pg_fetch_assoc($result)):
 <article class="term-card" data-term="<?= strtolower(htmlspecialchars($row['termine'])) ?>">
     <header class="card-header">
         <div class="card-top">
-        <h3 class="term-title"> <?= htmlspecialchars($row['termine']) ?> </h3> 
-        <span class="categoria"> <?= htmlspecialchars($row['categoria']) ?> </span>
+         <h3 class="term-title"> <?= htmlspecialchars($row['termine']) ?> </h3> 
+         <span class="categoria"> <?= htmlspecialchars($row['categoria']) ?> </span>
         </div>
-     </header>
+    </header>
         <div class="card-content">
             <p><?= htmlspecialchars($row['definizione']) ?></p>
         </div>
+
 </article>
 <?php endwhile; ?>
 
 <?php if (!$found): ?>
-    <p style="text-align:center; font-weight:bold; margin-top:20px;">Nessun risultato trovato.</p>
+    <p id="messaggio">Nessun risultato trovato.</p>
 <?php endif; ?>
 
 </section>

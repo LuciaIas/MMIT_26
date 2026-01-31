@@ -26,9 +26,8 @@ if ($result !== false) {
     <meta name="author" content="gruppoMMIT26"/>
     <meta name="description" content="Homepage"/>
     <title>Portale Tecnologie Web</title>
-    <link rel="stylesheet" href="../css/homepagecss?v=8.css" type="text/css">
+    <link rel="stylesheet" href="../css/homepagecss.css" type="text/css">
     <link rel="icon" href="../immagini/logoMMIThd.png" type="image/X.icon" />
-
 </head>
 
 <body>
@@ -80,12 +79,10 @@ if ($result !== false) {
         <h1>
         Sei uno studente di Tecnologie Web? <br>Sei nel posto giusto!
         </h1>
-
         <p>La Homepage offre una panoramica dei servizi del portale.<br> 
             Le funzionalità esclusive: sessioni di studio, quiz settimanali e glossario, sono accessibili solo dopo la registrazione...<br>non perdere tempo:
             <a href="accesso.php?form=register" id="registrati">Registrati ora!</a>
     </p>
-
     <?php endif; ?>
 </div>
 
@@ -98,31 +95,26 @@ if ($result !== false) {
 
 <div id="storia" class="contenuto">
     <h2>La storia del World Wide Web</h2>
-
     <p>
        Il <span class="highlight">World Wide Web (WWW)</span> è una rete globale di documenti e risorse multimediali 
        accessibili tramite Internet grazie all’uso di un browser.
     </p>
-
     <p>
        Nasce dall’evoluzione delle prime reti di computer create per condividere informazioni. La più importante fu 
        <span class="highlight">ARPANET</span>, sviluppata alla fine degli anni ’60 negli Stati Uniti dalla 
        <span class="highlight" title="Defense Advanced Research Projects Agency">DARPA</span> per scopi militari.
     </p>
-
     <p>
        Con l’introduzione del protocollo <span class="highlight">TCP/IP</span> nel 1982, ARPANET si trasformò progressivamente 
        in <span class="highlight">Internet</span>, un’infrastruttura che collega computer e dispositivi in tutto il mondo.
        <img src="../immagini/website.png" class="immagini">
     </p>
-
     <p>
         <span class="highlight">Curiosità:</span> Nel 1989 il fisico <span class="highlight">Tim Berners-Lee</span>, al 
         <span class="highlight">CERN</span> di Ginevra, propose un sistema di documenti ipertestuali collegati tra loro. 
         Nel 1991 nacquero il linguaggio <span class="highlight">HTML</span> e il protocollo <span class="highlight">HTTP</span>, 
         rendendo possibile la creazione e la navigazione delle pagine web. Il World Wide Web fu reso pubblico nel 1993!
     </p>
-
     <p><i>Internet esiste e funziona anche senza il Web, ma è proprio il Web che ne ha favorito la diffusione di massa tra gli utenti.</i></p>
 </div>
 
@@ -131,8 +123,7 @@ if ($result !== false) {
     <h2>Sessioni di Studio</h2>
     <p>Partecipa alle nostre live su TikTok per studiare insieme e supportarci durante la sessione!
         <img src="../immagini/clock.png" class="immagini">
-    </p>
-    
+    </p>    
     <table class="tabella-orari">
         <thead>
             <tr>
@@ -171,8 +162,7 @@ if ($result !== false) {
             </tr>
         </tbody>
     </table>
-    <br>
-    Seguici sui nostri social per non perderti nessuna novità!<br>
+    <br>Seguici sui nostri social per non perderti nessuna novità!<br>
 <a href="https://www.tiktok.com/@gruppo_mmit?_r=1&_t=ZN-93OUU82znuA">
     <img src="../immagini/tiktok.jpg" alt="Logo TikTok" id="tiktok">
 </a>
@@ -214,7 +204,6 @@ if ($result !== false) {
     </blockquote>
 </div>
 
-
 <div class="box-container">
 <div id="contatti" class="box">
     <h2>Contatti utili</h2>
@@ -226,11 +215,10 @@ if ($result !== false) {
  <div id="feedback" class="box">
         <h2>Feedback</h2>
         <p>
-       La totalità degli studenti considera il portale uno strumento efficace per prepararsi all’esame.<br>
-La community continua a crescere, con <strong><?php echo number_format($visite); ?></strong></li> accessi registrati.<br>
+        La totalità degli studenti considera il portale uno strumento efficace per prepararsi all’esame.<br>
+        La community continua a crescere, con <strong><?php echo number_format($visite); ?></strong></li> accessi registrati.<br>
         </p>
     </div>
-
 </div>
 
 <a id="tornaSu" href="#inizio">Torna su</a> 
@@ -239,6 +227,8 @@ La community continua a crescere, con <strong><?php echo number_format($visite);
     <p> © Corso Tecnologie Web – A.A. 2025-2026 | Portale didattico per studenti di Ingegneria Informatica</p>
     <p>Università degli Studi di Salerno - Via Giovanni Paolo II, 132 - 84084 Fisciano (SA)</p>
  </footer>
+
  <script src="../js/homepage.js" type="text/javascript" ></script>
+
 </body>
 </html>
