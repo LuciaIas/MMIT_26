@@ -67,6 +67,14 @@ nav a:hover {
 }
 
 /* LAYOUT QUIZ */
+.content-box {
+    margin-top: 20px; 
+}
+
+.content-box h2, .content-box p {
+    margin-top: 0; 
+}
+
 .content-box, #quizForm {
     background: white;
     padding: 25px;

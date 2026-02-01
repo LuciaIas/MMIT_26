@@ -121,7 +121,7 @@ function resetQuiz() {
     <section class="content-box">
         <h2>Accesso richiesto</h2>
         <p>Per svolgere il quiz devi essere registrato ed effettuare l’accesso.</p>
-            <br><a class="btnanonimo" href="accesso.php">Login</a>oppure
+            <br><a class="btnanonimo" href="accesso.php">Login</a> oppure
             <a class="btnanonimo" href="accesso.php?form=register">Registrati</a>
     </section>
 
