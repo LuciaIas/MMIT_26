@@ -67,6 +67,7 @@ CREATE TABLE risultati_quiz (
 
 INSERT INTO visite_sito (contatore) VALUES (5000);
 
+-- Username: Lucia Monetta, password: test1
 INSERT INTO utenti (username, email, password, tipo_utente, sesso, universita)
 VALUES (
   'Lucia Monetta',
@@ -76,6 +77,8 @@ VALUES (
   'F',
   'Università degli Studi di Salerno'
 );
+
+-- Username: Lucia Iasevoli, password: test2
 INSERT INTO utenti (username, email, password, tipo_utente, sesso, universita)
 VALUES (
   'Lucia Iasevoli',
@@ -85,6 +88,8 @@ VALUES (
   'F',
   'Università degli Studi di Salerno'
 );
+
+-- Username: Matteo Muccio, password: test3
 INSERT INTO utenti (username, email, password, tipo_utente, sesso, universita)
 VALUES (
   'Matteo Muccio',
@@ -93,7 +98,9 @@ VALUES (
   'studente',
   'M',
   'Università degli Studi di Salerno'
-);                                                                                                                      
+);                                 
+
+-- Username: Michele Tamburro, password: test4
 INSERT INTO utenti (username, email, password, tipo_utente, sesso, universita)
 VALUES (
   'Michele Tamburro',
