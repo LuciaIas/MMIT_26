@@ -61,7 +61,8 @@ CREATE TABLE risultati_quiz (
     id SERIAL PRIMARY KEY,
     username VARCHAR(50) REFERENCES utenti(username) ON DELETE CASCADE,
     id_quiz INT REFERENCES quiz(id) ON DELETE CASCADE,
-    punteggio INT
+    punteggio INT,
+    risposte_utente JSONB
 );
 
 
@@ -114,7 +115,7 @@ INSERT INTO domande_vero_falso (id_quiz, testo, risposta_corretta) VALUES
 (1, 'HTML è un linguaggio di programmazione.', false),
 (1, 'Il tag <div> serve a creare divisioni logiche di contenuto senza influenzare lo stile.', true),
 (1, 'Il tag <span> è utilizzato principalmente per applicare stili inline su una parte di testo.', true),
-(1, 'I commenti in HTML si scrivono così: <!-- commento -->.', true),
+(1, 'I commenti in HTML si scrivono così: <!-- commento --!>.', false),
 (1, 'In CSS, la proprietà "color: " cambia il colore dello sfondo.', false),
 (1, 'In JavaScript, document.getElementById(''id'') restituisce un array di elementi con quell''ID.', false),
 (1, 'Il tag <a> serve a creare link ipertestuali tra pagine web.', true),
@@ -122,7 +123,7 @@ INSERT INTO domande_vero_falso (id_quiz, testo, risposta_corretta) VALUES
 (1, 'JavaScript può modificare dinamicamente il contenuto di una pagina web.', true),
 (1, 'L''attributo target="_self" apre il link nella stessa scheda, mentre target="_blank" apre il link in una nuova scheda.', true),
 (1, 'È obbligatorio rispettare la gerarchia dei titoli (h1, h2, h3, ...).', false),
-(1, 'CSS supporta unità di misura assolute e relative.', true),
+(1, 'CSS supporta solo unità di misura assolute.', false),
 (1, 'Il margin è lo spazio tra il bordo dell''elemento e tutto ciò che lo circonda nella pagina.', true),
 (1, 'La pseudoclasse  " :hover " si applica quando il mouse passa sopra un elemento', true),
 (1, 'PHP è un linguaggio debolmente tipato.', true),
@@ -130,10 +131,10 @@ INSERT INTO domande_vero_falso (id_quiz, testo, risposta_corretta) VALUES
 (1, 'HTTP è un protocollo stateful.', false),
 (1, 'Nella funzione setcookie(nome, valore, expire, path, domain, secure) solo il nome è obbligatorio.', true),
 (1, 'L''uso di * dopo SELECT consente di selezionare tutti gli attributi della tabella.', true),
-(1, 'Non c''è relazione tra Java e JavaScript.', true),
+(1, 'C''è relazione tra Java e JavaScript.', false),
 (1, 'JavaScript non è case-sensitive.', false),
 (1, 'Il DOM (Document Object Model) è una collezione di oggetti che rappresentano gli elementi nel documento HTML.', true),
-(1, 'JavaScript è un linguaggio event-driven.', true),
+(1, 'JavaScript non è un linguaggio event-driven.', false),
 (1, 'L''elemento <canvas> ha un metodo chiamato getContext() per ottenere il contesto di rendering.', true),
 (1, 'Un wireframe deve necessariamente avere un alto livello di fedeltà.', false);
 

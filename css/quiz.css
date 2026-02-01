@@ -79,7 +79,7 @@ nav a:hover {
 
 #quizForm {
     border: 2px solid #25d796; 
-    padding: 40px 5px 5px 5px; 
+    padding: 25px 5px 25px 5px; 
     max-width: 1000px;  
 }
 
@@ -202,6 +202,7 @@ button, .btnanonimo {
     text-align: center;
     text-decoration: none;
     box-shadow: 0 4px 6px rgba(0,0,0,0.12);
+    margin: 0 8px;
 }
 
 button:hover, .btnanonimo:hover {
