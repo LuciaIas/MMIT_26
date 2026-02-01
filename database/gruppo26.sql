@@ -192,7 +192,6 @@ INSERT INTO glossario (termine, definizione, categoria) VALUES
 ('HTML5', 'Versione più recente del linguaggio HTML che introduce nuovi elementi semantici, multimediali e API.', 'Linguaggio'),
 ('DOM', 'Rappresentazione ad albero della struttura di una pagina web, accessibile tramite JavaScript.', 'Linguaggio');
 
-
 INSERT INTO risultati_quiz (username, id_quiz, punteggio, risposte_utente) VALUES
 ('Lucia Monetta', 1, 18, '{"1": false, "2": true, "3": true, "4": false, "5": false, "6": false, "7": true, "8": false, "9": true, "10": true}'),
 ('Lucia Iasevoli', 1, 15, '{"1": false, "2": true, "3": true, "4": false, "5": false, "6": false, "7": true, "8": false, "9": true, "10": false}');
