@@ -192,6 +192,24 @@ INSERT INTO glossario (termine, definizione, categoria) VALUES
 ('HTML5', 'Versione più recente del linguaggio HTML che introduce nuovi elementi semantici, multimediali e API.', 'Linguaggio'),
 ('DOM', 'Rappresentazione ad albero della struttura di una pagina web, accessibile tramite JavaScript.', 'Linguaggio');
 
+
+INSERT INTO risultati_quiz (username, id_quiz, punteggio, risposte_utente) VALUES
+('Lucia Monetta', 1, 18, '{"1": false, "2": true, "3": true, "4": false, "5": false, "6": false, "7": true, "8": false, "9": true, "10": true}'),
+('Lucia Iasevoli', 1, 15, '{"1": false, "2": true, "3": true, "4": false, "5": false, "6": false, "7": true, "8": false, "9": true, "10": false}');
+
+INSERT INTO risultati_quiz (username, id_quiz, punteggio, risposte_utente) VALUES
+('Matteo Muccio', 2, 5, '{"1": "HTML", "2": "HTTP", "3": "PHP", "4": "STATICHE", "5": "URI"}'),
+('Michele Tamburro', 2, 4, '{"1": "HTML", "2": "HTTPS", "3": "PHP", "4": "STATICHE", "5": "URL"}');
+
+INSERT INTO risultati_quiz (username, id_quiz, punteggio, risposte_utente) VALUES
+('Lucia Monetta', 3, 1, '{"3": "NO"}'),
+('Matteo Muccio', 3, 0, '{"3": "SI"}');
+
+INSERT INTO risultati_quiz (username, id_quiz, punteggio, risposte_utente) VALUES
+('Lucia Iasevoli', 4, 3, '{"1": "Struttura delle pagine web", "2": "Stile e presentazione delle pagine web", "3": "Interattività e comportamento lato client", "4": "ELaborazione ed esecuzione lato server"}'),
+('Michele Tamburro', 4, 4, '{"1": "Struttura delle pagine web", "2": "Stile e presentazione delle pagine web", "3": "Interattività e comportamento lato client", "4": "Elaborazione lato server"}');
+
+
 GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO www;
 ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT ALL ON TABLES TO www;
 
