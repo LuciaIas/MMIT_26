@@ -1,3 +1,5 @@
+-- Script SQL per creare il database gruppo26 con tabelle, dati di esempio e privilegi
+
 CREATE USER www WITH PASSWORD 'www';
 CREATE DATABASE gruppo26 OWNER www;
 
@@ -38,7 +40,7 @@ CREATE TABLE domande_completa_frase (
 
 CREATE TABLE domande_output_immagine (
     id SERIAL PRIMARY KEY,
-    id_quiz INT NOT NULL,
+    id_quiz INT NOT NULL REFERENCES quiz(id) ON DELETE CASCADE,
     immagine VARCHAR(255) NOT NULL, 
     risposta_corretta TEXT NOT NULL      
 );
