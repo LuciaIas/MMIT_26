@@ -3,20 +3,11 @@ session_start();
 include __DIR__ . '/db.php';
 $utente_loggato = isset($_SESSION['username']);
 
-$visite = 0;
+pg_query($conn, "UPDATE visite_sito SET contatore = contatore + 1");
 
-$result_insert = pg_query($conn, "INSERT INTO visite_sito DEFAULT VALUES");
-if (!$result_insert) {
-    die("Errore inserimento visite: " . pg_last_error($conn));
-}
-
-$result = pg_query($conn, "SELECT COUNT(*) FROM visite_sito");
-if ($result !== false) {
-    $row = pg_fetch_row($result);
-    $visite = $row[0];
-} else {
-    die("Errore conteggio visite: " . pg_last_error($conn));
-}
+$result = pg_query($conn, "SELECT contatore FROM visite_sito");
+$row = pg_fetch_assoc($result);
+$visite = $row['contatore'];
 ?>
 
 <!DOCTYPE html>
@@ -57,10 +48,10 @@ if ($result !== false) {
     <div class="dropdown-menu">
         <button class="dropbtn" onclick="toggleMenu()">Menu ▾</button>
         <div id="dropdown-content" class="dropdown-content">
+            <a href="#storia">Storia del Web</a>
                 <?php if($utente_loggato): ?>
             <a href="#sessioni">Sessioni di Studio </a>
                 <?php endif; ?>
-            <a href="#storia">Storia del Web</a>
             <a href="#chisiamo">Chi siamo</a>           
             <a href="#feedback">Feedback</a>
             <a href="#contatti">Contatti</a>   
@@ -216,7 +207,7 @@ if ($result !== false) {
         <h2>Feedback</h2>
         <p>
         La totalità degli studenti considera il portale uno strumento efficace per prepararsi all’esame.<br>
-        La community continua a crescere, con <strong><?php echo number_format($visite); ?></strong></li> accessi registrati.<br>
+        La community continua a crescere, con <strong><?php echo $visite; ?></strong></li> accessi registrati.<br>
         </p>
     </div>
 </div>
