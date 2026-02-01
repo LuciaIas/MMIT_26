@@ -3,7 +3,7 @@ CREATE DATABASE gruppo26 OWNER www;
 
 CREATE TABLE visite_sito (
     id SERIAL PRIMARY KEY,
-    data_visita TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    contatore INT NOT NULL DEFAULT 5000
 );
 
 CREATE TABLE utenti (
@@ -65,6 +65,7 @@ CREATE TABLE risultati_quiz (
     risposte_utente JSONB
 );
 
+INSERT INTO visite_sito (contatore) VALUES (5000);
 
 INSERT INTO utenti (username, email, password, tipo_utente, sesso, universita)
 VALUES (
