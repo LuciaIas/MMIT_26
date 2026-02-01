@@ -1,5 +1,4 @@
 <?php
-//Connessione a PostgreSQL
 $host = "localhost";
 $port = "5432";
 $dbname = "gruppo26";

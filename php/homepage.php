@@ -221,5 +221,9 @@ $visite = $row['contatore'];
 
  <script src="../js/homepage.js" type="text/javascript" ></script>
 
+ <?php
+pg_close($conn);
+?>
+
 </body>
 </html>

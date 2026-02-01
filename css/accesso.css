@@ -41,7 +41,7 @@ h2 {
     margin-bottom:15px; 
 }
 
-/*  FORM  */
+/*  SWITCH FORM - PULSANTI LOGIN/REGISTER  */
 .form-switch {
     display:flex;
     justify-content:center;
@@ -64,7 +64,6 @@ h2 {
      color:white;
 }
 
-/* FORM */
 form { 
     display:none; 
     flex-direction:column; 

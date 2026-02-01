@@ -82,5 +82,10 @@ $note = $_SESSION['note_temporanee'] ?? '';
         </form>
     </div>
 </div>
+
+<?php
+pg_close($conn);
+?>
+
 </body>
 </html>
