@@ -126,7 +126,7 @@ if (pg_num_rows($check) > 0) {
 <meta name="author" content="gruppoMMIT26"/>
 <meta name="description" content="Pagina di accesso"/>
 <title>Accesso</title>
-<link rel="stylesheet" href="../css/accesso?v=5.css" type="text/css">
+<link rel="stylesheet" href="../css/accesso.css" type="text/css">
 <link rel="icon" href="../immagini/lucchetto.ico" type="image/x-icon">
 </head>
 
