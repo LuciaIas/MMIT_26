@@ -37,10 +37,21 @@ if($utente_loggato && $_SERVER['REQUEST_METHOD'] === 'POST') {
     $punteggio_dd = 0;
 
     foreach($risposte['vf'] ?? [] as $id => $risposta) {
-        $query = pg_query_params($conn, "SELECT risposta_corretta FROM domande_vero_falso WHERE id=$1", [$id]);
-        $row = pg_fetch_assoc($query);
-        if($row && ((bool)$risposta === (bool)$row['risposta_corretta'])) $punteggio_vf++;
+    $query = pg_query_params(
+        $conn,
+        "SELECT risposta_corretta FROM domande_vero_falso WHERE id=$1",
+        [$id]
+    );
+    $row = pg_fetch_assoc($query);
+
+    if ($row) {
+        $corretta = ($row['risposta_corretta'] === 't') ? 1 : 0;
+
+        if ((int)$risposta === $corretta) {
+            $punteggio_vf++;
+        }
     }
+}
 
     foreach($risposte['cf'] ?? [] as $id => $risposta) {
         $query = pg_query_params($conn, "SELECT risposta_corretta FROM domande_completa_frase WHERE id=$1", [$id]);
@@ -137,8 +148,8 @@ function resetQuiz() {
             $id = $row['id'];
             $user_risposta = $risposte['vf'][$id] ?? null;
             $corretta = $row['risposta_corretta'];
-            $corretta_bool = ($corretta === true || $corretta === 't' || $corretta === '1' || $corretta === 1);
-            $user_bool = ($user_risposta == 1);
+            $corretta_bool = ($row['risposta_corretta'] === 't');
+            $user_bool = ((int)$user_risposta === 1);
             $inviato = isset($messaggio_punteggio);
             $messaggio_risposta = null;
             if($inviato && $user_risposta !== null){
